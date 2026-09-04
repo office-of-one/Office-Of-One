@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --bg:#FBF6EE; --card:#FFFFFF; --ink:#2B241C; --sub:#A79D90;
+    --fill1:#3B5A43; --fill2:#24382A; --empty:#DDE6D9; --hatch:#EDF2EA;
+    --brass:#B08D3C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);font-family:Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       display:flex;justify-content:center;padding:24px 16px;color:var(--ink)}
+  .card{background:var(--card);border-radius:20px;padding:26px 22px;max-width:420px;width:100%;
+        box-shadow:0 6px 24px rgba(36,56,42,.10)}
+  h1{font-size:20px;font-weight:700;letter-spacing:-.01em;margin-bottom:4px;color:var(--fill2)}
+  .sub{font-size:13px;color:var(--sub);margin-bottom:20px}
+  .bar{display:flex;gap:6px;margin-bottom:16px}
+  .seg{flex:1;height:12px;border-radius:6px;background:var(--empty);position:relative;overflow:hidden}
+  .seg.done::after{content:"";position:absolute;inset:0;border-radius:6px;
+        background:linear-gradient(90deg,var(--fill1),var(--fill2));
+        animation:fillin .6s ease-out}
+  .seg.forever{background:repeating-linear-gradient(45deg,var(--empty),var(--empty) 6px,var(--hatch) 6px,var(--hatch) 12px)}
+  .seg.forever.glow{animation:breathe 2.4s ease-in-out infinite}
+  @keyframes fillin{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1)}}
+  @keyframes breathe{0%,100%{box-shadow:0 0 0 0 rgba(36,56,42,0)}50%{box-shadow:0 0 0 4px rgba(36,56,42,.18)}}
+  .steps{list-style:none}
+  .steps li{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:15px;color:var(--sub)}
+  .steps li .dot{width:20px;height:20px;border-radius:50%;background:var(--empty);
+        display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--sub);flex-shrink:0}
+  .steps li.done{color:var(--ink)}
+  .steps li.done .dot{background:linear-gradient(135deg,var(--fill1),var(--fill2));color:#FBF6EE}
+  .steps li.now{color:var(--ink);font-weight:600}
+  .steps li.now .dot{border:2px solid var(--fill2);background:#fff;color:var(--fill2)}
+  .foot{margin-top:16px;font-size:13px;color:var(--sub);line-height:1.45}
+  .mark{margin-top:12px;font-size:11px;color:var(--brass);text-align:center;letter-spacing:.02em}
+</style>
+</head>
+<body>
+<!-- STEP is set by the skill: 1,2,3,4,5,6. Never 7. -->
+<div class="card" id="card" data-step="[[STEP]]">
+  <h1>Building your agent</h1>
+  <div class="sub" id="subtitle"></div>
+  <div class="bar" id="bar"></div>
+  <ul class="steps" id="steps"></ul>
+  <div class="foot" id="foot"></div>
+  <div class="mark">Office of One · officeofone.ai</div>
+</div>
+<script>
+  const NAMES=["Name me","Catch me up on your AI convos",
+    "Confirm what's connected","Tell me how you work",
+    "Help me fill in the gaps","Test me","Let's keep building"];
+  const TOTAL=7, LAST=TOTAL-1;
+  const step=Math.min(LAST,Math.max(1,parseInt(document.getElementById('card').dataset.step)||1));
+  const bar=document.getElementById('bar');
+  for(let i=1;i<=TOTAL;i++){
+    const s=document.createElement('div');
+    s.className='seg'+(i<=step?' done':'')+(i===TOTAL?' forever':'');
+    if(i===TOTAL&&step===LAST)s.classList.add('glow');
+    bar.appendChild(s);
+  }
+  const ul=document.getElementById('steps');
+  NAMES.forEach((n,i)=>{
+    const li=document.createElement('li');
+    const idx=i+1;
+    li.className=idx<step?'done':(idx===step?'now':'');
+    if(idx===TOTAL)li.className=step===LAST?'now':'';
+    li.innerHTML='<span class="dot">'+(idx<step?'✓':idx)+'</span>'+n;
+    ul.appendChild(li);
+  });
+  document.getElementById('subtitle').textContent=
+    step<LAST?('Step '+step+' of '+TOTAL):'Six of seven done';
+  document.getElementById('foot').textContent=
+    step<LAST?'':'The seventh step is my favorite, because it never really ends. Every Friday we’ll sit down for a few minutes, and every answer helps me help you a little better.';
+</script>
+</body>
+</html>

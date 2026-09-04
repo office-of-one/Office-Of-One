@@ -1,0 +1,20 @@
+{
+  "name": "officeofone",
+  "owner": {
+    "name": "Office of One",
+    "email": "support@officeofone.ai",
+    "url": "https://officeofone.ai"
+  },
+  "description": "Your personal operating system. A named agent that runs your day.",
+  "plugins": [
+    {
+      "name": "office-of-one",
+      "displayName": "Office of One",
+      "description": "Your personal operating system. A named agent that runs your day.",
+      "version": "3.1.0",
+      "author": { "name": "Office of One" },
+      "homepage": "https://officeofone.ai",
+      "source": "./plugins/office-of-one"
+    }
+  ]
+}
