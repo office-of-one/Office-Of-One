@@ -64,6 +64,67 @@ that no longer exists.
 Kept for reference. These versions were released as folders in
 `RELEASES/`, not as tags, and are not installable from this repository.
 
+## v1.5.0 — 2026-09-04
+
+Never released on its own. This is the working tree that became 3.0.0,
+recorded here because everything below ships in the version customers
+install today, and nothing else documents it.
+
+The theme was closing gaps between the workshop deck and the plugin,
+where a participant would see one thing on screen and a different
+thing in their chat.
+
+**`log.md` and `archive.md` are now installed during onboarding.**
+The significant one. Both templates had existed since 1.2.0 and
+`memorialize` wrote to them on every durable fact, but onboarding only
+ever installed five brain files plus the project instructions. The two
+memory files were never created, so the skill meant to fill them had
+nothing to write into, and the promise of decisions going back months
+had no storage behind it. Onboarding now installs them and seeds
+`log.md` with its first line. New hard rule: every file in
+`templates/` is installed during onboarding.
+
+**The default agent name is Agent OOO.** "Chief" is retired. It had
+survived in `templates/personality.md` and the Step 1 fallback line
+while the deck had said Agent OOO for a while, so anyone who declined
+to name their agent got a different name from the one on screen.
+
+**The Morning Memo default is 6:45am**, matching the deck, the sample
+memo and the readout format. Two files were still saying 6am.
+
+**Step 3 is now "Confirm what's connected"**, not "Connect me to your
+world". Connectors are set up before the interview, so Step 3 confirms
+them and never sends anyone away to authorise something mid-session —
+which is what desynchronises a room. A missing mail or calendar gets
+one scripted sentence and no chasing.
+
+**The Friday 1:1 is actually scheduled.** Step 7 previously created
+two scheduled tasks while `setup-check` tested for three and the deck
+promised a weekly 1:1. It now creates all three and verifies them
+before moving on.
+
+**"Set up my schedules" works as a recovery phrase**, handled by both
+`onboarding-interview` and `setup-check`. It checks which of the three
+exist and builds only what's missing — the fix for an interview that
+died between steps 6 and 7.
+
+**`setup-check` test 3 confirms both daily schedules**, not just the
+Morning Memo, and test 4 confirms the Friday schedule exists before
+running its live question. Adds a "Set up my schedules" screen and a
+nudge on the Status screen when the count is under three.
+
+**The project link has a fallback.** A user who cannot produce the URL
+in Step 6 gets one scripted line and the tests carry on, instead of
+stalling the step.
+
+**"Resume the interview" is named in the skill.** The resume path
+already existed; nothing had told the user the phrase.
+
+**Closing lines ask the user to rename their project** from *My Agent*
+to their agent's name, and reassure them the link survives it.
+Everyone in a workshop starts at *My Agent*, so the room can follow
+along.
+
 ## v1.4.0 — 2026-09-04
 
 Onboarding gets its progress card fixed and its scripts marked up.
