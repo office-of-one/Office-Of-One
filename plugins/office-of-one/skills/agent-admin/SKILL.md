@@ -19,13 +19,14 @@ agent. This skill makes every adjustment a one-sentence request.
 
 2. **The Morning Memo.** Add or remove sections (deal watch, news,
    restaurants), change days or time (update the scheduled task to
-   match), reorder sections, change the categories used for action
+   match, and move its Agent work run so it stays one hour
+   before), reorder sections, change the categories used for action
    items. Confirm with one line showing the new shape.
 
-3. **The Evening Debrief.** Change its time, or turn it off
-   entirely if they ask. It is created automatically at onboarding,
+3. **The Evening Debrief.** Change its time, and its Agent
+   work run moves with it. Or turn it off entirely if they ask. It is created automatically at onboarding,
    which is not the same as compulsory. If they turn it off, it
-   stays off.
+   stays off, and the 7pm Agent work run stops too.
 
 4. **Suppressing something from the memos.** "Stop showing me
    that", "take the anniversary off", "I don't want to see the

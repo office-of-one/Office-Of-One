@@ -121,7 +121,8 @@ personal / both]. I'll shape your Morning Memo around that."
 Record it in ways-of-working.md. It re-ranks the question pool.
 
 Also note the user's timezone from the calendar. The Morning Memo,
-the Evening Debrief and the Friday 1:1 are scheduled against it.
+the Evening Debrief, Agent work and the Friday 1:1 are scheduled
+against it.
 
 ## Step 4 — Tell me how you work
 
@@ -135,7 +136,8 @@ Then the defaults, as a statement. None of this is ever asked:
 "**I'll draft your emails and calendar invites and you confirm
 them** before anything goes out, and invites go to you only unless
 you tell me otherwise. Your **Morning Memo arrives every day at
-6:45am**, and your **Evening Debrief at 8pm** the night before.
+6am**, and your **Evening Debrief at 8pm** the night before. I'll
+do the prep work an hour before each one.
 
 Once you're comfortable and I know you better, you can tell me to
 send things without your review, or change any of this."
@@ -198,10 +200,11 @@ Record every answer in ways-of-working.md as it is given.
   later by saying so, and agent-admin handles that change.
 - Calendar invites go to the user only. No attendee is added
   automatically until the user names one.
-- The Morning Memo is every day at 6:45am local. The Evening
-  Debrief is every day at 8pm local. The Friday 1:1 is weekly on
-  Friday. All three are stated as defaults and none of the times
-  are asked during onboarding.
+- The Morning Memo is every day at 6am local. The Evening
+  Debrief is every day at 8pm local. Agent work runs at 5am and
+  7pm local, one hour before each memo. The Friday 1:1 is weekly
+  on Friday. All of these are stated as defaults and none of the
+  times are asked during onboarding.
 - Connectors the user does not have are never suggested during
   onboarding, except a missing mail or calendar, which is named
   once and never chased.
@@ -209,8 +212,8 @@ Record every answer in ways-of-working.md as it is given.
   time from behavior and corrections.
 - The calendar, priorities and action items are always in the
   Morning Memo and never asked about.
-- The Morning Memo, the Evening Debrief and the Friday 1:1 are all
-  set up automatically at their default times. Changes are invited
+- The Morning Memo, the Evening Debrief, Agent work and the Friday
+  1:1 are all set up automatically at their default times. Changes are invited
   once in Step 4 and again after the Morning Memo test in Step 6.
 - Both arrive by email and are available in the app. There is no
   delivery choice to make.
@@ -348,7 +351,7 @@ If they still decline, don't push. Say:
 "No problem. Whenever you're ready, just say 'Test my setup'."
 Then go to the closing lines.
 
-Before starting, create the three scheduled tasks if they don't
+Before starting, create the four scheduled tasks if they don't
 exist yet, and make sure the brain files are saved. Then say:
 
 "**Test me.**
@@ -362,7 +365,7 @@ calendar, Morning Memo, Friday 1:1, email. Use its screens word for
 word.
 
 After the Morning Memo test, say:
-"That's your Morning Memo. It'll arrive every day at 6:45am, with
+"That's your Morning Memo. It'll arrive every day at 6am, with
 the Evening Debrief at 8pm the night before, our 1:1 on Fridays,
 and invites going to you only. **Want to change the times, the
 days, or who else goes on your invites?**"

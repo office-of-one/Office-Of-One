@@ -1,6 +1,6 @@
 ---
 name: daily-readout
-description: Build and send the Morning Memo and the Evening Debrief. Use for the scheduled daily runs, and whenever the user asks to see either one now, including "run my morning memo", "run my evening debrief", "run my memo", or the older phrasings "run my daily brief", "run my readout", "run my evening brief". Also use it when the user replies to a memo or debrief.
+description: Build and send the Morning Memo and the Evening Debrief, and run Agent work, the sweep that prepares them an hour earlier. Use for the scheduled runs, and whenever the user asks to see either memo now, including "run my morning memo", "run my evening debrief", "run my memo", "run agent work", or the older phrasings "run my daily brief", "run my readout", "run my evening brief". Also use it when the user replies to a memo or debrief.
 ---
 
 # Daily readout
@@ -15,7 +15,21 @@ disagree, readout-format.md wins. Read the user's own
 `ways-of-working.md` last; it overrides both wherever they
 disagree.
 
-## The run, in order
+## Two kinds of run
+
+The work and the memo are separate runs, an hour apart, so each
+memo goes out with the work already done.
+
+- **Agent work** runs every day at 5am and 7pm local. It does
+  steps 1 to 5.
+- **The Morning Memo** runs at 6am and **the Evening Debrief** at
+  8pm local. Each does steps 6 to 9.
+
+Agent work always runs one hour before each memo. If the user
+moves a memo, move its Agent work run with it. If the user turns
+the Evening Debrief off, stop the 7pm Agent work run too.
+
+## Agent work
 
 1. **Read the standing context.** tasks.md, log.md,
    ways-of-working.md, people.md, personality.md, and every topic
@@ -28,20 +42,13 @@ disagree.
 3. **Reconcile.** Fold everything new into tasks.md in this same
    run, with a thread pointer (who, subject, last touched) on any
    item that has one. Anything not written down now is lost.
-4. **Work the list.** Before writing a single line of the memo,
-   go item by item and take each one as far as it can go on its
-   own. This is the step that makes the memo worth sending. See
-   below.
-5. **Write the memo**, in the order `readout-format.md` sets.
-6. **Send** the HTML and the plain-text alternative. If no mail
-   connector is available, deliver in the app only and say so once,
-   in a single line at the end: "I couldn't email this one. Say
-   'Test my setup' and I'll help you connect mail." Never fail
-   silently.
-7. **Log** one line in log.md: what closed, what changed, what the
-   user decided.
+4. **Work the list.** Go item by item and take each one as far as
+   it can go on its own. This is the step that makes the memo
+   worth sending. See below.
+5. **Log.** Add or update today's line in log.md, per memorialize:
+   what closed, what changed, what the user decided.
 
-## Working the list before writing (step 4)
+## Working the list (step 4)
 
 Every open item is in one of four states, and the agent's job is
 to move as many as possible out of the first one.
@@ -58,6 +65,12 @@ to move as many as possible out of the first one.
   blind.
 - **Nothing to add?** Leave it bare.
 
+**The gate.** Agent work is not finished until every open item in
+the ledger has a state recorded: RECOMMEND, DRAFTED, LET'S TALK,
+or bare with its reason. A bare item needs a reason: it needs
+their position, it spends money, or its source could not be
+opened. Record the state and the reason on the item in tasks.md.
+
 Rules that keep this honest:
 
 - Never invent a URL, a price, a phone number or a review count.
@@ -67,15 +80,32 @@ Rules that keep this honest:
   memo.
 - The reasoning goes in the ledger. The memo gets the pick and the
   link, nothing else.
-- Volume cap: two unsolicited drafts in flight. If the last two
-  went untouched, stop drafting and ask.
+- Draft everything that qualifies. If two drafts in a row go
+  untouched for two days, ask before drafting more.
+
+## The memo run
+
+6. **Catch up.** Sweep mail received and sent since Agent work
+   ran. Add anything new to tasks.md as a bare item marked
+   "arrived after Agent work", with its thread pointer. No
+   research or drafting here; the next Agent work run takes it
+   further.
+7. **Check Agent work ran.** If any other open item has no state
+   recorded, Agent work did not run or did not finish. Do its
+   steps now, then write the memo. A late memo beats a thin one.
+8. **Write the memo**, in the order `readout-format.md` sets.
+9. **Send** the HTML and the plain-text alternative. If no mail
+   connector is available, deliver in the app only and say so once,
+   in a single line at the end: "I couldn't email this one. Say
+   'Test my setup' and I'll help you connect mail." Never fail
+   silently.
 
 ## Scheduling
 
-The Morning Memo, the Evening Debrief and the Friday 1:1 are the
-only auto-created recurring tasks. Their times and days come from
-ways-of-working.md.
-Everything else recurring is proposed and confirmed.
+The Morning Memo, the Evening Debrief, Agent work and the Friday
+1:1 are the only auto-created recurring tasks. Their times and
+days come from ways-of-working.md. Everything else recurring is
+proposed and confirmed.
 
 The scheduler's minimum interval is one hour. A faster pickup loop
 is not available; do not promise one.

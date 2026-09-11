@@ -179,9 +179,9 @@ percentages or mechanics.
    (to-dos), all exactly as written.
    The defaults are never put to the user as choices: emails and
    calendar invites start as draft-for-confirmation, invites go to
-   the user only, the Morning Memo is daily at 6:45am local, the
+   the user only, the Morning Memo is daily at 6am local, the
    Evening Debrief daily at 8pm local, and the 1:1 weekly on
-   Friday. Nobody can sensibly pick a memo time before seeing a
+   Friday. Agent work runs one hour before each memo. Nobody can sensibly pick a memo time before seeing a
    memo, so the real invitation to change them comes after the
    Morning Memo test in Step 6.
    The change offer names its levers ("the times, the days, or who
@@ -226,22 +226,26 @@ percentages or mechanics.
    interview-guide.md, with contradictions always on top. If
    anything is left, say the exact Friday 1:1 hand-off line.
 
-7. **Create the three scheduled tasks.**
+7. **Create the four scheduled tasks.**
    THIS STEP IS WHAT MAKES THE PRODUCT ARRIVE. Nothing the user
    received during the interview reaches them again unless these
-   exist. Create all three NOW, in the user's timezone, at the
+   exist. Create all four NOW, in the user's timezone, at the
    defaults stated in Step 4 unless the user changed them when
    offered:
-   - **Morning Memo** — every day at 6:45am local, runs the
+   - **Morning Memo** — every day at 6am local, runs the
      daily-readout skill in morning mode.
    - **Evening Debrief** — every day at 8pm local, runs the
      daily-readout skill in evening mode.
+   - **Agent work** — every day at 5am and 7pm local, one hour
+     before each memo, runs the daily-readout skill in agent-work
+     mode. If the scheduler cannot run one task at two times,
+     create it as two tasks, both named Agent work.
    - **Friday 1:1** — weekly on Friday, runs the one-on-one skill.
    Then confirm, in one line:
    "All set. Your Morning Memo arrives [days] at [time], your
    Evening Debrief at [time] the night before, and we'll have our
    1:1 on Fridays."
-   Verify all three exist before moving on. If one could not be
+   Verify all four exist before moving on. If one could not be
    created, say so plainly, once, and tell the user they can say
    "set up my schedules" at any time to have them rebuilt. A
    missing schedule is the only failure in this skill worth
@@ -315,7 +319,7 @@ percentages or mechanics.
 ## Rebuilding schedules later
 
 If the user says "set up my schedules", or any close variant, check
-which of the three scheduled tasks exist, create only the missing
+which of the four scheduled tasks exist, create only the missing
 ones at the recorded times from ways-of-working.md (or the defaults
 if none are recorded), and report what is now live in one line.
 This is the recovery path for anyone whose interview was
@@ -333,7 +337,8 @@ handles those requests.
 ## Completion criteria
 
 Complete ONLY when: brain files written (8), the Morning Memo,
-Evening Debrief and Friday 1:1 scheduled and confirmed (7), the
+Evening Debrief, Agent work and Friday 1:1 scheduled and
+confirmed (7), the
 setup tests run and their results reported, or declined by the
 user (9), and the closing
 lines said including the project rename and where-to-find-me (10).
@@ -367,8 +372,8 @@ partial, and never restart from the beginning.
   They follow the topic-file rules in interview-guide.md and are
   always listed in ways-of-working.md.
 - Step 3 confirms connectors. It never sets them up.
-- Auto-schedule exactly three things: the Morning Memo, the
-  Evening Debrief and the Friday 1:1. Everything else recurring is
+- Auto-schedule exactly four things: the Morning Memo, the
+  Evening Debrief, Agent work and the Friday 1:1. Everything else recurring is
   always confirmed.
 - Never imitate the user's writing style. templates/personality.md
   governs voice.

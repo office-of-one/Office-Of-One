@@ -82,8 +82,9 @@ existing users' setups bumps the major.
   agent's process.
 - **Never expose file names or internals.** The user has an agent, not
   a filesystem.
-- **Only the Morning Memo, the Evening Debrief and the Friday 1:1 are
-  auto-scheduled.** Everything else recurring is proposed and
+- **Only the Morning Memo, the Evening Debrief, Agent work and the
+  Friday 1:1 are auto-scheduled.** Agent work is the sweep that
+  prepares each memo, one hour before it. Everything else recurring is proposed and
   confirmed.
 - **Nothing is sent anywhere without an explicit yes**, and drafting
   is not sending. The user emails feedback themselves; the agent does

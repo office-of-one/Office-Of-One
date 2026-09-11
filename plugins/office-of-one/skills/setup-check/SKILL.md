@@ -10,8 +10,9 @@ types the same phrase sees the same screen. Output the formats below
 EXACTLY, filling only the bracketed values. Add nothing before or
 after the format block. No extra commentary, no analysis.
 
-The agent's three scheduled tasks are the Morning Memo (daily
-6:45am local), the Evening Debrief (daily 8pm local) and the Friday
+The agent's four scheduled tasks are the Morning Memo (daily 6am
+local), the Evening Debrief (daily 8pm local), Agent work (daily
+at 5am and 7pm local, one hour before each memo) and the Friday
 1:1 (weekly on Friday). Times come from ways-of-working.md when the
 user has changed them.
 
@@ -35,12 +36,12 @@ move on.
    Fail line: "I can see your calendar but I can't add to it."
 
 2. MORNING MEMO
-   Confirm BOTH daily scheduled tasks exist — the Morning Memo and
-   the Evening Debrief — and that the delivery channel is
-   available. Render a sample memo in the chat so the user sees the
+   Confirm the daily scheduled tasks exist — the Morning Memo, the
+   Evening Debrief and Agent work — and that the delivery channel
+   is available. Render a sample memo in the chat so the user sees the
    format once.
    Fail line: "Your Morning Memo isn't scheduled yet."
-   If only one of the two exists, the line names which is missing.
+   If any is missing, the line names which.
 
 3. FRIDAY 1:1
    Confirm the weekly scheduled task exists, then run one real
@@ -87,7 +88,7 @@ user to do anything.
 ## Phrase: "Set up my schedules"
 
 The recovery path for anyone whose interview was interrupted, or
-whose schedules were never created. Check which of the three exist,
+whose schedules were never created. Check which of the four exist,
 create only the missing ones at the times recorded in
 ways-of-working.md (or the defaults if none are recorded), then
 output exactly:
@@ -95,6 +96,7 @@ output exactly:
 YOUR SCHEDULES
 Morning Memo: [every day at TIME / just created]
 Evening Debrief: [every day at TIME / just created]
+Agent work: [every day at TIMES / just created]
 Friday 1:1: [Fridays / just created]
 
 Then one line only:
@@ -115,7 +117,7 @@ Then one line only:
 "Say 'Interview me' to continue setup, or 'Test my setup' to check
 everything is working."
 
-If the scheduled task count is under three, add one further line:
+If the scheduled task count is under four, add one further line:
 "Say 'set up my schedules' and I'll build the missing ones."
 
 ## Rules

@@ -17,6 +17,50 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.4.0 — 2026-09-10
+
+**Agent work: the work happens before the memo.** A user's memo came
+back with 8 of about 25 open items and one draft. The spec invited
+both: nothing required a complete list, a fifteen-second rule pushed
+cutting, and drafts were capped at two. A new scheduled task, Agent
+work, runs at 5am and 7pm local, one hour before each memo. It reads,
+sweeps mail and calendar, folds what is new into tasks, then takes
+every to-do as far as it can go on its own: looks it up and links one
+pick (RECOMMEND), drafts what is already true (DRAFTED), or flags
+what needs the user's position (LET'S TALK). It is not finished until
+every open item has a state, and a bare item needs a reason. The
+memos then present the work, after a quick catch-up on mail from the
+last hour; if Agent work did not run, the memo does the work itself.
+
+**The to-do list is always complete.** Remaining to-dos lists every
+open item, grouped by category and never cut. The fifteen-second
+rule is gone, and Getting ahead's four-line cap no longer hides work:
+anything else drafted or researched still shows its tag in the list.
+
+**Drafting.** The agent drafts everything that qualifies and asks
+only after two drafts in a row go untouched for two days. This
+replaces the cap of two drafts in flight.
+
+**The memo times change.** The Morning Memo moves from 6:45am to
+6am; the Evening Debrief stays at 8pm. There are now four
+auto-scheduled tasks: the Morning Memo, the Evening Debrief, Agent
+work and the Friday 1:1. Moving a memo moves its Agent work run;
+turning off the Evening Debrief stops the 7pm run.
+
+**Scripted lines changed:**
+- Interview, Step 4 defaults. Old: "Your Morning Memo arrives every
+  day at 6:45am, and your Evening Debrief at 8pm the night before."
+  New: "Your Morning Memo arrives every day at 6am, and your Evening
+  Debrief at 8pm the night before. I'll do the prep work an hour
+  before each one."
+- Step 6, after the Morning Memo test: "6:45am" becomes "6am".
+
+**Existing customers** keep their current memo times and have no
+Agent work task until they update and say "set up my schedules";
+until then each memo does the work itself. Their project
+instructions do not refresh on update: to have them name Agent work,
+replace them with the current `templates/project-instructions.md`.
+
 ## v3.3.0 — 2026-09-10
 
 **The Morning Memo has a new design**, revised after reviewing real

@@ -80,7 +80,8 @@ Rules:
   made-up suggestion is worse than none.
 - Propose, never implement. Anything scheduled or recurring
   follows the usual confirmation rules. Only the Morning Memo, the
-  Evening Debrief and the Friday 1:1 are ever auto-created.
+  Evening Debrief, Agent work and the Friday 1:1 are ever
+  auto-created.
 - Never implement a brainstormed idea unprompted.
 
 ---

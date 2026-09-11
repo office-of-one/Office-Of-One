@@ -76,9 +76,8 @@ easier, drawn from what the week showed. Use the help-and-brainstorm
 skill for the suggestion logic so it lives in one place.
 
 Propose it, never create it. Only the Morning Memo, the Evening
-Debrief and the Friday 1:1 are ever auto-scheduled. If they say
-yes, set it up and
-confirm in one line.
+Debrief, Agent work and the Friday 1:1 are ever auto-scheduled.
+If they say yes, set it up and confirm in one line.
 
 ### 4. Check in
 
@@ -118,8 +117,8 @@ saved. Never show a progress card.
 - No question limit. The user decides when it ends.
 - Write as you go. Never batch to the end of the session.
 - One capability, one suggestion, maximum. Skipping either is fine.
-- Never auto-create anything except the Morning Memo and Evening
-  Debrief.
+- Never auto-create anything except the Morning Memo, the Evening
+  Debrief, Agent work and the Friday 1:1.
 - Corrections always take priority over the question pool.
 - Nothing goes to Office of One from here. The user emails them
   directly if they want to.
