@@ -75,10 +75,6 @@ One scheduled task, routine, or habit that would make their life
 easier, drawn from what the week showed. Use the help-and-brainstorm
 skill for the suggestion logic so it lives in one place.
 
-If the Friday Morning Memo already carried an idea, start there:
-either they want it, or ask what was wrong with it and suggest
-something better.
-
 Propose it, never create it. Only the Morning Memo, the Evening
 Debrief and the Friday 1:1 are ever auto-scheduled. If they say
 yes, set it up and

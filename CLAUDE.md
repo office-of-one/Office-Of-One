@@ -90,7 +90,9 @@ existing users' setups bumps the major.
   not compose it.
 - **Blank beats guessed.** Unconfirmed inferences stay labeled derived.
 - **Facts, never judgments.** The memo counts what it read; it never
-  characterises it.
+  characterises it. The one exception is a pick the agent looked up
+  for a to-do, which appears only with a RECOMMEND tag so it reads
+  as the agent's, never as fact.
 - **Never assert a sensitive inference.** Ask about the observable
   thing and let the user decide how much to name.
 - **Never put customer personal data in this repository.** The

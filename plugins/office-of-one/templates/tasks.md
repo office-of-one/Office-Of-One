@@ -1,22 +1,47 @@
 # Tasks
 
-The live list. Also the record of what the briefs have already
-surfaced, which is what stops them repeating themselves.
+The live list, and the ledger. Every open loop lives here,
+including the ones sitting with someone else. This is the system
+of record.
 
-Categories are derived from this person's life, not a fixed set.
-Add and retire them as their life changes. Only categories with
-live items appear in a brief.
+Numbers match the numbers in the last memo sent, so a reply by
+number resolves against this file. They hold for the day and are
+reassigned at the next morning sweep.
 
-Format, one line per item:
+Format:
 
-`- [what] · owner · due [date] · last shown [date] · [status note]`
+    N. [what] · [tag] · due [date] · last shown [date] · [status]
+       thread: [who] · [subject] · last touched [date]
+       found: [the recommendation, the link, and what could not be
+              verified]
 
-Status note is what the next brief says about it: "carried over 3
-days", "you said signed last night, confirming", blank if new.
+No owner field. Tags: RECOMMEND (the agent's pick), DRAFTED (the
+agent did it, waiting in their drafts), LET'S TALK (needs their position
+first). One tag per item, or none.
+
+Waiting-on items stay in the numbered list with "waiting since
+[date]". After five working days the status becomes "no reply in
+N days, chase?".
+
+Context that does NOT go in the memo goes here: why an item is
+stuck, who was called, what the history is, which parts are
+inference rather than fact. Mark an inference as one.
+
+## Priority today
+
+[The three that actually matter today. Never more than three.]
 
 ## [Category]
-- [item]
+
+[Categories are drawn from this user's life, not from a fixed
+list. Add and rename them as the list teaches you what they are.]
+
+## Open questions put to them
+
+[Anything asked in the memo's Needs your input, so the next run
+knows what is outstanding.]
 
 ## Done
-Items resolved in the last seven days, then deleted. Kept only so a
-brief does not resurface something the user just finished.
+
+[Closed items, with the date and how they closed. Condensed into
+archive.md at the end of the month.]

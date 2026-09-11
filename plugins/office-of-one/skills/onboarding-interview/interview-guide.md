@@ -165,11 +165,10 @@ can sensibly choose a memo time before they have seen a memo.
    "Let me start your list for you. Here's what I can already see:
 
    [four or five items, one per line: the verb phrase, then
-   owner and due date underneath in grey]
+   the due date underneath in grey]
 
-   **Anything wrong there, or missing?** Change the wording, the
-   owner or the date, tell me to drop one, or add whatever isn't
-   there."
+   **Anything wrong there, or missing?** Change the wording or the
+   date, tell me to drop one, or add whatever isn't there."
 
    Every item is a PROPOSAL until they answer. Items they correct
    are stored as corrected and count as stated. Items they do not

@@ -44,8 +44,8 @@ meta-narration about what you're doing behind the scenes.
    - Lists (groceries from a fridge photo, supplies from a flyer):
      produce a tight bulleted list, grouped simply, nothing else.
    - Tasks and deadlines: add to tasks.md as verb-first items with
-     an owner and a due date. Anything due tomorrow is surfaced in
-     the next Morning Memo.
+     a due date. Anything due tomorrow is surfaced in the next
+     Morning Memo.
 
 4. **Memorialize.** Write durable facts (new people, changed
    schedules, preferences) to the right brain files. Resolve
@@ -82,6 +82,6 @@ dropped one is a broken promise.
 - Blank beats guessed: unreadable or ambiguous content gets one
   clarifying question, or becomes a Needs-your-input line. It never
   becomes an assumption.
-- Every task written starts with a verb and names its owner.
+- Every task written starts with a verb.
 - Keep confirmations to one or two lines. The user dumped this to
   save time; don't spend it back.

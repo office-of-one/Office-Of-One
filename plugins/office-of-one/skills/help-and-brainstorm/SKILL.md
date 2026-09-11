@@ -74,7 +74,7 @@ Patterns:
 Rules:
 
 - Three ideas maximum when the user asks directly. **Exactly one**
-  when the 1:1 or the Friday memo calls this skill.
+  when the 1:1 calls this skill.
 - Each is one line, each anchored to something real. If nothing in
   the evidence supports a suggestion, say so and offer none. A
   made-up suggestion is worse than none.

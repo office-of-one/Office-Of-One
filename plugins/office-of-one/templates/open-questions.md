@@ -1,7 +1,7 @@
 # Open Questions
 
-The pool the 1:1 draws from. Not a queue with a fixed order: a pool
-that is re-ranked every time new evidence arrives.
+The pool the 1:1 draws from. Not a queue with a fixed order: a
+pool that is re-ranked every time new evidence arrives.
 
 Neither the Morning Memo nor the Evening Debrief ever asks from
 this pool. Questions belong to the 1:1.
@@ -20,18 +20,22 @@ this pool. Questions belong to the 1:1.
 5. Never ask what the evidence already answers. Never ask someone
    to confirm that a domain does not apply to them.
 
+One question at a time. Wait for the answer before the next one.
+
 ## Contradictions
 
-[Highest priority. Cleared as soon as they are resolved.]
+[None open right now.]
 
 ## Partial from the interview
 
-[Anything half-answered, with the follow-up phrased in the user's
-own terms.]
+[Questions that got a pattern instead of an answer. Note what was
+asked, what came back, and the lighter version worth trying next
+time.]
 
 ## The pool
 
-Domains, not an order. Only the ones that apply to this person.
+Domains, not an order. Keep only the ones that apply to this
+person, and mark each as covered, partial, or untouched.
 
 - Household
 - Extended family
@@ -49,5 +53,5 @@ Domains, not an order. Only the ones that apply to this person.
 
 ## Answered
 
-[Removed once the answer is written to the right file. Kept here
-briefly only so the same question is not asked twice in a week.]
+[With the date, and how it was established. An answer tested
+against live evidence beats one that was only stated.]
