@@ -85,11 +85,24 @@ procedure and points at it. If they disagree, `readout-format.md`
 wins, and that is stated in both.
 
 - `templates/personality.md` — voice, greeting, sign-off
-- `templates/ways-of-working.md` — schedule, categories, the Topic
-  files list
-- `templates/tasks.md` — the record of what was surfaced, which is
-  what lets a memo say "carried over 3 days"
+- `templates/ways-of-working.md` — schedule, the Topic files list,
+  memo format overrides
+- `templates/tasks.md` — the ledger: the numbering replies resolve
+  against, tags, thread pointers and last-shown dates
 - `skills/one-on-one/SKILL.md` — the Friday memo invites it
+
+## skills/daily-readout/agent-comms-style.md
+
+How everything the agent writes looks: deliverables for the user,
+emails drafted as the user, the RECOMMEND / DRAFTED / LET'S TALK
+tags, and when to draft without asking.
+
+- `skills/daily-readout/readout-format.md` — shares the colors,
+  typography and the tag table; change them in both
+- `skills/daily-readout/SKILL.md` — must point at it, or the rules
+  are never read
+- `templates/tasks.md` — "the ledger" it sends reasoning to
+- `templates/personality.md` — voice, which this file never overrides
 
 ## skills/one-on-one/SKILL.md
 

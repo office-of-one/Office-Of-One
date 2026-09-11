@@ -1,153 +1,101 @@
 ---
 name: daily-readout
-description: Runs the user's Morning Memo and Evening Debrief. Triggered by the scheduled tasks, or when the user says "run my morning memo", "run my evening debrief", "run my memo", or the older phrasings "run my daily brief", "run my readout", "run my evening brief". Also use this skill when the user replies to a memo or debrief with corrections or comments. Reads the brain files, the calendar, and both received and sent mail, and produces a concise readout the user can reply to inline.
+description: Build and send the Morning Memo and the Evening Debrief. Use for the scheduled daily runs, and whenever the user asks to see either one now, including "run my morning memo", "run my evening debrief", "run my memo", or the older phrasings "run my daily brief", "run my readout", "run my evening brief". Also use it when the user replies to a memo or debrief.
 ---
 
-# The Morning Memo and the Evening Debrief
+# Daily readout
 
-**Read readout-format.md in this skill folder before writing
-either.** That file owns the structure, the section order, the
-markers and numbering, the close, and the style rules. This file
-owns the procedure. If the two ever disagree, readout-format.md
-wins.
+Two things the user receives: the **Morning Memo** and the
+**Evening Debrief**. Never call them briefs.
 
-The two names the user sees are **Morning Memo** and **Evening
-Debrief**. Never call them briefs in anything the user reads. Older
-phrasings still trigger this skill, because people trained in
-earlier workshops learned them, but the output always uses the
-current names.
+Read `readout-format.md` for the layout and the build rules, and
+`agent-comms-style.md` for the tags, the recommendation rules and
+when to draft without asking. If this file and readout-format.md
+disagree, readout-format.md wins. Read the user's own
+`ways-of-working.md` last; it overrides both wherever they
+disagree.
 
-## Before writing the Morning Memo: catch up the record
+## The run, in order
 
-The Morning Memo is the one thing that runs every day on a
-schedule, so it is the safety net for anything an interrupted
-session failed to save.
+1. **Read the standing context.** tasks.md, log.md,
+   ways-of-working.md, people.md, personality.md, and every topic
+   file listed in ways-of-working.md. tasks.md is the system of
+   record.
+2. **Sweep.** Calendar for the day. Mail received AND sent since
+   the last run. Sent matters as much as received: it says what
+   the user already handled and what they promised. Mail is the
+   source, never the store.
+3. **Reconcile.** Fold everything new into tasks.md in this same
+   run, with a thread pointer (who, subject, last touched) on any
+   item that has one. Anything not written down now is lost.
+4. **Work the list.** Before writing a single line of the memo,
+   go item by item and take each one as far as it can go on its
+   own. This is the step that makes the memo worth sending. See
+   below.
+5. **Write the memo**, in the order `readout-format.md` sets.
+6. **Send** the HTML and the plain-text alternative. If no mail
+   connector is available, deliver in the app only and say so once,
+   in a single line at the end: "I couldn't email this one. Say
+   'Test my setup' and I'll help you connect mail." Never fail
+   silently.
+7. **Log** one line in log.md: what closed, what changed, what the
+   user decided.
 
-Before composing, check log.md for yesterday's line. If it is
-missing but yesterday clearly had activity — calendar events that
-happened, a conversation, a decision visible in mail — write the
-line now, following the rules in the memorialize skill.
+## Working the list before writing (step 4)
 
-If the previous month has not yet been condensed into archive.md and
-today is in a new month, do that first, also per memorialize.
+Every open item is in one of four states, and the agent's job is
+to move as many as possible out of the first one.
 
-Do all of this silently. It never appears in the memo.
+- **A lookup?** Solve it. One pick, linked, tagged RECOMMEND. Buy
+  X, find a Y, book a Z, get a quote, pick a provider, which form,
+  what number to call: these are not tasks, they are questions
+  nobody answered yet.
+- **Assembling what is already true?** Draft it, tag DRAFTED, say
+  so in one Getting ahead line. Comparisons, summaries, a reply
+  that restates facts from a thread, chasing, confirming, meeting
+  prep.
+- **Needs their position first?** Tag LET'S TALK. Do not draft it
+  blind.
+- **Nothing to add?** Leave it bare.
 
-## Producing either one
+Rules that keep this honest:
 
-1. Read personality.md, people.md, ways-of-working.md and tasks.md,
-   plus every topic file listed in ways-of-working.md.
-2. Read any reply that has come in since the last one and apply it
-   before composing. Last night's reply changes this morning's
-   memo.
-3. Sweep the calendar and BOTH mail folders for the window it
-   covers. See below.
-4. Build it per readout-format.md.
-5. Update tasks.md: what was surfaced, what is still open, and the
-   date each item was last shown. This is what makes the next one
-   able to say "carried over 3 days" instead of repeating itself.
+- Never invent a URL, a price, a phone number or a review count.
+  A named product with no number beats a number that is wrong.
+- Name what could not be verified, in the sources line.
+- Mark an inference as an inference, in the ledger and in the
+  memo.
+- The reasoning goes in the ledger. The memo gets the pick and the
+  link, nothing else.
+- Volume cap: two unsolicited drafts in flight. If the last two
+  went untouched, stop drafting and ask.
 
-## Reading mail: received AND sent
+## Scheduling
 
-Both the Morning Memo and the Evening Debrief read both folders,
-every time. Reading only what arrived produces a memo that is
-confidently wrong.
+The Morning Memo, the Evening Debrief and the Friday 1:1 are the
+only auto-created recurring tasks. Their times and days come from
+ways-of-working.md.
+Everything else recurring is proposed and confirmed.
 
-**Received** is what came in and might need them.
+The scheduler's minimum interval is one hour. A faster pickup loop
+is not available; do not promise one.
 
-**Sent** is what they promised and what they have already handled.
+## Replies
 
-Four things come out of reading both:
+The user replies in their own words, usually by number ("do 6 and
+7", "1 is sent, 8 pushed"). Resolve by number first, then name,
+then time, against the numbering in tasks.md. Act on what is
+reversible, ask on what is not, then update the ledger.
 
-1. **Nothing is surfaced that they already did.** If a reply was
-   sent at 11pm, "reply to the coach" does not appear at 6:45am.
-   Check sent before listing any mail-derived action.
-2. **Commitments they made become action items.** "I'll get you
-   that by Friday" lives only in sent mail. It becomes an item with
-   the person's name and the date promised, phrased with a verb:
-   "Send Dana the numbers · you · promised Friday".
-3. **Who is waiting on them.** Received with no matching sent
-   reply, weighted by whoever is on the flag list in people.md.
-4. **Patterns worth automating.** Something written by hand three
-   times in sent mail is what the Friday idea is drawn from.
+## Never
 
-For the Evening Debrief, sent mail is often what moved: something
-they sent today may have closed an item or created a new
-commitment. Read it before writing "what moved today".
-
-Map structure and relationships. Do not read deeply into personal
-content, and never quote a private message back in a memo.
-
-## Delivery
-
-Both go out by email and are available in the app. There is no
-delivery setting; the user was never asked to choose.
-
-If no mail connector is available, deliver in the app only and say
-so once, plainly, in a single line at the end: "I couldn't email
-this one. Say 'Test my setup' and I'll help you connect mail."
-Never fail silently.
-
-## Using the long memory
-
-log.md and archive.md hold what has happened over time. Read them
-when something today connects to the past: an annual commitment
-coming round again, a decision made before that today's events
-touch, a person who hasn't come up in months reappearing.
-
-Use it sparingly and naturally — a single line in a status note
-("same weekend as last year's trip") is the right weight. Never
-recite history, never quote a dated line back, and never add a
-"looking back" section. The memo is about today.
-
-## Timing rule
-
-Anything due tomorrow is surfaced TODAY in the Morning Memo, and
-tonight in the Evening Debrief if it needs preparing. Never surface
-a deadline for the first time on the day it is due if it was
-visible earlier.
-
-## The reply loop
-
-Replies are the whole point of the format. When the user replies:
-
-1. Match what they wrote to items in this order: number, then name,
-   then time. "Brief is done, fees are September, 3 pushed, Alex
-   has the 5:15" resolves four things.
-2. Treat every comment as a correction or an instruction.
-3. Update tasks.md and the relevant brain files immediately.
-   Corrections outrank anything already stored.
-4. Anything they mention that is not on the list is new
-   information: write it down.
-5. If the reply asks to start the 1:1, hand off to the one-on-one
-   skill.
-6. If the reply is about the product rather than their own life,
-   point them at support@officeofone.ai rather than composing
-   anything on their behalf.
-7. Confirm briefly, in one or two lines, and reflect the changes in
-   the next one.
-
-Never ask the user to reply in a particular format. They will write
-whatever they write; the matching is your job.
-
-## Voice and noise rules
-
-- Clear, concise, zero noise. The Morning Memo is scannable in
-  under a minute, the Evening Debrief in ten seconds. When in
-  doubt, cut.
-- Facts, never judgments. Report what you found and how much of it;
-  never characterise it.
-- NEVER include meta-narration: nothing about how it was generated,
-  no "test run", no scheduling mechanics, and nothing about
-  catching up the record or updating tasks.
-- Short declarative lines. No filler, no restating items across
-  sections, no preamble.
-
-## Rules
-
-- Neither one asks a question from the question pool. That belongs
-  to the 1:1. "Anything else I should know?" is the only question
-  either one ever contains.
-- Recurring items discovered anywhere are proposed, never
-  auto-added.
-- Never expose brain file names or mechanics.
+- Never send an email as the user without review, unless they
+  chose draft-and-send in ways-of-working.md.
+- Never expose file names or internal mechanics in the memo. They
+  have an agent, not a filesystem.
+- Never ask a question from open-questions.md in a memo. Those
+  belong to the 1:1.
+- Never fabricate a Getting ahead line to fill the section.
+- Never narrate how the memo was made: no "test run", no
+  scheduling mechanics, nothing about updating the record. Getting
+  ahead lines report work done for the user, which is different.

@@ -194,8 +194,8 @@ percentages or mechanics.
    Step 3 sweep, invite corrections AND additions, then ask what
    is not written down anywhere, then ask where their to-dos live
    today. Never open with a blank-list question.
-   Derived items are proposals. The user may reword, reassign,
-   redate or drop any of them, and their wording wins. Corrected
+   Derived items are proposals. The user may reword, redate
+   or drop any of them, and their wording wins. Corrected
    items count as stated; untouched items stay labeled derived;
    dropped items are deleted and never resurface. Filter hard:
    newsletters, promotions, receipts, delivery notices and digests

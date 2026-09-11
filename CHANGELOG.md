@@ -17,6 +17,74 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.3.0 — 2026-09-10
+
+**The Morning Memo has a new design**, revised after reviewing real
+sends in the Gmail app on a phone. New section order: Today as a day
+rail, Worth knowing, Needs your input, Getting ahead, Priority
+to-dos, Remaining to-dos, then the footer. Three signal colors: pine
+for what is the user's, purple for what is the agent's, amber for
+conflicts. To-dos are one line with dates only in the grey slot, and
+the email build rules survive phone mail apps. The Evening Debrief
+is shorter.
+
+**The agent works the list before writing.** Every run reads,
+sweeps mail and calendar, folds what is new into tasks, then takes
+each to-do as far as it can go on its own: looks it up and links one
+pick (RECOMMEND), drafts what is already true (DRAFTED), or flags
+what needs the user's position (LET'S TALK). At most two unrequested
+drafts in flight. Replies resolve by number.
+
+**New `agent-comms-style.md`** in the daily-readout skill: how
+write-ups for the user and emails drafted as the user look, the
+tags, and when to draft without asking.
+
+**The tasks file becomes the ledger.** Numbers match the memo, and
+items carry tags, thread pointers and what was found. It adds
+Priority today (three at most) and the questions put to the user.
+There is no owner field anywhere any more.
+
+**Templates.** The setup template says where context lives (five
+places, topic files included), records the system the user is moving
+off, and keeps per-user memo format overrides in place of "Memo
+sections beyond the standard". The project instructions make saving
+silent, let the agent work the to-do list in a session (reversible
+work done and reported, anything that sends, spends or commits asked
+first), and make "track X" a check at every memo run. Open questions
+are asked one at a time and each domain is marked covered, partial
+or untouched. The people template drops "Straight to the top" and
+"Just noise".
+
+**Removed from the memo procedure:** catching up a missing log line
+and condensing the month, guidance on the long memory, the rule to
+surface tomorrow's deadlines today, handing replies off to the 1:1,
+pointing product feedback to support, and the rule against quoting a
+private message back.
+
+**The Friday block is two lines:** the weekly usage count and the 1:1
+invite. The "one idea" is gone; the suggestion now comes only in the
+1:1.
+
+**Scripted lines changed:**
+- Friday 1:1 invite. Old: "Let's have our 1:1 and find a few more
+  things I can take off your plate. Open your agent in Claude and say
+  'let's do our 1:1'." New: "Ask me in your [Agent Name] project in a
+  Cowork session to have a 1:1, and let's take some things off your
+  plate."
+- Friday feedback line removed. It read: "And if anything about me
+  is working or not working, drop a note to support@officeofone.ai.
+  A sentence is plenty."
+- Interview, Step 4. Old: "Change the wording, the owner or the
+  date, tell me to drop one, or add whatever isn't there." New:
+  "Change the wording or the date, tell me to drop one, or add
+  whatever isn't there."
+
+**Existing customers** keep the old memo until they update. Brain
+files already in their project, including tasks and ways-of-working,
+keep their old layout until refreshed from the new templates, and
+their project instructions need a manual refresh: replace them with
+the current `templates/project-instructions.md`.
+
 ## v3.2.0 — 2026-09-10
 
 **Step 6 (Test me) now runs for every user.** Some users never
