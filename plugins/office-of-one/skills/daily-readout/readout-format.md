@@ -58,6 +58,9 @@ short so the line does not wrap.
 
 The rail is continuous. Never break it to show free time.
 
+If nothing is on the calendar, the section is the single line
+"Nothing on your calendar today."
+
 A conflict keeps each event on its own line at its own time, both
 lines tinted warm, the word CONFLICT at the END of the first line.
 Never "clash". Never a header row above the pair.
@@ -200,7 +203,7 @@ The product footer last, 8px, light grey.
 The sources line names what could NOT be opened, not just what
 was. "Amazon blocks me, so the price is unverified" is the shape.
 
-**The Friday block is exactly two lines:**
+**The Friday block is at most two lines:**
 
     THIS WEEK
     5 memos, 12 items closed, 3 things you handed me.
@@ -210,11 +213,13 @@ was. "Amazon blocks me, so the price is unverified" is the shape.
 
 No "one idea", no link, no feedback line.
 
-**The usage line runs EVERY Friday, zeros included.** It is an
+**The usage line runs every Friday, zeros included.** It is an
 accountability mirror, not a highlight reel. Never skip it because
 the numbers are small, never soften a zero, never pad it. Count
-only what is recorded in tasks.md and log.md. Report the number
-and stop.
+only what is recorded in tasks.md and log.md, and show only the
+numbers that can be counted honestly from them; leave out any that
+cannot. If none can be counted, the line is left out that week.
+Report the numbers and stop.
 
 ## Build rules for the email
 

@@ -17,6 +17,32 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.7.0 — 2026-09-11
+
+Fixes three gaps found in a real Morning Memo test run.
+
+**One result line when the Morning Memo test fails two ways.** If the
+schedules are missing and the mail check also fails, or the memo
+sends anyway, the setup screen shows the missing-schedule line.
+Missing schedules stop every memo from arriving, so they come first.
+
+**The Friday count only shows what can be counted.** The weekly usage
+line still runs every Friday, zeros included, but shows only the
+numbers that can be counted honestly from the task list and log. It
+is left out if none can be counted, instead of guessing.
+
+**An empty calendar has set wording.** When nothing is on the
+calendar, Today reads "Nothing on your calendar today."
+
+**Scripted lines changed:**
+- Setup screen closing line. Old: "All four working. You're set."
+  New: "All tests passed. You're set."
+- Morning Memo, new: "Nothing on your calendar today." for an empty
+  calendar.
+
+**Existing customers** see this after updating. Nothing needs a
+manual refresh.
+
 ## v3.6.0 — 2026-09-10
 
 **The Morning Memo test sends a real memo.** The setup check's
