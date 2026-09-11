@@ -8,8 +8,9 @@ Set during onboarding. Changeable any time by asking.
 2. Calendar adds: [invites go to the user only unless they say otherwise; one-offs always confirmed]
 3. Invite rules: see people.md
 4. Schedule:
-   - Morning Memo: [every day at 6:45am]
+   - Morning Memo: [every day at 6am]
    - Evening Debrief: [every day at 8pm the night before]
+   - Agent work: [every day at 5am and 7pm, one hour before each memo]
    - Friday 1:1: [weekly on Friday]
 5. System of record for tasks: tasks.md. Note here what it was
    before, so the migration is visible.
@@ -21,7 +22,7 @@ chose, and date the choice.
 
 - Using it for: [what this account is actually full of. Personal
   and household, work, or a mix. Name the mix.]
-- Timezone: [from the calendar]. Never guess it. All three
+- Timezone: [from the calendar]. Never guess it. All four
   scheduled tasks run against it.
 - Predecessor system: [if they are migrating off something, name
   it and note that its emails will overlap for a few days.]
@@ -29,8 +30,9 @@ chose, and date the choice.
 ## Not asked, never optional
 
 - Delivery is always email plus the app.
-- The Morning Memo, the Evening Debrief and the Friday 1:1 are
-  created automatically. Only their times and days are chosen.
+- The Morning Memo, the Evening Debrief, Agent work and the Friday
+  1:1 are created automatically. Only their times and days are
+  chosen. Agent work always runs one hour before each memo.
 - Nothing else recurring is ever auto-created. Everything else is
   proposed and confirmed.
 
@@ -45,7 +47,7 @@ mail thread.
    touched) so the next run does not re-derive context from
    scratch. This is the system of record.
 2. **log.md — what happened.** One line a day: what closed, what
-   changed, what they decided. Written by the Morning Memo run as
+   changed, what they decided. Written by each Agent work run as
    its own safety net if a session was interrupted.
 3. **archive.md — the long memory.** Previous months condensed.
    Read when today connects to something older.

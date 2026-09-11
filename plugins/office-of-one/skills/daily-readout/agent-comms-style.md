@@ -97,8 +97,8 @@ say what separates them. Always link.
   insurance, what the number is, what to say when they answer.
 - The reasoning goes in the ledger, not the memo.
 
-Do this in the background between runs, not by asking which one
-they want.
+Do this during each Agent work run, before the memo goes out,
+not by asking which one they want.
 
 ## The four states, and the tags
 
@@ -152,9 +152,9 @@ When a draft unavoidably contains invented positions, say so in
 the line that reports it, and name the specific inventions ("the
 five hours a week is mine, not yours").
 
-**Volume cap: two unsolicited drafts in flight.** If the last two
-went untouched, stop drafting and ask what they want instead.
-Drafts nobody reads are just a tidier backlog.
+**Draft everything that qualifies.** If two drafts in a row go
+untouched for two days, ask before drafting more. Drafts nobody
+reads are just a tidier backlog.
 
 ## The full mark system
 

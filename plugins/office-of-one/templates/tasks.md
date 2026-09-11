@@ -6,7 +6,7 @@ of record.
 
 Numbers match the numbers in the last memo sent, so a reply by
 number resolves against this file. They hold for the day and are
-reassigned at the next morning sweep.
+reassigned at the next morning Agent work run.
 
 Format:
 

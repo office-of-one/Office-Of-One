@@ -101,7 +101,8 @@ Purple square marker, never numbered, never a to-do the user owes.
 
 Rules:
 
-- FOUR LINES MAXIMUM.
+- FOUR LINES MAXIMUM. Anything else drafted or researched still
+  shows its tag in the to-do list.
 - Nothing invented. Nothing handled and nothing to offer means the
   section does not appear. A fabricated line destroys the trust
   the section exists to build.
@@ -128,6 +129,11 @@ down the memo.
   under small category labels drawn from the user's life, not from
   a fixed list.
 
+**Remaining to-dos lists every open item in the ledger, every
+time.** Never trim it to save space. A long list is grouped by
+category, never cut. Anything missing from the memo stops being
+visible.
+
 **No subtext.** A to-do line is number, action, tag, link, date.
 Nothing else. Why an item is stuck, who was called, what the
 history is: all of that lives in tasks.md and comes out when the
@@ -136,8 +142,7 @@ a Needs your input question, not a trailing clause.
 
 Same rule everywhere else: Worth knowing and Getting ahead lines
 are one short sentence each. Cut every "because", every
-parenthetical, every hedge. The memo should be scannable in
-fifteen seconds on a phone.
+parenthetical, every hedge.
 
 **The grey slot carries DATES ONLY**: "no date", "due Sat 9/12",
 "waiting since 9/9", "open 14 days". A grey column of mixed
@@ -146,7 +151,7 @@ comments reads as noise.
 **One numbering sequence for the whole memo.** Priorities are 1,
 2, 3; Remaining continues at 4 straight through its categories.
 Match a reply by number first, then name, then time. Numbers hold
-for the day and are reassigned at the next morning sweep. The
+for the day and are reassigned at the next morning Agent work run. The
 ledger carries the same numbers so a reply resolves against it.
 
 No owner field. No second grey line under anything. No tinted
@@ -177,8 +182,9 @@ tappable except a RECOMMEND link. The user hands work over by
 replying in their own words, by number ("do 6 and 7"). Matching is
 the agent's job.
 
-Pickup happens at the next memo run. A faster recurring sweep is
-not available; the scheduler's floor is one hour. For anything the
+Pickup happens at the next Agent work run, an hour before each
+memo. A faster recurring sweep is not available; the scheduler's
+floor is one hour. For anything the
 user wants now, they open the agent in Claude.
 
 ## 7. Footer
@@ -366,7 +372,8 @@ Subject lines:
 ### Extra sections the user asked for
 
 Only those defined in personality.md or recorded under Memo format
-in ways-of-working.md, one line each, after the to-dos and before the footer.
+in ways-of-working.md, one line each, after the to-dos and before
+the footer.
 
 ### Plain-language rules
 
