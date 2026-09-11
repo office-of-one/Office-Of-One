@@ -101,6 +101,25 @@ Rules that keep this honest:
    'Test my setup' and I'll help you connect mail." Never fail
    silently.
 
+## The test run
+
+The setup check's Morning Memo test runs one real Morning Memo on
+demand. It is the same run with three differences:
+
+- **Two items worked.** Do Agent work steps 1 to 3, then take
+  exactly two items as far as they can go. Pick the most
+  research-heavy first: a lookup or comparison that ends in a
+  RECOMMEND pick or a researched DRAFTED write-up. If there is no
+  research to do, pick the next best, such as a reply to draft.
+  Every other to-do is listed bare, and the gate does not apply.
+- **Every to-do still appears**, per the complete-list rule.
+- **Email only.** Send it to the user's own inbox and never show it
+  in the chat. If no mail connector can send, the test fails;
+  never fall back to showing the memo on screen.
+
+Everything else follows this file and readout-format.md exactly.
+Scheduled runs always do the full work.
+
 ## Scheduling
 
 The Morning Memo, the Evening Debrief, Agent work and the Friday

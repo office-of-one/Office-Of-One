@@ -37,11 +37,14 @@ move on.
 
 2. MORNING MEMO
    Confirm the daily scheduled tasks exist — the Morning Memo, the
-   Evening Debrief and Agent work — and that the delivery channel
-   is available. Render a sample memo in the chat so the user sees the
-   format once.
+   Evening Debrief and Agent work. Then send one real Morning Memo
+   to the user's own inbox using the daily-readout skill's test
+   run: every to-do listed, two items worked, nothing shown in the
+   chat. PASS only when the memo was sent.
    Fail line: "Your Morning Memo isn't scheduled yet."
    If any is missing, the line names which.
+   Fail line if mail cannot send: "I can't send your Morning Memo
+   by email yet."
 
 3. FRIDAY 1:1
    Confirm the weekly scheduled task exists, then run one real
