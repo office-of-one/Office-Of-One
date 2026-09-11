@@ -6,7 +6,7 @@ Start minimal. Grow through the 1:1 and through captures.
 - Partner:
 - Kids:
 
-## Family
+## Extended family
 - Parents:
 
 ## Key contacts

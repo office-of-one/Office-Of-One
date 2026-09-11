@@ -33,7 +33,8 @@ own terms.]
 
 Domains, not an order. Only the ones that apply to this person.
 
-- Family
+- Household
+- Extended family
 - Goals
 - Their people
 - Time and rhythm

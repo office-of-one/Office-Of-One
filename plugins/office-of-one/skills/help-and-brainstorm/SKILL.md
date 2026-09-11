@@ -79,8 +79,8 @@ Rules:
   the evidence supports a suggestion, say so and offer none. A
   made-up suggestion is worse than none.
 - Propose, never implement. Anything scheduled or recurring
-  follows the usual confirmation rules. Only the Morning Memo and
-  Evening Debrief are ever auto-created.
+  follows the usual confirmation rules. Only the Morning Memo, the
+  Evening Debrief and the Friday 1:1 are ever auto-created.
 - Never implement a brainstormed idea unprompted.
 
 ---

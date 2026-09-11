@@ -49,6 +49,22 @@ furthest.
 - The facilitator runbook (Drive, `02-Workshop/`) — facilitators read
   along with the script
 
+## Topic files
+
+Brain files the agent starts on its own when a subject has real
+substance, such as fitness.md. They have no template. The rules
+live in `interview-guide.md`, Step 5, and every topic file is listed
+in the Topic files section of `templates/ways-of-working.md`.
+
+If you change those rules, check everything that reads or writes
+topic files:
+- `skills/onboarding-interview/SKILL.md` — Step 5, finish, resume
+- `skills/memorialize/SKILL.md` — routing and forgetting
+- `skills/daily-readout/SKILL.md` — what the memos read
+- `skills/one-on-one/SKILL.md` and `skills/agent-admin/SKILL.md`
+- `templates/project-instructions.md` — existing users need a
+  manual refresh
+
 ## skills/onboarding-interview/SKILL.md
 
 - `interview-guide.md` — every scripted line it references must exist
@@ -56,8 +72,10 @@ furthest.
   template, and every template must actually be installed.** A
   template that exists but is never installed is a skill writing into
   nothing. This was a real bug: `log.md` and `archive.md` shipped as
-  templates before onboarding installed them.
-- `skills/setup-check/SKILL.md` — Step 6 calls it for the five tests
+  templates before onboarding installed them. The one exception is
+  topic files (fitness.md and the like), which have no template by
+  design; see "Topic files" above.
+- `skills/setup-check/SKILL.md` — Step 6 calls it for the four tests
 - `CLAUDE.md` — the skills table, if trigger or purpose changed
 
 ## skills/daily-readout/SKILL.md and readout-format.md
@@ -67,7 +85,8 @@ procedure and points at it. If they disagree, `readout-format.md`
 wins, and that is stated in both.
 
 - `templates/personality.md` — voice, greeting, sign-off
-- `templates/ways-of-working.md` — schedule, categories, project link
+- `templates/ways-of-working.md` — schedule, categories, the Topic
+  files list
 - `templates/tasks.md` — the record of what was surfaced, which is
   what lets a memo say "carried over 3 days"
 - `skills/one-on-one/SKILL.md` — the Friday memo invites it
@@ -113,7 +132,7 @@ onboarding only installs it if it isn't already present.
 - `skills/help-and-brainstorm/SKILL.md` — the plain-language
   capability list users are shown
 - `skills/setup-check/SKILL.md` — if it should appear in the status
-  screen or the five tests
+  screen or the four tests
 - The facilitator runbook (Drive) — if it changes what is demonstrated
 
 ## Changing a user-facing name

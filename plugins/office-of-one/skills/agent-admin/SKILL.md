@@ -47,16 +47,16 @@ agent. This skill makes every adjustment a one-sentence request.
 7. **What the agent knows.** When asked "what do you know about
    me", present it as a friendly organized summary by life area
    (your people, your schedule patterns, your preferences, how I
-   work for you). Draw on the long memory too, log.md and
-   archive.md, so the answer covers history, not just the current
-   state: what's changed, how long something has been true. NEVER
-   show file names, file structure, or raw file dumps. Offer:
-   "Want me to correct or forget anything?"
+   work for you). Draw on every topic file and the long memory
+   too, log.md and archive.md, so the answer covers history, not
+   just the current state: what's changed, how long something has
+   been true. NEVER show file names, file structure, or raw file
+   dumps. Offer: "Want me to correct or forget anything?"
 
 8. **Forgetting.** When asked to forget something, delete it fully
-   from wherever it lives, including log.md and archive.md, and
-   anything derived from it, and confirm: "Forgotten." Never
-   soften it to "used to like X".
+   from wherever it lives, including log.md, archive.md and any
+   topic file, and anything derived from it, and confirm:
+   "Forgotten." Never soften it to "used to like X".
 
 ## Sending feedback to Office of One
 

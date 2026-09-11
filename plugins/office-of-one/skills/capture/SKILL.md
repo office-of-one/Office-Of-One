@@ -76,8 +76,8 @@ dropped one is a broken promise.
 ## Rules
 
 - Never auto-add one-off or recurring calendar items without
-  confirmation. Only the Morning Memo and Evening Debrief are ever
-  auto-scheduled, and they are not created here.
+  confirmation. Only the Morning Memo, the Evening Debrief and the
+  Friday 1:1 are ever auto-scheduled, and they are not created here.
 - Never send anything externally without explicit confirmation.
 - Blank beats guessed: unreadable or ambiguous content gets one
   clarifying question, or becomes a Needs-your-input line. It never

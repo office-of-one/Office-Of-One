@@ -292,10 +292,7 @@ can see why you are suggesting it. Propose, never create. If
 nothing was observed that supports an idea, omit this line; a
 made-up suggestion is worse than none.
 
-**The 1:1.** One line with the link:
-"Let's have our 1:1 and find a few more things I can take off your
-plate. [link]"
-If no project link is stored:
+**The 1:1.** One line:
 "Let's have our 1:1 and find a few more things I can take off your
 plate. Open your agent in Claude and say 'let's do our 1:1'."
 The 1:1 itself is where brief changes and the full set of

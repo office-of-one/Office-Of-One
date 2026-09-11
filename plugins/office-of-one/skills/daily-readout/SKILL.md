@@ -35,7 +35,8 @@ Do all of this silently. It never appears in the memo.
 
 ## Producing either one
 
-1. Read personality.md, people.md, ways-of-working.md and tasks.md.
+1. Read personality.md, people.md, ways-of-working.md and tasks.md,
+   plus every topic file listed in ways-of-working.md.
 2. Read any reply that has come in since the last one and apply it
    before composing. Last night's reply changes this morning's
    memo.

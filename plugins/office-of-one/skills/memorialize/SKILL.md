@@ -36,10 +36,17 @@ ones.
 ## What to write where
 
 1. Update the relevant brain file: people, ways-of-working, tasks,
-   open-questions, personality. Corrections replace old content —
-   never keep both versions. Resolve answered items in
+   open-questions, personality, or a topic file. Corrections
+   replace old content — never keep both versions. Resolve answered items in
    open-questions.md; add newly surfaced unknowns to the queue in
    tier order.
+   A subject with real substance and no home gets its own topic
+   file, under the same rules as onboarding (interview-guide.md,
+   Step 5): only for more than a passing mention, plain lowercase
+   name, add to an existing topic file first, list it in
+   ways-of-working.md, and for a sensitive subject only when the
+   user named it themselves. Dated actions still go in tasks.md,
+   and people in people.md.
 2. Add or update the day's line in log.md (see below).
 3. Keep everything plain: simple markdown, short lines, no
    decorative formatting.
@@ -106,5 +113,7 @@ happened in natural terms — never quote a dated line back at them.
 - Session chatter with no durable value
 - Guesses or unconfirmed inferences: blank beats guessed
 - Anything the user asked you to forget (delete it fully from
-  log.md and archive.md as well, including anything derived from
-  it, and never re-save it)
+  log.md, archive.md and any topic file as well, including
+  anything derived from it, and never re-save it). If a whole
+  topic file was about that subject, delete the file and remove
+  it from the Topic files list.

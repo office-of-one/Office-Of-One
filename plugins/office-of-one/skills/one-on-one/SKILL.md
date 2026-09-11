@@ -1,6 +1,6 @@
 ---
 name: one-on-one
-description: Use this skill when the user says "let's have a 1:1", "let's do our one on one", "let's catch up", or arrives from the link in their Friday Morning Memo. Runs the weekly sitdown that keeps the agent learning: questions from the queue and from the week just gone, one new capability worth knowing, and one suggestion for making their life easier. Writes everything it learns as it goes.
+description: Use this skill when the user says "let's have a 1:1", "let's do our one on one", "let's catch up", or comes from their Friday Morning Memo. Runs the weekly sitdown that keeps the agent learning: questions from the queue and from the week just gone, one new capability worth knowing, and one suggestion for making their life easier. Writes everything it learns as it goes.
 ---
 
 # The 1:1 — the weekly sitdown
@@ -28,6 +28,9 @@ them. If the user opens with something on their mind, start there.
 
 Ask questions until they are done answering, not until a count is
 reached. There is no maximum and no minimum.
+
+Read the brain files first, topic files included, so you never ask
+what they already answer.
 
 Sources, in priority order:
 1. Contradictions between what they said and what the calendar or
@@ -76,8 +79,9 @@ If the Friday Morning Memo already carried an idea, start there:
 either they want it, or ask what was wrong with it and suggest
 something better.
 
-Propose it, never create it. Only the Morning Memo and Evening
-Debrief are ever auto-scheduled. If they say yes, set it up and
+Propose it, never create it. Only the Morning Memo, the Evening
+Debrief and the Friday 1:1 are ever auto-scheduled. If they say
+yes, set it up and
 confirm in one line.
 
 ### 4. Check in
