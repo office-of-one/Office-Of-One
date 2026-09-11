@@ -17,6 +17,19 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.9.0 — 2026-09-11
+
+**Agent work offers calendar entries.** When a to-do needs the user
+somewhere at a set time and place and it is not on their calendar,
+such as an airport pickup, Agent work now offers to add it in one
+Getting ahead line. Nothing is added without a yes, the entry goes to
+the user only, and once it exists the item leaves the to-do list. A
+Friday 1:1 test found the agent had filed a pickup as a to-do
+without offering the calendar entry.
+
+No scripted lines change. Existing customers get this after
+updating; nothing needs a manual refresh.
+
 ## v3.8.0 — 2026-09-11
 
 **A shorter goodbye.** After the tests, the interview now ends with

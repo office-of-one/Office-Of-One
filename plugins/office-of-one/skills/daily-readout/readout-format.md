@@ -105,6 +105,10 @@ Two kinds of line, both past or offered:
   the user: "Forward me the PDF and I'll confirm the part and put
   both dates on the calendar."
 
+An offer to put something on their calendar is the second kind:
+"Say yes and I'll put Mia's pickup at LAX on your calendar for Thu
+2pm." Nothing goes on the calendar until they say yes.
+
 Purple square marker, never numbered, never a to-do the user owes.
 
 Rules:

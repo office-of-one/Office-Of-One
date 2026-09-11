@@ -66,9 +66,17 @@ to move as many as possible out of the first one.
   blind.
 - **Nothing to add?** Leave it bare.
 
+**Things they have to be at.** When an item needs someone
+somewhere at a set time and place, and it is not on the calendar,
+offer to add it: one Getting ahead line that names the entry, such
+as "Say yes and I'll put Mia's pickup at LAX on your calendar for
+Thu 2pm." Never add it without a yes. The entry goes to the user
+only unless they say otherwise. Once it exists, the item leaves the
+to-do list, unless something must happen before it.
+
 **The gate.** Agent work is not finished until every open item in
 the ledger has a state recorded: RECOMMEND, DRAFTED, LET'S TALK,
-or bare with its reason. A bare item needs a reason: it needs
+calendar entry offered, or bare with its reason. A bare item needs a reason: it needs
 their position, it spends money, or its source could not be
 opened. Record the state and the reason on the item in tasks.md.
 
