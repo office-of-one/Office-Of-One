@@ -84,6 +84,11 @@ number, no grey slot. Maximum three, usually none.
 Questions from open-questions.md never appear here. Those belong
 to the 1:1.
 
+Calendar contradictions noted during onboarding wait in tasks.md,
+marked "from onboarding". The first memos ask them here, one
+question each, inside the three-question limit. Double-bookings
+show as CONFLICT in Today instead.
+
 ## 4. Getting ahead
 
 Every line has a verb for the AGENT. If there is no verb for the

@@ -21,10 +21,7 @@
   .seg.done::after{content:"";position:absolute;inset:0;border-radius:6px;
         background:linear-gradient(90deg,var(--fill1),var(--fill2));
         animation:fillin .6s ease-out}
-  .seg.forever{background:repeating-linear-gradient(45deg,var(--empty),var(--empty) 6px,var(--hatch) 6px,var(--hatch) 12px)}
-  .seg.forever.glow{animation:breathe 2.4s ease-in-out infinite}
   @keyframes fillin{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1)}}
-  @keyframes breathe{0%,100%{box-shadow:0 0 0 0 rgba(36,56,42,0)}50%{box-shadow:0 0 0 4px rgba(36,56,42,.18)}}
   .steps{list-style:none}
   .steps li{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:15px;color:var(--sub)}
   .steps li .dot{width:20px;height:20px;border-radius:50%;background:var(--empty);
@@ -38,7 +35,7 @@
 </style>
 </head>
 <body>
-<!-- STEP is set by the skill: 1,2,3,4,5,6. Never 7. -->
+<!-- STEP is set by the skill: 1 to 6 while that step is in progress, 7 when setup is complete. -->
 <div class="card" id="card" data-step="[[STEP]]">
   <h1>Building your agent</h1>
   <div class="sub" id="subtitle"></div>
@@ -49,30 +46,30 @@
 </div>
 <script>
   const NAMES=["Name me","Catch me up on your AI convos",
-    "Confirm what's connected","Tell me how you work",
-    "Help me fill in the gaps","Test me","Let's keep building"];
-  const TOTAL=7, LAST=TOTAL-1;
-  const step=Math.min(LAST,Math.max(1,parseInt(document.getElementById('card').dataset.step)||1));
+    "Confirm what's connected","Schedule my tasks",
+    "Help me fill in the gaps","Test me","Agent setup complete"];
+  const TOTAL=7;
+  const step=Math.min(TOTAL,Math.max(1,parseInt(document.getElementById('card').dataset.step)||1));
+  const complete=step===TOTAL;
   const bar=document.getElementById('bar');
   for(let i=1;i<=TOTAL;i++){
     const s=document.createElement('div');
-    s.className='seg'+(i<=step?' done':'')+(i===TOTAL?' forever':'');
-    if(i===TOTAL&&step===LAST)s.classList.add('glow');
+    s.className='seg'+(i<=step?' done':'');
     bar.appendChild(s);
   }
   const ul=document.getElementById('steps');
   NAMES.forEach((n,i)=>{
     const li=document.createElement('li');
     const idx=i+1;
-    li.className=idx<step?'done':(idx===step?'now':'');
-    if(idx===TOTAL)li.className=step===LAST?'now':'';
-    li.innerHTML='<span class="dot">'+(idx<step?'✓':idx)+'</span>'+n;
+    const done=idx<step||complete;
+    li.className=done?'done':(idx===step?'now':'');
+    li.innerHTML='<span class="dot">'+(done?'✓':idx)+'</span>'+n;
     ul.appendChild(li);
   });
   document.getElementById('subtitle').textContent=
-    step<LAST?('Step '+step+' of '+TOTAL):'Six of seven done';
+    complete?'Agent setup complete':('Step '+step+' of '+TOTAL);
   document.getElementById('foot').textContent=
-    step<LAST?'':'The seventh step is my favorite, because it never really ends. Every Friday we’ll sit down for a few minutes, and every answer helps me help you a little better.';
+    complete?'Every Friday we’ll sit down for a few minutes, and every answer helps me help you a little better.':'';
 </script>
 </body>
 </html>

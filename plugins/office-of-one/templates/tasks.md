@@ -39,7 +39,8 @@ list. Add and rename them as the list teaches you what they are.]
 ## Open questions put to them
 
 [Anything asked in the memo's Needs your input, so the next run
-knows what is outstanding.]
+knows what is outstanding. Calendar contradictions from onboarding
+wait here, marked "from onboarding", until a memo asks them.]
 
 ## Done
 
