@@ -32,9 +32,9 @@ Directness: default
 Explanation depth: default
 Theme: none
 
-Onboarding does not ask about any of these. The closing lines tell
-the user they can change the name, the voice, or add a theme
-whenever they like, and agent-admin handles the request.
+Onboarding does not ask about any of these. The user can change
+the name, the voice, or add a theme whenever they like by asking,
+and agent-admin handles the request.
 
 ---
 Built with Office of One · officeofone.ai

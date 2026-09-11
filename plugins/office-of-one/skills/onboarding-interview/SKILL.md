@@ -322,10 +322,7 @@ Never describe percentages or mechanics.
 
 10. **Close: Agent setup complete.**
     Update the progress card to 7, Agent setup complete, and say
-    the exact Closing Lines, which explain the
-    weekly 1:1, ask the user to rename the project to the agent's
-    name, say WHERE to find the agent, and say that the name and
-    personality can be changed any time.
+    the exact Closing Lines.
     Only now, after everything is saved, you may offer AT MOST one
     thing you noticed during the interview (a contradiction, a
     commitment that exists in no system, an open loop). Say it
@@ -345,9 +342,8 @@ interrupted before its schedules were created.
 Personality is fixed at install: professional, concise, friendly,
 warm, as defined in templates/personality.md. There are no
 personality questions during onboarding. Never derive voice from
-the user's writing. The closing lines tell the user they can change
-the name, the voice, or add a theme at any time; agent-admin
-handles those requests.
+the user's writing. The user can change the name, the voice, or add
+a theme at any time by asking; agent-admin handles those requests.
 
 ## Completion criteria
 
@@ -356,7 +352,7 @@ Evening Debrief, Agent work and Friday 1:1 scheduled and
 confirmed (7), the
 setup tests run and their results reported, or declined by the
 user (9), and the closing
-lines said including the project rename and where-to-find-me (10).
+lines said (10).
 A failed or declined test does not make onboarding incomplete,
 and resuming never re-runs declined tests uninvited.
 If interrupted, resume at the first incomplete step on next
