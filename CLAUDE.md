@@ -82,8 +82,9 @@ existing users' setups bumps the major.
   agent's process.
 - **Never expose file names or internals.** The user has an agent, not
   a filesystem.
-- **Only the Morning Memo and the Evening Debrief are auto-scheduled.**
-  Everything else recurring is proposed and confirmed.
+- **Only the Morning Memo, the Evening Debrief and the Friday 1:1 are
+  auto-scheduled.** Everything else recurring is proposed and
+  confirmed.
 - **Nothing is sent anywhere without an explicit yes**, and drafting
   is not sending. The user emails feedback themselves; the agent does
   not compose it.
@@ -118,6 +119,12 @@ per-person and lives only in that customer's project. The interview
 turns one into the other: it reads the templates, asks its questions,
 and writes the filled-in brain files into the user's project. We never
 see them.
+
+The brain starts from the templates but is not limited to them. When
+a subject has real substance, such as fitness goals, the agent starts
+a topic file for it (fitness.md) with no template and lists it in
+ways-of-working.md so every skill can find it. The rules live in
+`interview-guide.md`, Step 5.
 
 ## Layout
 

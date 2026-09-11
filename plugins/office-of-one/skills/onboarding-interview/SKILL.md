@@ -16,7 +16,8 @@ chosen dynamically by the rules below.
 
 Time budget: the live portion must fit in 30 minutes, including the
 setup tests in Step 6. Depth comes later through the weekly 1:1,
-never from a longer session.
+never from a longer session. If time runs short, cut Step 5
+questions, never Step 6.
 
 Connectors are set up BEFORE this skill runs. Step 3 confirms them
 and never sends the user away to add one.
@@ -38,7 +39,7 @@ Ways-of-working answers go in as they are given. Step 5 answers go
 in as they are given.
 
 If onboarding is interrupted, resume at the first incomplete step:
-read the brain files first, ask only what is open or partial, and
+read the brain files first, topic files included, ask only what is open or partial, and
 never restart from the beginning. "Resume the interview" is the
 phrase users are taught; treat it, and any close variant, as a
 request to continue rather than to start over.
@@ -124,11 +125,12 @@ percentages or mechanics.
 
 3. **Step 2 — Catch me up on your AI convos.**
    Update the progress card: step 2.
-   Ask the exact Import Question. If they have used Claude or
-   ChatGPT before, give them the exact Distillation Prompt to run
-   in that assistant and wait for the paste. Use the branch line
-   matching their assistant. If their assistant cannot search past
-   conversations, use the exact fallback line and move on.
+   Say the exact pre-work line, which asks for the output of the
+   prompt they ran in Claude or ChatGPT as pre-work, and wait for
+   the paste. Never hand out the prompt here; it lives in the
+   pre-work. If their assistant could not search past
+   conversations, use the exact fallback line and move on. If they
+   have nothing to paste, use the exact fresh-start line.
    Treat the paste as claims to verify.
    Also check this project's own memory and knowledge quietly; any
    prior facts found there are evidence to confirm, never
@@ -203,16 +205,26 @@ percentages or mechanics.
 
 6. **Step 5 — Help me fill in the gaps.**
    Update the progress card: step 5.
-   At most 10 questions, chosen from the Priority Categories in
-   interview-guide.md, in that order, skipping anything the
-   evidence or the import already settled and anything that does
-   not apply (never ask the user to confirm a domain is
-   irrelevant). Always include the Yesterday Question unless time
-   has run out; it is the highest-yield question available.
-   Write answers as they come.
+   At most 10 questions, Yesterday included. Open with the exact
+   Yesterday question unless time has run out; it is the
+   highest-yield question available. Then choose from the domains
+   in interview-guide.md using its selection rules, skipping
+   anything the evidence or the import already settled and
+   anything that does not apply (never ask the user to confirm a
+   domain is irrelevant). Cover as many as the cap and the time
+   allow, and never let Step 5 eat into Step 6.
+   Before the first question, make sure people.md,
+   ways-of-working.md, tasks.md and open-questions.md exist, and
+   create any that is missing from its template. Write each answer
+   to its file before asking the next question, using the routing
+   in interview-guide.md. Never leave an answer only in the
+   conversation. When a subject has real substance, start a topic
+   file for it under the topic-file rules in interview-guide.md,
+   and list it in ways-of-working.md.
    Everything unasked or partial goes to open-questions.md as the
    question pool, ranked by the selection rules in
-   interview-guide.md, with contradictions always on top.
+   interview-guide.md, with contradictions always on top. If
+   anything is left, say the exact Friday 1:1 hand-off line.
 
 7. **Create the three scheduled tasks.**
    THIS STEP IS WHAT MAKES THE PRODUCT ARRIVE. Nothing the user
@@ -239,9 +251,10 @@ percentages or mechanics.
 
 8. **Finish the brain files.**
    Everything should already be written. Confirm that
-   personality.md, people.md, ways-of-working.md, tasks.md and
-   open-questions.md are complete and consistent, and fill any
-   gaps now. Facts derived from connectors but never confirmed
+   personality.md, people.md, ways-of-working.md, tasks.md,
+   open-questions.md and any topic files are complete and
+   consistent, that every topic file is listed in
+   ways-of-working.md, and fill any gaps now. Facts derived from connectors but never confirmed
    stay labeled as derived, so nothing unverified reads as
    something the user said.
    Install templates/project-instructions.md as the project
@@ -255,17 +268,20 @@ percentages or mechanics.
    what happened today in the user's terms:
    `YYYY-MM-DD — Set up my agent.`
    Say only: "Your brain has been updated." Never list file names
-   or mechanics.
+   or mechanics. Then go straight to Step 6. Never close the
+   interview here.
 
 9. **Step 6 — Test me.**
    Update the progress card: step 6.
-   First capture the project link, using the exact line from
-   interview-guide.md, and store it in ways-of-working.md. If the
-   user cannot produce it, use the exact fallback line and carry
-   on; a missing link never blocks the tests.
-   Then run the five tests using the setup-check skill: link,
-   calendar, Morning Memo, Friday 1:1, email. Use its screens
-   verbatim.
+   Step 6 always runs, for every user; the closing lines never
+   come before it. Say the exact Test me line from
+   interview-guide.md, then run the four tests using the
+   setup-check skill: calendar, Morning Memo, Friday 1:1, email.
+   Use its screens verbatim.
+   If the user asks to skip the tests or do them later, use the
+   exact lines from interview-guide.md: ask once, and if they
+   still decline, tell them to say "Test my setup" whenever they
+   are ready, then go to the close. Never push further.
    Immediately after the Morning Memo test, say the exact revisit
    line from interview-guide.md, which offers the memo time, the
    debrief time, the 1:1 day and the invite default for change now
@@ -318,11 +334,13 @@ handles those requests.
 
 Complete ONLY when: brain files written (8), the Morning Memo,
 Evening Debrief and Friday 1:1 scheduled and confirmed (7), the
-setup tests run and their results reported (9), and the closing
+setup tests run and their results reported, or declined by the
+user (9), and the closing
 lines said including the project rename and where-to-find-me (10).
-A failed test does not make onboarding incomplete.
+A failed or declined test does not make onboarding incomplete,
+and resuming never re-runs declined tests uninvited.
 If interrupted, resume at the first incomplete step on next
-invocation: read the brain files first, ask only what is open or
+invocation: read the brain files first, topic files included, ask only what is open or
 partial, and never restart from the beginning.
 
 ## Hard rules
@@ -345,6 +363,9 @@ partial, and never restart from the beginning.
 - Every file in templates/ is installed during onboarding, memory
   files included. A template that exists but is never installed is
   a skill writing into nothing.
+- Topic files are the one kind of brain file with no template.
+  They follow the topic-file rules in interview-guide.md and are
+  always listed in ways-of-working.md.
 - Step 3 confirms connectors. It never sets them up.
 - Auto-schedule exactly three things: the Morning Memo, the
   Evening Debrief and the Friday 1:1. Everything else recurring is

@@ -19,7 +19,7 @@ Connected: [count] tools
 Using it for: [work / personal / both]
 What I need help with: [tags]
 
-Setup tests: [n] of 5 passed[, failed: [which]]
+Setup tests: [n] of 4 passed[, failed: [which]]
 
 What worked well: [user's answer, one line]
 What was confusing: [user's answer, one line]

@@ -17,6 +17,81 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.2.0 — 2026-09-10
+
+**Step 6 (Test me) now runs for every user.** Some users never
+reached the setup tests. The step sat after a long reference section,
+opened with a precondition, and started by asking for a project link
+that desktop-app users don't have. Step 6 now follows Step 5
+directly, always runs, and has its own opening line. If time is
+short, Step 5 questions are cut instead. A user who wants to skip the
+tests is asked once; if they still decline, they are told to say
+"Test my setup" later, and onboarding still counts as complete.
+
+**The project link is gone.** Users are on the Claude desktop app, so
+there is no browser address to paste. The link capture, the LINK test
+and the link in the Friday Morning Memo are removed. There are now
+four setup tests: calendar, Morning Memo, Friday 1:1 and email.
+
+**Step 2 asks for the pre-work output.** The interview no longer
+hands out the prompt for Claude or ChatGPT. Users run it as pre-work
+and paste the result.
+
+**Step 5 draws on the full question pool.** The 1:1 question pool
+moved into Step 5, so the first sitting covers as much as it can: up
+to 10 questions, starting with Yesterday. Whatever is left goes to
+the Friday 1:1. Household is a new domain, Family is now Extended
+family, and Voice no longer asks for writing samples, which
+conflicted with the rule that the agent never imitates the user's
+writing. The separate household, roster, weekly-skeleton and
+what-gets-dropped questions are removed, so "Straight to the top"
+and "Just noise" are no longer asked during onboarding.
+
+**Brain files are created when missing.** Step 5 checks that the
+brain files exist before its first question, creates any that are
+missing, and saves each answer before asking the next. Some users
+had finished onboarding without them.
+
+**Topic files.** When a subject has real substance, such as fitness
+goals, the agent starts a topic file for it (fitness.md), organized
+into categories and listed in ways-of-working. Dated actions stay in
+tasks and people stay in people. A sensitive subject gets a file only
+when the user named it themselves. The memos, memorialize, the 1:1
+and agent-admin all read topic files, and forgetting deletes from
+them.
+
+**The Friday 1:1 is consistently one of three auto-scheduled
+tasks.** Several files still said only the Morning Memo and Evening
+Debrief were auto-scheduled. All of them now name the Friday 1:1 too.
+
+**Scripted lines changed:**
+- Step 2. Old: "Now, have you chatted with Claude or ChatGPT
+  before?..." followed by per-assistant instructions and the prompt.
+  New: "If you have used Claude or ChatGPT before, this is where you
+  can provide me the output of the prompt you ran as pre-work."
+- Step 5, new: "We'll pick up the rest of my questions at our Friday
+  1:1."
+- Step 6 opening. Old: "One thing I need from you first. Copy the
+  address of this project from your browser and paste it here..."
+  New: "Before we wrap up, let's make sure everything works. I'll run
+  four quick checks: your calendar, your Morning Memo, our Friday 1:1
+  and email."
+- Step 6, new, for a user who wants to skip: "These checks are how we
+  make sure your Morning Memo will actually arrive. Can we run them
+  now?" and "No problem. Whenever you're ready, just say 'Test my
+  setup'."
+- Closing lines. Old: "Nothing inside it moves, and the link you just
+  gave me keeps working." New: "Nothing inside it moves."
+- Setup screen. Old: "All five working. You're set." New: "All four
+  working. You're set."
+- Friday Morning Memo 1:1 line: the version with a link is removed.
+
+**Existing customers** keep the old interview until they update.
+Their project instructions do not refresh on update. To have the
+agent consult topic files at the start of every session, replace the
+project's instructions with the current
+`templates/project-instructions.md`.
+
 ## v3.1.0 — 2026-09-04
 
 **The feedback address changed from `email@officeofone.ai` to
