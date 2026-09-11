@@ -20,24 +20,21 @@ version they installed.
 ## v3.8.0 — 2026-09-11
 
 **A shorter goodbye.** After the tests, the interview now ends with
-three short lines instead of six paragraphs. The results screen has
+three short paragraphs instead of six. The results screen has
 already told the user they're set, so the closing lines no longer
-repeat it.
-
-What the old closing lines said that the new ones don't: the request
-to rename the project to the agent's name, the reminder that the
-agent lives in this project and regular Claude outside it won't know
-them, the note that the name and personality can be changed, and the
-pointer to "help". The agent still changes its name or personality
-whenever asked, and "help" still works.
+repeat it. They no longer ask the user to rename the project to the
+agent's name.
 
 **Scripted lines changed:**
 - Closing lines. Old: six paragraphs, starting "That's all seven
   done, and your agent is set up. Every Friday we'll sit down for a
   few minutes..." and ending "So glad to be your new personal
   assistant, [Name]. Talk soon." New: "Congrats, your agent is set
-  up. We'll catch up every Friday. Talk soon, [Name]. — [Agent
-  Name] 🤖"
+  up. I'm here whenever you need me, and I'm excited to chat in
+  detail on Friday for our first 1:1. I live here, in this project.
+  Outside it, Claude won't know you the way I do. You can change my
+  name or personality any time, and say 'help' whenever you're
+  stuck. Talk soon, [Name]. — [Agent Name] 🤖"
 
 **Existing customers** are unaffected unless they run a new
 interview.

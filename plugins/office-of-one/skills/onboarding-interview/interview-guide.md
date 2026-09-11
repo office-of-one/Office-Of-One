@@ -428,7 +428,12 @@ asking; agent-admin handles it.
 
 Update the progress card to 7, Agent setup complete, then say:
 
-"Congrats, your agent is set up. We'll catch up every Friday.
+"Congrats, your agent is set up. I'm here whenever you need me,
+and I'm excited to chat in detail on Friday for our first 1:1.
+
+I live here, in this project. Outside it, Claude won't know you
+the way I do. You can change my name or personality any time,
+and say 'help' whenever you're stuck.
 
 Talk soon, [Name].
 — [Agent Name] 🤖"
