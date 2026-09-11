@@ -45,6 +45,9 @@ move on.
    If any is missing, the line names which.
    Fail line if mail cannot send: "I can't send your Morning Memo
    by email yet."
+   If both apply, show the schedule line: missing schedules stop
+   every memo from arriving, so they are reported first. A memo that
+   sent does not make this test pass while a schedule is missing.
 
 3. FRIDAY 1:1
    Confirm the weekly scheduled task exists, then run one real
@@ -80,7 +83,7 @@ Friday 1:1: [PASS / one-sentence fix]
 Email: [PASS / ready (nothing sent) / one-sentence fix]
 
 Then ONE closing line, whichever applies:
-"All four working. You're set."
+"All tests passed. You're set."
 "Say 'Fix it' and we'll work through what's left."
 
 If the user says "Fix it", walk through the failures one at a time,
