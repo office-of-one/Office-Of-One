@@ -1,6 +1,6 @@
 ---
 name: onboarding-interview
-description: Use this skill whenever the user says "Interview me" or asks to set up their agent, start onboarding, learn about them, or begin setup. Runs the Office of One "Building Your Agent" onboarding in seven steps: name me, catch me up on your AI convos, confirm what's connected, tell me how you work, help me fill in the gaps, test me, and let's keep building. Writes the user's brain files as it goes, schedules the Morning Memo, Evening Debrief and Friday 1:1, and runs the setup tests before finishing.
+description: Use this skill whenever the user says "Interview me" or asks to set up their agent, start onboarding, learn about them, or begin setup. Runs the Office of One "Building Your Agent" onboarding in seven steps: name me, catch me up on your AI convos, confirm what's connected, schedule my tasks, help me fill in the gaps, test me, and agent setup complete. Writes the user's brain files as it goes, schedules the Morning Memo, Evening Debrief, Agent work and Friday 1:1, and runs the setup tests before finishing.
 ---
 
 # Office of One — Building Your Agent (onboarding)
@@ -64,8 +64,10 @@ request to continue rather than to start over.
   confirm. Describe what is on the calendar. Never deliver a
   verdict about the person.
 - Contradictions between sources, or between what they say and
-  what the calendar shows, are the highest-value moments. Name
-  them plainly and ask which is true.
+  what their mail shows, are the highest-value moments. Name them
+  plainly and ask which is true. Calendar contradictions and
+  conflicts are the exception: never raise them in the interview.
+  They go to the Morning Memo.
 
 ## Sensitive material
 
@@ -87,26 +89,30 @@ carries only what feedback-template.md permits.
 
 ## The Building Your Agent progress card
 
-Onboarding is seven steps; the seventh never fills because the
-brain keeps building. Render the progress card at the START of
-each step, showing the step now in progress:
+Onboarding is seven steps. The seventh, Agent setup complete, fills
+when the closing lines are said. Render the progress card at the
+START of each step, before its bold label, showing the step now in
+progress:
 
 1. Read progress-template.html in this skill folder.
 2. Replace [[STEP]] with the number of the step NOW IN PROGRESS
-   (1 to 6, never 7) and render it as an artifact. Change NOTHING
-   else. [[STEP]] is the step being worked on, not a count of
-   steps finished; the card's own wording ("Step 3 of 7") and its
-   checkmarks both depend on that reading.
+   (1 to 6), or 7 when the closing lines are said, and render it as
+   an artifact. Change NOTHING else. [[STEP]] is the step being
+   worked on, not a count of steps finished; the card's own wording
+   ("Step 3 of 7") and its checkmarks both depend on that reading.
 3. Update the same artifact at each step rather than creating a
    new one. The card must visibly change every time it is shown.
    Never re-send an identical card, and never deliver it as a
    repeated file attachment under the same filename, which some
    clients cache and show unchanged.
+4. Never skip an update. The card moves to 6 before Step 6 starts
+   and to 7 at the close, however long the work between steps ran.
+   A card left on step 5 tells the user setup stalled.
 
 FALLBACK if artifacts cannot render: the exact text line
-"Building your agent: [▓░░░░░░] Step 1 of 7"
-Never show seven filled segments in either form. Never describe
-percentages or mechanics.
+"Building your agent: [▓░░░░░░] Step 1 of 7", and at the close
+"Building your agent: [▓▓▓▓▓▓▓] Agent setup complete".
+Never describe percentages or mechanics.
 
 ## Procedure
 
@@ -139,7 +145,13 @@ percentages or mechanics.
 
 4. **Step 3 — Confirm what's connected.**
    Update the progress card: step 3.
-   Say the scripted line, then sweep whatever is actually
+   First, the connector check. List every connector switched on in
+   this project and ask the exact connector question. If the user
+   names any to leave alone, wait while they switch them off in the
+   connectors menu, then record what is off in ways-of-working.md.
+   You cannot switch connectors off yourself; never claim to. Never
+   read from a connector the user asked you to leave alone.
+   Then say the scripted line, then sweep whatever is actually
    connected, quietly and in one pass, without narrating each
    step:
    - Calendar: the recurring skeleton (what repeats and when,
@@ -170,25 +182,50 @@ percentages or mechanics.
    unconfirmed stays labeled as derived in the brain files.
    Then state the work/personal/both routing as an observation and
    record it in ways-of-working.md. It re-ranks the question pool.
-   Contradictions found here go to Step 5.
+   Contradictions with their mail go to Step 5. Calendar
+   contradictions and conflicts are never raised in the interview:
+   write them to tasks.md under Open questions put to them, marked
+   "from onboarding", for the Morning Memo.
 
-5. **Step 4 — Tell me how you work.**
+5. **Step 4 — Schedule my tasks.**
    Update the progress card: step 4.
-   Say the Ways of Working Intro, then the DEFAULTS as a
+   Say the Step 4 intro, then the DEFAULTS as a
    statement, then the single change offer, then the one question
    (to-dos), all exactly as written.
    The defaults are never put to the user as choices: emails and
    calendar invites start as draft-for-confirmation, invites go to
    the user only, the Morning Memo is daily at 6am local, the
    Evening Debrief daily at 8pm local, and the 1:1 weekly on
-   Friday. Agent work runs one hour before each memo. Nobody can sensibly pick a memo time before seeing a
-   memo, so the real invitation to change them comes after the
-   Morning Memo test in Step 6.
+   Friday. Agent work runs one hour before each memo. Nobody can
+   sensibly pick a memo time before seeing a memo, so the real
+   invitation to change them comes after the Morning Memo test in
+   Step 6.
    The change offer names its levers ("the times, the days, or who
    else goes on your invites"), never a bare "anything you'd
    change?", which forces the user to re-read and guess what is
    adjustable. If the user declines, move on; do not press and do
    not enumerate the settings again.
+   Then create the four scheduled tasks. THIS IS WHAT MAKES THE
+   PRODUCT ARRIVE: nothing reaches the user again unless these
+   exist. Create all four NOW, in the user's timezone, at the
+   defaults just stated unless the user changed them:
+   - **Morning Memo** — every day at 6am local, runs the
+     daily-readout skill in morning mode.
+   - **Evening Debrief** — every day at 8pm local, runs the
+     daily-readout skill in evening mode.
+   - **Agent work** — every day at 5am and 7pm local, one hour
+     before each memo, runs the daily-readout skill in agent-work
+     mode. If the scheduler cannot run one task at two times,
+     create it as two tasks, both named Agent work.
+   - **Friday 1:1** — weekly on Friday, runs the one-on-one skill.
+   Then say the exact schedule confirmation line from
+   interview-guide.md. Verify all four exist before moving on. If
+   one could not be created, say so plainly, once, and tell the
+   user they can say "set up my schedules" at any time to have them
+   rebuilt. A missing schedule is the only failure in this skill
+   worth interrupting the flow for. Nothing else is ever
+   auto-scheduled; anything else recurring is proposed and
+   confirmed.
    The to-do question runs in three beats, exactly as written in
    interview-guide.md: show four or five items derived from the
    Step 3 sweep, invite corrections AND additions, then ask what
@@ -226,40 +263,18 @@ percentages or mechanics.
    interview-guide.md, with contradictions always on top. If
    anything is left, say the exact Friday 1:1 hand-off line.
 
-7. **Create the four scheduled tasks.**
-   THIS STEP IS WHAT MAKES THE PRODUCT ARRIVE. Nothing the user
-   received during the interview reaches them again unless these
-   exist. Create all four NOW, in the user's timezone, at the
-   defaults stated in Step 4 unless the user changed them when
-   offered:
-   - **Morning Memo** — every day at 6am local, runs the
-     daily-readout skill in morning mode.
-   - **Evening Debrief** — every day at 8pm local, runs the
-     daily-readout skill in evening mode.
-   - **Agent work** — every day at 5am and 7pm local, one hour
-     before each memo, runs the daily-readout skill in agent-work
-     mode. If the scheduler cannot run one task at two times,
-     create it as two tasks, both named Agent work.
-   - **Friday 1:1** — weekly on Friday, runs the one-on-one skill.
-   Then confirm, in one line:
-   "All set. Your Morning Memo arrives [days] at [time], your
-   Evening Debrief at [time] the night before, and we'll have our
-   1:1 on Fridays."
-   Verify all four exist before moving on. If one could not be
-   created, say so plainly, once, and tell the user they can say
-   "set up my schedules" at any time to have them rebuilt. A
-   missing schedule is the only failure in this skill worth
-   interrupting the flow for.
-   Nothing else is ever auto-scheduled. Anything else recurring is
-   proposed and confirmed.
+7. **Check the scheduled tasks.**
+   They were created in Step 4. Verify all four still exist and
+   create any that is missing, at the times in ways-of-working.md.
+   Say nothing if all four are there.
 
 8. **Finish the brain files.**
    Everything should already be written. Confirm that
    personality.md, people.md, ways-of-working.md, tasks.md,
    open-questions.md and any topic files are complete and
    consistent, that every topic file is listed in
-   ways-of-working.md, and fill any gaps now. Facts derived from connectors but never confirmed
-   stay labeled as derived, so nothing unverified reads as
+   ways-of-working.md, and fill any gaps now. Facts derived from
+   connectors but never confirmed stay labeled as derived, so nothing unverified reads as
    something the user said.
    Install templates/project-instructions.md as the project
    instructions if not already present.
@@ -305,9 +320,9 @@ percentages or mechanics.
    email. If the email test itself fails, the failures are shown on
    screen only, and setup-check says so.
 
-10. **Close: Step 7 stays open.**
-    Keep the progress card at step 6 (the seventh segment stays
-    open) and say the exact Closing Lines, which explain the
+10. **Close: Agent setup complete.**
+    Update the progress card to 7, Agent setup complete, and say
+    the exact Closing Lines, which explain the
     weekly 1:1, ask the user to rename the project to the agent's
     name, say WHERE to find the agent, and say that the name and
     personality can be changed any time.
@@ -323,7 +338,7 @@ which of the four scheduled tasks exist, create only the missing
 ones at the recorded times from ways-of-working.md (or the defaults
 if none are recorded), and report what is now live in one line.
 This is the recovery path for anyone whose interview was
-interrupted between step 6 and step 7.
+interrupted before its schedules were created.
 
 ## Personality
 
@@ -345,8 +360,9 @@ lines said including the project rename and where-to-find-me (10).
 A failed or declined test does not make onboarding incomplete,
 and resuming never re-runs declined tests uninvited.
 If interrupted, resume at the first incomplete step on next
-invocation: read the brain files first, topic files included, ask only what is open or
-partial, and never restart from the beginning.
+invocation: read the brain files first, topic files included,
+ask only what is open or partial, and never restart from the
+beginning.
 
 ## Hard rules
 
@@ -355,7 +371,7 @@ partial, and never restart from the beginning.
   reactions and the Step 5 selection, nothing else.
 - Every step opens with its progress card label in bold on its own
   line: **Name me.**, **Catch me up on your AI convos.**,
-  **Confirm what's connected.**, **Tell me how you work.**,
+  **Confirm what's connected.**, **Schedule my tasks.**,
   **Help me fill in the gaps.**, **Test me.** The label the user
   reads and the label on the card are always the same words, so
   the card is never the only place the step is named.
@@ -371,10 +387,11 @@ partial, and never restart from the beginning.
 - Topic files are the one kind of brain file with no template.
   They follow the topic-file rules in interview-guide.md and are
   always listed in ways-of-working.md.
-- Step 3 confirms connectors. It never sets them up.
+- Step 3 confirms connectors and lets the user switch any off. It
+  never sets new ones up.
 - Auto-schedule exactly four things: the Morning Memo, the
-  Evening Debrief, Agent work and the Friday 1:1. Everything else recurring is
-  always confirmed.
+  Evening Debrief, Agent work and the Friday 1:1. Everything else
+  recurring is always confirmed.
 - Never imitate the user's writing style. templates/personality.md
   governs voice.
 - Never expose internal file names, structure, or mechanics.

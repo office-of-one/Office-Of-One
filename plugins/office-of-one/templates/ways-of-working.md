@@ -27,6 +27,11 @@ chose, and date the choice.
 - Predecessor system: [if they are migrating off something, name
   it and note that its emails will overlap for a few days.]
 
+## Connectors switched off
+
+[None. Anything the user switched off in Step 3 is listed here with
+the date, and no run ever reads from it.]
+
 ## Not asked, never optional
 
 - Delivery is always email plus the app.

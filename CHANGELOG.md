@@ -17,6 +17,56 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.5.0 — 2026-09-10
+
+**Connectors are picked before the sweep.** Step 3 now opens by
+listing every connector switched on in the project and asking
+whether any should be left alone. The user switches those off in the
+connectors menu; the agent records them in ways-of-working, and no
+run ever reads from them, Agent work included.
+
+**Calendar contradictions wait for the Morning Memo.** The interview
+no longer asks about calendar contradictions or conflicts. They are
+written to tasks, and the first memos ask them under Needs your
+input; double-bookings show as CONFLICT in Today. Contradictions with
+mail are still confirmed in Step 5.
+
+**The progress card reaches the end.** The card is updated at the
+start of every step, moves to Step 6 before the tests, and fills
+completely at the close. It could previously stall at Step 5, and it
+was built never to fill its last step.
+
+**Schedule my tasks.** Step 4 is now "Schedule my tasks", and the
+four scheduled tasks are created there, right after the memo times
+are stated, instead of after Step 5. The last step on the card is
+now "Agent setup complete".
+
+**Scripted lines changed:**
+- Step 3, new: "Here's what's switched on for me right now: [list].
+  Is there anything here you'd like me to leave alone? If so, switch
+  it off in the connectors menu and tell me when you're done."
+- Step 4 label. Old: "Tell me how you work." New: "Schedule my
+  tasks."
+- The schedule confirmation line keeps its wording and is now said
+  in Step 4.
+- Closing lines. Old: "Six of seven done. The seventh is my
+  favorite, because it never really ends. Every Friday..." New:
+  "That's all seven done, and your agent is set up. Every Friday..."
+- Progress card: the last step "Let's keep building" becomes "Agent
+  setup complete", and the finished card reads "Agent setup
+  complete" instead of "Six of seven done".
+
+**Missed in the v3.2.0 entry.** These interview changes shipped in
+v3.2.0 but were not listed then: the agent introduces itself as
+"your new personal assistant" instead of "your new chief of staff",
+in the opening line and the sign-off; Step 5 gained the rule "Focus
+on high priority items first"; and the guide's line "Never call them
+briefs" was removed. That rule still stands in the memo procedure
+and the project instructions.
+
+**Existing customers** only see these changes in a new interview.
+Nothing needs a manual refresh.
+
 ## v3.4.0 — 2026-09-10
 
 **Agent work: the work happens before the memo.** A user's memo came

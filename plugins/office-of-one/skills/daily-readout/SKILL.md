@@ -38,7 +38,8 @@ the Evening Debrief off, stop the 7pm Agent work run too.
 2. **Sweep.** Calendar for the day. Mail received AND sent since
    the last run. Sent matters as much as received: it says what
    the user already handled and what they promised. Mail is the
-   source, never the store.
+   source, never the store. Never read from a connector listed as
+   switched off in ways-of-working.md.
 3. **Reconcile.** Fold everything new into tasks.md in this same
    run, with a thread pointer (who, subject, last touched) on any
    item that has one. Anything not written down now is lost.
