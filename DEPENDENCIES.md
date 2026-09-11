@@ -90,6 +90,8 @@ wins, and that is stated in both.
 - `templates/tasks.md` — the ledger: the numbering replies resolve
   against, tags, thread pointers and last-shown dates
 - `skills/one-on-one/SKILL.md` — the Friday memo invites it
+- `skills/setup-check/SKILL.md` — its Morning Memo test calls the
+  test run, which sends a real memo by email
 - Agent work runs one hour before each memo. Changing a memo time
   anywhere (onboarding, setup-check, agent-admin, the setup
   template) means moving its Agent work run with it

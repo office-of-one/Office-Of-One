@@ -388,10 +388,10 @@ calendar, Morning Memo, Friday 1:1, email. Use its screens word for
 word.
 
 After the Morning Memo test, say:
-"That's your Morning Memo. It'll arrive every day at 6am, with
-the Evening Debrief at 8pm the night before, our 1:1 on Fridays,
-and invites going to you only. **Want to change the times, the
-days, or who else goes on your invites?**"
+"Your Morning Memo is in your inbox now. It'll arrive every day
+at 6am, with the Evening Debrief at 8pm the night before, our 1:1
+on Fridays, and invites going to you only. **Want to change the
+times, the days, or who else goes on your invites?**"
 Apply any change to ways-of-working.md and the scheduled tasks. If
 they say no, move on.
 

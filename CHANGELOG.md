@@ -17,6 +17,27 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.6.0 — 2026-09-10
+
+**The Morning Memo test sends a real memo.** The setup check's
+Morning Memo test, in Step 6 and on "Test my setup", no longer shows
+a sample in the chat. It runs one real Morning Memo from the user's
+own mail, calendar and to-dos and emails it to their inbox. Every
+to-do is listed; to keep the test quick, only two items are worked,
+the most research-heavy first. If mail cannot send, the test fails
+rather than showing the memo on screen. Scheduled runs still do the
+full work.
+
+**Scripted lines changed:**
+- Step 6, after the Morning Memo test. Old: "That's your Morning
+  Memo. It'll arrive every day at 6am, with..." New: "Your Morning
+  Memo is in your inbox now. It'll arrive every day at 6am, with..."
+- Setup check, new fail line: "I can't send your Morning Memo by
+  email yet."
+
+**Existing customers** see this the next time they run the setup
+check after updating. Nothing needs a manual refresh.
+
 ## v3.5.0 — 2026-09-10
 
 **Connectors are picked before the sweep.** Step 3 now opens by
