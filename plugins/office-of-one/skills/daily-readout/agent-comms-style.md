@@ -1,7 +1,6 @@
 # Agent comms style
 
-Everything the agent writes. Two registers, picked by audience,
-never by effort.
+Everything the agent writes. Two registers, picked by audience.
 
 ## 1. Deliverables FOR the user
 
