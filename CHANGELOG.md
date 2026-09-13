@@ -17,6 +17,24 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.10.0 — 2026-09-13
+
+**Every memo is checked before it goes out.** The agent now runs a
+short list of checks on the finished memo and fixes whatever fails
+before sending: every open to-do present and numbered straight
+through, one line each with only a date in the grey slot, every link
+opening, every number traceable to a source, tags matching what
+actually happened, nothing the user already did, no talk of how the
+memo was made, and a plain-text version that matches. A memo is never
+sent with a check still failing.
+
+Each check comes from a real miss: a memo that showed 8 of 25 to-dos,
+unverified phone numbers, a wrong claim about a flight booking, and a
+weekly count that could not be counted.
+
+No scripted lines change. Existing customers get this after
+updating; nothing needs a manual refresh.
+
 ## v3.9.0 — 2026-09-11
 
 **Agent work offers calendar entries.** When a to-do needs the user
