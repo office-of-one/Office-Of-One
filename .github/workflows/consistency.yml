@@ -1,0 +1,18 @@
+name: Consistency check
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: git fetch -q origin ${{ github.base_ref }}
+      - run: python3 scripts/check-consistency.py origin/${{ github.base_ref }}
