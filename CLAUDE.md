@@ -31,8 +31,10 @@ git log --oneline -15
 3. Work through `DEPENDENCIES.md`
 4. Bump the version in **both** manifests if any plugin file changed
 5. Add a `CHANGELOG.md` entry
-6. Open a pull request; squash merge
-7. Releases are tags: `git tag -a v3.1.0 -m "..." && git push origin v3.1.0`
+6. Run `python3 scripts/check-consistency.py origin/main` and fix
+   anything it reports
+7. Open a pull request; squash merge
+8. Releases are tags: `git tag -a v3.1.0 -m "..." && git push origin v3.1.0`
 
 Never commit straight to `main`. Never force-push `main` — the one
 force push in this repo's history was the initial import, and there
