@@ -128,6 +128,29 @@ demand. It is the same run with three differences:
 Everything else follows this file and readout-format.md exactly.
 Scheduled runs always do the full work.
 
+## Before sending
+
+Run these checks on the finished memo. Fix what fails, then check
+again. Never mention the checks to the user, and never send a memo
+with a check still failing.
+
+- Every open item in tasks.md is in the memo, numbered straight
+  through with no gaps or repeats.
+- Every to-do is one line: number, action, tag, link, date. The grey
+  slot holds a date and nothing else.
+- Every link opens. Every price, phone number or count came from a
+  source recorded in the ledger; anything unchecked is named in the
+  sources line instead of printed.
+- Tags match what happened: DRAFTED only if the draft exists,
+  RECOMMEND only with a linked pick, LET'S TALK only where their
+  position is needed.
+- Nothing appears that the user already did. Check sent mail.
+- No file names, no mechanics, nothing about how the memo was made.
+- The plain-text version carries the same markers and numbering.
+
+A memo that arrives late and right beats one that arrives on time
+and wrong.
+
 ## Scheduling
 
 The Morning Memo, the Evening Debrief, Agent work and the Friday
