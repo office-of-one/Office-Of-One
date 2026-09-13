@@ -54,6 +54,16 @@ meta-narration about what you're doing behind the scenes.
 
 5. **Confirm in one line**, in the agent's voice, signed with the
    agent name for anything delivered as a message or email.
+   The confirmation says what happened to the user's day, never
+   where it was put. The file names in this procedure are for you,
+   not for them: they never appear in a heading, a bullet, or a
+   sentence the user reads.
+
+       Wrong: "Written to tasks.md:"
+       Wrong: "I can only hold it in tasks.md until we hook a
+              calendar up."
+       Right: "On your list:"
+       Right: "I'm holding it until you have a calendar connected."
 
 ## When something arrives incomplete
 
@@ -84,5 +94,8 @@ dropped one is a broken promise.
   clarifying question, or becomes a Needs-your-input line. It never
   becomes an assumption.
 - Every task written starts with a verb.
+- Never name a file, folder, tool or skill in anything the user
+  reads, even as a helpful aside about where something went or why
+  it could not be saved. They have an agent, not a filesystem.
 - Keep confirmations to one or two lines. The user dumped this to
   save time; don't spend it back.

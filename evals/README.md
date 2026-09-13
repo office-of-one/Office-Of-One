@@ -43,6 +43,19 @@ every case fails for reasons unrelated to the plugin.
   nothing reaches the calendar without a yes, that nothing is
   invented, and that the reply never names a file or a tool.
 
+## Reading a score
+
+A case scores per run, and the pass mark is 1.00, so any single bad
+judge call reports the case as failed. Expect roughly 0.9 on a healthy
+`capture`: in an eight-run check of the 3.11.0 fix, five runs scored
+1.00, two lost a point for promising a Morning Memo reminder, and one
+was failed for missing dates it had plainly listed.
+
+Read the failures, not the number. A grader failing every run usually
+means the grader is wrong; a grader failing one run in three usually
+means the skill is. `no-file-names` is the one to watch, since it is a
+plain text match with no judge in it and cannot be wrong.
+
 ## Writing a case
 
 One grader per point. A grader that bundles five requirements into a
