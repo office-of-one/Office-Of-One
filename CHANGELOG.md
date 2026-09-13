@@ -17,6 +17,22 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.11.0 — 2026-09-13
+
+**Capture stops naming files.** A capture sometimes opened with
+"Written to tasks.md:" or explained that something would be held
+"in tasks.md" until a calendar was connected. The user has an agent,
+not a filesystem. The skill now says where things went in plain
+words — "On your list:" — and never names a file, folder, tool or
+skill in anything the user reads, including asides about why
+something could not be saved.
+
+Found by the eval suite, which caught it in roughly one run in
+three. Eight runs after the fix: clean in all eight.
+
+No scripted lines change. Existing customers get this after
+updating; nothing needs a manual refresh.
+
 ## v3.10.0 — 2026-09-13
 
 **Every memo is checked before it goes out.** The agent now runs a
