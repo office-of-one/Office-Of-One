@@ -137,6 +137,7 @@ plugins/office-of-one/
 ├── .claude-plugin/plugin.json      the version Claude reads
 ├── skills/                         eight skills
 └── templates/                      eight brain templates, unfilled
+evals/                              test cases; never inside plugins/
 CLAUDE.md                           this file
 CHANGELOG.md                        customer-facing version history
 DEPENDENCIES.md                     what else to update when you edit
