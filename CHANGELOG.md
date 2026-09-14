@@ -17,6 +17,27 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.22.0 — 2026-09-14
+
+**A shorter, plainer memo spec.** The memo spec went from about 2,750
+words to about 2,150, and it now reads in short, complete sentences
+instead of clipped fragments. Colors and type sizes sit in two small
+tables. History and reasoning the agent doesn't need are gone, and so
+are rules repeated from the memo procedure and the Desk skill. Every
+fixed line, color value, size and worked example is kept.
+
+A few details changed along the way:
+- The line "Nothing in the memo is ever two lines" contradicted the
+  meeting prep rule. It now says no to-do is ever two lines.
+- Worth knowing allows four lines at most, instead of "three or four".
+- The dated to-do examples no longer show an owner, matching the rule
+  that there is no owner field.
+- "Action item" is now "to-do" in the memo spec.
+
+Part of the fifth step of the simplification pass.
+
+No scripted lines change.
+
 ## v3.21.0 — 2026-09-14
 
 **A shorter memo procedure.** The memo skill drops rules it repeated

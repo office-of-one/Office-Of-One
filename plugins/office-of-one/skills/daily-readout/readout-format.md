@@ -203,142 +203,109 @@ block.
 
 ## Rules the rest of the plugin relies on
 
-Carried over from the earlier spec because other skills point to
-them. They cover content, not layout.
+Other skills point to these rules.
 
 ### Every action starts with a verb
 
-Every priority and every action item begins with the verb that does
-it. "Sign Sam's field trip form", not "Field trip form". "Pay
-Mia's soccer fees", not "Soccer fees". "Send Dana the partner
-brief", not "Partner brief to Dana".
+Start every to-do with the verb that does it. Write "Sign Sam's field
+trip form", not "Field trip form", and "Pay Mia's soccer fees", not
+"Soccer fees".
 
-This is not a style preference. A noun is a topic and a verb is an
-instruction: the reader knows in one glance whether this is
-something to do or something to know, and "done" means something
-unambiguous when they reply.
+There is no owner field, in the memo or in tasks.md. The verb means
+the user acts, unless the line names someone else.
 
-There is no owner field, in the memo or in tasks.md. The verb says
-who acts: the user, unless the line names someone else.
-
-Calendar entries and "what moved today" lines are statements, not
-actions, and are written as they are.
+Calendar entries and "what moved today" lines are statements, so
+they don't need a verb.
 
 ### Dates that are not events
 
-A thing with a date is not automatically a calendar entry. Most of
-what arrives from schools, clinics, leagues and admin carries a
-date and needs nobody anywhere at that time: a test on Thursday, a
-form due the 15th, a fee window that opens Monday.
+A date doesn't make something a calendar entry. A calendar entry is
+for something a person attends, at a time, in a place. A test on
+Thursday, a form due the 15th or a fee window that opens Monday needs
+nobody anywhere, so it is a dated to-do instead. Dated to-dos live in
+tasks.md, show in the memo the day before and the day of, and
+disappear when done.
 
-Those are dated ACTION ITEMS. They live in tasks.md with a due
-date, the memo surfaces them the day before and the day of, and
-they disappear when done. They do NOT go on the calendar.
-
-A calendar entry is for something a person physically attends, at
-a time, in a place. If nobody has to be anywhere, it is not a
-calendar entry. The user's calendar is mostly other people's
-commitments already; filling it with things they do not attend
-makes the one surface they check less readable, not more.
-
-One notice often produces both, and they are separate records:
+One notice can produce both:
 
     "Mid-Unit 1 Math Test, Thursday 9/10"
-    -> action item: "Review with Sam for Thursday's math test",
-       you, due Wednesday
-    -> no calendar entry. Nobody attends.
+    -> to-do: "Review with Sam for Thursday's math test", due Wednesday
+    -> no calendar entry, because nobody attends
 
     "Game Saturday 8am at Northgate"
-    -> calendar entry. Someone drives, at a time, to a place.
-    -> action item only if something must happen first:
-       "Wash Mia's white jersey", you, due Friday.
+    -> calendar entry, because someone drives there at a set time
+    -> to-do only if something must happen first:
+       "Wash Mia's white jersey", due Friday
 
-Being unsure which one a notice is, is a reason to propose both
-and let the user drop one. It is never a reason to record neither,
-which is how a date vanishes entirely.
+If you can't tell which a notice is, propose both and let the user
+drop one. Never record neither.
 
-Priorities are not a third kind of record. A dated action item
-becomes a Priority to-do when the ranking below promotes it, and
-stops being one when the date passes.
+A dated to-do becomes a Priority to-do when the ranking below
+promotes it, and stops being one when its date passes.
 
 ### Choosing the Priority to-dos
 
-Three at most. Rank by either of two rules:
-- **Due today or tomorrow.** Deadline pressure.
-- **The big rock.** Matters most and cannot be finished in one
-  sitting, so it needs a piece of today or it never moves.
-
-Rank on what you have rather than waiting for certainty, and let
-the user correct you in the reply. A wrong ranking they fix is more
-useful than no ranking.
+Pick three at most. A to-do qualifies if it is due today or
+tomorrow, or if it matters most and can't be finished in one sitting,
+so it needs some of today to move at all. Rank with what you know,
+and let the user correct you in their reply.
 
 ### Facts, never judgments
 
-The memo reports what it found. It does not grade it.
+Report what you found without grading it. "Built from 9 emails, 2
+call transcripts and 3 chat sessions" is a fact. "The rest was noise"
+is an opinion, so never write it.
 
-"Built from 9 emails, 2 call transcripts and 3 chat sessions" is a
-fact the user can check. "The rest was noise" is the agent's
-opinion of their mail, and it is the kind of line that is quietly
-wrong on the day something mattered.
-
-The same discipline applies to every number in the memo: count only
-what was actually read or recorded. Never estimate, never round up,
-never invent. If a count cannot be made honestly, omit the line.
+Count only what was actually read or recorded. Never estimate or
+round up. If a number can't be counted honestly, leave the line out.
 
 ### Closing the loop
 
-The two are one conversation that runs all day. Neither is written
-from scratch.
+The memo and the debrief continue one conversation through the day.
 
-- Before writing, read tasks.md for what the last one surfaced and
-  what is still open, and read any reply that came in since.
-- Anything still open says so in its grey slot ("open 14 days"),
-  and the full status note lives in tasks.md. Never resurface an
-  item silently as though it were new.
-- Anything the calendar or mail shows as done disappears. Do not
-  announce that it is gone.
-- A question asked twice with no answer is asked differently or
-  dropped. Never repeat a question word for word.
+- Before writing, read tasks.md for what the last one showed and
+  what is still open, and read any reply since.
+- If something is still open, its grey slot says so, like "open 14
+  days". Never show an old item as if it were new.
+- If the calendar or mail shows something is done, drop it without
+  announcing it.
+- If a question got no answer twice, ask it differently or drop it.
+  Never repeat it word for word.
 - The Morning Memo reads last night's reply. The Evening Debrief
-  reads this morning's memo and its reply. "What moved today" means
-  different from what I told you this morning, which is only
-  knowable if the morning was recorded.
-- An unresolved conflict is carried into the Evening Debrief under
-  "what moved today" only if it changed. Otherwise it appears again
-  in tomorrow's Today section, in place, as it stands.
-- After sending, update tasks.md: what was surfaced, what remains
+  reads this morning's memo and its reply, so "what moved today"
+  means what changed since the morning.
+- Carry an unresolved conflict into the Evening Debrief only if it
+  changed. Otherwise it appears again in tomorrow's Today section.
+- After sending, update tasks.md with what was shown, what is still
   open, and the date each item was last shown.
 
 ### Greeting, sign-off and subject lines
 
-The greeting from personality.md opens the body. The sign-off
-closes it, verbatim:
+Open with the greeting from personality.md. Close with this sign-off,
+word for word:
 
     Anything else I should know? Just hit reply.
     — [agent name]
 
-The product footer is the single line "Office of One". If the user
-asked to remove it, it stays removed forever.
+The last line is "Office of One". If the user asked to remove it,
+never add it back.
 
-An Evening Debrief with genuinely nothing in it is one line,
-"Nothing needs you tonight. See you in the morning.", then the
-sign-off.
+If an Evening Debrief has nothing in it, it is just "Nothing needs
+you tonight. See you in the morning." followed by the sign-off.
 
-Subject lines:
-- Morning Memo: "{AGENT_NAME}: Morning Memo, {weekday}"
-- Evening Debrief: "{AGENT_NAME}: Evening Debrief"
+The subject lines are "{AGENT_NAME}: Morning Memo, {weekday}" and
+"{AGENT_NAME}: Evening Debrief".
 
 ### Extra sections the user asked for
 
-Only those defined in personality.md or recorded under Memo format
-in ways-of-working.md, one line each, after the to-dos and before
-the footer.
+Add only sections defined in personality.md or recorded under Memo
+format in ways-of-working.md. Each gets one line, after the to-dos
+and before the footer.
 
-### Plain-language rules
+### Plain language
 
-- Names, not descriptions ("Sam", not "your son").
-- Times in the user's local timezone. No ISO dates.
-- Personal details, health included, appear in the memo like any
-  other fact.
-- Never invent urgency. If nothing needs the user, the memo is
-  proud to be three lines long.
+- Use names, not descriptions, so "Sam" rather than "your son".
+- Give times in the user's local timezone, and never use ISO dates.
+- Include personal details, health included, like any other fact.
+- Never invent urgency. If nothing needs the user, a three-line memo
+  is fine.
