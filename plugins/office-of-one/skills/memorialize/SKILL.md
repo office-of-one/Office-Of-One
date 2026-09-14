@@ -47,6 +47,9 @@ ones.
    ways-of-working.md, and for a sensitive subject only when the
    user named it themselves. Dated actions still go in tasks.md,
    and people in people.md.
+   Never start a workflow file on your own. Workflows are built
+   only in a 1:1, after the user agrees. An update about a workflow
+   goes in that workflow's file.
 2. Add or update the day's line in log.md (see below).
 3. Keep everything plain: simple markdown, short lines, no
    decorative formatting.

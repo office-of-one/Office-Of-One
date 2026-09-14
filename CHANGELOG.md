@@ -17,6 +17,27 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.18.0 — 2026-09-14
+
+**Workflows.** Some users want a heavier job done regularly, such as
+tracking clients and drafting follow-ups. That work doesn't fit the
+task list: a large tracker would flood every memo. It now gets its
+own workflow file, with a tracker, the steps the agent follows, and a
+Last run line.
+
+- The 1:1 proposes a workflow when the week shows a job like this,
+  and builds it only after the user agrees. It runs on request or on
+  a schedule the user chooses.
+- Workflow items stay in their own file. They never go in the task
+  list, and the Desk never works them.
+- The memo leaves workflow items out of the to-do list. Each workflow
+  that ran since the last memo gets one Getting ahead line instead.
+- Workflows are listed in the setup file, next to topic files.
+
+Third step of the simplification pass.
+
+No scripted lines change.
+
 ## v3.17.0 — 2026-09-14
 
 **The Desk has its own skill.** The Desk's rules were split between

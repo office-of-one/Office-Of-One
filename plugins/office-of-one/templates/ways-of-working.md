@@ -78,6 +78,11 @@ scheduled run will not know about them.
 per line, with a few words on what it covers, e.g. fitness.md:
 training, goals, races.]
 
+## Workflows
+
+[None yet. Every workflow the user has agreed to is listed here, one
+per line, with what it tracks and when it runs.]
+
 ## Memo format
 
 The spec lives in the daily-readout skill (readout-format.md and

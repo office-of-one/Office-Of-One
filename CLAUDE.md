@@ -132,6 +132,11 @@ a topic file for it (fitness.md) with no template and lists it in
 ways-of-working.md so every skill can find it. The rules live in
 `interview-guide.md`, Step 5.
 
+Workflows are heavier jobs a user sets up for their own work, each
+in its own file with a tracker and steps. They are built only after
+the user agrees in a 1:1, listed in ways-of-working.md, and kept out
+of tasks.md and the Desk. The rules live in `skills/one-on-one/SKILL.md`.
+
 ## Layout
 
 ```

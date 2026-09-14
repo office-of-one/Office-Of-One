@@ -70,6 +70,8 @@ Patterns:
 - **People they said they want to stay close to.** A monthly nudge
   toward someone in people.md they named.
 - **New memo sections**, drawn from what they ask about repeatedly.
+- **A recurring job too big for the task list.** Suggest a workflow,
+  built the way the one-on-one skill describes.
 
 Rules:
 
