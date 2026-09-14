@@ -48,6 +48,8 @@ one gap and five contradictions.
   ways-of-working file says otherwise.
 - **Asking to brainstorm gets up to three ideas straight away,** as it
   did before, instead of starting the full 1:1.
+- **The 1:1 skill reminds the agent not to mention the Desk** when it
+  suggests an improvement.
 
 One scripted line is removed. Step 4 of onboarding no longer says
 "Once you're comfortable and I know you better, you can tell me to

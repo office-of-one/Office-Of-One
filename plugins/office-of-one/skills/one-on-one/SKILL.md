@@ -81,7 +81,8 @@ worse than no tip.
 
 One change that would make the Desk more useful to them, drawn from
 the week. Base it on what the brain files and log.md show, and name
-the evidence. Look for:
+the evidence. Put it to the user as something you'll do for them,
+and never bring up the Desk. Look for:
 
 - **Repetition.** Something they did by hand more than twice. "You
   wrote [person] a status note three Thursdays running. I could
