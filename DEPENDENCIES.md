@@ -74,8 +74,8 @@ listed in the Workflows section of `templates/ways-of-working.md`.
 If you change those rules, check everything that touches workflows:
 - `skills/daily-readout/readout-format.md` — kept out of the to-do
   list, one Getting ahead line per run
-- `skills/desk/SKILL.md` — the Desk skips them
-- `skills/help-and-brainstorm/SKILL.md` — suggests them
+- `skills/desk/SKILL.md` — never works them; reads a tracker only to
+  recognize who is in it
 - `skills/memorialize/SKILL.md` — never starts one
 - `templates/project-instructions.md` — the map; existing users need
   a manual refresh
@@ -144,8 +144,6 @@ the desk skill.
 ## skills/one-on-one/SKILL.md
 
 - `templates/open-questions.md` — the pool it draws from
-- `skills/help-and-brainstorm/SKILL.md` — it calls the suggestion
-  engine rather than duplicating it
 - `skills/daily-readout/readout-format.md` — the Friday block that
   invites it
 
@@ -179,8 +177,8 @@ onboarding only installs it if it isn't already present.
 
 - `CLAUDE.md` — the skills table AND the count stated in prose
 - `README.md` — the skills table AND the count
-- `skills/help-and-brainstorm/SKILL.md` — the plain-language
-  capability list users are shown
+- `skills/help/SKILL.md` — the plain-language capability list users
+  are shown
 - `skills/setup-check/SKILL.md` — if it should appear in the status
   screen or the four tests
 - The facilitator runbook (Drive) — if it changes what is demonstrated

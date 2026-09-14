@@ -36,12 +36,12 @@ Then start a session in your project and say **"Interview me."**
 | `onboarding-interview` | "Interview me" | The seven-step setup, thirty minutes including the tests. Writes your brain files as it goes. |
 | `daily-readout` | On schedule, or "run my morning memo" | The Morning Memo and the Evening Debrief, and the reply loop that closes between them. |
 | `desk` | On schedule, an hour before each memo | The Desk: where the agent's work gets done. Reads mail and the calendar, keeps the task list current, looks things up, drafts, and offers calendar entries. Never shown to the user. |
-| `one-on-one` | "let's have a 1:1", or the Friday Morning Memo | The weekly sitdown. Questions, one capability, one suggestion. This is where depth comes from. |
+| `one-on-one` | "let's have a 1:1", the Friday Morning Memo, or "brainstorm with me" | The weekly sitdown. Clarifies what the agent doesn't know, helps, and finds one way to improve the Desk. |
 | `capture` | Any screenshot, photo, flyer, or dumped text | Extracts dates and facts, reconciles them, proposes calendar changes. |
 | `memorialize` | Continuously, and "save this" | Writes durable material the moment it appears, plus the two-tier log and archive. |
 | `agent-admin` | "change your personality", "what do you know about me" | Every adjustment: personality, memo contents, suppressing an item, rules, forgetting. |
 | `setup-check` | "Test my setup", "Status check" | Fixed-format screens, and the four setup tests. |
-| `help-and-brainstorm` | "help", "what can you do" | The help desk, plus the suggestion engine the 1:1 draws on. |
+| `help` | "help", "what can you do" | Answers how-do-I questions in plain words, and points to support when the agent can't fix something. |
 
 ## The eight templates
 
