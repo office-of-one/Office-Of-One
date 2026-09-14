@@ -36,9 +36,9 @@ stop the 7pm Desk run too.
    Mail from someone in a workflow's tracker stays out of tasks.md,
    unless it asks the user for something only they can decide, such
    as a meeting or a yes. Then add one to-do with a thread pointer.
-   Otherwise that workflow picks it up on its next run. If that workflow only
-   runs on request, add one to-do instead: "Run [workflow name] for
-   [sender]."
+   Otherwise that workflow picks it up on its next run. If that
+   workflow only runs on request, add one to-do instead: "Run
+   [workflow name] for [sender]."
 4. **Work the list.** Go item by item and take each one as far as
    it can go on its own. This is the step that makes the memo
    worth sending. See below.
@@ -74,8 +74,9 @@ to-do list, unless something must happen before it.
 the ledger has a state recorded: RECOMMEND, DRAFTED, LET'S TALK,
 calendar entry offered, or bare with its reason. A bare item needs
 a reason: only the user can do it, it is a payment only the user
-can make, or its source could not be opened. If it needs their position first, it is LET'S
-TALK, not bare. Record the state and the reason on the item in tasks.md.
+can make, or its source could not be opened. If it needs their
+position first, it is LET'S TALK, not bare. Record the state and the
+reason on the item in tasks.md.
 
 Rules that keep this honest:
 

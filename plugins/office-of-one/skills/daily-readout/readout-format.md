@@ -129,8 +129,8 @@ date", "due Sat 9/12", "waiting since 9/9" and "open 14 days".
 **The whole memo uses one numbering sequence.** Priorities are
 numbered 1 to 3, and Remaining to-dos continue from 4 through every
 category. Numbers match the last memo sent. The Morning Memo assigns
-new numbers when it is written. The ledger uses the same numbers, so a reply
-by number can be matched to it.
+new numbers when it is written. The ledger uses the same numbers, so
+a reply by number can be matched to it.
 
 Don't add an owner to any line, a second grey line under anything,
 or a tinted panel behind the priorities.
