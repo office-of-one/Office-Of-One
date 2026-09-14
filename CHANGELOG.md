@@ -46,6 +46,8 @@ one gap and five contradictions.
   skill states the rule again, since it was left behind when the Desk
   moved into its own skill, and it holds even if an older
   ways-of-working file says otherwise.
+- **Asking to brainstorm gets up to three ideas straight away,** as it
+  did before, instead of starting the full 1:1.
 
 One scripted line is removed. Step 4 of onboarding no longer says
 "Once you're comfortable and I know you better, you can tell me to

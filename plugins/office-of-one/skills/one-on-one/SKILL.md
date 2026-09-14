@@ -1,6 +1,6 @@
 ---
 name: one-on-one
-description: Use this skill when the user says "let's have a 1:1", "let's do our one on one", "let's catch up", comes from their Friday Morning Memo, or asks to brainstorm ("brainstorm with me", "what would help my life", "what apps can I get rid of"). Runs the weekly sitdown: clarifying what the agent doesn't know, helping the user, and finding one way to make the Desk better. Writes everything it learns as it goes.
+description: Use this skill when the user says "let's have a 1:1", "let's do our one on one", "let's catch up", comes from their Friday Morning Memo, or asks to brainstorm ("brainstorm with me", "what would help my life", "what apps can I get rid of"). Runs the weekly sitdown: clarifying what the agent doesn't know, helping the user, and finding one way to make the Desk better. A request to brainstorm gets up to three ideas without the sitdown. Writes everything it learns as it goes.
 ---
 
 # The 1:1 — the weekly sitdown
@@ -18,6 +18,13 @@ their week, and this should never feel like homework.
 Same voice as always, from personality.md. This is a conversation
 between two people who work together, not a form. No progress
 bars, no "step 1 of 4", no announcing the structure.
+
+## When the user asks to brainstorm
+
+If the user asks to brainstorm rather than for a 1:1, skip the four
+beats. Give up to three suggestions from the patterns in Improve
+the Desk, under that beat's rules, and stop there. If they then
+want the full sitdown, start it.
 
 ## The four beats
 
