@@ -31,7 +31,8 @@ meta-narration about what you're doing behind the scenes.
    Thursday, a form due the 15th, a fee window opening Monday. The
    Morning Memo lists every dated to-do, so nothing is lost by
    keeping them off the calendar, and the calendar stays readable
-   for what the user has to show up to. readout-format.md has the full rule and worked examples.
+   for what the user has to show up to. readout-format.md has the
+   full rule and worked examples.
    If you cannot tell which a notice is, propose both and let the
    user drop one. Never record neither; that is how a date
    vanishes entirely.
