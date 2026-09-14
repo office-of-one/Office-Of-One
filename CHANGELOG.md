@@ -17,6 +17,24 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.17.0 — 2026-09-14
+
+**The Desk has its own skill.** The Desk's rules were split between
+the memo skill and the comms style file. They now live together in a
+new `desk` skill: the run's steps, working the list, the finish check,
+the tag definitions, and when to research, draft or offer a calendar
+entry. The memo skill now only builds and sends the memos, and the
+comms style file only covers how writing looks. Nothing the Desk does
+changes, and it stays hidden from the user.
+
+Second step of the simplification pass.
+
+No scripted lines change.
+
+**Existing customers** get this after updating. A scheduled Desk task
+that still points at the memo skill keeps working: the memo skill
+sends it to the desk skill.
+
 ## v3.16.0 — 2026-09-14
 
 **A map of how the agent works.** The project instructions now open

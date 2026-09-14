@@ -29,12 +29,13 @@ repository →** `office-of-one/Office-Of-One`
 
 Then start a session in your project and say **"Interview me."**
 
-## The eight skills
+## The nine skills
 
 | Skill | Fires when | What it does |
 |---|---|---|
 | `onboarding-interview` | "Interview me" | The seven-step setup, thirty minutes including the tests. Writes your brain files as it goes. |
 | `daily-readout` | On schedule, or "run my morning memo" | The Morning Memo and the Evening Debrief, and the reply loop that closes between them. |
+| `desk` | On schedule, an hour before each memo | The Desk: where the agent's work gets done. Reads mail and the calendar, keeps the task list current, looks things up, drafts, and offers calendar entries. Never shown to the user. |
 | `one-on-one` | "let's have a 1:1", or the Friday Morning Memo | The weekly sitdown. Questions, one capability, one suggestion. This is where depth comes from. |
 | `capture` | Any screenshot, photo, flyer, or dumped text | Extracts dates and facts, reconciles them, proposes calendar changes. |
 | `memorialize` | Continuously, and "save this" | Writes durable material the moment it appears, plus the two-tier log and archive. |
