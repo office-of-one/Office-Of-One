@@ -49,7 +49,7 @@ if notinst: bad("Every template is installed", "onboarding never mentions " + ",
 else: ok("Every template is installed")
 
 # 5. "Only ... are auto-scheduled" sentences name all four tasks
-four = ["Morning Memo", "Evening Debrief", "Agent work", "Friday 1:1"]
+four = ["Morning Memo", "Evening Debrief", "Desk", "Friday 1:1"]
 short = []
 for f in plugin_md + [Path("CLAUDE.md")]:
     for s in re.split(r"(?<=[.;])\s", flat(f.read_text())):

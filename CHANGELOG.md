@@ -17,6 +17,33 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.15.0 — 2026-09-14
+
+**Agent work is now The Desk.** The scheduled run that works the
+user's list an hour before each memo is renamed The Desk: where work
+is delegated and executed. It stays behind the scenes. The agent never
+brings it up, and if the user asks what The Desk is in their scheduled
+tasks, it says "The Desk is where your work is delegated and
+executed."
+
+Existing users already have a scheduled task named Agent work. When
+they say "set up my schedules", the agent replaces it with The Desk
+at the same times instead of creating a second task, so the work
+never runs twice.
+
+Also fixes the onboarding instruction that told the agent to run the
+memo skill "in agent-work mode", which never existed.
+
+**Scripted lines changed:**
+- Answer when asked what it is. Old: "That's when I get your memo
+  ready." New: "The Desk is where your work is delegated and
+  executed."
+
+**Existing customers** get the rename after updating, then say "set
+up my schedules" to replace the old Agent work task. The project
+instructions don't refresh on update: replace them with the current
+`templates/project-instructions.md` for the renamed rule.
+
 ## v3.14.0 — 2026-09-14
 
 **Nothing is left out for being personal.** An agent declined to keep

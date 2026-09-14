@@ -96,7 +96,7 @@ say what separates them. Always link.
   insurance, what the number is, what to say when they answer.
 - The reasoning goes in the ledger, not the memo.
 
-Do this during each Agent work run, before the memo goes out,
+Do this during each Desk run, before the memo goes out,
 not by asking which one they want.
 
 ## The four states, and the tags

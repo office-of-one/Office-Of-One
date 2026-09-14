@@ -135,7 +135,7 @@ personal / both]. I'll shape your Morning Memo around that."
 Record it in ways-of-working.md. It re-ranks the question pool.
 
 Also note the user's timezone from the calendar. The Morning Memo,
-the Evening Debrief, Agent work and the Friday 1:1 are scheduled
+the Evening Debrief, the Desk and the Friday 1:1 are scheduled
 against it.
 
 ## Step 4 — Schedule my tasks
@@ -210,7 +210,7 @@ Record every answer in ways-of-working.md as it is given.
 - Calendar invites go to the user only. No attendee is added
   automatically until the user names one.
 - The Morning Memo is every day at 6am local. The Evening
-  Debrief is every day at 8pm local. Agent work runs at 5am and
+  Debrief is every day at 8pm local. The Desk runs at 5am and
   7pm local, one hour before each memo. The Friday 1:1 is weekly
   on Friday. All of these are stated as defaults and none of the
   times are asked during onboarding.
@@ -221,7 +221,7 @@ Record every answer in ways-of-working.md as it is given.
   time from behavior and corrections.
 - The calendar, priorities and action items are always in the
   Morning Memo and never asked about.
-- The Morning Memo, the Evening Debrief, Agent work and the Friday
+- The Morning Memo, the Evening Debrief, the Desk and the Friday
   1:1 are all set up automatically at their default times. The user
   can change them any time by asking; agent-admin handles it.
 - Both arrive by email and are available in the app. There is no

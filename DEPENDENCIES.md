@@ -92,9 +92,9 @@ wins, and that is stated in both.
 - `skills/one-on-one/SKILL.md` — the Friday memo invites it
 - `skills/setup-check/SKILL.md` — its Morning Memo test calls the
   test run, which sends a real memo by email
-- Agent work runs one hour before each memo. Changing a memo time
+- The Desk runs one hour before each memo. Changing a memo time
   anywhere (onboarding, setup-check, agent-admin, the setup
-  template) means moving its Agent work run with it
+  template) means moving its Desk run with it
 
 ## skills/daily-readout/agent-comms-style.md
 

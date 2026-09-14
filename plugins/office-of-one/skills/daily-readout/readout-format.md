@@ -163,7 +163,7 @@ comments reads as noise.
 **One numbering sequence for the whole memo.** Priorities are 1,
 2, 3; Remaining continues at 4 straight through its categories.
 Match a reply by number first, then name, then time. Numbers hold
-for the day and are reassigned at the next morning Agent work run. The
+for the day and are reassigned at the next morning Desk run. The
 ledger carries the same numbers so a reply resolves against it.
 
 No owner field. No second grey line under anything. No tinted
@@ -194,7 +194,7 @@ tappable except a RECOMMEND link. The user hands work over by
 replying in their own words, by number ("do 6 and 7"). Matching is
 the agent's job.
 
-Pickup happens at the next Agent work run, an hour before each
+Pickup happens at the next Desk run, an hour before each
 memo. A faster recurring sweep is not available; the scheduler's
 floor is one hour. For anything the
 user wants now, they open the agent in Claude.
