@@ -1,6 +1,6 @@
 ---
 name: onboarding-interview
-description: Use this skill whenever the user says "Interview me" or asks to set up their agent, start onboarding, learn about them, or begin setup. Runs the Office of One "Building Your Agent" onboarding in seven steps: name me, catch me up on your AI convos, confirm what's connected, schedule my tasks, help me fill in the gaps, test me, and agent setup complete. Writes the user's brain files as it goes, schedules the Morning Memo, Evening Debrief, Agent work and Friday 1:1, and runs the setup tests before finishing.
+description: Use this skill whenever the user says "Interview me" or asks to set up their agent, start onboarding, learn about them, or begin setup. Runs the Office of One "Building Your Agent" onboarding in seven steps: name me, catch me up on your AI convos, confirm what's connected, schedule my tasks, help me fill in the gaps, test me, and agent setup complete. Writes the user's brain files as it goes, schedules the Morning Memo, Evening Debrief, the Desk and Friday 1:1, and runs the setup tests before finishing.
 ---
 
 # Office of One — Building Your Agent (onboarding)
@@ -196,7 +196,7 @@ Never describe percentages or mechanics.
    calendar invites start as draft-for-confirmation, invites go to
    the user only, the Morning Memo is daily at 6am local, the
    Evening Debrief daily at 8pm local, and the 1:1 weekly on
-   Friday. Agent work runs one hour before each memo. Never
+   Friday. The Desk runs one hour before each memo. Never
    ask the user to change the times, the days or the invites; they
    can change any of these later by asking.
    Then create the four scheduled tasks. THIS IS WHAT MAKES THE
@@ -207,10 +207,10 @@ Never describe percentages or mechanics.
      daily-readout skill in morning mode.
    - **Evening Debrief** — every day at 8pm local, runs the
      daily-readout skill in evening mode.
-   - **Agent work** — every day at 5am and 7pm local, one hour
-     before each memo, runs the daily-readout skill in agent-work
-     mode. If the scheduler cannot run one task at two times,
-     create it as two tasks, both named Agent work.
+   - **The Desk** — every day at 5am and 7pm local, one hour
+     before each memo, runs the daily-readout skill for the
+     Desk. If the scheduler cannot run one task at two times,
+     create it as two tasks, both named The Desk.
    - **Friday 1:1** — weekly on Friday, runs the one-on-one skill.
    Then say the exact schedule confirmation line from
    interview-guide.md. Verify all four exist before moving on. If
@@ -323,7 +323,8 @@ Never describe percentages or mechanics.
 ## Rebuilding schedules later
 
 If the user says "set up my schedules", or any close variant, check
-which of the four scheduled tasks exist, create only the missing
+which of the four scheduled tasks exist (a task named Agent work is
+the old name for The Desk: replace it, never run both), create only the missing
 ones at the recorded times from ways-of-working.md (or the defaults
 if none are recorded), and report what is now live in one line.
 This is the recovery path for anyone whose interview was
@@ -340,7 +341,7 @@ a theme at any time by asking; agent-admin handles those requests.
 ## Completion criteria
 
 Complete ONLY when: brain files written (8), the Morning Memo,
-Evening Debrief, Agent work and Friday 1:1 scheduled and
+Evening Debrief, the Desk and Friday 1:1 scheduled and
 confirmed (7), the
 setup tests run and their results reported, or declined by the
 user (9), and the closing
@@ -378,7 +379,7 @@ beginning.
 - Step 3 confirms connectors and lets the user switch any off. It
   never sets new ones up.
 - Auto-schedule exactly four things: the Morning Memo, the
-  Evening Debrief, Agent work and the Friday 1:1. Everything else
+  Evening Debrief, the Desk and the Friday 1:1. Everything else
   recurring is always confirmed.
 - Never imitate the user's writing style. templates/personality.md
   governs voice.

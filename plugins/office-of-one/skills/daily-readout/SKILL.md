@@ -1,6 +1,6 @@
 ---
 name: daily-readout
-description: Build and send the Morning Memo and the Evening Debrief, and run Agent work, the sweep that prepares them an hour earlier. Use for the scheduled runs, and whenever the user asks to see either memo now, including "run my morning memo", "run my evening debrief", "run my memo", "run agent work", or the older phrasings "run my daily brief", "run my readout", "run my evening brief". Also use it when the user replies to a memo or debrief.
+description: Build and send the Morning Memo and the Evening Debrief, and run the Desk, the sweep that prepares them an hour earlier. Use for the scheduled runs, and whenever the user asks to see either memo now, including "run my morning memo", "run my evening debrief", "run my memo", "run the Desk", or the older phrasings "run my daily brief", "run my readout", "run my evening brief". Also use it when the user replies to a memo or debrief.
 ---
 
 # Daily readout
@@ -20,16 +20,16 @@ disagree.
 The work and the memo are separate runs, an hour apart, so each
 memo goes out with the work already done.
 
-- **Agent work** runs every day at 5am and 7pm local. It does
-  steps 1 to 5.
+- **The Desk** is where work is delegated and executed. It runs
+  every day at 5am and 7pm local and does steps 1 to 5.
 - **The Morning Memo** runs at 6am and **the Evening Debrief** at
   8pm local. Each does steps 6 to 9.
 
-Agent work always runs one hour before each memo. If the user
-moves a memo, move its Agent work run with it. If the user turns
-the Evening Debrief off, stop the 7pm Agent work run too.
+The Desk always runs one hour before each memo. If the user
+moves a memo, move its Desk run with it. If the user turns
+the Evening Debrief off, stop the 7pm Desk run too.
 
-## Agent work
+## The Desk
 
 1. **Read the standing context.** tasks.md, log.md,
    ways-of-working.md, people.md, personality.md, and every topic
@@ -74,7 +74,7 @@ Thu 2pm." Never add it without a yes. The entry goes to the user
 only unless they say otherwise. Once it exists, the item leaves the
 to-do list, unless something must happen before it.
 
-**The gate.** Agent work is not finished until every open item in
+**The gate.** The Desk is not finished until every open item in
 the ledger has a state recorded: RECOMMEND, DRAFTED, LET'S TALK,
 calendar entry offered, or bare with its reason. A bare item needs a reason: it needs
 their position, it spends money, or its source could not be
@@ -94,13 +94,13 @@ Rules that keep this honest:
 
 ## The memo run
 
-6. **Catch up.** Sweep mail received and sent since Agent work
+6. **Catch up.** Sweep mail received and sent since the Desk
    ran. Add anything new to tasks.md as a bare item marked
-   "arrived after Agent work", with its thread pointer. No
-   research or drafting here; the next Agent work run takes it
+   "arrived after the Desk", with its thread pointer. No
+   research or drafting here; the next Desk run takes it
    further.
-7. **Check Agent work ran.** If any other open item has no state
-   recorded, Agent work did not run or did not finish. Do its
+7. **Check the Desk ran.** If any other open item has no state
+   recorded, the Desk did not run or did not finish. Do its
    steps now, then write the memo. A late memo beats a thin one.
 8. **Write the memo**, in the order `readout-format.md` sets.
 9. **Send** the HTML and the plain-text alternative. If no mail
@@ -114,7 +114,7 @@ Rules that keep this honest:
 The setup check's Morning Memo test runs one real Morning Memo on
 demand. It is the same run with three differences:
 
-- **Two items worked.** Do Agent work steps 1 to 3, then take
+- **Two items worked.** Do the Desk's steps 1 to 3, then take
   exactly two items as far as they can go. Pick the most
   research-heavy first: a lookup or comparison that ends in a
   RECOMMEND pick or a researched DRAFTED write-up. If there is no
@@ -153,7 +153,7 @@ and wrong.
 
 ## Scheduling
 
-The Morning Memo, the Evening Debrief, Agent work and the Friday
+The Morning Memo, the Evening Debrief, the Desk and the Friday
 1:1 are the only auto-created recurring tasks. Their times and
 days come from ways-of-working.md. Everything else recurring is
 proposed and confirmed.
@@ -180,6 +180,7 @@ reversible, ask on what is not, then update the ledger.
 - Never narrate how the memo was made: no "test run", no
   scheduling mechanics, nothing about updating the record. Getting
   ahead lines report work done for the user, which is different.
-- Never mention Agent work to the user, in the memo or in chat, and
+- Never bring up the Desk with the user, in the memo or in chat, and
   never explain why a memo is late or thin. If the user asks what
-  Agent work is, say: "That's when I get your memo ready."
+  the Desk is, say: "The Desk is where your work is delegated and
+  executed."

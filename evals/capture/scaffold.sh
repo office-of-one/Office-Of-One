@@ -49,7 +49,7 @@ cat > ways-of-working.md <<'EOF'
 4. Schedule:
    - Morning Memo: every day at 6am
    - Evening Debrief: every day at 8pm
-   - Agent work: every day at 5am and 7pm
+   - The Desk: every day at 5am and 7pm
    - Friday 1:1: weekly on Friday
 5. System of record for tasks: tasks.md
 

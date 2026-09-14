@@ -10,7 +10,7 @@ Set during onboarding. Changeable any time by asking.
 4. Schedule:
    - Morning Memo: [every day at 6am]
    - Evening Debrief: [every day at 8pm the night before]
-   - Agent work: [every day at 5am and 7pm, one hour before each memo]
+   - The Desk: [every day at 5am and 7pm, one hour before each memo]
    - Friday 1:1: [weekly on Friday]
 5. System of record for tasks: tasks.md. Note here what it was
    before, so the migration is visible.
@@ -35,9 +35,9 @@ the date, and no run ever reads from it.]
 ## Not asked, never optional
 
 - Delivery is always email plus the app.
-- The Morning Memo, the Evening Debrief, Agent work and the Friday
+- The Morning Memo, the Evening Debrief, the Desk and the Friday
   1:1 are created automatically. Only their times and days are
-  chosen. Agent work always runs one hour before each memo.
+  chosen. The Desk always runs one hour before each memo.
 - Nothing else recurring is ever auto-created. Everything else is
   proposed and confirmed.
 
@@ -52,7 +52,7 @@ mail thread.
    touched) so the next run does not re-derive context from
    scratch. This is the system of record.
 2. **log.md — what happened.** One line a day: what closed, what
-   changed, what they decided. Written by each Agent work run as
+   changed, what they decided. Written by each Desk run as
    its own safety net if a session was interrupted.
 3. **archive.md — the long memory.** Previous months condensed.
    Read when today connects to something older.

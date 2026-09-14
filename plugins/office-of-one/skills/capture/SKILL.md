@@ -86,7 +86,7 @@ dropped one is a broken promise.
 ## Rules
 
 - Never auto-add one-off or recurring calendar items without
-  confirmation. Only the Morning Memo, the Evening Debrief, Agent work
+  confirmation. Only the Morning Memo, the Evening Debrief, the Desk
   and the Friday 1:1 are ever auto-scheduled, and they are not
   created here.
 - Never send anything externally without explicit confirmation.
