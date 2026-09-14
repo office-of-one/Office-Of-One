@@ -290,8 +290,9 @@ word for word:
 The last line is "Office of One". If the user asked to remove it,
 never add it back.
 
-If an Evening Debrief has nothing in it, it is just "Nothing needs
-you tonight. See you in the morning." followed by the sign-off.
+If an Evening Debrief has nothing in it, it is just this line,
+followed by the sign-off:
+"Nothing needs you tonight. See you in the morning."
 
 The subject lines are "{AGENT_NAME}: Morning Memo, {weekday}" and
 "{AGENT_NAME}: Evening Debrief".
