@@ -65,8 +65,8 @@ A conflict keeps each event on its own line at its own time, both
 lines tinted warm, the word CONFLICT at the END of the first line.
 Never "clash". Never a header row above the pair.
 
-Meeting prep goes INLINE under its event here, not in Getting
-ahead.
+Meeting prep is the one exception to one line per event: a single
+short line under its event, not in Getting ahead.
 
 ## 2. Worth knowing
 
@@ -109,8 +109,8 @@ An offer to put something on their calendar is the second kind:
 "Say yes and I'll put Mia's pickup at LAX on your calendar for Thu
 2pm." Nothing goes on the calendar until they say yes.
 
-A workflow that ran since the last memo gets one line, taken from
-its Last run line: "Drafted four client follow-ups. They're in your
+A workflow that ran since the last Morning Memo gets one line in
+the next Morning Memo, taken from its Last run line: "Drafted four client follow-ups. They're in your
 drafts." These lines count toward the four-line maximum.
 
 Purple square marker, never numbered, never a to-do the user owes.
@@ -145,8 +145,9 @@ down the memo.
   under small category labels drawn from the user's life, not from
   a fixed list.
 
-**Remaining to-dos lists every open item in the ledger, every
-time.** Never trim it to save space. A long list is grouped by
+**Priority to-dos and Remaining to-dos together list every open
+item in the ledger, every time, each item once.** Never trim it to
+save space. A long list is grouped by
 category, never cut. Anything missing from the memo stops being
 visible. Items tracked in a workflow file are not part of this list.
 

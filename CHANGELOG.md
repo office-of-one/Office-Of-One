@@ -17,6 +17,29 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.19.0 — 2026-09-14
+
+**Fixes from a workflow test.** A test with a made-up user whose
+workflow tracked 40 clients confirmed the Desk leaves workflow files
+alone and the memo stays readable. It also found six gaps:
+
+- **Mail from someone in a workflow** had no rule. The Desk may now
+  read a workflow's tracker to recognize who is in it, and leaves
+  their mail for that workflow. If the workflow only runs on request,
+  the Desk adds one to-do to run it.
+- **Daytime workflow runs never reached a memo,** because the Evening
+  Debrief has no Getting ahead section. A workflow run now shows in
+  the next Morning Memo.
+- **The complete to-do list** now says Priority and Remaining to-dos
+  together list every open item, each once.
+- **Leaving a to-do bare** now allows "only the user can do it". A
+  to-do that needs the user's position first is LET'S TALK, not bare.
+- **Meeting prep** is the one exception to one line per calendar
+  event.
+- **The log template** no longer calls the memo a brief.
+
+No scripted lines change.
+
 ## v3.18.0 — 2026-09-14
 
 **Workflows.** Some users want a heavier job done regularly, such as
