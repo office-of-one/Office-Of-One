@@ -4,9 +4,6 @@ The Morning Memo and the Evening Debrief. This file is the spec.
 Anything the user has written into their own ways-of-working.md
 overrides it. If this file and SKILL.md disagree, this file wins.
 
-Revised Sep 2026 after six sends reviewed in the Gmail app on a
-phone and two live runs.
-
 ## Section order
 
 1. Today
@@ -17,8 +14,7 @@ phone and two live runs.
 6. Remaining to-dos
 7. Sources, Friday block, sign-off
 
-Getting ahead sits ABOVE the to-dos. What the agent already did
-changes how the user reads the list underneath it.
+Getting ahead sits ABOVE the to-dos.
 
 Section names are exactly "Priority to-dos" and "Remaining
 to-dos". If one is renamed, rename both.
@@ -32,9 +28,9 @@ to-dos". If one is renamed, rename both.
 - **Amber #a2521f**, tint #f6e7d9 — what is BROKEN: conflicts,
   and nothing else.
 
-A replacement for purple must differ from pine in BOTH hue and
-lightness. A slate blue was tried and failed on exactly this. Not
-gold, which muddies the conflict amber.
+A replacement for purple must differ from pine in both hue and
+lightness, and must not be gold, which is too close to the conflict
+amber.
 
 ## Type scale
 
@@ -110,8 +106,9 @@ An offer to put something on their calendar is the second kind:
 2pm." Nothing goes on the calendar until they say yes.
 
 A workflow that ran since the last Morning Memo gets one line in
-the next Morning Memo, taken from its Last run line: "Drafted four client follow-ups. They're in your
-drafts." These lines count toward the four-line maximum.
+the next Morning Memo, taken from its Last run line: "Drafted four
+client follow-ups. They're in your drafts." These lines count
+toward the four-line maximum.
 
 Purple square marker, never numbered, never a to-do the user owes.
 
@@ -119,9 +116,8 @@ Rules:
 
 - FOUR LINES MAXIMUM. Anything else drafted or researched still
   shows its tag in the to-do list.
-- Nothing invented. Nothing handled and nothing to offer means the
-  section does not appear. A fabricated line destroys the trust
-  the section exists to build.
+- Nothing invented. If nothing was handled and nothing can be
+  offered, leave the section out.
 - Never repeat a to-do, never restate a Worth knowing line.
 - Never offer to do something the user already did. Check sent
   mail first.
