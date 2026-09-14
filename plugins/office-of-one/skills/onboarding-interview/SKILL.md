@@ -190,25 +190,19 @@ Never describe percentages or mechanics.
 5. **Step 4 — Schedule my tasks.**
    Update the progress card: step 4.
    Say the Step 4 intro, then the DEFAULTS as a
-   statement, then the single change offer, then the one question
-   (to-dos), all exactly as written.
+   statement, then the one question (to-dos), all exactly as
+   written.
    The defaults are never put to the user as choices: emails and
    calendar invites start as draft-for-confirmation, invites go to
    the user only, the Morning Memo is daily at 6am local, the
    Evening Debrief daily at 8pm local, and the 1:1 weekly on
-   Friday. Agent work runs one hour before each memo. Nobody can
-   sensibly pick a memo time before seeing a memo, so the real
-   invitation to change them comes after the Morning Memo test in
-   Step 6.
-   The change offer names its levers ("the times, the days, or who
-   else goes on your invites"), never a bare "anything you'd
-   change?", which forces the user to re-read and guess what is
-   adjustable. If the user declines, move on; do not press and do
-   not enumerate the settings again.
+   Friday. Agent work runs one hour before each memo. Never
+   ask the user to change the times, the days or the invites; they
+   can change any of these later by asking.
    Then create the four scheduled tasks. THIS IS WHAT MAKES THE
    PRODUCT ARRIVE: nothing reaches the user again unless these
    exist. Create all four NOW, in the user's timezone, at the
-   defaults just stated unless the user changed them:
+   defaults just stated:
    - **Morning Memo** — every day at 6am local, runs the
      daily-readout skill in morning mode.
    - **Evening Debrief** — every day at 8pm local, runs the
@@ -301,11 +295,9 @@ Never describe percentages or mechanics.
    exact lines from interview-guide.md: ask once, and if they
    still decline, tell them to say "Test my setup" whenever they
    are ready, then go to the close. Never push further.
-   Immediately after the Morning Memo test, say the exact revisit
-   line from interview-guide.md, which offers the memo time, the
-   debrief time, the 1:1 day and the invite default for change now
-   that the user has seen a memo. Apply any change to
-   ways-of-working.md AND to the scheduled tasks before finishing.
+   Immediately after the Morning Memo test, say the exact line from
+   interview-guide.md that tells the user the memo is in their
+   inbox. It asks nothing.
    The email test drafts the Office of One note per
    feedback-template.md, shows it in full, and sends only on an
    explicit yes. Drafting is NOT sending: always compose and show

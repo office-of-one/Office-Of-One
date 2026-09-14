@@ -156,19 +156,8 @@ do the prep work an hour before each one.
 Once you're comfortable and I know you better, you can tell me to
 send things without your review, or change any of this."
 
-Then one offer. It names what is actually changeable, because
-"anything you'd change about that?" makes the user re-read four
-sentences and guess which parts are up for negotiation:
-"**Want to change the times, the days, or who else goes on your
-invites?**"
-
-Record whatever they say. If they say no, move on without
-pressing. They see all of it again after the Morning Memo test in
-Step 6, which is a far better moment to have an opinion: nobody
-can sensibly choose a memo time before they have seen a memo.
-
-Then create the four scheduled tasks, at these times or whatever
-they just changed them to, and confirm in one line:
+Then create the four scheduled tasks at these times, and confirm
+in one line:
 "All set. Your Morning Memo arrives [days] at [time], your
 Evening Debrief at [time] the night before, and we'll have our
 1:1 on Fridays."
@@ -233,8 +222,8 @@ Record every answer in ways-of-working.md as it is given.
 - The calendar, priorities and action items are always in the
   Morning Memo and never asked about.
 - The Morning Memo, the Evening Debrief, Agent work and the Friday
-  1:1 are all set up automatically at their default times. Changes are invited
-  once in Step 4 and again after the Morning Memo test in Step 6.
+  1:1 are all set up automatically at their default times. The user
+  can change them any time by asking; agent-admin handles it.
 - Both arrive by email and are available in the app. There is no
   delivery choice to make.
 - Never ask the user to confirm that a domain is irrelevant to
@@ -388,12 +377,7 @@ calendar, Morning Memo, Friday 1:1, email. Use its screens word for
 word.
 
 After the Morning Memo test, say:
-"Your Morning Memo is in your inbox now. It'll arrive every day
-at 6am, with the Evening Debrief at 8pm the night before, our 1:1
-on Fridays, and invites going to you only. **Want to change the
-times, the days, or who else goes on your invites?**"
-Apply any change to ways-of-working.md and the scheduled tasks. If
-they say no, move on.
+"Your Morning Memo is in your inbox now."
 
 After the email test sends, say:
 "That was a one-off so we could check it works. From here I'll
