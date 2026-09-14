@@ -1,11 +1,8 @@
 # Readout format
 
-The Morning Memo and the Evening Debrief. This file is the spec.
-Anything the user has written into their own ways-of-working.md
-overrides it. If this file and SKILL.md disagree, this file wins.
-
-Revised Sep 2026 after six sends reviewed in the Gmail app on a
-phone and two live runs.
+This file is the spec for the Morning Memo and the Evening Debrief.
+The user's ways-of-working.md overrides it. If this file and SKILL.md
+disagree, this file wins.
 
 ## Section order
 
@@ -15,194 +12,146 @@ phone and two live runs.
 4. Getting ahead
 5. Priority to-dos
 6. Remaining to-dos
-7. Sources, Friday block, sign-off
+7. Sources, the Friday block and the sign-off
 
-Getting ahead sits ABOVE the to-dos. What the agent already did
-changes how the user reads the list underneath it.
+Above them sits a Georgia title with the date in grey underneath.
+It never shows the agent's name, an item count or a summary of the
+day. The greeting comes right after it. If either to-do section is
+renamed, rename both.
 
-Section names are exactly "Priority to-dos" and "Remaining
-to-dos". If one is renamed, rename both.
+## Colors
 
-## Three colors, three jobs
+| Color | Hex | Dark mode | Tint | Used for |
+|---|---|---|---|---|
+| Pine | #2b5f52 | #79c4b0 | #e6ede9 | The user's things: to-do numbers, input squares, links |
+| Purple | #8a4fbd | #c194ef | #f1e8fa | The agent's things: Getting ahead squares and tags |
+| Amber | #a2521f | — | #f6e7d9 | Conflicts only |
 
-- **Pine #2b5f52** (dark #79c4b0), tint #e6ede9 — STRUCTURE and
-  what is the user's: to-do numbers, input squares, links.
-- **Purple #8a4fbd** (dark #c194ef), tint #f1e8fa — what is the
-  AGENT'S: the Getting ahead squares and all three tags.
-- **Amber #a2521f**, tint #f6e7d9 — what is BROKEN: conflicts,
-  and nothing else.
-
-A replacement for purple must differ from pine in BOTH hue and
-lightness. A slate blue was tried and failed on exactly this. Not
-gold, which muddies the conflict amber.
+A replacement for purple must differ from pine in hue and lightness,
+and must not be gold.
 
 ## Type scale
 
-14px body: to-do lines, Worth knowing, Getting ahead, calendar
-events, greeting, sign-off. Locations and the date line 13px,
-times and the grey slot 12px, sources 11px. Labels 10px uppercase,
-tags and conflict flag 9px, the product footer 8px. Title 28px
-Georgia, 25px on a phone.
+| Size | Used for |
+|---|---|
+| 28px Georgia, 25px on a phone | Title |
+| 14px | To-dos, Worth knowing, Getting ahead, calendar events, greeting, sign-off |
+| 13px | Locations, date line |
+| 12px | Times, grey slot |
+| 11px | Sources |
+| 10px uppercase | Section labels |
+| 9px | Tags, conflict flag |
+| 8px | Product footer |
 
-## Masthead
+## 1. Today
 
-Title in Georgia over one grey line carrying the date. No agent
-name, no item count, no second title line, no day-shape summary.
+Each event gets one line on the day rail, a thin vertical line with
+the time on the left, then the name and the location after a middle
+dot. Keep locations short so lines don't wrap. Don't break the rail
+to show free time.
 
-## 1. Today — a day rail
+If the calendar is empty, write "Nothing on your calendar today."
 
-A thin vertical rule down the day, time in a narrow left column,
-event to the right. ONE LINE PER EVENT: name, then location after
-a middle dot. Never a second line for the place. Keep locations
-short so the line does not wrap.
+When two events conflict, tint both lines warm and end the first
+with CONFLICT. Never write "clash" or add a header above them.
 
-The rail is continuous. Never break it to show free time.
-
-If nothing is on the calendar, the section is the single line
-"Nothing on your calendar today."
-
-A conflict keeps each event on its own line at its own time, both
-lines tinted warm, the word CONFLICT at the END of the first line.
-Never "clash". Never a header row above the pair.
-
-Meeting prep is the one exception to one line per event: a single
-short line under its event, not in Getting ahead.
+Meeting prep can take one short line under its event.
 
 ## 2. Worth knowing
 
-Things that changed or are coming where the agent has NO verb.
-Facts only, no offers, no actions. Grey squares, same bullet shape
-as Needs your input.
-
-The bar, or it becomes an inbox digest: new since the last memo,
-AND either the user would act differently knowing it or would be
-annoyed to find out later. Three or four lines maximum, often
-none.
+These are facts where the agent has nothing to do, marked with grey
+squares. Include one only if it is new since the last memo and the
+user would act differently or be annoyed to miss it. Show four at
+most. This section is often empty.
 
 ## 3. Needs your input
 
-Blocking questions only. Pine square, phrased as a question, no
-number, no grey slot. Maximum three, usually none.
+These are questions that block something, marked with pine squares
+and no number or date. Ask three at most. There are usually none.
 
-Questions from open-questions.md never appear here. Those belong
-to the 1:1.
-
-Calendar contradictions noted during onboarding wait in tasks.md,
-marked "from onboarding". The first memos ask them here, one
-question each, inside the three-question limit. Double-bookings
+The first memos also ask about calendar contradictions from
+onboarding, marked "from onboarding" in tasks.md. Double-bookings
 show as CONFLICT in Today instead.
 
 ## 4. Getting ahead
 
-Every line has a verb for the AGENT. If there is no verb for the
-agent, it belongs in Worth knowing or in the to-do list.
+Each line is work the agent did or offers to do, marked with a
+purple square and never numbered. A finished job reads like "Drafted
+the reply to [name]. It's in your drafts, needs the figure." and is
+tagged DRAFTED. An offer names the deliverable, like "Forward me the
+PDF and I'll confirm the part and put both dates on the calendar."
 
-Two kinds of line, both past or offered:
+A calendar offer reads like "Say yes and I'll put Mia's pickup at LAX
+on your calendar for Thu 2pm." Nothing goes on the calendar without
+a yes.
 
-- What was handled: "Drafted the reply to [name]. It's in your
-  drafts, needs the figure." Carries a DRAFTED tag.
-- What can be handled, naming the deliverable and what it costs
-  the user: "Forward me the PDF and I'll confirm the part and put
-  both dates on the calendar."
+A workflow that ran since the last Morning Memo gets one line in the
+next one, taken from its Last run line.
 
-An offer to put something on their calendar is the second kind:
-"Say yes and I'll put Mia's pickup at LAX on your calendar for Thu
-2pm." Nothing goes on the calendar until they say yes.
+- Show four lines at most, workflow lines included. Other drafted or
+  researched items still show their tag in the to-do list.
+- If nothing was done or offered, leave the section out. Never
+  invent a line.
+- Don't repeat a to-do or a Worth knowing line.
+- Check sent mail, and never offer something the user already did.
+- Name the deliverable, not the intention: "I'll pull the times and
+  unblock Sunday", not "I could look into that".
 
-A workflow that ran since the last Morning Memo gets one line in
-the next Morning Memo, taken from its Last run line: "Drafted four client follow-ups. They're in your
-drafts." These lines count toward the four-line maximum.
-
-Purple square marker, never numbered, never a to-do the user owes.
-
-Rules:
-
-- FOUR LINES MAXIMUM. Anything else drafted or researched still
-  shows its tag in the to-do list.
-- Nothing invented. Nothing handled and nothing to offer means the
-  section does not appear. A fabricated line destroys the trust
-  the section exists to build.
-- Never repeat a to-do, never restate a Worth knowing line.
-- Never offer to do something the user already did. Check sent
-  mail first.
-- An offer names the deliverable, not the intention: "I'll pull
-  the times and unblock Sunday", not "I could look into that".
-
-Unprompted suggestions of work that is not on the list at all are
-NOT daily material. They belong in the 1:1.
+New work that isn't on the list belongs in the 1:1, not the memo.
 
 ## 5. Priority to-dos and 6. Remaining to-dos
 
-Same one-line shape. Nothing in the memo is ever two lines.
+Both lists use the same layout, and every to-do fits on one line.
 
-Order within a line is fixed: number, action, tag if it has one,
-the recommendation link if the tag is RECOMMEND, then the grey
-slot LAST and pushed to the far right so the grey column aligns
-down the memo.
+Each line follows a fixed order. It starts with the number, then the
+action, which is bold for priorities. The tag comes next if there is
+one, followed by the RECOMMEND link if there is one. The date sits
+last, in the grey slot, pushed to the far right so the dates line up
+down the memo. Remaining to-dos are grouped under small category
+labels that come from the user's life, not from a fixed list.
 
-- Priority to-do: number, bold action, tag, date in grey.
-- Remaining to-do: number, action, tag, date in grey. Grouped
-  under small category labels drawn from the user's life, not from
-  a fixed list.
+**Together, the two lists show every open item in the ledger, every
+time, and each item appears once.** Never shorten the list to save
+space. If it runs long, group it by category instead. Items that a
+workflow file tracks stay out of these lists.
 
-**Priority to-dos and Remaining to-dos together list every open
-item in the ledger, every time, each item once.** Never trim it to
-save space. A long list is grouped by
-category, never cut. Anything missing from the memo stops being
-visible. Items tracked in a workflow file are not part of this list.
+**Keep each line bare.** Why an item is stuck, who was called and its
+history all belong in tasks.md, and the agent shares them when the
+user asks. If a line only makes sense with that context, turn it
+into a Needs your input question instead of adding a clause. Worth
+knowing and Getting ahead lines are also one short sentence each,
+with no "because", no aside and no hedging.
 
-**No subtext.** A to-do line is number, action, tag, link, date.
-Nothing else. Why an item is stuck, who was called, what the
-history is: all of that lives in tasks.md and comes out when the
-user asks. If a line cannot be understood without context, that is
-a Needs your input question, not a trailing clause.
+**The grey slot holds a date and nothing else.** Examples are "no
+date", "due Sat 9/12", "waiting since 9/9" and "open 14 days".
 
-Same rule everywhere else: Worth knowing and Getting ahead lines
-are one short sentence each. Cut every "because", every
-parenthetical, every hedge.
+**The whole memo uses one numbering sequence.** Priorities are
+numbered 1 to 3, and Remaining to-dos continue from 4 through every
+category. Numbers stay the same all day and are reassigned at the
+next morning Desk run. The ledger uses the same numbers, so a reply
+by number can be matched to it.
 
-**The grey slot carries DATES ONLY**: "no date", "due Sat 9/12",
-"waiting since 9/9", "open 14 days". A grey column of mixed
-comments reads as noise.
+Don't add an owner to any line, a second grey line under anything,
+or a tinted panel behind the priorities.
 
-**One numbering sequence for the whole memo.** Priorities are 1,
-2, 3; Remaining continues at 4 straight through its categories.
-Match a reply by number first, then name, then time. Numbers hold
-for the day and are reassigned at the next morning Desk run. The
-ledger carries the same numbers so a reply resolves against it.
-
-No owner field. No second grey line under anything. No tinted
-panel behind the priority block.
-
-**Waiting-on items are to-dos, not offers.** If the user already
-sent the email, the loop is open and they want to track it: it
-goes in Remaining to-dos with "waiting since [date]" in the grey
-slot. It does NOT go in Getting ahead, and the agent never offers
-to chase what the user already chased. After five working days
-with no reply the status becomes "no reply in N days, chase?".
+**Waiting-on items are to-dos, not offers.** When the user has
+already sent an email and is waiting for a reply, it goes in
+Remaining to-dos with "waiting since [date]" in the grey slot. It
+never goes in Getting ahead, and the agent never offers to chase
+something the user already chased. After five working days without
+a reply, its status becomes "no reply in N days, chase?".
 
 ## The tags
 
-Four states, three tags, all purple. Full definitions in the desk
-skill.
+The desk skill defines the tags. There are three of them, RECOMMEND,
+DRAFTED and LET'S TALK, and all three are purple. A to-do with no tag
+is simply the user's to handle.
 
-| Tag | Means |
-|---|---|
-| *(none)* | Theirs alone. The agent has nothing to add |
-| RECOMMEND | The agent looked it up. Here is the pick, linked |
-| DRAFTED | The agent already did it. Waiting in their drafts |
-| LET'S TALK | Needs their position first. Twenty minutes in a session |
-
-In the memo these are MARKERS, not buttons: no email client runs
-the JavaScript a real button needs, so nothing on these lines is
-tappable except a RECOMMEND link. The user hands work over by
-replying in their own words, by number ("do 6 and 7"). Matching is
-the agent's job.
-
-Pickup happens at the next Desk run, an hour before each
-memo. A faster recurring sweep is not available; the scheduler's
-floor is one hour. For anything the
-user wants now, they open the agent in Claude.
+In the memo, tags are labels, not buttons, and the only thing a user
+can tap on a to-do line is a RECOMMEND link. The user hands work over
+by replying in their own words, usually by number, such as "do 6 and
+7". The next Desk run picks it up. For anything sooner, the user can
+open the agent in Claude.
 
 ## 7. Footer
 
@@ -220,185 +169,146 @@ was. "Amazon blocks me, so the price is unverified" is the shape.
     Ask me in your [Agent Name] project in a Cowork session to
     have a 1:1, and let's take some things off your plate.
 
-No "one idea", no link, no feedback line.
+Nothing else goes in the Friday block.
 
-**The usage line runs every Friday, zeros included.** It is an
-accountability mirror, not a highlight reel. Never skip it because
-the numbers are small, never soften a zero, never pad it. Count
-only what is recorded in tasks.md and log.md, and show only the
-numbers that can be counted honestly from them; leave out any that
-cannot. If none can be counted, the line is left out that week.
-Report the numbers and stop.
+**The usage line appears every Friday, even when a number is zero.**
+Don't skip it, soften it or pad it. Count only what tasks.md and
+log.md record. Leave out any number that can't be counted honestly,
+and leave out the whole line if none can.
 
 ## Build rules for the email
 
-These are what actually broke in the Gmail app on a phone.
-
-- NEVER put two cells side by side in a ROW OF PROSE. Gmail's app
-  shrinks those tables to content width and the right cell lands
-  flush against the left ("Morning MemoSept 12"). The masthead,
-  Worth knowing, Needs your input and Getting ahead all stack
-  left. The day rail and the to-do rows are the exceptions: they
-  survive because the narrow cell carries an explicit width
-  attribute.
-- Section rules are a border-top on the section's own cell. A
-  separate 1px spacer table renders as a stubby half-width rule.
-- No card border, no outer frame. Edge to edge on one background.
-- Tables and inline styles only, colors hardcoded. No flexbox, no
-  grid, no CSS variables, no class selectors.
-- Dark mode is a prefers-color-scheme block. Gmail's app and
-  Outlook invert on their own terms, so meaning never travels in
-  color alone.
-- Send the plain-text alternative every time, same markers and
+- Never put two cells side by side in a row of prose. Gmail's phone
+  app squashes them together, as in "Morning MemoSept 12". Only the
+  day rail and the to-do rows use two cells, with an explicit width
+  on the narrow one.
+- Draw section dividers as a top border on the section's own cell,
+  not as a spacer table.
+- Run edge to edge on one background, with no card border or frame.
+- Use tables and inline styles with the colors written out. Don't
+  use flexbox, grid, CSS variables or class selectors.
+- Add a prefers-color-scheme block for dark mode, and never let
+  color alone carry meaning.
+- Always send the plain-text version, with the same markers and
   numbering.
-- Palette: paper #fbfaf7, ink #16171a, grey #6d6f74, hairline
-  #dedbd3, plus the three signal colors.
-- Max width 600px, 20px side padding, 12px on a phone.
+- Use paper #fbfaf7, ink #16171a, grey #6d6f74 and hairline #dedbd3,
+  plus the three signal colors.
+- Keep the width to 600px, with 20px side padding, or 12px on a
+  phone.
 
 ## Evening Debrief
 
-Same visual language, shorter. What closed today, what moved, what
-tomorrow looks like, and anything that needs an answer before the
-morning. No Getting ahead section, no Friday block.
+The Evening Debrief uses the same look but is shorter. It covers
+what closed today, what moved, tomorrow, and anything that needs an
+answer before morning. It has no Getting ahead section and no Friday
+block.
 
 ## Rules the rest of the plugin relies on
 
-Carried over from the earlier spec because other skills point to
-them. They cover content, not layout.
+Other skills point to these rules.
 
 ### Every action starts with a verb
 
-Every priority and every action item begins with the verb that does
-it. "Sign Sam's field trip form", not "Field trip form". "Pay
-Mia's soccer fees", not "Soccer fees". "Send Dana the partner
-brief", not "Partner brief to Dana".
+Start every to-do with the verb that does it. Write "Sign Sam's field
+trip form", not "Field trip form", and "Pay Mia's soccer fees", not
+"Soccer fees".
 
-This is not a style preference. A noun is a topic and a verb is an
-instruction: the reader knows in one glance whether this is
-something to do or something to know, and "done" means something
-unambiguous when they reply.
+There is no owner field, in the memo or in tasks.md. The verb means
+the user acts, unless the line names someone else.
 
-There is no owner field, in the memo or in tasks.md. The verb says
-who acts: the user, unless the line names someone else.
-
-Calendar entries and "what moved today" lines are statements, not
-actions, and are written as they are.
+Calendar entries and "what moved today" lines are statements, so
+they don't need a verb.
 
 ### Dates that are not events
 
-A thing with a date is not automatically a calendar entry. Most of
-what arrives from schools, clinics, leagues and admin carries a
-date and needs nobody anywhere at that time: a test on Thursday, a
-form due the 15th, a fee window that opens Monday.
+A date doesn't make something a calendar entry. A calendar entry is
+for something a person attends, at a time, in a place. A test on
+Thursday, a form due the 15th or a fee window that opens Monday needs
+nobody anywhere, so it is a dated to-do instead. Dated to-dos live in
+tasks.md, show in the memo the day before and the day of, and
+disappear when done.
 
-Those are dated ACTION ITEMS. They live in tasks.md with a due
-date, the memo surfaces them the day before and the day of, and
-they disappear when done. They do NOT go on the calendar.
-
-A calendar entry is for something a person physically attends, at
-a time, in a place. If nobody has to be anywhere, it is not a
-calendar entry. The user's calendar is mostly other people's
-commitments already; filling it with things they do not attend
-makes the one surface they check less readable, not more.
-
-One notice often produces both, and they are separate records:
+One notice can produce both:
 
     "Mid-Unit 1 Math Test, Thursday 9/10"
-    -> action item: "Review with Sam for Thursday's math test",
-       you, due Wednesday
-    -> no calendar entry. Nobody attends.
+    -> to-do: "Review with Sam for Thursday's math test", due Wednesday
+    -> no calendar entry, because nobody attends
 
     "Game Saturday 8am at Northgate"
-    -> calendar entry. Someone drives, at a time, to a place.
-    -> action item only if something must happen first:
-       "Wash Mia's white jersey", you, due Friday.
+    -> calendar entry, because someone drives there at a set time
+    -> to-do only if something must happen first:
+       "Wash Mia's white jersey", due Friday
 
-Being unsure which one a notice is, is a reason to propose both
-and let the user drop one. It is never a reason to record neither,
-which is how a date vanishes entirely.
+If you can't tell which a notice is, propose both and let the user
+drop one. Never record neither.
 
-Priorities are not a third kind of record. A dated action item
-becomes a Priority to-do when the ranking below promotes it, and
-stops being one when the date passes.
+A dated to-do becomes a Priority to-do when the ranking below
+promotes it, and stops being one when its date passes.
 
 ### Choosing the Priority to-dos
 
-Three at most. Rank by either of two rules:
-- **Due today or tomorrow.** Deadline pressure.
-- **The big rock.** Matters most and cannot be finished in one
-  sitting, so it needs a piece of today or it never moves.
-
-Rank on what you have rather than waiting for certainty, and let
-the user correct you in the reply. A wrong ranking they fix is more
-useful than no ranking.
+Pick three at most. A to-do qualifies if it is due today or
+tomorrow, or if it matters most and can't be finished in one sitting,
+so it needs some of today to move at all. Rank with what you know,
+and let the user correct you in their reply.
 
 ### Facts, never judgments
 
-The memo reports what it found. It does not grade it.
+Report what you found without grading it. "Built from 9 emails, 2
+call transcripts and 3 chat sessions" is a fact. "The rest was noise"
+is an opinion, so never write it.
 
-"Built from 9 emails, 2 call transcripts and 3 chat sessions" is a
-fact the user can check. "The rest was noise" is the agent's
-opinion of their mail, and it is the kind of line that is quietly
-wrong on the day something mattered.
-
-The same discipline applies to every number in the memo: count only
-what was actually read or recorded. Never estimate, never round up,
-never invent. If a count cannot be made honestly, omit the line.
+Count only what was actually read or recorded. Never estimate or
+round up. If a number can't be counted honestly, leave the line out.
 
 ### Closing the loop
 
-The two are one conversation that runs all day. Neither is written
-from scratch.
+The memo and the debrief continue one conversation through the day.
 
-- Before writing, read tasks.md for what the last one surfaced and
-  what is still open, and read any reply that came in since.
-- Anything still open says so in its grey slot ("open 14 days"),
-  and the full status note lives in tasks.md. Never resurface an
-  item silently as though it were new.
-- Anything the calendar or mail shows as done disappears. Do not
-  announce that it is gone.
-- A question asked twice with no answer is asked differently or
-  dropped. Never repeat a question word for word.
+- Before writing, read tasks.md for what the last one showed and
+  what is still open, and read any reply since.
+- If something is still open, its grey slot says so, like "open 14
+  days". Never show an old item as if it were new.
+- If the calendar or mail shows something is done, drop it without
+  announcing it.
+- If a question got no answer twice, ask it differently or drop it.
+  Never repeat it word for word.
 - The Morning Memo reads last night's reply. The Evening Debrief
-  reads this morning's memo and its reply. "What moved today" means
-  different from what I told you this morning, which is only
-  knowable if the morning was recorded.
-- An unresolved conflict is carried into the Evening Debrief under
-  "what moved today" only if it changed. Otherwise it appears again
-  in tomorrow's Today section, in place, as it stands.
-- After sending, update tasks.md: what was surfaced, what remains
+  reads this morning's memo and its reply, so "what moved today"
+  means what changed since the morning.
+- Carry an unresolved conflict into the Evening Debrief only if it
+  changed. Otherwise it appears again in tomorrow's Today section.
+- After sending, update tasks.md with what was shown, what is still
   open, and the date each item was last shown.
 
 ### Greeting, sign-off and subject lines
 
-The greeting from personality.md opens the body. The sign-off
-closes it, verbatim:
+Open with the greeting from personality.md. Close with this sign-off,
+word for word:
 
     Anything else I should know? Just hit reply.
     — [agent name]
 
-The product footer is the single line "Office of One". If the user
-asked to remove it, it stays removed forever.
+The last line is "Office of One". If the user asked to remove it,
+never add it back.
 
-An Evening Debrief with genuinely nothing in it is one line,
-"Nothing needs you tonight. See you in the morning.", then the
-sign-off.
+If an Evening Debrief has nothing in it, it is just this line,
+followed by the sign-off:
+"Nothing needs you tonight. See you in the morning."
 
-Subject lines:
-- Morning Memo: "{AGENT_NAME}: Morning Memo, {weekday}"
-- Evening Debrief: "{AGENT_NAME}: Evening Debrief"
+The subject lines are "{AGENT_NAME}: Morning Memo, {weekday}" and
+"{AGENT_NAME}: Evening Debrief".
 
 ### Extra sections the user asked for
 
-Only those defined in personality.md or recorded under Memo format
-in ways-of-working.md, one line each, after the to-dos and before
-the footer.
+Add only sections defined in personality.md or recorded under Memo
+format in ways-of-working.md. Each gets one line, after the to-dos
+and before the footer.
 
-### Plain-language rules
+### Plain language
 
-- Names, not descriptions ("Sam", not "your son").
-- Times in the user's local timezone. No ISO dates.
-- Personal details, health included, appear in the memo like any
-  other fact.
-- Never invent urgency. If nothing needs the user, the memo is
-  proud to be three lines long.
+- Use names, not descriptions, so "Sam" rather than "your son".
+- Give times in the user's local timezone, and never use ISO dates.
+- Include personal details, health included, like any other fact.
+- Never invent urgency. If nothing needs the user, a three-line memo
+  is fine.
