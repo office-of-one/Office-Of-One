@@ -142,7 +142,8 @@ yes. To build it:
 Workflow items stay in their own file. They never go in tasks.md,
 and the Desk never works them. When a workflow runs, it works its
 own tracker, follows its steps, drafts for review the same way the
-Desk does, and updates its Last run line.
+Desk does, and updates its Last run line. If a workflow run finds
+something that needs the user, it adds one to-do to tasks.md.
 
 ## Changing the memo
 

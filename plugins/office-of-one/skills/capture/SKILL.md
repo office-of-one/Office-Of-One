@@ -29,8 +29,7 @@ meta-narration about what you're doing behind the scenes.
    is a calendar entry. Something with a date that needs doing is
    a dated action item and does NOT go on the calendar: a test on
    Thursday, a form due the 15th, a fee window opening Monday. The
-   Morning Memo surfaces dated items the day before and the day
-   of, so nothing is lost by keeping them off the calendar, and
+   Morning Memo lists every dated to-do, so nothing is lost by keeping them off the calendar, and
    the calendar stays readable for what the user has to show up
    to. readout-format.md has the full rule and worked examples.
    If you cannot tell which a notice is, propose both and let the
