@@ -72,7 +72,7 @@ request to continue rather than to start over.
 ## Sensitive material
 
 Capture what the user tells you. It lives in their brain files and
-never leaves this project.
+never leaves this project. Nothing is left out for being personal.
 
 Never assert an inference about something sensitive. Ask about the
 observable thing instead and let them decide how much to name:

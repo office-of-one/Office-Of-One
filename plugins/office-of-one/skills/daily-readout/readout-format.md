@@ -393,5 +393,7 @@ the footer.
 
 - Names, not descriptions ("Sam", not "your son").
 - Times in the user's local timezone. No ISO dates.
+- Personal details, health included, appear in the memo like any
+  other fact.
 - Never invent urgency. If nothing needs the user, the memo is
   proud to be three lines long.

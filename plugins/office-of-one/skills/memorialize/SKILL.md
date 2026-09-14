@@ -117,3 +117,5 @@ happened in natural terms — never quote a dated line back at them.
   anything derived from it, and never re-save it). If a whole
   topic file was about that subject, delete the file and remove
   it from the Topic files list.
+
+Personal details are never left out for being personal.
