@@ -17,6 +17,18 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.21.0 — 2026-09-14
+
+**A shorter memo procedure.** The memo skill drops rules it repeated
+from elsewhere: the to-do line shape now points to the memo spec, the
+list of auto-scheduled tasks stays in the files that create them, two
+overlapping "never" rules are merged, and a repeated line about late
+memos is gone. Nothing the memo does changes.
+
+Part of the fifth step of the simplification pass.
+
+No scripted lines change.
+
 ## v3.20.0 — 2026-09-14
 
 **The 1:1 has three clear jobs.** It clarifies what the agent doesn't
