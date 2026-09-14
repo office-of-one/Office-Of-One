@@ -14,8 +14,10 @@ disagree, this file wins.
 6. Remaining to-dos
 7. Sources, the Friday block and the sign-off
 
-Above them sits a Georgia title with the date in grey underneath,
-and nothing else. If either to-do section is renamed, rename both.
+Above them sits a Georgia title with the date in grey underneath.
+It never shows the agent's name, an item count or a summary of the
+day. The greeting comes right after it. If either to-do section is
+renamed, rename both.
 
 ## Colors
 
