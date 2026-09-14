@@ -151,10 +151,7 @@ Then the defaults, as a statement. None of this is ever asked:
 them** before anything goes out, and invites go to you only unless
 you tell me otherwise. Your **Morning Memo arrives every day at
 6am**, and your **Evening Debrief at 8pm** the night before. I'll
-do the prep work an hour before each one.
-
-Once you're comfortable and I know you better, you can tell me to
-send things without your review, or change any of this."
+do the prep work an hour before each one."
 
 Then create the four scheduled tasks at these times, and confirm
 in one line:
@@ -204,9 +201,8 @@ Record every answer in ways-of-working.md as it is given.
 
 ## Defaults, never ask
 
-- Emails and calendar invites are always drafted for confirmation
-  at the start. This is stated, never asked. The user can lift it
-  later by saying so, and agent-admin handles that change.
+- Emails and calendar invites are always drafted for confirmation.
+  This is stated, never asked.
 - Calendar invites go to the user only. No attendee is added
   automatically until the user names one.
 - The Morning Memo is every day at 6am local. The Evening

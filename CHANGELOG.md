@@ -40,8 +40,18 @@ one gap and five contradictions.
   a payment only they can make. How much time or money they'll commit
   still waits for their position. That list is renamed so it isn't
   confused with the "ask first" rules in the project instructions.
+- **Email is always drafted for review.** The option to let the agent
+  send without review is gone from ways-of-working, the project
+  instructions, the memo skill, agent-admin and onboarding. The Desk
+  skill states the rule again, since it was left behind when the Desk
+  moved into its own skill, and it holds even if an older
+  ways-of-working file says otherwise.
 
-No scripted lines change.
+One scripted line is removed. Step 4 of onboarding no longer says
+"Once you're comfortable and I know you better, you can tell me to
+send things without your review, or change any of this." Existing
+customers need a manual refresh of their project instructions to pick
+up the change there.
 
 ## v3.22.0 — 2026-09-14
 

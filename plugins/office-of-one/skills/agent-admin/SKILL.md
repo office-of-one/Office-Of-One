@@ -39,9 +39,10 @@ agent. This skill makes every adjustment a one-sentence request.
    without this the only remedy would be deleting the event from
    their real calendar, which they may need for other reasons.
 
-5. **Ways of working.** Any of the five onboarding rules: email
-   draft vs send, calendar add rules, invite rules, schedule,
-   system of record. Update the file, confirm in one line.
+5. **Ways of working.** Calendar add rules, invite rules, schedule
+   and system of record. Update the file, confirm in one line.
+   Email is always drafted for the user's review. That rule
+   doesn't change.
 
 6. **The Office of One mark.** If the user asks to remove the
    "Office of One" line from their memos, remove it permanently and

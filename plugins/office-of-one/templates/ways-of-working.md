@@ -4,7 +4,7 @@ Set during onboarding. Changeable any time by asking.
 
 ## The five questions
 
-1. Email drafting: [draft only, user confirms before anything goes out] / [draft and send]
+1. Email drafting: draft only. The user confirms each email before it goes out.
 2. Calendar adds: [invites go to the user only unless they say otherwise; one-offs always confirmed]
 3. Invite rules: see people.md
 4. Schedule:

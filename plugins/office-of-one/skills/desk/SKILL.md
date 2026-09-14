@@ -151,7 +151,9 @@ starts looking like a dashboard.
 
 Default is DRAFT IT, then say so in one line. Asking first costs a
 round trip that can span a whole memo cycle, and an unread draft
-costs them nothing.
+costs them nothing. Drafting is not sending: never send an email
+as the user without review, even if ways-of-working.md says
+otherwise.
 
 **Draft it, no permission needed,** when the work is assembling
 what is already true: comparisons, research, summaries, a reply

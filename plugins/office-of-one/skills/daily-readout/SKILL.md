@@ -89,8 +89,7 @@ reversible, ask on what is not, then update the ledger.
 
 ## Never
 
-- Never send an email as the user without review, unless they
-  chose draft-and-send in ways-of-working.md.
+- Never send an email as the user without review.
 - Never put file names, mechanics or how the memo was made in the
   memo: no "test run", no scheduling, nothing about updating the
   record. Getting ahead lines report work done, which is different.
