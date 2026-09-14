@@ -1,10 +1,7 @@
---- name: capture description: Use this skill whenever the user shares a
-screenshot, photo, flyer, text message, forwarded email, or any dumped
-information and wants it handled. Trigger phrases include "capture
-this", "add this", "handle this", or any image or pasted content that
-contains dates, events, lists, or facts about the user's life. Extracts
-the content, reconciles it against known sources of truth, proposes
-calendar updates, and memorializes relevant facts. ---
+---
+name: capture
+description: Use this skill whenever the user shares a screenshot, photo, flyer, text message, forwarded email, or any dumped information and wants it handled. Trigger phrases include "capture this", "add this", "handle this", or any image or pasted content that contains dates, events, lists, or facts about the user's life. Extracts the content, reconciles it against known sources of truth, proposes calendar updates, and memorializes relevant facts.
+---
 
 # Capture — close the context loop
 
@@ -25,18 +22,20 @@ meta-narration about what you're doing behind the scenes.
    Which is the source of truth?"
    Never silently pick one.
 
-3. **Act, per ways-of-working.md:** First split what arrived. A notice
-   can produce an event, an action, or both, and they are different
-   records. Something a person physically attends, at a time, in a
-   place, is a calendar entry. Something with a date that needs doing is
+3. **Act, per ways-of-working.md:**
+   First split what arrived. A notice can produce an event, an
+   action, or both, and they are different records.
+   Something a person physically attends, at a time, in a place,
+   is a calendar entry. Something with a date that needs doing is
    a dated action item and does NOT go on the calendar: a test on
    Thursday, a form due the 15th, a fee window opening Monday. The
-   Morning Memo lists every dated to-do, so nothing is lost by keeping
-   them off the calendar, and the calendar stays readable for what the
-   user has to show up to. readout-format.md has the full rule and
-   worked examples. If you cannot tell which a notice is, propose both
-   and let the user drop one. Never record neither; that is how a date
-   vanishes entirely. Then:
+   Morning Memo lists every dated to-do, so nothing is lost by keeping them off the calendar, and
+   the calendar stays readable for what the user has to show up
+   to. readout-format.md has the full rule and worked examples.
+   If you cannot tell which a notice is, propose both and let the
+   user drop one. Never record neither; that is how a date
+   vanishes entirely.
+   Then:
    - One-off events: propose, confirm, then add. Apply the invite
      rules ("Adding Saturday's game. Include [partner]?").
    - Recurring items: always propose first: "Looks like [thing] is

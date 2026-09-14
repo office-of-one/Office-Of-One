@@ -1,9 +1,7 @@
---- name: desk description: Runs the Desk, where the agent's work is
-delegated and executed. Use for the Desk's scheduled runs at 5am and 7pm
-local, when the user says "run the Desk", and when a memo run finds the
-Desk did not run. Reads mail and the calendar, keeps the task list
-current, and takes every open item as far as it can go by looking things
-up, drafting and offering calendar entries. ---
+---
+name: desk
+description: Runs the Desk, where the agent's work is delegated and executed. Use for the Desk's scheduled runs at 5am and 7pm local, when the user says "run the Desk", and when a memo run finds the Desk did not run. Reads mail and the calendar, keeps the task list current, and takes every open item as far as it can go by looking things up, drafting and offering calendar entries.
+---
 
 # The Desk
 
@@ -32,14 +30,15 @@ stop the 7pm Desk run too.
    the user already handled and what they promised. Mail is the
    source, never the store. Never read from a connector listed as
    switched off in ways-of-working.md.
-3. **Reconcile.** Fold everything new into tasks.md in this same run,
-   with a thread pointer (who, subject, last touched) on any item that
-   has one. Anything not written down now is lost. Mail from someone in
-   a workflow's tracker stays out of tasks.md, unless it asks the user
-   for something only they can decide, such as a meeting or a yes. Then
-   add one to-do with a thread pointer. Otherwise that workflow picks it
-   up on its next run. If that workflow only runs on request, add one
-   to-do instead: "Run [workflow name] for [sender]."
+3. **Reconcile.** Fold everything new into tasks.md in this same
+   run, with a thread pointer (who, subject, last touched) on any
+   item that has one. Anything not written down now is lost.
+   Mail from someone in a workflow's tracker stays out of tasks.md,
+   unless it asks the user for something only they can decide, such
+   as a meeting or a yes. Then add one to-do with a thread pointer.
+   Otherwise that workflow picks it up on its next run. If that workflow only
+   runs on request, add one to-do instead: "Run [workflow name] for
+   [sender]."
 4. **Work the list.** Go item by item and take each one as far as
    it can go on its own. This is the step that makes the memo
    worth sending. See below.
