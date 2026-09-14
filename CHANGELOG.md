@@ -34,8 +34,7 @@ them any time by asking.
   Debrief at 8pm the night before, our 1:1 on Fridays, and invites
   going to you only. Want to change the times, the days, or who else
   goes on your invites?" New: "Your Morning Memo is in your inbox
-  now. It'll arrive every day at 6am, with the Evening Debrief at 8pm
-  the night before, and our 1:1 on Fridays."
+  now." The times are already stated in Step 4.
 
 **Existing customers** are unaffected unless they run a new interview.
 

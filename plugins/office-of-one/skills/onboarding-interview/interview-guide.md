@@ -377,9 +377,7 @@ calendar, Morning Memo, Friday 1:1, email. Use its screens word for
 word.
 
 After the Morning Memo test, say:
-"Your Morning Memo is in your inbox now. It'll arrive every day
-at 6am, with the Evening Debrief at 8pm the night before, and our
-1:1 on Fridays."
+"Your Morning Memo is in your inbox now."
 
 After the email test sends, say:
 "That was a one-off so we could check it works. From here I'll
