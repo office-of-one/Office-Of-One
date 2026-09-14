@@ -17,6 +17,21 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.16.0 — 2026-09-14
+
+**A map of how the agent works.** The project instructions now open
+with a short definition of each part: the Morning Memo and Evening
+Debrief communicate and close the loop, the Desk does the work, the
+Friday 1:1 clarifies, helps and improves the Desk, and workflows are
+heavier jobs a user sets up for their own work, each in its own file
+and set up only after the user agrees. This is the first step of a
+simplification pass; later steps bring the skills in line with it.
+
+No scripted lines change.
+
+**Existing customers** need to replace their project's instructions
+with the current `templates/project-instructions.md` to get the map.
+
 ## v3.15.0 — 2026-09-14
 
 **Agent work is now The Desk.** The scheduled run that works the
