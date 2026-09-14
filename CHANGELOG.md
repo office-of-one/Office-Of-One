@@ -17,6 +17,26 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.14.0 — 2026-09-14
+
+**Nothing is left out for being personal.** An agent declined to keep
+health details in the brain files, saying they didn't belong in
+context read every session and pulled into memos. The plugin never
+said that; the agent filled a gap with its own caution. Now it is
+explicit: health, body, money, family and relationship details are
+stored like anything else and appear in the memos wherever they help.
+The only exceptions are what the user asks to forget or keep out, and
+the Office of One setup email, which still never carries personal
+details. The agent still never asserts a sensitive inference; once
+the user has said something, it is a fact and gets used.
+
+No scripted lines change.
+
+**Existing customers** get the memo, memorialize and onboarding
+changes when they update. The full rule lives in the project
+instructions, which don't refresh on update: replace the project's
+instructions with the current `templates/project-instructions.md`.
+
 ## v3.13.0 — 2026-09-14
 
 **Agent work stays behind the scenes.** The agent was telling users
