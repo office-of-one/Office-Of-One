@@ -1,7 +1,10 @@
----
-name: one-on-one
-description: Use this skill when the user says "let's have a 1:1", "let's do our one on one", "let's catch up", comes from their Friday Morning Memo, or asks to brainstorm ("brainstorm with me", "what would help my life", "what apps can I get rid of"). Runs the weekly sitdown: clarifying what the agent doesn't know, helping the user, and finding one way to make the Desk better. Writes everything it learns as it goes.
----
+--- name: one-on-one description: Use this skill when the user says
+"let's have a 1:1", "let's do our one on one", "let's catch up", comes
+from their Friday Morning Memo, or asks to brainstorm ("brainstorm with
+me", "what would help my life", "what apps can I get rid of"). Runs the
+weekly sitdown: clarifying what the agent doesn't know, helping the
+user, and finding one way to make the Desk better. Writes everything it
+learns as it goes. ---
 
 # The 1:1 — the weekly sitdown
 
