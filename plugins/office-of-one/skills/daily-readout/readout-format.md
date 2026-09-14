@@ -129,76 +129,57 @@ NOT daily material. They belong in the 1:1.
 
 ## 5. Priority to-dos and 6. Remaining to-dos
 
-Same one-line shape. Nothing in the memo is ever two lines.
+Both lists use the same layout, and every to-do fits on one line.
 
-Order within a line is fixed: number, action, tag if it has one,
-the recommendation link if the tag is RECOMMEND, then the grey
-slot LAST and pushed to the far right so the grey column aligns
-down the memo.
+Each line follows a fixed order. It starts with the number, then the
+action, which is bold for priorities. The tag comes next if there is
+one, followed by the RECOMMEND link if there is one. The date sits
+last, in the grey slot, pushed to the far right so the dates line up
+down the memo. Remaining to-dos are grouped under small category
+labels that come from the user's life, not from a fixed list.
 
-- Priority to-do: number, bold action, tag, date in grey.
-- Remaining to-do: number, action, tag, date in grey. Grouped
-  under small category labels drawn from the user's life, not from
-  a fixed list.
+**Together, the two lists show every open item in the ledger, every
+time, and each item appears once.** Never shorten the list to save
+space. If it runs long, group it by category instead. Items that a
+workflow file tracks stay out of these lists.
 
-**Priority to-dos and Remaining to-dos together list every open
-item in the ledger, every time, each item once.** Never trim it to
-save space. A long list is grouped by
-category, never cut. Anything missing from the memo stops being
-visible. Items tracked in a workflow file are not part of this list.
+**Keep each line bare.** Why an item is stuck, who was called and its
+history all belong in tasks.md, and the agent shares them when the
+user asks. If a line only makes sense with that context, turn it
+into a Needs your input question instead of adding a clause. Worth
+knowing and Getting ahead lines are also one short sentence each,
+with no "because", no aside and no hedging.
 
-**No subtext.** A to-do line is number, action, tag, link, date.
-Nothing else. Why an item is stuck, who was called, what the
-history is: all of that lives in tasks.md and comes out when the
-user asks. If a line cannot be understood without context, that is
-a Needs your input question, not a trailing clause.
+**The grey slot holds a date and nothing else.** Examples are "no
+date", "due Sat 9/12", "waiting since 9/9" and "open 14 days".
 
-Same rule everywhere else: Worth knowing and Getting ahead lines
-are one short sentence each. Cut every "because", every
-parenthetical, every hedge.
+**The whole memo uses one numbering sequence.** Priorities are
+numbered 1 to 3, and Remaining to-dos continue from 4 through every
+category. Numbers stay the same all day and are reassigned at the
+next morning Desk run. The ledger uses the same numbers, so a reply
+by number can be matched to it.
 
-**The grey slot carries DATES ONLY**: "no date", "due Sat 9/12",
-"waiting since 9/9", "open 14 days". A grey column of mixed
-comments reads as noise.
+Don't add an owner to any line, a second grey line under anything,
+or a tinted panel behind the priorities.
 
-**One numbering sequence for the whole memo.** Priorities are 1,
-2, 3; Remaining continues at 4 straight through its categories.
-Match a reply by number first, then name, then time. Numbers hold
-for the day and are reassigned at the next morning Desk run. The
-ledger carries the same numbers so a reply resolves against it.
-
-No owner field. No second grey line under anything. No tinted
-panel behind the priority block.
-
-**Waiting-on items are to-dos, not offers.** If the user already
-sent the email, the loop is open and they want to track it: it
-goes in Remaining to-dos with "waiting since [date]" in the grey
-slot. It does NOT go in Getting ahead, and the agent never offers
-to chase what the user already chased. After five working days
-with no reply the status becomes "no reply in N days, chase?".
+**Waiting-on items are to-dos, not offers.** When the user has
+already sent an email and is waiting for a reply, it goes in
+Remaining to-dos with "waiting since [date]" in the grey slot. It
+never goes in Getting ahead, and the agent never offers to chase
+something the user already chased. After five working days without
+a reply, its status becomes "no reply in N days, chase?".
 
 ## The tags
 
-Four states, three tags, all purple. Full definitions in the desk
-skill.
+The desk skill defines the tags. There are three of them, RECOMMEND,
+DRAFTED and LET'S TALK, and all three are purple. A to-do with no tag
+is simply the user's to handle.
 
-| Tag | Means |
-|---|---|
-| *(none)* | Theirs alone. The agent has nothing to add |
-| RECOMMEND | The agent looked it up. Here is the pick, linked |
-| DRAFTED | The agent already did it. Waiting in their drafts |
-| LET'S TALK | Needs their position first. Twenty minutes in a session |
-
-In the memo these are MARKERS, not buttons: no email client runs
-the JavaScript a real button needs, so nothing on these lines is
-tappable except a RECOMMEND link. The user hands work over by
-replying in their own words, by number ("do 6 and 7"). Matching is
-the agent's job.
-
-Pickup happens at the next Desk run, an hour before each
-memo. A faster recurring sweep is not available; the scheduler's
-floor is one hour. For anything the
-user wants now, they open the agent in Claude.
+In the memo, tags are labels, not buttons, and the only thing a user
+can tap on a to-do line is a RECOMMEND link. The user hands work over
+by replying in their own words, usually by number, such as "do 6 and
+7". The next Desk run picks it up. For anything sooner, the user can
+open the agent in Claude.
 
 ## 7. Footer
 
@@ -216,29 +197,22 @@ was. "Amazon blocks me, so the price is unverified" is the shape.
     Ask me in your [Agent Name] project in a Cowork session to
     have a 1:1, and let's take some things off your plate.
 
-No "one idea", no link, no feedback line.
+Nothing else goes in the Friday block.
 
-**The usage line runs every Friday, zeros included.** It is an
-accountability mirror, not a highlight reel. Never skip it because
-the numbers are small, never soften a zero, never pad it. Count
-only what is recorded in tasks.md and log.md, and show only the
-numbers that can be counted honestly from them; leave out any that
-cannot. If none can be counted, the line is left out that week.
-Report the numbers and stop.
+**The usage line appears every Friday, even when a number is zero.**
+Don't skip it, soften it or pad it. Count only what tasks.md and
+log.md record. Leave out any number that can't be counted honestly,
+and leave out the whole line if none can.
 
 ## Build rules for the email
 
-These are what actually broke in the Gmail app on a phone.
-
-- NEVER put two cells side by side in a ROW OF PROSE. Gmail's app
-  shrinks those tables to content width and the right cell lands
-  flush against the left ("Morning MemoSept 12"). The masthead,
-  Worth knowing, Needs your input and Getting ahead all stack
-  left. The day rail and the to-do rows are the exceptions: they
-  survive because the narrow cell carries an explicit width
-  attribute.
-- Section rules are a border-top on the section's own cell. A
-  separate 1px spacer table renders as a stubby half-width rule.
+- Never put two cells side by side in a row of prose, because
+  Gmail's phone app squashes them together, as in "Morning MemoSept
+  12". The masthead, Worth knowing, Needs your input and Getting
+  ahead all stack on the left. The day rail and the to-do rows can
+  keep two cells, because their narrow cell has an explicit width.
+- Draw each section's dividing line as a top border on that
+  section's own cell, never as a separate spacer table.
 - No card border, no outer frame. Edge to edge on one background.
 - Tables and inline styles only, colors hardcoded. No flexbox, no
   grid, no CSS variables, no class selectors.
