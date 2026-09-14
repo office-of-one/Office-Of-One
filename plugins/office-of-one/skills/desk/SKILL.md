@@ -23,7 +23,8 @@ stop the 7pm Desk run too.
 1. **Read the standing context.** tasks.md, log.md,
    ways-of-working.md, people.md, personality.md, and every topic
    file listed in ways-of-working.md. tasks.md is the system of
-   record. Skip workflow files; they are not the Desk's.
+   record. Never work a workflow file. You may read a workflow's
+   tracker only to recognize who is in it.
 2. **Sweep.** Calendar for the day. Mail received AND sent since
    the last run. Sent matters as much as received: it says what
    the user already handled and what they promised. Mail is the
@@ -32,6 +33,10 @@ stop the 7pm Desk run too.
 3. **Reconcile.** Fold everything new into tasks.md in this same
    run, with a thread pointer (who, subject, last touched) on any
    item that has one. Anything not written down now is lost.
+   Mail from someone in a workflow's tracker stays out of tasks.md;
+   that workflow picks it up on its next run. If that workflow only
+   runs on request, add one to-do instead: "Run [workflow name] for
+   [sender]."
 4. **Work the list.** Go item by item and take each one as far as
    it can go on its own. This is the step that makes the memo
    worth sending. See below.
@@ -66,8 +71,9 @@ to-do list, unless something must happen before it.
 **The gate.** The Desk is not finished until every open item in
 the ledger has a state recorded: RECOMMEND, DRAFTED, LET'S TALK,
 calendar entry offered, or bare with its reason. A bare item needs
-a reason: it needs their position, it spends money, or its source could not be
-opened. Record the state and the reason on the item in tasks.md.
+a reason: only the user can do it, it spends money, or its source
+could not be opened. If it needs their position first, it is LET'S
+TALK, not bare. Record the state and the reason on the item in tasks.md.
 
 Rules that keep this honest:
 
