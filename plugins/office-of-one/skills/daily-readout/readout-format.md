@@ -1,8 +1,8 @@
 # Readout format
 
-The Morning Memo and the Evening Debrief. This file is the spec.
-Anything the user has written into their own ways-of-working.md
-overrides it. If this file and SKILL.md disagree, this file wins.
+This file is the spec for the Morning Memo and the Evening Debrief.
+The user's ways-of-working.md overrides it. If this file and SKILL.md
+disagree, this file wins.
 
 ## Section order
 
@@ -12,120 +12,90 @@ overrides it. If this file and SKILL.md disagree, this file wins.
 4. Getting ahead
 5. Priority to-dos
 6. Remaining to-dos
-7. Sources, Friday block, sign-off
+7. Sources, the Friday block and the sign-off
 
-Getting ahead sits ABOVE the to-dos.
+Above them sits a Georgia title with the date in grey underneath,
+and nothing else. If either to-do section is renamed, rename both.
 
-Section names are exactly "Priority to-dos" and "Remaining
-to-dos". If one is renamed, rename both.
+## Colors
 
-## Three colors, three jobs
+| Color | Hex | Dark mode | Tint | Used for |
+|---|---|---|---|---|
+| Pine | #2b5f52 | #79c4b0 | #e6ede9 | The user's things: to-do numbers, input squares, links |
+| Purple | #8a4fbd | #c194ef | #f1e8fa | The agent's things: Getting ahead squares and tags |
+| Amber | #a2521f | — | #f6e7d9 | Conflicts only |
 
-- **Pine #2b5f52** (dark #79c4b0), tint #e6ede9 — STRUCTURE and
-  what is the user's: to-do numbers, input squares, links.
-- **Purple #8a4fbd** (dark #c194ef), tint #f1e8fa — what is the
-  AGENT'S: the Getting ahead squares and all three tags.
-- **Amber #a2521f**, tint #f6e7d9 — what is BROKEN: conflicts,
-  and nothing else.
-
-A replacement for purple must differ from pine in both hue and
-lightness, and must not be gold, which is too close to the conflict
-amber.
+A replacement for purple must differ from pine in hue and lightness,
+and must not be gold.
 
 ## Type scale
 
-14px body: to-do lines, Worth knowing, Getting ahead, calendar
-events, greeting, sign-off. Locations and the date line 13px,
-times and the grey slot 12px, sources 11px. Labels 10px uppercase,
-tags and conflict flag 9px, the product footer 8px. Title 28px
-Georgia, 25px on a phone.
+| Size | Used for |
+|---|---|
+| 28px Georgia, 25px on a phone | Title |
+| 14px | To-dos, Worth knowing, Getting ahead, calendar events, greeting, sign-off |
+| 13px | Locations, date line |
+| 12px | Times, grey slot |
+| 11px | Sources |
+| 10px uppercase | Section labels |
+| 9px | Tags, conflict flag |
+| 8px | Product footer |
 
-## Masthead
+## 1. Today
 
-Title in Georgia over one grey line carrying the date. No agent
-name, no item count, no second title line, no day-shape summary.
+Each event gets one line on the day rail, a thin vertical line with
+the time on the left, then the name and the location after a middle
+dot. Keep locations short so lines don't wrap. Don't break the rail
+to show free time.
 
-## 1. Today — a day rail
+If the calendar is empty, write "Nothing on your calendar today."
 
-A thin vertical rule down the day, time in a narrow left column,
-event to the right. ONE LINE PER EVENT: name, then location after
-a middle dot. Never a second line for the place. Keep locations
-short so the line does not wrap.
+When two events conflict, tint both lines warm and end the first
+with CONFLICT. Never write "clash" or add a header above them.
 
-The rail is continuous. Never break it to show free time.
-
-If nothing is on the calendar, the section is the single line
-"Nothing on your calendar today."
-
-A conflict keeps each event on its own line at its own time, both
-lines tinted warm, the word CONFLICT at the END of the first line.
-Never "clash". Never a header row above the pair.
-
-Meeting prep is the one exception to one line per event: a single
-short line under its event, not in Getting ahead.
+Meeting prep can take one short line under its event.
 
 ## 2. Worth knowing
 
-Things that changed or are coming where the agent has NO verb.
-Facts only, no offers, no actions. Grey squares, same bullet shape
-as Needs your input.
-
-The bar, or it becomes an inbox digest: new since the last memo,
-AND either the user would act differently knowing it or would be
-annoyed to find out later. Three or four lines maximum, often
-none.
+These are facts where the agent has nothing to do, marked with grey
+squares. Include one only if it is new since the last memo and the
+user would act differently or be annoyed to miss it. Show four at
+most. This section is often empty.
 
 ## 3. Needs your input
 
-Blocking questions only. Pine square, phrased as a question, no
-number, no grey slot. Maximum three, usually none.
+These are questions that block something, marked with pine squares
+and no number or date. Ask three at most. There are usually none.
 
-Questions from open-questions.md never appear here. Those belong
-to the 1:1.
-
-Calendar contradictions noted during onboarding wait in tasks.md,
-marked "from onboarding". The first memos ask them here, one
-question each, inside the three-question limit. Double-bookings
+The first memos also ask about calendar contradictions from
+onboarding, marked "from onboarding" in tasks.md. Double-bookings
 show as CONFLICT in Today instead.
 
 ## 4. Getting ahead
 
-Every line has a verb for the AGENT. If there is no verb for the
-agent, it belongs in Worth knowing or in the to-do list.
+Each line is work the agent did or offers to do, marked with a
+purple square and never numbered. A finished job reads like "Drafted
+the reply to [name]. It's in your drafts, needs the figure." and is
+tagged DRAFTED. An offer names the deliverable, like "Forward me the
+PDF and I'll confirm the part and put both dates on the calendar."
 
-Two kinds of line, both past or offered:
+A calendar offer reads like "Say yes and I'll put Mia's pickup at LAX
+on your calendar for Thu 2pm." Nothing goes on the calendar without
+a yes.
 
-- What was handled: "Drafted the reply to [name]. It's in your
-  drafts, needs the figure." Carries a DRAFTED tag.
-- What can be handled, naming the deliverable and what it costs
-  the user: "Forward me the PDF and I'll confirm the part and put
-  both dates on the calendar."
+A workflow that ran since the last Morning Memo gets one line in the
+next one, taken from its Last run line.
 
-An offer to put something on their calendar is the second kind:
-"Say yes and I'll put Mia's pickup at LAX on your calendar for Thu
-2pm." Nothing goes on the calendar until they say yes.
+- Show four lines at most, workflow lines included. Other drafted or
+  researched items still show their tag in the to-do list.
+- If nothing was done or offered, leave the section out. Never
+  invent a line.
+- Don't repeat a to-do or a Worth knowing line.
+- Check sent mail, and never offer something the user already did.
+- Name the deliverable, not the intention: "I'll pull the times and
+  unblock Sunday", not "I could look into that".
 
-A workflow that ran since the last Morning Memo gets one line in
-the next Morning Memo, taken from its Last run line: "Drafted four
-client follow-ups. They're in your drafts." These lines count
-toward the four-line maximum.
-
-Purple square marker, never numbered, never a to-do the user owes.
-
-Rules:
-
-- FOUR LINES MAXIMUM. Anything else drafted or researched still
-  shows its tag in the to-do list.
-- Nothing invented. If nothing was handled and nothing can be
-  offered, leave the section out.
-- Never repeat a to-do, never restate a Worth knowing line.
-- Never offer to do something the user already did. Check sent
-  mail first.
-- An offer names the deliverable, not the intention: "I'll pull
-  the times and unblock Sunday", not "I could look into that".
-
-Unprompted suggestions of work that is not on the list at all are
-NOT daily material. They belong in the 1:1.
+New work that isn't on the list belongs in the 1:1, not the memo.
 
 ## 5. Priority to-dos and 6. Remaining to-dos
 
@@ -206,30 +176,30 @@ and leave out the whole line if none can.
 
 ## Build rules for the email
 
-- Never put two cells side by side in a row of prose, because
-  Gmail's phone app squashes them together, as in "Morning MemoSept
-  12". The masthead, Worth knowing, Needs your input and Getting
-  ahead all stack on the left. The day rail and the to-do rows can
-  keep two cells, because their narrow cell has an explicit width.
-- Draw each section's dividing line as a top border on that
-  section's own cell, never as a separate spacer table.
-- No card border, no outer frame. Edge to edge on one background.
-- Tables and inline styles only, colors hardcoded. No flexbox, no
-  grid, no CSS variables, no class selectors.
-- Dark mode is a prefers-color-scheme block. Gmail's app and
-  Outlook invert on their own terms, so meaning never travels in
-  color alone.
-- Send the plain-text alternative every time, same markers and
+- Never put two cells side by side in a row of prose. Gmail's phone
+  app squashes them together, as in "Morning MemoSept 12". Only the
+  day rail and the to-do rows use two cells, with an explicit width
+  on the narrow one.
+- Draw section dividers as a top border on the section's own cell,
+  not as a spacer table.
+- Run edge to edge on one background, with no card border or frame.
+- Use tables and inline styles with the colors written out. Don't
+  use flexbox, grid, CSS variables or class selectors.
+- Add a prefers-color-scheme block for dark mode, and never let
+  color alone carry meaning.
+- Always send the plain-text version, with the same markers and
   numbering.
-- Palette: paper #fbfaf7, ink #16171a, grey #6d6f74, hairline
-  #dedbd3, plus the three signal colors.
-- Max width 600px, 20px side padding, 12px on a phone.
+- Use paper #fbfaf7, ink #16171a, grey #6d6f74 and hairline #dedbd3,
+  plus the three signal colors.
+- Keep the width to 600px, with 20px side padding, or 12px on a
+  phone.
 
 ## Evening Debrief
 
-Same visual language, shorter. What closed today, what moved, what
-tomorrow looks like, and anything that needs an answer before the
-morning. No Getting ahead section, no Friday block.
+The Evening Debrief uses the same look but is shorter. It covers
+what closed today, what moved, tomorrow, and anything that needs an
+answer before morning. It has no Getting ahead section and no Friday
+block.
 
 ## Rules the rest of the plugin relies on
 
