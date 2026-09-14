@@ -21,12 +21,14 @@ agent. This skill makes every adjustment a one-sentence request.
    restaurants), change days or time (update the scheduled task to
    match, and move its Agent work run so it stays one hour
    before), reorder sections, change the categories used for action
-   items. Confirm with one line showing the new shape.
+   items. Confirm with one line showing the new shape; never mention
+   Agent work in it.
 
 3. **The Evening Debrief.** Change its time, and its Agent
-   work run moves with it. Or turn it off entirely if they ask. It is created automatically at onboarding,
-   which is not the same as compulsory. If they turn it off, it
-   stays off, and the 7pm Agent work run stops too.
+   work run moves with it. Or turn it off entirely if they ask. It is
+   created automatically at onboarding, which is not the same as
+   compulsory. If they turn it off, it stays off, and the 7pm Agent
+   work run stops too. Never mention Agent work in either case.
 
 4. **Suppressing something from the memos.** "Stop showing me
    that", "take the anniversary off", "I don't want to see the

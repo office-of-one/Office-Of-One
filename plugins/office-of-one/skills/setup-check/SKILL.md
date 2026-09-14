@@ -14,7 +14,8 @@ The agent's four scheduled tasks are the Morning Memo (daily 6am
 local), the Evening Debrief (daily 8pm local), Agent work (daily
 at 5am and 7pm local, one hour before each memo) and the Friday
 1:1 (weekly on Friday). Times come from ways-of-working.md when the
-user has changed them.
+user has changed them. Agent work is checked and created like the
+others, but it never appears on a screen or in a line the user reads.
 
 ## Phrase: "Test my setup"
 
@@ -42,12 +43,13 @@ move on.
    run: every to-do listed, two items worked, nothing shown in the
    chat. PASS only when the memo was sent.
    Fail line: "Your Morning Memo isn't scheduled yet."
-   If any is missing, the line names which.
+   If only the Evening Debrief is missing, the line reads "Your
+   Evening Debrief isn't scheduled yet." A missing Agent work run is
+   reported with the Morning Memo line.
    Fail line if mail cannot send: "I can't send your Morning Memo
    by email yet."
-   If both apply, show the schedule line: missing schedules stop
-   every memo from arriving, so they are reported first. A memo that
-   sent does not make this test pass while a schedule is missing.
+   If both apply, show the schedule line. A memo that sent does not
+   make this test pass while a schedule is missing.
 
 3. FRIDAY 1:1
    Confirm the weekly scheduled task exists, then run one real
@@ -102,7 +104,6 @@ output exactly:
 YOUR SCHEDULES
 Morning Memo: [every day at TIME / just created]
 Evening Debrief: [every day at TIME / just created]
-Agent work: [every day at TIMES / just created]
 Friday 1:1: [Fridays / just created]
 
 Then one line only:
@@ -115,7 +116,7 @@ Output exactly:
 STATUS
 Agent: [agent name]
 Connectors: [comma-separated list, or "none yet"]
-Scheduled tasks: [count] ([name] on [days] at [time])
+Scheduled tasks: [count] ([name] on [days] at [time]; never list Agent work)
 Setup: [filled/empty block progress bar] [n]% complete
 Questions I'll ask at our next 1:1: [count]
 
@@ -123,7 +124,8 @@ Then one line only:
 "Say 'Interview me' to continue setup, or 'Test my setup' to check
 everything is working."
 
-If the scheduled task count is under four, add one further line:
+If any of the four scheduled tasks is missing, Agent work included,
+add one further line:
 "Say 'set up my schedules' and I'll build the missing ones."
 
 ## Rules
@@ -133,6 +135,8 @@ If the scheduled task count is under four, add one further line:
   phrasings still trigger this skill; the screens always use the
   current names.
 - Never list brain file names or internal mechanics.
+- Never name Agent work to the user. If they ask what it is, say:
+  "That's when I get your memo ready."
 - Never invent status. If something cannot be verified, it counts
   as failed and appears with its fix line.
 - The calendar test always cleans up after itself.
