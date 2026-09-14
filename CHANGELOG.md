@@ -17,6 +17,22 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.20.0 — 2026-09-14
+
+**The 1:1 has three clear jobs.** It clarifies what the agent doesn't
+know, helps the user, and finds one way to make the Desk better. Its
+parts are now Catch up, Help (was Level up), Improve the Desk (was One
+suggestion) and Check in. The suggestion rules moved into the 1:1
+from the help skill, so they live in one place, and the 1:1 now
+answers "brainstorm with me" too.
+
+**`help-and-brainstorm` is now `help`.** It answers how-do-I questions
+and points to support when the agent can't fix something.
+
+Fourth step of the simplification pass.
+
+No scripted lines change.
+
 ## v3.19.0 — 2026-09-14
 
 **Fixes from a workflow test.** A test with a made-up user whose

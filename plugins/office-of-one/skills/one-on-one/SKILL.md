@@ -1,6 +1,6 @@
 ---
 name: one-on-one
-description: Use this skill when the user says "let's have a 1:1", "let's do our one on one", "let's catch up", or comes from their Friday Morning Memo. Runs the weekly sitdown that keeps the agent learning: questions from the queue and from the week just gone, one new capability worth knowing, and one suggestion for making their life easier. Writes everything it learns as it goes.
+description: Use this skill when the user says "let's have a 1:1", "let's do our one on one", "let's catch up", comes from their Friday Morning Memo, or asks to brainstorm ("brainstorm with me", "what would help my life", "what apps can I get rid of"). Runs the weekly sitdown: clarifying what the agent doesn't know, helping the user, and finding one way to make the Desk better. Writes everything it learns as it goes.
 ---
 
 # The 1:1 — the weekly sitdown
@@ -55,10 +55,11 @@ sake.
 Write every answer as it comes, per the memorialize skill. Resolve
 answered items in open-questions.md.
 
-### 2. Level up
+### 2. Help
 
-One thing they could do with their agent that they are not doing
-yet. One. Not a menu.
+Start with anything they're stuck on or unsure how to do, and answer
+it in plain words. Then, if one fits, one thing they could do with
+their agent that they aren't doing yet. One, not a menu.
 
 Ground it in their week: something that would have saved them time
 in the days you just discussed. If Claude has gained a capability
@@ -69,15 +70,31 @@ change; a plugin frozen at install date does not.
 If nothing fits this week, skip this beat entirely. A forced tip is
 worse than no tip.
 
-### 3. One suggestion
+### 3. Improve the Desk
 
-One scheduled task, routine, or habit that would make their life
-easier, drawn from what the week showed. Use the help-and-brainstorm
-skill for the suggestion logic so it lives in one place.
+One change that would make the Desk more useful to them, drawn from
+the week. Base it on what the brain files and log.md show, and name
+the evidence. Look for:
+
+- **Repetition.** Something they did by hand more than twice. "You
+  wrote [person] a status note three Thursdays running. I could
+  draft it each week from your calendar and sent mail."
+- **Consolidation.** "Your to-dos live in [apps from
+  ways-of-working]. I can be the one list; you could retire [app]."
+- **Anticipation, grounded in their calendar.** A packing list the
+  day before a trip the calendar already shows.
+- **People they want to stay close to.** A monthly nudge toward
+  someone in people.md they named.
+- **New memo sections**, drawn from what they ask about repeatedly.
+- **A recurring job too big for the task list.** Propose a workflow.
+
+One suggestion in a 1:1, up to three when the user asks to
+brainstorm. Each is one line. If nothing in the evidence supports
+one, offer none; a made-up suggestion is worse than none.
 
 Propose it, never create it. Only the Morning Memo, the Evening
-Debrief, the Desk and the Friday 1:1 are ever auto-scheduled.
-If they say yes, set it up and confirm in one line.
+Debrief, the Desk and the Friday 1:1 are ever auto-scheduled. If
+they say yes, set it up and confirm in one line.
 
 ### 4. Check in
 
@@ -149,7 +166,8 @@ saved. Never show a progress card.
 
 - No question limit. The user decides when it ends.
 - Write as you go. Never batch to the end of the session.
-- One capability, one suggestion, maximum. Skipping either is fine.
+- In a 1:1, one capability and one suggestion at most. Skipping
+  either is fine.
 - Never auto-create anything except the Morning Memo, the Evening
   Debrief, the Desk and the Friday 1:1.
 - Corrections always take priority over the question pool.
