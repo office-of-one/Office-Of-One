@@ -65,6 +65,21 @@ topic files:
 - `templates/project-instructions.md` — existing users need a
   manual refresh
 
+## Workflow files
+
+Heavier jobs a user sets up, each in its own file with no template.
+The rules live in `skills/one-on-one/SKILL.md`, and every workflow is
+listed in the Workflows section of `templates/ways-of-working.md`.
+
+If you change those rules, check everything that touches workflows:
+- `skills/daily-readout/readout-format.md` — kept out of the to-do
+  list, one Getting ahead line per run
+- `skills/desk/SKILL.md` — the Desk skips them
+- `skills/help-and-brainstorm/SKILL.md` — suggests them
+- `skills/memorialize/SKILL.md` — never starts one
+- `templates/project-instructions.md` — the map; existing users need
+  a manual refresh
+
 ## skills/onboarding-interview/SKILL.md
 
 - `interview-guide.md` — every scripted line it references must exist

@@ -23,7 +23,7 @@ stop the 7pm Desk run too.
 1. **Read the standing context.** tasks.md, log.md,
    ways-of-working.md, people.md, personality.md, and every topic
    file listed in ways-of-working.md. tasks.md is the system of
-   record.
+   record. Skip workflow files; they are not the Desk's.
 2. **Sweep.** Calendar for the day. Mail received AND sent since
    the last run. Sent matters as much as received: it says what
    the user already handled and what they promised. Mail is the

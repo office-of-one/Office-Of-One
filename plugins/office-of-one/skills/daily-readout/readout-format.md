@@ -109,6 +109,10 @@ An offer to put something on their calendar is the second kind:
 "Say yes and I'll put Mia's pickup at LAX on your calendar for Thu
 2pm." Nothing goes on the calendar until they say yes.
 
+A workflow that ran since the last memo gets one line, taken from
+its Last run line: "Drafted four client follow-ups. They're in your
+drafts." These lines count toward the four-line maximum.
+
 Purple square marker, never numbered, never a to-do the user owes.
 
 Rules:
@@ -144,7 +148,7 @@ down the memo.
 **Remaining to-dos lists every open item in the ledger, every
 time.** Never trim it to save space. A long list is grouped by
 category, never cut. Anything missing from the memo stops being
-visible.
+visible. Items tracked in a workflow file are not part of this list.
 
 **No subtext.** A to-do line is number, action, tag, link, date.
 Nothing else. Why an item is stuck, who was called, what the
