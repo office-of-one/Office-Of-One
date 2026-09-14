@@ -208,8 +208,8 @@ Never describe percentages or mechanics.
    - **Evening Debrief** — every day at 8pm local, runs the
      daily-readout skill in evening mode.
    - **The Desk** — every day at 5am and 7pm local, one hour
-     before each memo, runs the daily-readout skill for the
-     Desk. If the scheduler cannot run one task at two times,
+     before each memo, runs the desk skill. If the
+     scheduler cannot run one task at two times,
      create it as two tasks, both named The Desk.
    - **Friday 1:1** — weekly on Friday, runs the one-on-one skill.
    Then say the exact schedule confirmation line from

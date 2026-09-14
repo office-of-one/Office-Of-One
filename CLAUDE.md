@@ -138,7 +138,7 @@ ways-of-working.md so every skill can find it. The rules live in
 .claude-plugin/marketplace.json     the marketplace listing
 plugins/office-of-one/
 ├── .claude-plugin/plugin.json      the version Claude reads
-├── skills/                         eight skills
+├── skills/                         nine skills
 └── templates/                      eight brain templates, unfilled
 evals/                              test cases; never inside plugins/
 CLAUDE.md                           this file

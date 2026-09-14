@@ -178,8 +178,8 @@ with no reply the status becomes "no reply in N days, chase?".
 
 ## The tags
 
-Four states, three tags, all purple. Full definitions in
-agent-comms-style.md.
+Four states, three tags, all purple. Full definitions in the desk
+skill.
 
 | Tag | Means |
 |---|---|

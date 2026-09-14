@@ -96,17 +96,34 @@ wins, and that is stated in both.
   anywhere (onboarding, setup-check, agent-admin, the setup
   template) means moving its Desk run with it
 
+## skills/desk/SKILL.md
+
+The Desk: the scheduled run that does the work. Owns the run's steps,
+working the list, the finish check, the RECOMMEND / DRAFTED / LET'S
+TALK tag definitions, and when to research, draft or offer a
+calendar entry.
+
+- `templates/tasks.md` — the ledger it reads and writes
+- `templates/ways-of-working.md` — run times, switched-off connectors,
+  topic files
+- `skills/daily-readout/SKILL.md` — the memo run checks the Desk ran,
+  and the test run uses its steps 1 to 3
+- `skills/daily-readout/readout-format.md` — Getting ahead lines and
+  the tag markers it points to
+- `skills/onboarding-interview/SKILL.md` and `skills/setup-check/SKILL.md`
+  — the scheduled task named The Desk runs this skill
+- `skills/agent-admin/SKILL.md` — moves the Desk run with a memo
+
 ## skills/daily-readout/agent-comms-style.md
 
-How everything the agent writes looks: deliverables for the user,
-emails drafted as the user, the RECOMMEND / DRAFTED / LET'S TALK
-tags, and when to draft without asking.
+How everything the agent writes looks: write-ups for the user and
+emails drafted as the user. What to research, draft or tag lives in
+the desk skill.
 
-- `skills/daily-readout/readout-format.md` — shares the colors,
-  typography and the tag table; change them in both
-- `skills/daily-readout/SKILL.md` — must point at it, or the rules
-  are never read
-- `templates/tasks.md` — "the ledger" it sends reasoning to
+- `skills/daily-readout/readout-format.md` — shares the colors and
+  typography; change them in both
+- `skills/daily-readout/SKILL.md` and `skills/desk/SKILL.md` — must
+  point at it, or the rules are never read
 - `templates/personality.md` — voice, which this file never overrides
 
 ## skills/one-on-one/SKILL.md
