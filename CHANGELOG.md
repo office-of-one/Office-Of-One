@@ -17,6 +17,28 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.12.0 — 2026-09-14
+
+**The interview no longer asks about schedule times.** Step 4 used to
+ask whether the user wanted to change the times, the days or who gets
+calendar invites, and Step 6 asked the same question again after the
+Morning Memo test. Both questions are gone. The defaults are stated,
+the schedules are created at those times, and the user can change
+them any time by asking.
+
+**Scripted lines changed:**
+- Step 4. Removed: "Want to change the times, the days, or who else
+  goes on your invites?"
+- Step 6, after the Morning Memo test. Old: "Your Morning Memo is in
+  your inbox now. It'll arrive every day at 6am, with the Evening
+  Debrief at 8pm the night before, our 1:1 on Fridays, and invites
+  going to you only. Want to change the times, the days, or who else
+  goes on your invites?" New: "Your Morning Memo is in your inbox
+  now. It'll arrive every day at 6am, with the Evening Debrief at 8pm
+  the night before, and our 1:1 on Fridays."
+
+**Existing customers** are unaffected unless they run a new interview.
+
 ## v3.11.0 — 2026-09-13
 
 **Capture stops naming files.** A capture sometimes opened with
