@@ -17,6 +17,38 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.13.0 — 2026-09-14
+
+**Agent work stays behind the scenes.** The agent was telling users
+things like "if Agent work doesn't run, your memo won't either".
+Nothing marked Agent work as internal, so the agent treated it like a
+feature to explain. Now:
+
+- A standing rule says Agent work is internal. The agent never names
+  it, never explains how it connects to the memos, and never says
+  what happens if it doesn't run. Asked what it is, the agent says
+  "That's when I get your memo ready."
+- The setup check still checks and creates Agent work, but never
+  shows it. The "Set up my schedules" screen drops its Agent work
+  line, the status screen leaves it out of the task list, and a
+  missing Agent work run is reported as "Your Morning Memo isn't
+  scheduled yet."
+- Changing a memo time moves Agent work silently.
+- The memo never explains why it is late or thin.
+
+**Scripted lines changed:**
+- "Set up my schedules" screen: the line "Agent work: [every day at
+  TIMES / just created]" is removed.
+- New answer when asked what Agent work is: "That's when I get your
+  memo ready."
+
+**Existing customers** get the setup check, memo and agent-admin
+changes when they update. The standing rule lives in the project
+instructions, which don't refresh on update; the same rule is copied
+into the memo and setup check so it applies either way. For the full
+rule, replace the project's instructions with the current
+`templates/project-instructions.md`.
+
 ## v3.12.0 — 2026-09-14
 
 **The interview no longer asks about schedule times.** Step 4 used to
