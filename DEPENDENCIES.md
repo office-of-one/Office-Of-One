@@ -109,7 +109,7 @@ wins, and that is stated in both.
   test run, which sends a real memo by email
 - The Desk runs one hour before each memo. Changing a memo time
   anywhere (onboarding, setup-check, agent-admin, the setup
-  template) means moving its Desk run with it
+  template) means moving its Desk task with it
 
 ## skills/desk/SKILL.md
 
@@ -126,8 +126,9 @@ calendar entry.
 - `skills/daily-readout/readout-format.md` — Getting ahead lines and
   the tag markers it points to
 - `skills/onboarding-interview/SKILL.md` and `skills/setup-check/SKILL.md`
-  — the scheduled task named The Desk runs this skill
-- `skills/agent-admin/SKILL.md` — moves the Desk run with a memo
+  — the scheduled tasks The Desk - Morning and The Desk - Evening run
+  this skill
+- `skills/agent-admin/SKILL.md` — moves the matching Desk task with a memo
 
 ## skills/daily-readout/agent-comms-style.md
 

@@ -10,10 +10,10 @@ types the same phrase sees the same screen. Output the formats below
 EXACTLY, filling only the bracketed values. Add nothing before or
 after the format block. No extra commentary, no analysis.
 
-The agent's four scheduled tasks are the Morning Memo (daily 6am
-local), the Evening Debrief (daily 8pm local), the Desk (daily
-at 5am and 7pm local, one hour before each memo) and the Friday
-1:1 (weekly on Friday). Times come from ways-of-working.md when the
+The agent's five scheduled tasks are the Morning Memo (daily 6am
+local), the Evening Debrief (daily 8pm local), The Desk - Morning
+(daily 5am local), The Desk - Evening (daily 7pm local) and the
+Friday 1:1 (weekly on Friday). Times come from ways-of-working.md when the
 user has changed them. The Desk is checked and created like the
 others, but it never appears on a screen or in a line the user reads.
 
@@ -38,13 +38,13 @@ move on.
 
 2. MORNING MEMO
    Confirm the daily scheduled tasks exist — the Morning Memo, the
-   Evening Debrief and the Desk. Then send one real Morning Memo
+   Evening Debrief and both Desk tasks. Then send one real Morning Memo
    to the user's own inbox using the daily-readout skill's test
    run: every to-do listed, two items worked, nothing shown in the
    chat. PASS only when the memo was sent.
    Fail line: "Your Morning Memo isn't scheduled yet."
    If only the Evening Debrief is missing, the line reads "Your
-   Evening Debrief isn't scheduled yet." A missing Desk run is
+   Evening Debrief isn't scheduled yet." A missing Desk task is
    reported with the Morning Memo line.
    Fail line if mail cannot send: "I can't send your Morning Memo
    by email yet."
@@ -97,8 +97,9 @@ user to do anything.
 
 The recovery path for anyone whose interview was interrupted, or
 whose schedules were never created. A scheduled task named Agent
-work is the old name for The Desk: replace it with The Desk at the
-same times, never run both. Check which of the four exist,
+work or The Desk is an older name: replace it with
+The Desk - Morning and The Desk - Evening at the same times, and
+never run both. Check which of the five exist,
 create only the missing ones at the times recorded in
 ways-of-working.md (or the defaults if none are recorded), then
 output exactly:
@@ -126,7 +127,7 @@ Then one line only:
 "Say 'Interview me' to continue setup, or 'Test my setup' to check
 everything is working."
 
-If any of the four scheduled tasks is missing, the Desk included,
+If any of the five scheduled tasks is missing, either Desk task included,
 add one further line:
 "Say 'set up my schedules' and I'll build the missing ones."
 
