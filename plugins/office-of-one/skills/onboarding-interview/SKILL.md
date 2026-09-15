@@ -169,9 +169,8 @@ Never describe percentages or mechanics.
      items, active documents.
    While sweeping, keep a running set of candidate action items:
    anything with an action the user owns and a real date signal.
-   Step 4 opens the user's to-do list from these, so the sweep is
-   the only place they can come from. Do not mention them in Step
-   3.
+   Step 4 writes these to tasks.md. Never show them to the user
+   during the interview.
    Then report in the exact Connector Report format, which lists
    ONLY what is actually connected and what that lets you see.
    This step NEVER asks the user to go and add a connector. If
@@ -192,8 +191,7 @@ Never describe percentages or mechanics.
 5. **Step 4 — Schedule my tasks.**
    Update the progress card: step 4.
    Say the Step 4 intro, then the DEFAULTS as a
-   statement, then the one question (to-dos), all exactly as
-   written.
+   statement, then the to-do line, all exactly as written.
    The defaults are never put to the user as choices: emails and
    calendar invites are always draft-for-confirmation, invites go to
    the user only, the Morning Memo is daily at 6am local, the
@@ -201,40 +199,33 @@ Never describe percentages or mechanics.
    Friday. The Desk runs one hour before each memo. Never
    ask the user to change the times, the days or the invites; they
    can change any of these later by asking.
-   Then create the four scheduled tasks. THIS IS WHAT MAKES THE
+   Then create the five scheduled tasks. THIS IS WHAT MAKES THE
    PRODUCT ARRIVE: nothing reaches the user again unless these
-   exist. Create all four NOW, in the user's timezone, at the
-   defaults just stated:
+   exist. Create all five NOW, in the user's timezone, at the
+   defaults just stated, with exactly these names:
    - **Morning Memo** — every day at 6am local, runs the
      daily-readout skill in morning mode.
    - **Evening Debrief** — every day at 8pm local, runs the
      daily-readout skill in evening mode.
-   - **The Desk** — every day at 5am and 7pm local, one hour
-     before each memo, runs the desk skill. If the
-     scheduler cannot run one task at two times,
-     create it as two tasks, both named The Desk.
+   - **The Desk - Morning** — every day at 5am local, one hour
+     before the Morning Memo, runs the desk skill.
+   - **The Desk - Evening** — every day at 7pm local, one hour
+     before the Evening Debrief, runs the desk skill.
    - **Friday 1:1** — weekly on Friday, runs the one-on-one skill.
    Then say the exact schedule confirmation line from
-   interview-guide.md. Verify all four exist before moving on. If
+   interview-guide.md. Verify all five exist before moving on. If
    one could not be created, say so plainly, once, and tell the
    user they can say "set up my schedules" at any time to have them
    rebuilt. A missing schedule is the only failure in this skill
    worth interrupting the flow for. Nothing else is ever
    auto-scheduled; anything else recurring is proposed and
    confirmed.
-   The to-do question runs in three beats, exactly as written in
-   interview-guide.md: show four or five items derived from the
-   Step 3 sweep, invite corrections AND additions, then ask what
-   is not written down anywhere, then ask where their to-dos live
-   today. Never open with a blank-list question.
-   Derived items are proposals. The user may reword, redate
-   or drop any of them, and their wording wins. Corrected
-   items count as stated; untouched items stay labeled derived;
-   dropped items are deleted and never resurface. Filter hard:
-   newsletters, promotions, receipts, delivery notices and digests
-   are never action items.
-   Record every answer in ways-of-working.md and tasks.md as it is
-   given.
+   Then write the candidate to-dos from the Step 3 sweep to
+   tasks.md, each starting with a verb and labeled derived, and say
+   the to-do line from interview-guide.md. Never list them to the
+   user and never ask about to-dos. Filter hard: newsletters,
+   promotions, receipts, delivery notices and digests are never
+   to-dos.
 
 6. **Step 5 — Help me fill in the gaps.**
    Update the progress card: step 5.
@@ -260,9 +251,9 @@ Never describe percentages or mechanics.
    anything is left, say the exact Friday 1:1 hand-off line.
 
 7. **Check the scheduled tasks.**
-   They were created in Step 4. Verify all four still exist and
+   They were created in Step 4. Verify all five still exist and
    create any that is missing, at the times in ways-of-working.md.
-   Say nothing if all four are there.
+   Say nothing if all five are there.
 
 8. **Finish the brain files.**
    Everything should already be written. Confirm that
@@ -325,8 +316,9 @@ Never describe percentages or mechanics.
 ## Rebuilding schedules later
 
 If the user says "set up my schedules", or any close variant, check
-which of the four scheduled tasks exist (a task named Agent work is
-the old name for The Desk: replace it, never run both), create only the missing
+which of the five scheduled tasks exist. A task named Agent work or
+The Desk is an older name: replace it with The Desk - Morning and
+The Desk - Evening at the same times, and never run both. Create only the missing
 ones at the recorded times from ways-of-working.md (or the defaults
 if none are recorded), and report what is now live in one line.
 This is the recovery path for anyone whose interview was

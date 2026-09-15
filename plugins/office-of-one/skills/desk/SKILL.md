@@ -1,6 +1,6 @@
 ---
 name: desk
-description: Runs the Desk, where the agent's work is delegated and executed. Use for the Desk's scheduled runs at 5am and 7pm local, when the user says "run the Desk", and when a memo run finds the Desk did not run. Reads mail and the calendar, keeps the task list current, and takes every open item as far as it can go by looking things up, drafting and offering calendar entries.
+description: Runs the Desk, where the agent's work is delegated and executed. Use for the scheduled tasks The Desk - Morning (5am local) and The Desk - Evening (7pm local), when the user says "run the Desk", and when a memo run finds the Desk did not run. Reads mail and the calendar, keeps the task list current, and takes every open item as far as it can go by looking things up, drafting and offering calendar entries.
 ---
 
 # The Desk
@@ -17,8 +17,9 @@ starting; it overrides this file wherever they disagree.
 
 Every day at 5am and 7pm local, one hour before each memo, so each
 memo goes out with the work already done. If the user moves a memo,
-move its Desk run with it. If the user turns the Evening Debrief off,
-stop the 7pm Desk run too.
+move its Desk task with it: The Desk - Morning for the Morning Memo,
+The Desk - Evening for the Evening Debrief. If the user turns the
+Evening Debrief off, stop The Desk - Evening too.
 
 ## The run
 

@@ -10,7 +10,8 @@ Set during onboarding. Changeable any time by asking.
 4. Schedule:
    - Morning Memo: [every day at 6am]
    - Evening Debrief: [every day at 8pm the night before]
-   - The Desk: [every day at 5am and 7pm, one hour before each memo]
+   - The Desk - Morning: [every day at 5am, one hour before the Morning Memo]
+   - The Desk - Evening: [every day at 7pm, one hour before the Evening Debrief]
    - Friday 1:1: [weekly on Friday]
 5. System of record for tasks: tasks.md. Note here what it was
    before, so the migration is visible.
@@ -22,7 +23,7 @@ chose, and date the choice.
 
 - Using it for: [what this account is actually full of. Personal
   and household, work, or a mix. Name the mix.]
-- Timezone: [from the calendar]. Never guess it. All four
+- Timezone: [from the calendar]. Never guess it. All five
   scheduled tasks run against it.
 - Predecessor system: [if they are migrating off something, name
   it and note that its emails will overlap for a few days.]

@@ -17,6 +17,30 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.25.0 — 2026-09-14
+
+**Setup no longer lists to-dos.** Step 4 used to show a few to-dos from
+the mail sweep and ask the user to correct them, then ask two more
+questions about to-dos. Now the agent saves what it found without
+showing it and says one line. The user sees every to-do in the Morning
+Memo and fixes anything wrong by replying.
+
+**The Desk has two clearly named tasks.** Setup creates
+The Desk - Morning at 5am and The Desk - Evening at 7pm, instead of two
+tasks both named The Desk. There are now five scheduled tasks. Moving a memo
+moves its matching Desk task.
+
+Five scripted lines are removed from Step 4: "Let me start your list
+for you…", "Anything wrong there, or missing?…", "And what's on your
+list that isn't written down anywhere?", "Where do your to-dos live
+today?" and "I'll grab the rest as we go." One is added: "I'll keep
+track of your to-dos from here, and you'll see all of them in your
+Morning Memo."
+
+**Existing customers** say "set up my schedules" after updating. That
+replaces an old task named The Desk or Agent work with the two new
+ones.
+
 ## v3.24.0 — 2026-09-14
 
 **The first mail read has a limit.** Onboarding reads the last 14 days
