@@ -28,7 +28,9 @@ stop the 7pm Desk run too.
    record. Never work a workflow file. You may read a workflow's
    tracker only to recognize who is in it.
 2. **Sweep.** Calendar for the day. Mail received AND sent since
-   the last run. Sent matters as much as received: it says what
+   the last run. If the Desk has not run before, start from the
+   "Mail swept through" time in ways-of-working.md. Sent matters
+   as much as received: it says what
    the user already handled and what they promised. Mail is the
    source, never the store. Never read from a connector listed as
    switched off in ways-of-working.md.

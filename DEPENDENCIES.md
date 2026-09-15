@@ -120,7 +120,7 @@ calendar entry.
 
 - `templates/tasks.md` — the ledger it reads and writes
 - `templates/ways-of-working.md` — run times, switched-off connectors,
-  topic files
+  topic files, and the onboarding sweep time the first run reads from
 - `skills/daily-readout/SKILL.md` — the memo run checks the Desk ran,
   and the test run uses its steps 1 to 3
 - `skills/daily-readout/readout-format.md` — Getting ahead lines and

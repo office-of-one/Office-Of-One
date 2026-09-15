@@ -17,6 +17,14 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.24.0 — 2026-09-14
+
+**The first mail read has a limit.** Onboarding reads the last 14 days
+of mail, received and sent, and records when it did. The Desk's first
+run reads mail from that point, so nothing is missed or read twice.
+
+No scripted lines change.
+
 ## v3.23.0 — 2026-09-14
 
 **Fixes from the second memo test.** A rerun with the made-up realtor
