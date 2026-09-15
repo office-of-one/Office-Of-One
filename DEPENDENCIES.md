@@ -145,7 +145,7 @@ the desk skill.
 ## skills/one-on-one/SKILL.md
 
 - `templates/open-questions.md` — the pool it draws from
-- `skills/daily-readout/readout-format.md` — the Friday block that
+- `skills/daily-readout/readout-format.md` — the Friday reminder at the top of the memo that
   invites it
 
 ## templates/personality.md

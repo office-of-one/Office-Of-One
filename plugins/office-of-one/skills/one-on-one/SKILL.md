@@ -101,7 +101,7 @@ brainstorm. Each is one line. If nothing in the evidence supports
 one, offer none; a made-up suggestion is worse than none.
 
 Propose it, never create it. Only the Morning Memo, the Evening
-Debrief, the Desk and the Friday 1:1 are ever auto-scheduled. If
+Debrief and the Desk are ever auto-scheduled. If
 they say yes, set it up and confirm in one line.
 
 ### 4. Check in
@@ -178,7 +178,7 @@ saved. Never show a progress card.
 - In a 1:1, one capability and one suggestion at most. Skipping
   either is fine.
 - Never auto-create anything except the Morning Memo, the Evening
-  Debrief, the Desk and the Friday 1:1.
+  Debrief and the Desk.
 - Corrections always take priority over the question pool.
 - Nothing goes to Office of One from here. The user emails them
   directly if they want to.

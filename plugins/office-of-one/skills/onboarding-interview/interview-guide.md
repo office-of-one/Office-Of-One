@@ -135,8 +135,7 @@ personal / both]. I'll shape your Morning Memo around that."
 Record it in ways-of-working.md. It re-ranks the question pool.
 
 Also note the user's timezone from the calendar. The Morning Memo,
-the Evening Debrief, the Desk and the Friday 1:1 are scheduled
-against it.
+the Evening Debrief and the Desk are scheduled against it.
 
 ## Step 4 — Schedule my tasks
 
@@ -153,7 +152,7 @@ you tell me otherwise. Your **Morning Memo arrives every day at
 6am**, and your **Evening Debrief at 8pm** the night before. I'll
 do the prep work an hour before each one."
 
-Then create the five scheduled tasks at these times, and confirm
+Then create the four scheduled tasks at these times, and confirm
 in one line:
 "All set. Your Morning Memo arrives [days] at [time], your
 Evening Debrief at [time] the night before, and we'll have our
@@ -178,8 +177,8 @@ readout-format.md.
   automatically until the user names one.
 - The Morning Memo is every day at 6am local. The Evening
   Debrief is every day at 8pm local. The Desk runs at 5am and
-  7pm local, one hour before each memo. The Friday 1:1 is weekly
-  on Friday. All of these are stated as defaults and none of the
+  7pm local, one hour before each memo. The Friday Morning Memo
+  invites the user to a 1:1. All of these are stated as defaults and none of the
   times are asked during onboarding.
 - Connectors the user does not have are never suggested during
   onboarding, except a missing mail or calendar, which is named
@@ -188,8 +187,8 @@ readout-format.md.
   time from behavior and corrections.
 - The calendar, priorities and action items are always in the
   Morning Memo and never asked about.
-- The Morning Memo, the Evening Debrief, the Desk and the Friday
-  1:1 are all set up automatically at their default times. The user
+- The Morning Memo, the Evening Debrief and the Desk are all set
+  up automatically at their default times. The user
   can change them any time by asking; agent-admin handles it.
 - Both arrive by email and are available in the app. There is no
   delivery choice to make.
@@ -329,7 +328,7 @@ If they still decline, don't push. Say:
 "No problem. Whenever you're ready, just say 'Test my setup'."
 Then go to the closing lines.
 
-Before starting, check that the five scheduled tasks from Step 4
+Before starting, check that the four scheduled tasks from Step 4
 exist, creating any that is missing, and make sure the brain files
 are saved. Then say:
 
