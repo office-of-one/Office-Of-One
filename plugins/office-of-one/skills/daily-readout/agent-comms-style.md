@@ -9,7 +9,7 @@ Comparisons, research, options, recommendations. These are write-ups.
 
 1. **Provenance line.** "Draft · by [Agent Name]" in small grey
    caps above the title. The only place the agent is named.
-2. **Masthead.** Georgia title naming the subject, one grey line
+2. **Masthead.** Title naming the subject, one grey line
    underneath with who it is for and the date.
 3. **Where it stands.** A tinted panel, three lines maximum, the
    current position and who the ball is with. If they read nothing
@@ -29,8 +29,8 @@ from an assistant makes them awkward to pass on. The provenance
 line does the same job and survives forwarding. No "I" either:
 "the read", "not verified", not "my read".
 
-Typography follows the memo: Georgia title, system sans
-everywhere else, 14px body, 13px in tables, 12px grey notes, 10px
+Typography follows the memo: the same Segoe UI font stack
+throughout, 14px body, 13px in tables, 12px grey notes, 10px
 uppercase labels, pine #2b5f52 for numbers and labels, hairline
 #dedbd3 between rows, #e6ede9 for the panel, #f3f1ec for
 alternating table rows.
