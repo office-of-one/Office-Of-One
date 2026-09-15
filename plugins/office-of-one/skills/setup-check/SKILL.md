@@ -1,6 +1,6 @@
 ---
 name: setup-check
-description: Use this skill whenever the user says "Test my setup", "Status check", "Set up my schedules", "Is everything set up", or the older phrasing "Test daily summary", or asks whether their agent, memos, or connectors are working. Also used by the onboarding interview to run the four setup tests. Returns fixed-format status screens so every workshop participant sees identical output.
+description: Use this skill whenever the user says "Test my setup", "Status check", "Set up my schedules", "Is everything set up", or the older phrasing "Test daily summary", or asks whether their agent, memos, or connectors are working. Also used by the onboarding interview to run the three setup tests. Returns fixed-format status screens so every workshop participant sees identical output.
 ---
 
 # Setup Check — deterministic status screens
@@ -18,8 +18,7 @@ others, but it never appears on a screen or in a line the user reads.
 
 ## Phrase: "Test my setup"
 
-Run the four tests IN ORDER. The email test runs last because it
-reports the results of the other three.
+Run the three tests IN ORDER.
 
 A failed test never blocks the user from finishing. Show the
 failure, offer "Fix it" once, and carry on if they would rather
@@ -57,19 +56,6 @@ move on.
    Fail line if there are no questions: "I don't have any questions
    queued for you yet."
 
-4. EMAIL
-   Draft the Office of One note per feedback-template.md, show it
-   in full, and send only on an explicit yes.
-   PASS means the mail connector can send. If the user declines to
-   send, that is NOT a failure; the line reads
-   "ready (nothing sent)".
-   Fail line: "I can't send email yet."
-   After a successful send, restate the rule it bent:
-   "That was a one-off so we could check it works. From here I'll
-   always show you a draft first."
-   If the email test itself fails, the other failures are shown on
-   screen only. Say so in one line.
-
 ### The screen
 
 Output exactly:
@@ -78,7 +64,6 @@ TESTING YOUR SETUP
 Calendar: [PASS / one-sentence fix]
 Morning Memo: [PASS / one-sentence fix]
 Friday 1:1: [PASS / one-sentence fix]
-Email: [PASS / ready (nothing sent) / one-sentence fix]
 
 Then ONE closing line, whichever applies:
 "All tests passed. You're set."

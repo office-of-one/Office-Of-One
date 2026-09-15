@@ -43,7 +43,7 @@ Then start a session in your project and say **"Interview me."**
 | `capture` | Any screenshot, photo, flyer, or dumped text | Extracts dates and facts, reconciles them, proposes calendar changes. |
 | `memorialize` | Continuously, and "save this" | Writes durable material the moment it appears, plus the two-tier log and archive. |
 | `agent-admin` | "change your personality", "what do you know about me" | Every adjustment: personality, memo contents, suppressing an item, rules, forgetting. |
-| `setup-check` | "Test my setup", "Status check" | Fixed-format screens, and the four setup tests. |
+| `setup-check` | "Test my setup", "Status check" | Fixed-format screens, and the three setup tests. |
 | `help` | "help", "what can you do" | Answers how-do-I questions in plain words, and points to support when the agent can't fix something. |
 
 ## The eight templates

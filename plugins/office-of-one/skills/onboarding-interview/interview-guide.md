@@ -334,20 +334,14 @@ are saved. Then say:
 
 "**Test me.**
 
-Before we wrap up, let's make sure everything works. I'll run four
-quick checks: your calendar, your Morning Memo, our Friday 1:1 and
-email."
+Before we wrap up, let's make sure everything works. I'll run three
+quick checks: your calendar, your Morning Memo and our Friday 1:1."
 
-Run the four tests with the setup-check skill, in this order:
-calendar, Morning Memo, Friday 1:1, email. Use its screens word for
-word.
+Run the three tests with the setup-check skill, in this order:
+calendar, Morning Memo, Friday 1:1. Use its screens word for word.
 
 After the Morning Memo test, say:
 "Your Morning Memo is in your inbox now."
-
-After the email test sends, say:
-"That was a one-off so we could check it works. From here I'll
-always show you a draft first."
 
 If a test fails, show it, offer "Fix it" once, and keep going. A
 failed test never stops the interview.

@@ -72,10 +72,6 @@ agent cannot fix, give them the address in one line: "Drop them a
 note at support@officeofone.ai. A sentence is plenty." Nothing about
 their life leaves this project.
 
-The one exception is the setup email in Step 6 of onboarding, which
-is drafted from feedback-template.md, shown in full, and sent only
-on an explicit yes.
-
 ## Rules
 
 - Every change takes effect immediately and persists (write it to

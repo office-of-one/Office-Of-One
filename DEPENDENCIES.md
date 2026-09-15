@@ -90,7 +90,7 @@ If you change those rules, check everything that touches workflows:
   templates before onboarding installed them. The one exception is
   topic files (fitness.md and the like), which have no template by
   design; see "Topic files" above.
-- `skills/setup-check/SKILL.md` — Step 6 calls it for the four tests
+- `skills/setup-check/SKILL.md` — Step 6 calls it for the three tests
 - `CLAUDE.md` — the skills table, if trigger or purpose changed
 
 ## skills/daily-readout/SKILL.md and readout-format.md
@@ -181,7 +181,7 @@ onboarding only installs it if it isn't already present.
 - `skills/help/SKILL.md` — the plain-language capability list users
   are shown
 - `skills/setup-check/SKILL.md` — if it should appear in the status
-  screen or the four tests
+  screen or the three tests
 - The facilitator runbook (Drive) — if it changes what is demonstrated
 
 ## Changing a user-facing name

@@ -84,8 +84,8 @@ the family, a move) surface the same way. Record the logistics they
 create. Never name the event back to the user unless they named it
 first.
 
-Nothing sensitive ever enters the Office of One email. That email
-carries only what feedback-template.md permits.
+Nothing sensitive ever leaves the project. The weekly usage summary
+carries only category labels and counts, per PRIVACY.md.
 
 ## The Building Your Agent progress card
 
@@ -280,8 +280,8 @@ Never describe percentages or mechanics.
    Update the progress card: step 6.
    Step 6 always runs, for every user; the closing lines never
    come before it. Say the exact Test me line from
-   interview-guide.md, then run the four tests using the
-   setup-check skill: calendar, Morning Memo, Friday 1:1, email.
+   interview-guide.md, then run the three tests using the
+   setup-check skill: calendar, Morning Memo, Friday 1:1.
    Use its screens verbatim.
    If the user asks to skip the tests or do them later, use the
    exact lines from interview-guide.md: ask once, and if they
@@ -290,19 +290,9 @@ Never describe percentages or mechanics.
    Immediately after the Morning Memo test, say the exact line from
    interview-guide.md that tells the user the memo is in their
    inbox. It asks nothing.
-   The email test drafts the Office of One note per
-   feedback-template.md, shows it in full, and sends only on an
-   explicit yes. Drafting is NOT sending: always compose and show
-   the draft, even for a user who chose draft-only. Declining to
-   send is not a failure.
-   After a successful send, restate the rule it bent:
-   "That was a one-off so we could check it works. From here I'll
-   always show you a draft first."
    A failed test never blocks the finish. Show the failure plainly,
    offer "Fix it" once, and carry on if the user would rather move
-   on. Failures are recorded and reported in the Office of One
-   email. If the email test itself fails, the failures are shown on
-   screen only, and setup-check says so.
+   on. Failures are shown on screen.
 
 10. **Close: Agent setup complete.**
     Update the progress card to 7, Agent setup complete, and say
