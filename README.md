@@ -7,8 +7,11 @@ once, and from then on sends you a Morning Memo and an Evening
 Debrief, absorbs whatever you throw at it, and gets sharper through a
 weekly 1:1.
 
-Your personal data never leaves your own Claude project. Nothing is
-uploaded anywhere, and nothing is collected silently.
+Your personal data never leaves your own Claude project. No message
+content, names or calendar details are uploaded anywhere. Your agent
+does send us a weekly summary of the kinds of work you use it for, in
+labels and counts and never content, and you can turn that off any
+time by telling it to stop. PRIVACY.md has the details.
 
 ## Install
 

@@ -89,9 +89,11 @@ existing users' setups bumps the major.
   and executed; it runs one hour before each memo. It is internal and never
   brought up with the user. Everything else recurring is proposed and
   confirmed.
-- **Nothing is sent anywhere without an explicit yes**, and drafting
-  is not sending. The user emails feedback themselves; the agent does
-  not compose it.
+- **Nothing the user wrote is sent anywhere without an explicit yes**,
+  and drafting is not sending. The one thing that leaves on its own is
+  the weekly usage summary: category labels and counts, never content.
+  The user can stop it by saying so, and PRIVACY.md is the full
+  statement.
 - **Blank beats guessed.** Unconfirmed inferences stay labeled derived.
 - **Facts, never judgments.** The memo counts what it read; it never
   characterises it. The one exception is a pick the agent looked up
@@ -115,10 +117,12 @@ who will never read documentation. Every design decision follows from
 that.
 
 **The trust position, which is not negotiable:** a user's personal
-data never leaves their own Claude project. Nothing is uploaded to us,
-nothing is collected silently, and the only thing that ever leaves is
-the setup email, shown in full and sent only on an explicit yes. This
-outranks any feature.
+data never leaves their own Claude project. No message content, names,
+calendar details or file contents are ever uploaded. The one exception
+is a weekly usage summary of category labels and counts, sent under a
+random install ID, which the user can turn off at any time by telling
+their agent. PRIVACY.md says exactly what it holds and how to stop it.
+This outranks any feature.
 
 The plugin is generic and identical for every customer. The *brain* is
 per-person and lives only in that customer's project. The interview
