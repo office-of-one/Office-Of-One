@@ -50,6 +50,10 @@ one gap and five contradictions.
   did before, instead of starting the full 1:1.
 - **The 1:1 skill reminds the agent not to mention the Desk** when it
   suggests an improvement.
+- **Small rules restored from before the memo spec was shortened:**
+  first-memo questions stay within three, the log backfills
+  yesterday, offers say what the user does first, the memo has no
+  subtitle, and the memo spec decides how the Desk's work appears.
 
 One scripted line is removed. Step 4 of onboarding no longer says
 "Once you're comfortable and I know you better, you can tell me to

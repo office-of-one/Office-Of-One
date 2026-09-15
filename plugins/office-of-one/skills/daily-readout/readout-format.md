@@ -15,8 +15,8 @@ disagree, this file wins.
 7. Sources, the Friday block and the sign-off
 
 Above them sits a Georgia title with the date in grey underneath.
-It never shows the agent's name, an item count or a summary of the
-day. The greeting comes right after it. If either to-do section is
+It never has a subtitle, the agent's name, an item count or a
+summary of the day. The greeting comes right after it. If either to-do section is
 renamed, rename both.
 
 ## Colors
@@ -70,7 +70,8 @@ These are questions that block something, marked with pine squares
 and no number or date. Ask three at most. There are usually none.
 
 The first memos also ask about calendar contradictions from
-onboarding, marked "from onboarding" in tasks.md. Double-bookings
+onboarding, marked "from onboarding" in tasks.md. Each is one
+question and counts toward the three. Double-bookings
 show as CONFLICT in Today instead.
 
 ## 4. Getting ahead
@@ -78,8 +79,9 @@ show as CONFLICT in Today instead.
 Each line is work the agent did or offers to do, marked with a
 purple square and never numbered. A finished job reads like "Drafted
 the reply to [name]. It's in your drafts, needs the figure." and is
-tagged DRAFTED. An offer names the deliverable, like "Forward me the
-PDF and I'll confirm the part and put both dates on the calendar."
+tagged DRAFTED. An offer names the deliverable and anything the user
+has to do first, like "Forward me the PDF and I'll confirm the part
+and put both dates on the calendar."
 
 A calendar offer reads like "Say yes and I'll put Mia's pickup at LAX
 on your calendar for Thu 2pm." Nothing goes on the calendar without

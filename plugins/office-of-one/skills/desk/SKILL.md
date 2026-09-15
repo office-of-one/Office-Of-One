@@ -8,7 +8,9 @@ description: Runs the Desk, where the agent's work is delegated and executed. Us
 The Desk is where work is delegated and executed. The Morning Memo
 and the Evening Debrief report what it did; this file says how it
 works. How write-ups and drafts look is in the daily-readout skill's
-`agent-comms-style.md`. Read the user's `ways-of-working.md` before
+`agent-comms-style.md`. How the work shows up in the memo is set by
+`readout-format.md`, which wins if the two files disagree on that.
+Read the user's `ways-of-working.md` before
 starting; it overrides this file wherever they disagree.
 
 ## When it runs
