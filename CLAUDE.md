@@ -84,8 +84,8 @@ existing users' setups bumps the major.
   agent's process.
 - **Never expose file names or internals.** The user has an agent, not
   a filesystem.
-- **Only the Morning Memo, the Evening Debrief, the Desk and the
-  Friday 1:1 are auto-scheduled.** The Desk is where work is delegated
+- **Only the Morning Memo, the Evening Debrief and the Desk are
+  auto-scheduled.** The Desk is where work is delegated
   and executed; it runs one hour before each memo. It is internal and never
   brought up with the user. Everything else recurring is proposed and
   confirmed.

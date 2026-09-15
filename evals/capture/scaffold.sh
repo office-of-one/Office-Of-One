@@ -50,7 +50,6 @@ cat > ways-of-working.md <<'EOF'
    - Morning Memo: every day at 6am
    - Evening Debrief: every day at 8pm
    - The Desk: every day at 5am and 7pm
-   - Friday 1:1: weekly on Friday
 5. System of record for tasks: tasks.md
 
 - Timezone: America/New_York

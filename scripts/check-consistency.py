@@ -48,16 +48,16 @@ notinst = [t.name for t in tracked("plugins/office-of-one/templates/*") if t.nam
 if notinst: bad("Every template is installed", "onboarding never mentions " + ", ".join(notinst))
 else: ok("Every template is installed")
 
-# 5. "Only ... are auto-scheduled" sentences name all four tasks
-four = ["Morning Memo", "Evening Debrief", "Desk", "Friday 1:1"]
+# 5. "Only ... are auto-scheduled" sentences name all three
+three = ["Morning Memo", "Evening Debrief", "Desk"]
 short = []
 for f in plugin_md + [Path("CLAUDE.md")]:
     for s in re.split(r"(?<=[.;])\s", flat(f.read_text())):
         if re.search(r"auto-(scheduled?|created?)", s) and re.search(r"\bOnly\b|exactly|except", s):
-            lacking = [x for x in four if x not in s]
+            lacking = [x for x in three if x not in s]
             if lacking: short.append(f"{f}: missing {', '.join(lacking)}")
-if short: bad("Scheduled task lists name all four", "; ".join(short))
-else: ok("Scheduled task lists name all four")
+if short: bad("Scheduled task lists name all three", "; ".join(short))
+else: ok("Scheduled task lists name all three")
 
 # 6. Setup test count matches the prose
 sc = texts[P / "skills/setup-check/SKILL.md"]

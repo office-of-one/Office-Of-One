@@ -16,8 +16,11 @@ disagree, this file wins.
 
 Above them sits a Georgia title with the date in grey underneath.
 It never has a subtitle, the agent's name, an item count or a
-summary of the day. The greeting comes right after it. If either to-do section is
-renamed, rename both.
+summary of the day. The greeting comes right after it. On Fridays,
+one reminder line comes right after the greeting, before Today:
+"It's Friday, time for our 1:1. Open your [Agent Name] project and
+say "let's have a 1:1"." If either to-do section is renamed, rename
+both.
 
 ## Colors
 
@@ -164,13 +167,10 @@ The product footer last, 8px, light grey.
 The sources line names what could NOT be opened, not just what
 was. "Amazon blocks me, so the price is unverified" is the shape.
 
-**The Friday block is at most two lines:**
+**The Friday block is one line:**
 
     THIS WEEK
     5 memos, 12 items closed, 3 things you handed me.
-
-    Ask me in your [Agent Name] project in a Cowork session to
-    have a 1:1, and let's take some things off your plate.
 
 Nothing else goes in the Friday block.
 

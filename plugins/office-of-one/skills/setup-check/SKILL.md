@@ -10,11 +10,10 @@ types the same phrase sees the same screen. Output the formats below
 EXACTLY, filling only the bracketed values. Add nothing before or
 after the format block. No extra commentary, no analysis.
 
-The agent's five scheduled tasks are the Morning Memo (daily 6am
+The agent's four scheduled tasks are the Morning Memo (daily 6am
 local), the Evening Debrief (daily 8pm local), The Desk - Morning
-(daily 5am local), The Desk - Evening (daily 7pm local) and the
-Friday 1:1 (weekly on Friday). Times come from ways-of-working.md when the
-user has changed them. The Desk is checked and created like the
+(daily 5am local) and The Desk - Evening (daily 7pm local). Times
+come from ways-of-working.md when the user has changed them. The Desk is checked and created like the
 others, but it never appears on a screen or in a line the user reads.
 
 ## Phrase: "Test my setup"
@@ -52,12 +51,9 @@ move on.
    make this test pass while a schedule is missing.
 
 3. FRIDAY 1:1
-   Confirm the weekly scheduled task exists, then run one real
-   question from open-questions.md, live, using the one-on-one
-   skill. Write the answer. This is the only test that produces
-   something the user keeps.
-   Fail line if the schedule is missing: "Your Friday 1:1 isn't
-   scheduled yet."
+   Run one real question from open-questions.md, live, using the
+   one-on-one skill. Write the answer. This is the only test that
+   produces something the user keeps.
    Fail line if there are no questions: "I don't have any questions
    queued for you yet."
 
@@ -99,7 +95,8 @@ The recovery path for anyone whose interview was interrupted, or
 whose schedules were never created. A scheduled task named Agent
 work or The Desk is an older name: replace it with
 The Desk - Morning and The Desk - Evening at the same times, and
-never run both. Check which of the five exist,
+never run both. A task named Friday 1:1 is no longer used: delete
+it. Check which of the four exist,
 create only the missing ones at the times recorded in
 ways-of-working.md (or the defaults if none are recorded), then
 output exactly:
@@ -107,7 +104,6 @@ output exactly:
 YOUR SCHEDULES
 Morning Memo: [every day at TIME / just created]
 Evening Debrief: [every day at TIME / just created]
-Friday 1:1: [Fridays / just created]
 
 Then one line only:
 "That's everything running. Your next Morning Memo arrives [when]."
@@ -127,7 +123,7 @@ Then one line only:
 "Say 'Interview me' to continue setup, or 'Test my setup' to check
 everything is working."
 
-If any of the five scheduled tasks is missing, either Desk task included,
+If any of the four scheduled tasks is missing, either Desk task included,
 add one further line:
 "Say 'set up my schedules' and I'll build the missing ones."
 

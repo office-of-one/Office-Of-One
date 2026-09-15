@@ -1,6 +1,6 @@
 ---
 name: onboarding-interview
-description: Use this skill whenever the user says "Interview me" or asks to set up their agent, start onboarding, learn about them, or begin setup. Runs the Office of One "Building Your Agent" onboarding in seven steps: name me, catch me up on your AI convos, confirm what's connected, schedule my tasks, help me fill in the gaps, test me, and agent setup complete. Writes the user's brain files as it goes, schedules the Morning Memo, Evening Debrief, the Desk and Friday 1:1, and runs the setup tests before finishing.
+description: Use this skill whenever the user says "Interview me" or asks to set up their agent, start onboarding, learn about them, or begin setup. Runs the Office of One "Building Your Agent" onboarding in seven steps: name me, catch me up on your AI convos, confirm what's connected, schedule my tasks, help me fill in the gaps, test me, and agent setup complete. Writes the user's brain files as it goes, schedules the Morning Memo, Evening Debrief and the Desk, and runs the setup tests before finishing.
 ---
 
 # Office of One — Building Your Agent (onboarding)
@@ -199,9 +199,9 @@ Never describe percentages or mechanics.
    Friday. The Desk runs one hour before each memo. Never
    ask the user to change the times, the days or the invites; they
    can change any of these later by asking.
-   Then create the five scheduled tasks. THIS IS WHAT MAKES THE
+   Then create the four scheduled tasks. THIS IS WHAT MAKES THE
    PRODUCT ARRIVE: nothing reaches the user again unless these
-   exist. Create all five NOW, in the user's timezone, at the
+   exist. Create all four NOW, in the user's timezone, at the
    defaults just stated, with exactly these names:
    - **Morning Memo** — every day at 6am local, runs the
      daily-readout skill in morning mode.
@@ -211,9 +211,8 @@ Never describe percentages or mechanics.
      before the Morning Memo, runs the desk skill.
    - **The Desk - Evening** — every day at 7pm local, one hour
      before the Evening Debrief, runs the desk skill.
-   - **Friday 1:1** — weekly on Friday, runs the one-on-one skill.
    Then say the exact schedule confirmation line from
-   interview-guide.md. Verify all five exist before moving on. If
+   interview-guide.md. Verify all four exist before moving on. If
    one could not be created, say so plainly, once, and tell the
    user they can say "set up my schedules" at any time to have them
    rebuilt. A missing schedule is the only failure in this skill
@@ -251,9 +250,9 @@ Never describe percentages or mechanics.
    anything is left, say the exact Friday 1:1 hand-off line.
 
 7. **Check the scheduled tasks.**
-   They were created in Step 4. Verify all five still exist and
+   They were created in Step 4. Verify all four still exist and
    create any that is missing, at the times in ways-of-working.md.
-   Say nothing if all five are there.
+   Say nothing if all four are there.
 
 8. **Finish the brain files.**
    Everything should already be written. Confirm that
@@ -316,9 +315,10 @@ Never describe percentages or mechanics.
 ## Rebuilding schedules later
 
 If the user says "set up my schedules", or any close variant, check
-which of the five scheduled tasks exist. A task named Agent work or
+which of the four scheduled tasks exist. A task named Agent work or
 The Desk is an older name: replace it with The Desk - Morning and
-The Desk - Evening at the same times, and never run both. Create only the missing
+The Desk - Evening at the same times, and never run both. A task
+named Friday 1:1 is no longer used: delete it. Create only the missing
 ones at the recorded times from ways-of-working.md (or the defaults
 if none are recorded), and report what is now live in one line.
 This is the recovery path for anyone whose interview was
@@ -335,7 +335,7 @@ a theme at any time by asking; agent-admin handles those requests.
 ## Completion criteria
 
 Complete ONLY when: brain files written (8), the Morning Memo,
-Evening Debrief, the Desk and Friday 1:1 scheduled and
+Evening Debrief and both Desk tasks scheduled and
 confirmed (7), the
 setup tests run and their results reported, or declined by the
 user (9), and the closing
@@ -372,9 +372,9 @@ beginning.
   always listed in ways-of-working.md.
 - Step 3 confirms connectors and lets the user switch any off. It
   never sets new ones up.
-- Auto-schedule exactly four things: the Morning Memo, the
-  Evening Debrief, the Desk and the Friday 1:1. Everything else
-  recurring is always confirmed.
+- Auto-schedule exactly three things: the Morning Memo, the
+  Evening Debrief and the Desk. Everything else recurring is always
+  confirmed.
 - Never imitate the user's writing style. templates/personality.md
   governs voice.
 - Never expose internal file names, structure, or mechanics.

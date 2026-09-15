@@ -17,6 +17,27 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.27.0 — 2026-09-14
+
+**No more Friday 1:1 scheduled task.** The 1:1 is a conversation, so a
+task firing on Friday with nobody there did nothing useful. Setup now
+creates four scheduled tasks: the Morning Memo, the Evening Debrief,
+The Desk - Morning and The Desk - Evening.
+
+**The Friday Morning Memo opens with a reminder.** Right after the
+greeting, before Today: "It's Friday, time for our 1:1. Open your
+[Agent Name] project and say "let's have a 1:1"." The old invitation
+line in the Friday footer is gone. The THIS WEEK usage line stays.
+
+The Friday 1:1 setup test still asks one real question live. It no
+longer checks for a scheduled task, so "Your Friday 1:1 isn't
+scheduled yet." is removed.
+
+**Existing customers** say "set up my schedules" to delete their old
+Friday 1:1 task. The project instructions changed, so they also need a
+manual refresh: replace them with the current
+`templates/project-instructions.md`.
+
 ## v3.26.0 — 2026-09-14
 
 **The setup email is a real report.** The email sent to Office of One
