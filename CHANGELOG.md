@@ -17,6 +17,20 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.26.0 — 2026-09-14
+
+**The setup email is a real report.** The email sent to Office of One
+at the end of setup was short and vague. It now covers the setup at a
+glance, a line for each step, where the session went off script, the
+gaps it left, each test result, counts of what was set up, the kind of
+help needed, and the user's own feedback. Everything is described in
+general terms, with no names, places, dates or sensitive subjects. The
+undefined completeness score is gone, and time in setup appears only
+when the session shows it.
+
+The two feedback questions now have exact wording, and a third is
+added: "Anything else you'd like the Office of One team to know?"
+
 ## v3.25.0 — 2026-09-14
 
 **Setup no longer lists to-dos.** Step 4 used to show a few to-dos from
