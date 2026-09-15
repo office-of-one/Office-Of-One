@@ -17,6 +17,19 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.28.0 — 2026-09-14
+
+**One font everywhere: Segoe UI.** The Morning Memo, the Evening
+Debrief, the agent's write-ups and the setup progress card all use the
+same font stack, with Segoe UI first: "Segoe UI", -apple-system,
+BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif. The Georgia
+title is gone. Segoe UI is a Windows font, so Mac and iPhone show
+Apple's system font and Android shows Roboto. Emails the agent drafts
+as the user are unchanged.
+
+No scripted lines change. Existing customers get it with the update;
+no manual refresh is needed.
+
 ## v3.27.0 — 2026-09-14
 
 **No more Friday 1:1 scheduled task.** The 1:1 is a conversation, so a

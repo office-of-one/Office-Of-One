@@ -14,7 +14,7 @@ disagree, this file wins.
 6. Remaining to-dos
 7. Sources, the Friday block and the sign-off
 
-Above them sits a Georgia title with the date in grey underneath.
+Above them sits a title with the date in grey underneath.
 It never has a subtitle, the agent's name, an item count or a
 summary of the day. The greeting comes right after it. On Fridays,
 one reminder line comes right after the greeting, before Today:
@@ -35,9 +35,14 @@ and must not be gold.
 
 ## Type scale
 
+Everything in the memo uses one font stack: "Segoe UI",
+-apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial,
+sans-serif. Write the whole stack inline on every text style, never
+Segoe UI alone.
+
 | Size | Used for |
 |---|---|
-| 28px Georgia, 25px on a phone | Title |
+| 28px, 25px on a phone | Title |
 | 14px | To-dos, Worth knowing, Getting ahead, calendar events, greeting, sign-off |
 | 13px | Locations, date line |
 | 12px | Times, grey slot |
