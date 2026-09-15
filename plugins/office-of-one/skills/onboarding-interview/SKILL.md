@@ -159,10 +159,12 @@ Never describe percentages or mechanics.
      weekends). Note what is absent as carefully as what is
      present. Note the timezone; the memo, the debrief and the
      1:1 are scheduled against it.
-   - Mail: who they correspond with most, who they answer fast
-     versus never, what arrives on a schedule, what sits
-     unanswered. Map structure and relationships; do not read
-     deeply into personal content.
+   - Mail: the last 14 days, received and sent. Who they
+     correspond with most, who they answer fast versus never,
+     what arrives on a schedule, what sits unanswered. Map
+     structure and relationships; do not read deeply into
+     personal content. Record the date and time of this sweep in
+     ways-of-working.md.
    - Tasks, files, chat if connected: project names, overdue
      items, active documents.
    While sweeping, keep a running set of candidate action items:

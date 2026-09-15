@@ -26,6 +26,8 @@ chose, and date the choice.
   scheduled tasks run against it.
 - Predecessor system: [if they are migrating off something, name
   it and note that its emails will overlap for a few days.]
+- Mail swept through: [the date and time of the onboarding sweep].
+  The Desk's first run reads mail from here.
 
 ## Connectors switched off
 
