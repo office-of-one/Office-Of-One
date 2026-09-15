@@ -17,6 +17,50 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.23.0 — 2026-09-14
+
+**Fixes from the second memo test.** A rerun with the made-up realtor
+confirmed the shorter memo spec produces the same memo. It also found
+one gap and five contradictions.
+
+- **Requests from workflow clients no longer disappear.** Mail from
+  someone in a workflow still waits for that workflow, unless it asks
+  the user for something only they can decide, such as a meeting.
+  Then the Desk adds a to-do. A workflow run that finds something
+  needing the user also adds a to-do.
+- **Dated to-dos appear in every memo,** matching the rule that every
+  open to-do is listed. The capture skill now says the same.
+- **Worth knowing and Getting ahead lines** can be one or two
+  sentences, matching the spec's own example.
+- **An offer to move a to-do forward** no longer counts as repeating
+  it.
+- **To-do numbers change when the Morning Memo is written,** not an
+  hour earlier, so replies always match the last memo sent.
+- **Money in the Desk skill:** a to-do is left for the user when it is
+  a payment only they can make. How much time or money they'll commit
+  still waits for their position. That list is renamed so it isn't
+  confused with the "ask first" rules in the project instructions.
+- **Email is always drafted for review.** The option to let the agent
+  send without review is gone from ways-of-working, the project
+  instructions, the memo skill, agent-admin and onboarding. The Desk
+  skill states the rule again, since it was left behind when the Desk
+  moved into its own skill, and it holds even if an older
+  ways-of-working file says otherwise.
+- **Asking to brainstorm gets up to three ideas straight away,** as it
+  did before, instead of starting the full 1:1.
+- **The 1:1 skill reminds the agent not to mention the Desk** when it
+  suggests an improvement.
+- **Small rules restored from before the memo spec was shortened:**
+  first-memo questions stay within three, the log backfills
+  yesterday, offers say what the user does first, the memo has no
+  subtitle, and the memo spec decides how the Desk's work appears.
+
+One scripted line is removed. Step 4 of onboarding no longer says
+"Once you're comfortable and I know you better, you can tell me to
+send things without your review, or change any of this." Existing
+customers need a manual refresh of their project instructions to pick
+up the change there.
+
 ## v3.22.0 — 2026-09-14
 
 **A shorter, plainer memo spec.** The memo spec went from about 2,750

@@ -8,7 +8,9 @@ description: Runs the Desk, where the agent's work is delegated and executed. Us
 The Desk is where work is delegated and executed. The Morning Memo
 and the Evening Debrief report what it did; this file says how it
 works. How write-ups and drafts look is in the daily-readout skill's
-`agent-comms-style.md`. Read the user's `ways-of-working.md` before
+`agent-comms-style.md`. How the work shows up in the memo is set by
+`readout-format.md`, which wins if the two files disagree on that.
+Read the user's `ways-of-working.md` before
 starting; it overrides this file wherever they disagree.
 
 ## When it runs
@@ -33,10 +35,12 @@ stop the 7pm Desk run too.
 3. **Reconcile.** Fold everything new into tasks.md in this same
    run, with a thread pointer (who, subject, last touched) on any
    item that has one. Anything not written down now is lost.
-   Mail from someone in a workflow's tracker stays out of tasks.md;
-   that workflow picks it up on its next run. If that workflow only
-   runs on request, add one to-do instead: "Run [workflow name] for
-   [sender]."
+   Mail from someone in a workflow's tracker stays out of tasks.md,
+   unless it asks the user for something only they can decide, such
+   as a meeting or a yes. Then add one to-do with a thread pointer.
+   Otherwise that workflow picks it up on its next run. If that
+   workflow only runs on request, add one to-do instead: "Run
+   [workflow name] for [sender]."
 4. **Work the list.** Go item by item and take each one as far as
    it can go on its own. This is the step that makes the memo
    worth sending. See below.
@@ -71,9 +75,10 @@ to-do list, unless something must happen before it.
 **The gate.** The Desk is not finished until every open item in
 the ledger has a state recorded: RECOMMEND, DRAFTED, LET'S TALK,
 calendar entry offered, or bare with its reason. A bare item needs
-a reason: only the user can do it, it spends money, or its source
-could not be opened. If it needs their position first, it is LET'S
-TALK, not bare. Record the state and the reason on the item in tasks.md.
+a reason: only the user can do it, it is a payment only the user
+can make, or its source could not be opened. If it needs their
+position first, it is LET'S TALK, not bare. Record the state and the
+reason on the item in tasks.md.
 
 Rules that keep this honest:
 
@@ -131,7 +136,8 @@ in that line, whatever the stage. Pine stays structural: numbers,
 squares, links, section furniture. The tags are told apart by
 their words, not their colour.
 
-LET'S TALK maps exactly to the "ask first" list below. Expect it
+LET'S TALK maps exactly to the "wait for their position" list
+below. Expect it
 to be rare, one per memo at most. If it is on five items the agent
 is avoiding work it could have done.
 
@@ -147,18 +153,21 @@ starts looking like a dashboard.
 
 Default is DRAFT IT, then say so in one line. Asking first costs a
 round trip that can span a whole memo cycle, and an unread draft
-costs them nothing.
+costs them nothing. Drafting is not sending: never send an email
+as the user without review, even if ways-of-working.md says
+otherwise.
 
 **Draft it, no permission needed,** when the work is assembling
 what is already true: comparisons, research, summaries, a reply
 that mostly restates facts from a thread, chasing or confirming,
 prep before a meeting.
 
-**Ask first** when the deliverable requires their POSITION rather
-than their information:
+**Wait for their position** when the deliverable requires their
+POSITION rather than their information:
 
 - What they believe about something contested.
-- What they will commit to: hours, money, dates, scope.
+- How much time or money they'll commit, and to which dates and
+  scope.
 - Anything defining a relationship (an offer, a decline, terms).
 - Anything where two plausible drafts go in opposite directions,
   so picking one wastes the work.

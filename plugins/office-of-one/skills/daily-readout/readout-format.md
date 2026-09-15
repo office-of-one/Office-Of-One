@@ -15,8 +15,8 @@ disagree, this file wins.
 7. Sources, the Friday block and the sign-off
 
 Above them sits a Georgia title with the date in grey underneath.
-It never shows the agent's name, an item count or a summary of the
-day. The greeting comes right after it. If either to-do section is
+It never has a subtitle, the agent's name, an item count or a
+summary of the day. The greeting comes right after it. If either to-do section is
 renamed, rename both.
 
 ## Colors
@@ -70,7 +70,8 @@ These are questions that block something, marked with pine squares
 and no number or date. Ask three at most. There are usually none.
 
 The first memos also ask about calendar contradictions from
-onboarding, marked "from onboarding" in tasks.md. Double-bookings
+onboarding, marked "from onboarding" in tasks.md. Each is one
+question and counts toward the three. Double-bookings
 show as CONFLICT in Today instead.
 
 ## 4. Getting ahead
@@ -78,8 +79,9 @@ show as CONFLICT in Today instead.
 Each line is work the agent did or offers to do, marked with a
 purple square and never numbered. A finished job reads like "Drafted
 the reply to [name]. It's in your drafts, needs the figure." and is
-tagged DRAFTED. An offer names the deliverable, like "Forward me the
-PDF and I'll confirm the part and put both dates on the calendar."
+tagged DRAFTED. An offer names the deliverable and anything the user
+has to do first, like "Forward me the PDF and I'll confirm the part
+and put both dates on the calendar."
 
 A calendar offer reads like "Say yes and I'll put Mia's pickup at LAX
 on your calendar for Thu 2pm." Nothing goes on the calendar without
@@ -92,7 +94,8 @@ next one, taken from its Last run line.
   researched items still show their tag in the to-do list.
 - If nothing was done or offered, leave the section out. Never
   invent a line.
-- Don't repeat a to-do or a Worth knowing line.
+- Don't restate a to-do or a Worth knowing line. An offer to move a
+  to-do forward is fine.
 - Check sent mail, and never offer something the user already did.
 - Name the deliverable, not the intention: "I'll pull the times and
   unblock Sunday", not "I could look into that".
@@ -119,7 +122,7 @@ workflow file tracks stay out of these lists.
 history all belong in tasks.md, and the agent shares them when the
 user asks. If a line only makes sense with that context, turn it
 into a Needs your input question instead of adding a clause. Worth
-knowing and Getting ahead lines are also one short sentence each,
+knowing and Getting ahead lines are short, one or two sentences,
 with no "because", no aside and no hedging.
 
 **The grey slot holds a date and nothing else.** Examples are "no
@@ -127,9 +130,9 @@ date", "due Sat 9/12", "waiting since 9/9" and "open 14 days".
 
 **The whole memo uses one numbering sequence.** Priorities are
 numbered 1 to 3, and Remaining to-dos continue from 4 through every
-category. Numbers stay the same all day and are reassigned at the
-next morning Desk run. The ledger uses the same numbers, so a reply
-by number can be matched to it.
+category. Numbers match the last memo sent. The Morning Memo assigns
+new numbers when it is written. The ledger uses the same numbers, so
+a reply by number can be matched to it.
 
 Don't add an owner to any line, a second grey line under anything,
 or a tinted panel behind the priorities.
@@ -225,8 +228,8 @@ A date doesn't make something a calendar entry. A calendar entry is
 for something a person attends, at a time, in a place. A test on
 Thursday, a form due the 15th or a fee window that opens Monday needs
 nobody anywhere, so it is a dated to-do instead. Dated to-dos live in
-tasks.md, show in the memo the day before and the day of, and
-disappear when done.
+tasks.md and disappear when done. Like every open to-do, they
+appear in each memo.
 
 One notice can produce both:
 

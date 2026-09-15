@@ -4,9 +4,9 @@ The live list, and the ledger. Every open loop lives here,
 including the ones sitting with someone else. This is the system
 of record.
 
-Numbers match the numbers in the last memo sent, so a reply by
-number resolves against this file. They hold for the day and are
-reassigned at the next morning Desk run.
+Numbers match the last memo sent, so a reply by number resolves
+against this file. The Morning Memo assigns new numbers when it is
+written.
 
 Format:
 

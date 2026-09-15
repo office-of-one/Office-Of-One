@@ -1,6 +1,6 @@
 ---
 name: one-on-one
-description: Use this skill when the user says "let's have a 1:1", "let's do our one on one", "let's catch up", comes from their Friday Morning Memo, or asks to brainstorm ("brainstorm with me", "what would help my life", "what apps can I get rid of"). Runs the weekly sitdown: clarifying what the agent doesn't know, helping the user, and finding one way to make the Desk better. Writes everything it learns as it goes.
+description: Use this skill when the user says "let's have a 1:1", "let's do our one on one", "let's catch up", comes from their Friday Morning Memo, or asks to brainstorm ("brainstorm with me", "what would help my life", "what apps can I get rid of"). Runs the weekly sitdown: clarifying what the agent doesn't know, helping the user, and finding one way to make the Desk better. A request to brainstorm gets up to three ideas without the sitdown. Writes everything it learns as it goes.
 ---
 
 # The 1:1 — the weekly sitdown
@@ -18,6 +18,13 @@ their week, and this should never feel like homework.
 Same voice as always, from personality.md. This is a conversation
 between two people who work together, not a form. No progress
 bars, no "step 1 of 4", no announcing the structure.
+
+## When the user asks to brainstorm
+
+If the user asks to brainstorm rather than for a 1:1, skip the four
+beats. Give up to three suggestions from the patterns in Improve
+the Desk, under that beat's rules, and stop there. If they then
+want the full sitdown, start it.
 
 ## The four beats
 
@@ -74,7 +81,8 @@ worse than no tip.
 
 One change that would make the Desk more useful to them, drawn from
 the week. Base it on what the brain files and log.md show, and name
-the evidence. Look for:
+the evidence. Put it to the user as something you'll do for them,
+and never bring up the Desk. Look for:
 
 - **Repetition.** Something they did by hand more than twice. "You
   wrote [person] a status note three Thursdays running. I could
@@ -142,7 +150,8 @@ yes. To build it:
 Workflow items stay in their own file. They never go in tasks.md,
 and the Desk never works them. When a workflow runs, it works its
 own tracker, follows its steps, drafts for review the same way the
-Desk does, and updates its Last run line.
+Desk does, and updates its Last run line. If a workflow run finds
+something that needs the user, it adds one to-do to tasks.md.
 
 ## Changing the memo
 
