@@ -381,3 +381,7 @@ and say 'help' whenever you're stuck.
 
 Talk soon, [Name].
 — [Agent Name] 🤖"
+
+Then, last of all:
+
+"For privacy, see PRIVACY.md in your project folder."
