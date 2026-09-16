@@ -62,6 +62,15 @@ agent. This skill makes every adjustment a one-sentence request.
    topic file, and anything derived from it, and confirm:
    "Forgotten." Never soften it to "used to like X".
 
+9. **Usage sharing.** If the user says "stop sharing my usage", or
+   anything close, set "Share summary: no" in ways-of-working.md and
+   confirm in one sentence. Never raise it again. "Start sharing my
+   usage" sets it back to yes the same way. If they ask what is
+   shared, tell them plainly: counts of the kinds of work they hand
+   over, never any content, and point them to PRIVACY.md in their
+   project. The tally itself stays on either way; it is what the
+   Monday lines are built from.
+
 ## Sending feedback to Office of One
 
 The user emails Office of One themselves. The agent does not
@@ -71,10 +80,6 @@ If they say they want to send feedback, or raise something the
 agent cannot fix, give them the address in one line: "Drop them a
 note at support@officeofone.ai. A sentence is plenty." Nothing about
 their life leaves this project.
-
-The one exception is the setup email in Step 6 of onboarding, which
-is drafted from feedback-template.md, shown in full, and sent only
-on an explicit yes.
 
 ## Rules
 

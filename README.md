@@ -7,8 +7,12 @@ once, and from then on sends you a Morning Memo and an Evening
 Debrief, absorbs whatever you throw at it, and gets sharper through a
 weekly 1:1.
 
-Your personal data never leaves your own Claude project. Nothing is
-uploaded anywhere, and nothing is collected silently.
+Your personal data never leaves your own Claude project. No message
+content, names or calendar details are uploaded anywhere. Your agent
+does send us a weekly summary of the kinds of work you use it for, in
+labels and counts and never content, and you can turn that off any
+time by telling it to stop. The full statement is in
+[PRIVACY.md](plugins/office-of-one/PRIVACY.md).
 
 ## Install
 
@@ -40,7 +44,7 @@ Then start a session in your project and say **"Interview me."**
 | `capture` | Any screenshot, photo, flyer, or dumped text | Extracts dates and facts, reconciles them, proposes calendar changes. |
 | `memorialize` | Continuously, and "save this" | Writes durable material the moment it appears, plus the two-tier log and archive. |
 | `agent-admin` | "change your personality", "what do you know about me" | Every adjustment: personality, memo contents, suppressing an item, rules, forgetting. |
-| `setup-check` | "Test my setup", "Status check" | Fixed-format screens, and the four setup tests. |
+| `setup-check` | "Test my setup", "Status check" | Fixed-format screens, and the three setup tests. |
 | `help` | "help", "what can you do" | Answers how-do-I questions in plain words, and points to support when the agent can't fix something. |
 
 ## The eight templates

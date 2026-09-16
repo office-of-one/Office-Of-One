@@ -90,7 +90,7 @@ If you change those rules, check everything that touches workflows:
   templates before onboarding installed them. The one exception is
   topic files (fitness.md and the like), which have no template by
   design; see "Topic files" above.
-- `skills/setup-check/SKILL.md` — Step 6 calls it for the four tests
+- `skills/setup-check/SKILL.md` — Step 6 calls it for the three tests
 - `CLAUDE.md` — the skills table, if trigger or purpose changed
 
 ## skills/daily-readout/SKILL.md and readout-format.md
@@ -174,6 +174,33 @@ onboarding only installs it if it isn't already present.
 - If you change it, say in `CHANGELOG.md` that existing users need a
   manual refresh, and say how.
 
+## PRIVACY.md
+
+The statement customers read. It must match what actually happens. If
+you change what is logged, what is sent, when it is sent, or how to
+turn it off, change it here too, in:
+- `templates/project-instructions.md` — what gets logged
+- `skills/desk/SKILL.md` — what is sent and when
+- `skills/agent-admin/SKILL.md` — turning it off
+- `skills/onboarding-interview/SKILL.md` — the copy into the project
+
+Onboarding copies this file into the user's project, so an old copy
+stays behind in every existing project.
+
+## .mcp.json
+
+Registers the telemetry server `officeofone-telemetry`, so every
+install can reach `https://telemetry.officeofone.ai/mcp`. It must sit
+at the plugin root, beside `.claude-plugin/`, and every entry needs a
+`type`. A `url` with no `type` is read as a stdio server and skipped.
+
+Only two places call it:
+- `skills/onboarding-interview/SKILL.md` — `register_install`, once
+- `skills/desk/SKILL.md` — `submit_summary`, on Fridays
+
+Changing the URL or the server name means changing both, and
+`PRIVACY.md` if what leaves changes.
+
 ## Adding, removing, or renaming a skill
 
 - `CLAUDE.md` — the skills table AND the count stated in prose
@@ -181,7 +208,7 @@ onboarding only installs it if it isn't already present.
 - `skills/help/SKILL.md` — the plain-language capability list users
   are shown
 - `skills/setup-check/SKILL.md` — if it should appear in the status
-  screen or the four tests
+  screen or the three tests
 - The facilitator runbook (Drive) — if it changes what is demonstrated
 
 ## Changing a user-facing name

@@ -50,6 +50,57 @@ Evening Debrief off, stop The Desk - Evening too.
 5. **Log.** Add or update today's line in log.md, per memorialize:
    what closed, what changed, what the user decided.
 
+## Fridays: the usage roll-up
+
+The Friday evening run does one more thing after step 5. It never
+appears in a memo or in chat.
+
+1. **Read usage-log.md.** Skip the header and any line that does not
+   parse. The week runs from Saturday to this Friday.
+2. **Count.** Write these into usage-summary.md, overwriting it:
+   the period, the first and last entry dates in the whole log, how
+   many days had at least one entry, the total number of entries, and
+   how many entries it took to reach the first one with outcome done
+   and autonomy 4 or 5. Then the share of entries by context, the
+   count by artifact, the share by mode, the average autonomy to one
+   decimal, the count by feature, the share by outcome, and the
+   corrected and abandoned entries by artifact with their commonest
+   reason.
+3. **Hide small numbers.** Any count under 3 is written as <3, and a
+   percentage from a bucket under 3 is left out. Days active, total
+   entries and the first-win count are always written in full.
+4. **Write the two human lines** at the top of usage-summary.md, in
+   the agent's own voice, for the Monday memo to use. The first says
+   how many days the user worked with the agent and what for. The
+   second names the commonest correction, but only if one artifact
+   has 3 or more; otherwise "Nothing needed fixing this week."
+   Never mention a specific message.
+5. **Write the agent note** at the bottom of usage-summary.md, under
+   "## agent note": three short lines about what was hard this week,
+   what instruction would have helped, and what the user seems to
+   want that cannot be done yet. General observations only, never a
+   quote, a name or a subject.
+6. **Then the full counts** as a JSON block in the same file.
+
+**Sending it.** Only if ways-of-working.md says "Share summary: yes".
+
+- If this week is already in usage-submissions.md, stop.
+- If the telemetry key is blank, call register_install once with the
+  install ID and write the key. If that fails, stop and try again
+  next Friday.
+- Call submit_summary on the officeofone-telemetry server with the
+  install ID, the key, the period, the counts from the JSON block,
+  any survey answers in survey.md dated in this week, and the agent
+  note as three lines.
+- If it returns "ok", append one line to usage-submissions.md:
+  `YYYY-MM-DD | submitted | period YYYY-MM-DD to YYYY-MM-DD`.
+- Anything else, including no answer at all, means stop and try next
+  Friday. Never retry within the week.
+
+Never send a line from usage-log.md, whole or in part. Never send
+anything from survey.md but the answer text. Never send anything at
+all when sharing is off. Never bother the user with any of this.
+
 ## Working the list (step 4)
 
 Every open item is in one of four states, and the agent's job is

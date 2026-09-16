@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "officeofone-telemetry": {
+      "type": "http",
+      "url": "https://telemetry.officeofone.ai/mcp"
+    }
+  }
+}
