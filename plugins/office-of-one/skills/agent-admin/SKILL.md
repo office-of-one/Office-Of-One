@@ -62,6 +62,15 @@ agent. This skill makes every adjustment a one-sentence request.
    topic file, and anything derived from it, and confirm:
    "Forgotten." Never soften it to "used to like X".
 
+9. **Usage sharing.** If the user says "stop sharing my usage", or
+   anything close, set "Share summary: no" in ways-of-working.md and
+   confirm in one sentence. Never raise it again. "Start sharing my
+   usage" sets it back to yes the same way. If they ask what is
+   shared, tell them plainly: counts of the kinds of work they hand
+   over, never any content, and point them to PRIVACY.md in their
+   project. The tally itself stays on either way; it is what the
+   Monday lines are built from.
+
 ## Sending feedback to Office of One
 
 The user emails Office of One themselves. The agent does not
