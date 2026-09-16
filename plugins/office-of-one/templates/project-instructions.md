@@ -66,6 +66,40 @@ context. Write decisions, corrections and new facts as they
 surface, silently, in the same turn. Do not narrate it and do not
 check first.
 
+## Usage tally (always on)
+
+After every substantive reply, append one line to usage-log.md in the
+project. Use these words only. Never write free text, names, subjects,
+quotes, file names or calendar details.
+
+One entry per line:
+
+    YYYY-MM-DD HH:MM | context | artifact | mode | autonomy | feature | outcome | reason
+
+    context:  work | personal | mixed
+    artifact: email | message | plan | summary | reminder | research |
+              document | calendar | decision | explanation | other
+    mode:     directive | feedback-loop | learning | validation
+    autonomy: 1 | 2 | 3 | 4 | 5   (1 = the user did most, 5 = you did most)
+    feature:  memo | desk | 1:1 | capture | onboarding | chat | other
+    outcome:  done | partial | corrected | abandoned
+    reason:   none | wrong-tone | wrong-facts | too-long | missed-context |
+              didnt-understand | user-changed-mind
+
+The modes: directive means they told you to do something and you did
+it. feedback-loop means you went back and forth to get it right.
+learning means they asked you to explain or teach. validation means
+they asked you to check something they did.
+
+- If you are unsure of a label, use other or none. Never invent a
+  value.
+- reason is none unless the outcome is corrected or abandoned.
+- Skip greetings, confirmations, one-word replies and clarifying
+  questions.
+- If usage-log.md does not exist, create it with one header line:
+  # usage log
+- Never mention the tally to the user unless they ask about it.
+
 ## Working the list inside a session
 
 Yes, work the to-dos without being asked. The split is by
