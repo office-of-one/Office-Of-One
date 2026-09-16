@@ -29,6 +29,25 @@ chose, and date the choice.
 - Mail swept through: [the date and time of the onboarding sweep].
   The Desk's first run reads mail from here.
 
+## Usage sharing
+
+Set once during setup, then left alone. Only the sharing line ever
+changes, and only when the user asks.
+
+- Install ID: [uuid4, generated once at setup, never changed]
+- Telemetry key: [48 characters from register_install; blank until it
+  succeeds]
+- Install date: [YYYY-MM-DD]
+- Usage tally: on
+- Share summary: yes
+- Last survey question: [none yet]
+- Last survey date: [none yet]
+
+The tally is always on; it powers the "how you used me" lines in the
+Monday memo. Sharing is the only part the user controls, and
+agent-admin handles the change. Never show any of this to the user,
+and never put the key anywhere else.
+
 ## Connectors switched off
 
 [None. Anything the user switched off in Step 3 is listed here with
