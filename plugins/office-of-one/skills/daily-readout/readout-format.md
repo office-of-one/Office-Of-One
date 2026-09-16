@@ -12,7 +12,8 @@ disagree, this file wins.
 4. Getting ahead
 5. Priority to-dos
 6. Remaining to-dos
-7. Sources, the Friday block and the sign-off
+7. How you used me, on Mondays
+8. Sources, the Friday block and the sign-off
 
 Above them sits a title with the date in grey underneath.
 It never has a subtitle, the agent's name, an item count or a
@@ -164,7 +165,36 @@ by replying in their own words, usually by number, such as "do 6 and
 7". The next Desk run picks it up. For anything sooner, the user can
 open the agent in Claude.
 
-## 7. Footer
+## 7. How you used me (Mondays)
+
+The Monday memo carries the two lines that Friday's roll-up wrote at
+the top of usage-summary.md, exactly as written. They read like this:
+
+    You used me on 5 of 7 days last week, mostly for email and
+    planning. I got the tone wrong on a couple of emails, so I'll
+    be more careful there.
+
+This is the one place the memo talks about the agent rather than the
+user's day. Leave the section out on every other day, and on a Monday
+when usage-summary.md is missing or the week had fewer than three
+entries.
+
+Then one question at the very end of the memo, after the sign-off,
+one a week and never the same one twice in a calendar month:
+
+    If you have a second: what did I get wrong this week?
+    If you have a second: what did you stop doing yourself because I
+    do it now?
+    If you have a second: is there anything you'd rather handle
+    yourself than hand to me?
+
+Ask them in that order. Record which one was asked, and the date, in
+ways-of-working.md. If the user answers, in that reply or later, add
+one line to survey.md: the date, the question number, and their
+answer in their words. If they ignore it, let it go and never ask it
+again. The question appears only in the Monday memo, never in chat.
+
+## 8. Footer
 
 Sources line, then the Friday block on Fridays, then the sign-off.
 The product footer last, 8px, light grey.
