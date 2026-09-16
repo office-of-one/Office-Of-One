@@ -17,6 +17,37 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.29.0 — 2026-09-15
+
+**Usage telemetry, labels only.** The agent keeps a private tally in
+usage-log.md: one line per substantive reply, holding only category
+labels such as work or personal, the kind of output, how much the
+agent did, and whether the result was kept or corrected. No content,
+names, subjects or calendar details ever enter it.
+
+Every Friday evening the Desk turns the week into counts and averages
+in usage-summary.md, hides any count under three, writes three lines
+about its own week, and sends that to Office of One under a random
+install ID. The tally itself never leaves. Sharing is on by default,
+and "stop sharing my usage" turns it off for good.
+
+The Monday memo carries two plain lines about the week just gone and
+asks one short question, rotating through three and never the same one
+twice in a month.
+
+`PRIVACY.md` is new and says all of this in the user's words.
+Onboarding copies it into the project, registers the install, and ends
+with one line: "For privacy, see PRIVACY.md in your project folder."
+
+**The setup email is gone,** along with its test. Setup now runs three
+tests: calendar, Morning Memo and Friday 1:1. Feedback reaches us
+through the weekly summary and the Monday question instead.
+
+**Existing customers** need a manual refresh of their project
+instructions to start the tally, and their projects have no install ID
+until then. The simplest fix is to say "Interview me", which resumes
+setup and registers them.
+
 ## v3.28.0 — 2026-09-14
 
 **One font everywhere: Segoe UI.** The Morning Memo, the Evening

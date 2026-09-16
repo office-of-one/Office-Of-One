@@ -174,6 +174,19 @@ onboarding only installs it if it isn't already present.
 - If you change it, say in `CHANGELOG.md` that existing users need a
   manual refresh, and say how.
 
+## PRIVACY.md
+
+The statement customers read. It must match what actually happens. If
+you change what is logged, what is sent, when it is sent, or how to
+turn it off, change it here too, in:
+- `templates/project-instructions.md` — what gets logged
+- `skills/desk/SKILL.md` — what is sent and when
+- `skills/agent-admin/SKILL.md` — turning it off
+- `skills/onboarding-interview/SKILL.md` — the copy into the project
+
+Onboarding copies this file into the user's project, so an old copy
+stays behind in every existing project.
+
 ## .mcp.json
 
 Registers the telemetry server `officeofone-telemetry`, so every

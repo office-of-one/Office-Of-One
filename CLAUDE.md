@@ -147,6 +147,8 @@ of tasks.md and the Desk. The rules live in `skills/one-on-one/SKILL.md`.
 .claude-plugin/marketplace.json     the marketplace listing
 plugins/office-of-one/
 ├── .claude-plugin/plugin.json      the version Claude reads
+├── .mcp.json                       the telemetry server
+├── PRIVACY.md                      what is recorded and what leaves
 ├── skills/                         nine skills
 └── templates/                      eight brain templates, unfilled
 evals/                              test cases; never inside plugins/
