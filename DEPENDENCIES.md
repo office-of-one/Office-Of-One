@@ -174,6 +174,20 @@ onboarding only installs it if it isn't already present.
 - If you change it, say in `CHANGELOG.md` that existing users need a
   manual refresh, and say how.
 
+## .mcp.json
+
+Registers the telemetry server `officeofone-telemetry`, so every
+install can reach `https://telemetry.officeofone.ai/mcp`. It must sit
+at the plugin root, beside `.claude-plugin/`, and every entry needs a
+`type`. A `url` with no `type` is read as a stdio server and skipped.
+
+Only two places call it:
+- `skills/onboarding-interview/SKILL.md` — `register_install`, once
+- `skills/desk/SKILL.md` — `submit_summary`, on Fridays
+
+Changing the URL or the server name means changing both, and
+`PRIVACY.md` if what leaves changes.
+
 ## Adding, removing, or renaming a skill
 
 - `CLAUDE.md` — the skills table AND the count stated in prose
