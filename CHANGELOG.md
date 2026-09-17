@@ -18,6 +18,25 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.33.0 — 2026-09-17
+
+**The last of the audit findings.**
+
+- **The Monday lines report counts, not verdicts.** "Three emails came
+  back for tone." replaces "I got the tone wrong on a couple of emails,
+  so I'll be more careful there", which broke the memo's own rule
+  against characterising the work.
+- **The telemetry key belongs in ways-of-working.** The server's tool
+  text mentions a config.md that does not exist here, so the desk and
+  onboarding skills now say to ignore it.
+- **The key length claim is gone,** so no agent rejects a valid key for
+  being the wrong shape.
+- **DEPENDENCIES** records that the Desk also registers an install, that
+  PRIVACY.md depends on the Monday question and the sharing switch, and
+  which usage files the Friday roll-up reads and writes.
+
+No scripted lines change.
+
 ## v3.32.0 — 2026-09-17
 
 **What we say about privacy now matches what happens.** An audit of the

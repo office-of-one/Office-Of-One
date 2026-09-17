@@ -171,8 +171,7 @@ The Monday memo carries the two lines that Friday's roll-up wrote at
 the top of usage-summary.md, exactly as written. They read like this:
 
     You used me on 5 of 7 days last week, mostly for email and
-    planning. I got the tone wrong on a couple of emails, so I'll
-    be more careful there.
+    planning. Three emails came back for tone.
 
 This is the one place the memo talks about the agent rather than the
 user's day. Leave the section out on every other day, and on a Monday when

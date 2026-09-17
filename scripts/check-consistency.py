@@ -36,7 +36,9 @@ examples = {"fitness.md", "house-move.md", "divorce.md", "SKILL.md", "CLAUDE.md"
             "DEPENDENCIES.md", "README.md", "STYLE-GUIDE.md", "DECISIONS.md", "MEMORY.md",
             # written in the user's project, never shipped as templates
             "usage-log.md", "usage-summary.md", "usage-submissions.md", "survey.md",
-            "usage-desk.md", "usage-pending.md"}
+            "usage-desk.md", "usage-pending.md",
+            # named only to tell the agent it does not exist here
+            "config.md"}
 known = {f.name for f in tracked("plugins/*")}
 missing = set()
 for f, t in texts.items():

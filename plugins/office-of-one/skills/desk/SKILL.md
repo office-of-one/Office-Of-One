@@ -72,7 +72,7 @@ appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.32.0, as plugin_version; keep this number in step with
+   version, 3.33.0, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state
@@ -83,9 +83,11 @@ appears in a memo or in chat.
 4. **Write the two human lines** at the top of usage-summary.md, in
    the agent's own voice, for the Monday memo to use. The first says
    how many days the user worked with the agent and what for. The
-   second names the commonest correction, but only if one artifact
-   has 3 or more; otherwise "Nothing needed fixing this week."
-   Never mention a specific message.
+   second gives the count behind the commonest correction, and only
+   when one artifact has 3 or more: "Three emails came back for
+   tone." Otherwise "Nothing came back for a fix." Never characterise
+   the work, never promise to do better, and never mention a specific
+   message.
 5. **Write the agent note** at the bottom of usage-summary.md, under
    "## agent note": three short lines about what was hard this week,
    what instruction would have helped, and what the user seems to
@@ -100,7 +102,8 @@ appears in a memo or in chat.
 - Send any weeks waiting in usage-pending.md first, oldest first, and
   drop each one from that file as it succeeds.
 - If the telemetry key is blank, call register_install once with the
-  install ID and write the key. If that fails, stop and try again
+  install ID and write the key. The key lives in ways-of-working.md;
+  ignore the tool's mention of config.md, which does not exist here. If that fails, stop and try again
   next Friday.
 - Call submit_summary on the officeofone-telemetry server with the
   install ID, the key, the period, the counts from the JSON block,
