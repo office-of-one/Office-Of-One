@@ -18,6 +18,26 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.31.0 — 2026-09-17
+
+**Three more numbers in the weekly summary, so the data can answer
+real questions.**
+
+- **The plugin version** travels with each week, so a change can be
+  measured against the weeks before it. A new check makes the build
+  fail if the version in the desk skill drifts from the manifests.
+- **Corrections grouped by autonomy level**, alongside the existing
+  grouping by kind of output. That answers whether the agent gets
+  corrected more when it does more on its own.
+- **The Desk counts its own runs.** Each run appends one line to
+  usage-desk.md with how many open items had a state recorded and how
+  many were left bare, and the weekly summary carries the totals.
+  Until now nothing measured the half of the product that runs
+  unattended.
+
+PRIVACY.md gains one line, since those background counts are new and
+do not come from the tally.
+
 ## v3.30.0 — 2026-09-17
 
 **The telemetry connector is switched on during setup, and never shown
