@@ -40,7 +40,9 @@ anywhere.
 ## What leaves your project, and when
 
 Unless you have turned sharing off, your agent sends a summary once a
-week, on Friday evening, to Office of One. It contains:
+week, on Friday evening, to Office of One. It goes through the Office
+of One connector, which is switched on during setup; if that connector
+is off, nothing is sent. It contains:
 
 - Counts and averages from the tally, never individual entries
 - Any answers you chose to give to the occasional question in your
@@ -61,9 +63,11 @@ it with third parties.
 
 ## Your choices
 
-- Sharing is on by default. Turn it off at any time by telling your
-  agent "stop sharing my usage". It will confirm once and not ask
-  again.
+- Sharing is on once setup is done. Turn it off at any time by
+  telling your agent "stop sharing my usage". It will confirm once and
+  not ask again.
+- Switching off the Office of One connector in your project also
+  stops it.
 - Turn it back on the same way.
 - Delete usage-log.md whenever you like.
 
