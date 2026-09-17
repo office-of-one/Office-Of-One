@@ -169,12 +169,13 @@ README.md                           install instructions
 - Personal Outlook accounts aren't supported, only business.
 - The agent lives in its project. Sessions started outside it are
   regular Claude.
-- **Existing customers do not receive updates automatically.** They
-  have whatever version they installed. When a change matters to
-  people already set up, note it in the changelog and tell them; if it
-  touches `project-instructions.md`, they need a manual refresh,
-  because onboarding only installs those if they aren't already
-  present.
+- **Customers should get plugin updates automatically.** An install
+  tracks the marketplace, so a new version reaches people already set
+  up without anyone asking them to do anything. Two things never
+  follow the plugin: `project-instructions.md`, which onboarding
+  installs only when none exist, and the copy of `PRIVACY.md` in the
+  user's project. When a change touches either, say so in the
+  changelog and say how to refresh.
 
 ## The Drive folder is retired
 

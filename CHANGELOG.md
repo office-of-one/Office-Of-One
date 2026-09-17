@@ -14,8 +14,9 @@ Releases are git tags. The version in
 `plugins/office-of-one/.claude-plugin/plugin.json` and in
 `.claude-plugin/marketplace.json` must match the tag and each other.
 
-**Existing customers do not update automatically.** They have whatever
-version they installed.
+**Customers get plugin updates automatically.** What does not update
+is their project instructions and their copy of PRIVACY.md, both
+written into the project at setup.
 
 ## v3.30.0 — 2026-09-17
 
