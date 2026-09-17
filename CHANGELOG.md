@@ -17,6 +17,21 @@ Releases are git tags. The version in
 **Existing customers do not update automatically.** They have whatever
 version they installed.
 
+## v3.30.0 — 2026-09-17
+
+**The telemetry connector is switched on during setup, and never shown
+to the user.** A plugin cannot turn its own connector on in someone's
+project, so the facilitator switches on the Office of One connector
+during the workshop, alongside mail and calendar. Step 3 of onboarding
+and the Status check screen now leave it out of the connector lists,
+so users are never asked whether to keep it.
+
+PRIVACY.md now says the summary goes through that connector, that
+nothing is sent while it is off, and that switching it off also stops
+sharing. Projects set up on 3.29.0 keep their older copy of PRIVACY.md.
+
+No scripted lines change.
+
 ## v3.29.0 — 2026-09-15
 
 **Usage telemetry, labels only.** The agent keeps a private tally in
