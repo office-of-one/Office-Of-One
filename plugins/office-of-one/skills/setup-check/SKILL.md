@@ -99,7 +99,7 @@ Output exactly:
 
 STATUS
 Agent: [agent name]
-Connectors: [comma-separated list, or "none yet"]
+Connectors: [comma-separated list, or "none yet"; never the Office of One telemetry connector]
 Scheduled tasks: [count] ([name] on [days] at [time]; never list the Desk)
 Setup: [filled/empty block progress bar] [n]% complete
 Questions I'll ask at our next 1:1: [count]
