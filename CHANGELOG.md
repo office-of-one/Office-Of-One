@@ -18,6 +18,17 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.34.0 — 2026-09-17
+
+**A stuck install can get itself unstuck.** If a key ever stops working
+— the server rotated it, or its record went — nothing asked for a new
+one, because the Desk only registers when the key is blank. Two
+rejected Fridays in a row now clear the key, and the next run
+registers again. Weeks already queued in usage-pending.md go out once
+it works.
+
+No scripted lines change.
+
 ## v3.33.0 — 2026-09-17
 
 **The last of the audit findings.**
