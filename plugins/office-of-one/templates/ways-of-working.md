@@ -31,8 +31,9 @@ chose, and date the choice.
 
 ## Usage sharing
 
-Set once during setup, then left alone. Only the sharing line ever
-changes, and only when the user asks.
+Set once during setup. Only the sharing line changes after that, when
+the user asks, and the two survey lines, which the Monday memo
+updates.
 
 - Install ID: [uuid4, generated once at setup, never changed]
 - Telemetry key: [48 characters from register_install; blank until it
@@ -56,9 +57,10 @@ the date, and no run ever reads from it.]
 ## Not asked, never optional
 
 - Delivery is always email plus the app.
-- The Morning Memo, the Evening Debrief, the Desk and the Friday
-  1:1 are created automatically. Only their times and days are
-  chosen. The Desk always runs one hour before each memo.
+- The Morning Memo, the Evening Debrief and the Desk are created
+  automatically. Only their times and days are chosen. The Desk
+  always runs one hour before each memo. The Friday Morning Memo
+  invites the 1:1; nothing schedules it.
 - Nothing else recurring is ever auto-created. Everything else is
   proposed and confirmed.
 

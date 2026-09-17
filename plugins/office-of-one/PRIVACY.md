@@ -1,6 +1,6 @@
 # Office of One Privacy Statement
 
-Last updated: September 15, 2026
+Last updated: September 17, 2026
 
 This statement covers what the Office of One plugin records, where it
 lives, and what leaves your project. It applies only to the plugin.
@@ -41,19 +41,22 @@ anywhere.
 
 Unless you have turned sharing off, your agent sends a summary once a
 week, on Friday evening, to Office of One. It goes through the Office
-of One connector, which is switched on during setup; if that connector
-is off, nothing is sent. It contains:
+of One connector. Someone switches that on when your agent is set up;
+if it was never switched on, nothing is sent. It contains:
 
-- Counts and averages from the tally, never individual entries
+- Counts and averages from the tally, never individual entries, plus
+  the dates your tally starts and ends and which version of the plugin
+  you are running
 - How many jobs your agent worked on in the background each week, as
   numbers only
 - Any answers you chose to give to the occasional question in your
-  Monday memo
+  Monday memo, in your own words, exactly as you typed them
 - Three short lines your agent writes about its own week: what it
   found hard, what instruction it wishes it had, and what you seem to
   want that it cannot do
 
-No message content is ever included. You are identified only by a
+Nothing from your mail, calendar, files or messages is ever included.
+You are identified only by a
 random ID created when your agent was set up, never your name or
 email.
 
