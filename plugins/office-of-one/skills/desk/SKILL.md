@@ -55,11 +55,13 @@ Evening Debrief off, stop The Desk - Evening too.
 
 ## Fridays: the usage roll-up
 
-The Friday evening run does one more thing after step 5. It never
+The Friday evening run does one more thing after step 6. It never
 appears in a memo or in chat.
 
-1. **Read usage-log.md.** Skip the header and any line that does not
-   parse. The week runs from Saturday to this Friday.
+1. **Read usage-log.md in full.** Skip the header and any line that
+   does not parse. The week runs from Saturday to this Friday, and two
+   of the numbers below need the whole log. If the file does not
+   exist, treat it as empty and carry on.
 2. **Count.** Write these into usage-summary.md, overwriting it:
    the period, the first and last entry dates in the whole log, how
    many days had at least one entry, the total number of entries, and
@@ -70,10 +72,11 @@ appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.31.0, as plugin_version; keep this number in step with
+   version, 3.32.0, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
-   same week and add two numbers: how many Desk runs there were, and
-   how many items they worked.
+   same week, treating it as empty if it does not exist, and add three
+   numbers: how many Desk runs there were, how many items had a state
+   recorded, and how many were left bare.
 3. **Hide small numbers.** Any count under 3 is written as <3, and a
    percentage from a bucket under 3 is left out. Days active, total
    entries and the first-win count are always written in full.
@@ -92,22 +95,29 @@ appears in a memo or in chat.
 
 **Sending it.** Only if ways-of-working.md says "Share summary: yes".
 
-- If this week is already in usage-submissions.md, stop.
+- Read usage-submissions.md, treating it as empty if it does not
+  exist. If this week is already there, stop.
+- Send any weeks waiting in usage-pending.md first, oldest first, and
+  drop each one from that file as it succeeds.
 - If the telemetry key is blank, call register_install once with the
   install ID and write the key. If that fails, stop and try again
   next Friday.
 - Call submit_summary on the officeofone-telemetry server with the
   install ID, the key, the period, the counts from the JSON block,
-  any survey answers in survey.md dated in this week, and the agent
-  note as three lines.
+  any survey answers in survey.md dated in this week, treating that
+  file as empty if it does not exist, and the agent note as three
+  lines.
 - If it returns "ok", append one line to usage-submissions.md:
   `YYYY-MM-DD | submitted | period YYYY-MM-DD to YYYY-MM-DD`.
-- Anything else, including no answer at all, means stop and try next
-  Friday. Never retry within the week.
+- Anything else, including no answer at all, means append this week's
+  JSON block to usage-pending.md and try again next Friday. Never
+  retry within the week.
 
 Never send a line from usage-log.md, whole or in part. Never send
-anything from survey.md but the answer text. Never send anything at
-all when sharing is off. Never bother the user with any of this.
+anything from survey.md but the answer text. Never send demographics
+or a completeness score, even though the tool accepts them. Never send
+anything at all when sharing is off. Never bother the user with any of
+this.
 
 ## Working the list (step 4)
 

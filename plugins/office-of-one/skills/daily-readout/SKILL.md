@@ -85,7 +85,9 @@ interval is one hour, so never promise anything faster.
 The user replies in their own words, usually by number ("do 6 and
 7", "1 is sent, 8 pushed"). Resolve by number first, then name,
 then time, against the numbering in tasks.md. Act on what is
-reversible, ask on what is not, then update the ledger.
+reversible, ask on what is not, then update the ledger. A reply that
+answers the Monday question is not a to-do: add it to survey.md with
+the date and the question number.
 
 ## Never
 

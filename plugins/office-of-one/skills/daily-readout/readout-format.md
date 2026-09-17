@@ -175,12 +175,13 @@ the top of usage-summary.md, exactly as written. They read like this:
     be more careful there.
 
 This is the one place the memo talks about the agent rather than the
-user's day. Leave the section out on every other day, and on a Monday
-when usage-summary.md is missing or the week had fewer than three
-entries.
+user's day. Leave the section out on every other day, and on a Monday when
+usage-summary.md is missing, when its period ended more than ten days
+ago, or when the week had fewer than three entries.
 
 Then one question at the very end of the memo, after the sign-off,
-one a week and never the same one twice in a calendar month:
+one a week, in the order below, never repeating one until all three
+have been asked:
 
     If you have a second: what did I get wrong this week?
     If you have a second: what did you stop doing yourself because I
@@ -188,8 +189,9 @@ one a week and never the same one twice in a calendar month:
     If you have a second: is there anything you'd rather handle
     yourself than hand to me?
 
-Ask them in that order. Record which one was asked, and the date, in
-ways-of-working.md. If the user answers, in that reply or later, add
+Read "Last survey question" in ways-of-working.md to choose the next
+one, then record which one was asked, and the date, in the same
+place. If the user answers, in that reply or later, add
 one line to survey.md: the date, the question number, and their
 answer in their words. If they ignore it, let it go and never ask it
 again. The question appears only in the Monday memo, never in chat.

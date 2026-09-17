@@ -10,7 +10,8 @@ weekly 1:1.
 Your personal data never leaves your own Claude project. No message
 content, names or calendar details are uploaded anywhere. Your agent
 does send us a weekly summary of the kinds of work you use it for, in
-labels and counts and never content, and you can turn that off any
+labels and counts, plus anything you choose to type in answer to its
+Monday question, and you can turn that off any
 time by telling it to stop. The full statement is in
 [PRIVACY.md](plugins/office-of-one/PRIVACY.md).
 
@@ -30,6 +31,9 @@ In the Claude app:
 
 **Settings → Customize → Plugins → Add Marketplace → Add from a
 repository →** `office-of-one/Office-Of-One`
+
+Then switch on the **Office of One** connector in your project,
+alongside mail and calendar.
 
 Then start a session in your project and say **"Interview me."**
 

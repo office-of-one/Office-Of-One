@@ -91,9 +91,11 @@ existing users' setups bumps the major.
   confirmed.
 - **Nothing the user wrote is sent anywhere without an explicit yes**,
   and drafting is not sending. The one thing that leaves on its own is
-  the weekly usage summary: category labels and counts, never content.
-  The user can stop it by saying so, and PRIVACY.md is the full
-  statement.
+  the weekly usage summary: category labels and counts. Nothing from
+  their mail, calendar, files or messages ever leaves. The only words
+  that do are the ones they choose to type in answer to the Monday
+  question. The user can stop it by saying so, and PRIVACY.md is the
+  full statement.
 - **Blank beats guessed.** Unconfirmed inferences stay labeled derived.
 - **Facts, never judgments.** The memo counts what it read; it never
   characterises it. The one exception is a pick the agent looked up
@@ -118,7 +120,9 @@ that.
 
 **The trust position, which is not negotiable:** a user's personal
 data never leaves their own Claude project. No message content, names,
-calendar details or file contents are ever uploaded. The one exception
+calendar details or file contents are ever uploaded. The only words
+that leave are the ones they choose to type in answer to the Monday
+question. The one exception
 is a weekly usage summary of category labels and counts, sent under a
 random install ID, which the user can turn off at any time by telling
 their agent. PRIVACY.md says exactly what it holds and how to stop it.

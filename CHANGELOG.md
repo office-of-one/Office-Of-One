@@ -18,6 +18,48 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.32.0 — 2026-09-17
+
+**What we say about privacy now matches what happens.** An audit of the
+telemetry chain found four places where the words and the code
+disagreed.
+
+- **The promises no longer say "never content".** Answers to the Monday
+  question are the user's own words and they are sent, so CLAUDE.md,
+  the README and PRIVACY.md now say exactly that: nothing from mail,
+  the calendar, files or messages leaves, and the only words that do
+  are the ones the user chooses to type in answer to that question.
+- **The Desk never sends demographics or a completeness score,** even
+  though the server accepts them.
+- **PRIVACY.md** says the connector is switched on when the agent is
+  set up rather than claiming setup does it, covers the plugin version
+  and the tally's start and end dates, and carries today's date.
+- **The README's app install** now tells a self-installer to switch on
+  the Office of One connector, without which nothing is ever sent.
+
+The Monday question itself is unchanged.
+
+**Fixes from the same audit, so the weekly run cannot fail silently.**
+
+- **A failed submission is no longer lost.** The week's numbers go to
+  usage-pending.md and the next Friday sends anything waiting there
+  first, oldest first.
+- **Missing files are treated as empty** instead of stopping the run.
+  That covers the tally, the Desk counter, the submissions list and
+  the survey answers, which matters on the first Friday and after a
+  user deletes their tally.
+- **The roll-up runs after the Desk counts its own run,** not before,
+  and it asks for the three numbers that counter actually writes.
+- **The survey rotation is possible now:** one question a week, in
+  order, never repeated until all three have been asked, and the memo
+  reads the last one asked before choosing.
+- **A reply that answers the Monday question** is filed as a survey
+  answer instead of being resolved against the to-do list.
+- **The Monday lines are left out** when the summary is more than ten
+  days old, so a missed Friday never shows a stale week.
+- **Ways of working** no longer claims the Friday 1:1 is created
+  automatically. That task was removed in 3.27.0.
+
 ## v3.31.0 — 2026-09-17
 
 **Three more numbers in the weekly summary, so the data can answer
