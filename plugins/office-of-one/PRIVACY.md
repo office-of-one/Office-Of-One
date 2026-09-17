@@ -45,6 +45,8 @@ of One connector, which is switched on during setup; if that connector
 is off, nothing is sent. It contains:
 
 - Counts and averages from the tally, never individual entries
+- How many jobs your agent worked on in the background each week, as
+  numbers only
 - Any answers you chose to give to the occasional question in your
   Monday memo
 - Three short lines your agent writes about its own week: what it

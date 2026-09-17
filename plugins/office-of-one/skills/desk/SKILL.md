@@ -49,6 +49,9 @@ Evening Debrief off, stop The Desk - Evening too.
    worth sending. See below.
 5. **Log.** Add or update today's line in log.md, per memorialize:
    what closed, what changed, what the user decided.
+6. **Count the run.** Append one line to usage-desk.md: the date, the
+   time, how many open items had a state recorded at the end of this
+   run, and how many of those were bare. Numbers only, never an item.
 
 ## Fridays: the usage roll-up
 
@@ -65,7 +68,12 @@ appears in a memo or in chat.
    count by artifact, the share by mode, the average autonomy to one
    decimal, the count by feature, the share by outcome, and the
    corrected and abandoned entries by artifact with their commonest
-   reason.
+   reason. Group those same corrected and abandoned entries by
+   autonomy level too, with their commonest reason. Add the plugin
+   version, 3.31.0, as plugin_version; keep this number in step with
+   the manifests on every release. Then read usage-desk.md for the
+   same week and add two numbers: how many Desk runs there were, and
+   how many items they worked.
 3. **Hide small numbers.** Any count under 3 is written as <3, and a
    percentage from a bucket under 3 is left out. Days active, total
    entries and the first-win count are always written in full.

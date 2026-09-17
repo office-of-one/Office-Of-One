@@ -35,7 +35,8 @@ else: ok("Changelog matches version")
 examples = {"fitness.md", "house-move.md", "divorce.md", "SKILL.md", "CLAUDE.md", "CHANGELOG.md",
             "DEPENDENCIES.md", "README.md", "STYLE-GUIDE.md", "DECISIONS.md", "MEMORY.md",
             # written in the user's project, never shipped as templates
-            "usage-log.md", "usage-summary.md", "usage-submissions.md", "survey.md"}
+            "usage-log.md", "usage-summary.md", "usage-submissions.md", "survey.md",
+            "usage-desk.md"}
 known = {f.name for f in tracked("plugins/*")}
 missing = set()
 for f, t in texts.items():
@@ -110,6 +111,13 @@ if base:
     if changed and oldv == m2: bad("Version bumped for plugin changes", f"{len(changed)} plugin file(s) changed since {base} but the version is still {m2}")
     elif changed and top and top.group(1) == oldv: bad("Version bumped for plugin changes", "no new changelog entry")
     else: ok("Version bumped for plugin changes")
+
+# 11. The version the desk skill reports in telemetry matches the manifests
+desk = texts[P / "skills/desk/SKILL.md"]
+stated = re.search(r"the plugin\s+version,\s*(\d+\.\d+\.\d+),\s*as plugin_version", flat(desk))
+if not stated: bad("Desk reports the current version", "no plugin_version line found in skills/desk/SKILL.md")
+elif stated.group(1) != m2: bad("Desk reports the current version", f"desk says {stated.group(1)}, manifests say {m2}")
+else: ok("Desk reports the current version")
 
 print("OFFICE OF ONE CONSISTENCY CHECK")
 for p in passes: print(f"  PASS  {p}")
