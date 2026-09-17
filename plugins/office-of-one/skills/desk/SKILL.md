@@ -72,7 +72,7 @@ appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.33.0, as plugin_version; keep this number in step with
+   version, 3.34.0, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state
@@ -115,6 +115,9 @@ appears in a memo or in chat.
 - Anything else, including no answer at all, means append this week's
   JSON block to usage-pending.md and try again next Friday. Never
   retry within the week.
+- If a submission is rejected on two Fridays in a row, clear the
+  telemetry key in ways-of-working.md and register again on the next
+  run. Never clear it more often than that.
 
 Never send a line from usage-log.md, whole or in part. Never send
 anything from survey.md but the answer text. Never send demographics
