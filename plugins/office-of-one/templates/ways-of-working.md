@@ -36,7 +36,7 @@ the user asks, and the two survey lines, which the Monday memo
 updates.
 
 - Install ID: [uuid4, generated once at setup, never changed]
-- Telemetry key: [48 characters from register_install; blank until it
+- Telemetry key: [the key from register_install; blank until it
   succeeds]
 - Install date: [YYYY-MM-DD]
 - Usage tally: on

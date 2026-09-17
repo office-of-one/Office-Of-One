@@ -129,6 +129,12 @@ calendar entry.
   — the scheduled tasks The Desk - Morning and The Desk - Evening run
   this skill
 - `skills/agent-admin/SKILL.md` — moves the matching Desk task with a memo
+- The Friday roll-up reads `usage-log.md`, `usage-desk.md`,
+  `usage-submissions.md`, `survey.md` and `usage-pending.md`, and
+  writes `usage-summary.md`. None of them ship as templates; each is
+  created in the user's project.
+- The roll-up states the plugin version in prose. `scripts/check-consistency.py`
+  fails the build if it drifts from the manifests, so bump it with them.
 
 ## skills/daily-readout/agent-comms-style.md
 
@@ -183,6 +189,9 @@ turn it off, change it here too, in:
 - `skills/desk/SKILL.md` — what is sent and when
 - `skills/agent-admin/SKILL.md` — turning it off
 - `skills/onboarding-interview/SKILL.md` — the copy into the project
+- `skills/daily-readout/readout-format.md` — the Monday question, whose
+  answers leave in the user's own words
+- `templates/ways-of-working.md` — the sharing switch
 
 Onboarding copies this file into the user's project, so an old copy
 stays behind in every existing project.
@@ -195,8 +204,10 @@ at the plugin root, beside `.claude-plugin/`, and every entry needs a
 `type`. A `url` with no `type` is read as a stdio server and skipped.
 
 Only two places call it:
-- `skills/onboarding-interview/SKILL.md` — `register_install`, once
-- `skills/desk/SKILL.md` — `submit_summary`, on Fridays
+- `skills/onboarding-interview/SKILL.md` — `register_install`, once at
+  setup
+- `skills/desk/SKILL.md` — `submit_summary` on Fridays, and
+  `register_install` when the key is blank
 
 Changing the URL or the server name means changing both, and
 `PRIVACY.md` if what leaves changes.
