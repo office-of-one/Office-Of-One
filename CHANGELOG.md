@@ -18,6 +18,21 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.39.0 — 2026-09-17
+
+**The memo reads in light and dark mail apps as a pair.** The first
+brand pass kept the green to one link, which looked plain on a phone
+and nearly monochrome in dark mode. The accent now carries the
+structure: the title, section labels, to-do numbers, every circle, the
+day rail, the three tags and links. The priorities panel is the pale
+brand green, and the product mark is brass.
+
+Every token has a light value and a dark value chosen for contrast on
+the dark paper, and the build rules say how to apply them so nothing
+is left unreadable when a mail app switches to dark.
+
+No scripted lines change.
+
 ## v3.38.0 — 2026-09-17
 
 **The memos wear the Office of One brand.** The memo, the Evening

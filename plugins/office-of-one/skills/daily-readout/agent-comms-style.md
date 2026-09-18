@@ -31,9 +31,9 @@ line does the same job and survives forwarding. No "I" either:
 
 Typography follows the memo: the same font stack throughout, 14px
 body, 13px in tables, 12px notes in n-500, 10px uppercase labels in
-n-500, ink #2B241C for numbers and headings, hair #E4DFD6 between
-rows, surface #F1EADE for the panel, paper #FAF6EF for everything
-else. Accent #24382A for links only.
+the accent, accent #24382A for headings, numbers and links, hair
+#E4DFD6 between rows, surface #DDE6D9 for the panel, paper #FAF6EF
+for everything else. Both modes, the same way the memo does it.
 
 Bold carries meaning: the number, the deadline, the verdict. Never
 bold a whole sentence.
@@ -72,10 +72,10 @@ it is right.
 
 | Mark | Colour | Meaning |
 |---|---|---|
-| Number, ink circle | ink | Theirs to do or answer |
+| Number, filled circle | accent | Theirs to do or answer |
 | Link | accent | Somewhere to go |
-| RECOMMEND | ink, with an accent link | The agent's pick, attached to their task |
-| DRAFTED | ink | Already done, waiting in drafts |
-| LET'S TALK | ink | Needs them in a session first |
-| n-500 circle | n-500 | Information only, or work the agent did |
+| RECOMMEND | accent | The agent's pick, attached to their task |
+| DRAFTED | accent | Already done, waiting in drafts |
+| LET'S TALK | accent | Needs them in a session first |
+| Open circle | accent | Information only, or work the agent did |
 | CONFLICT | accent | Something is broken |

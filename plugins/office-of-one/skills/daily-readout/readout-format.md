@@ -25,21 +25,26 @@ both.
 
 ## Colors
 
-The Office of One palette. Paper carries the page, ink carries the
-words, and the accent is the smallest thing on it.
+The Office of One palette, designed for light and dark mail apps as
+a pair. Paper carries the page, ink carries the words, and the one
+accent, the brand green, carries the structure: it marks what is a
+heading, a number, a marker or a link, never a whole sentence.
 
-| Token | Hex | Dark mode | Used for |
+| Token | Light | Dark | Used for |
 |---|---|---|---|
 | paper | #FAF6EF | #1E1B17 | The page. Nothing else is a background |
-| ink | #2B241C | #F1EADE | Text, to-do numbers, the input circles |
+| ink | #2B241C | #F1EADE | Body text, to-do actions, the greeting and sign-off |
 | hair | #E4DFD6 | #3A342C | Rules between sections and rows |
-| surface | #F1EADE | #2A2520 | The one tinted panel, behind the priorities |
-| n-500 | #6A6053 | #B5AA9C | Dates, the grey slot, section labels, Worth knowing and Getting ahead circles |
-| n-400 | #A79D90 | #7A7064 | The product footer, and nothing else |
-| accent | #24382A | #9EC6A6 | The RECOMMEND link and the CONFLICT flag only |
+| surface | #DDE6D9 | #243A2B | The one tinted panel, behind the priorities |
+| n-500 | #6A6053 | #B5AA9C | Dates, the grey slot, the sources line |
+| accent | #24382A | #9EC6A6 | The title, section labels, to-do numbers, every circle, the day rail, the three tags, links, and the CONFLICT flag |
+| mark | #B08D3C | #C7A35A | The product footer, and nothing else |
 
-There is no second accent. Tags are told apart by their words, set in
-ink. Never introduce another colour.
+Every colour has a light value and a dark value, and the dark value is
+chosen for contrast on the dark paper, never by inverting the light
+one. The accent is the same green in both modes, lifted in the dark.
+Tags are told apart by their words, all set in the accent. Never
+introduce another colour.
 
 ## Type scale
 
@@ -76,8 +81,8 @@ Meeting prep can take one short line under its event.
 
 ## 2. Worth knowing
 
-These are facts where the agent has nothing to do, marked with n-500
-circles. Include one only if it is new since the last memo and the
+These are facts where the agent has nothing to do, marked with open
+circles in the accent. Include one only if it is new since the last memo and the
 user would act differently or be annoyed to miss it. Show four at
 most. This section is often empty.
 
@@ -88,8 +93,8 @@ not a memo line.
 
 ## 3. Needs your input
 
-These are questions that block something, marked with ink circles
-and no number or date. Ask three at most. There are usually none.
+These are questions that block something, marked with filled circles
+in the accent and no number or date. Ask three at most. There are usually none.
 
 The first memos also ask about calendar contradictions from
 onboarding, marked "from onboarding" in tasks.md. Each is one
@@ -98,8 +103,8 @@ show as CONFLICT in Today instead.
 
 ## 4. Getting ahead
 
-Each line is work the agent did or offers to do, marked with an
-n-500 circle and never numbered. A finished job reads like "Drafted
+Each line is work the agent did or offers to do, marked with an open
+circle in the accent and never numbered. A finished job reads like "Drafted
 the reply to [name]. It's in your drafts, needs the figure." and is
 tagged DRAFTED. An offer names the deliverable and anything the user
 has to do first, like "Forward me the PDF and I'll confirm the part
@@ -175,8 +180,8 @@ a reply, its status becomes "no reply in N days, chase?".
 ## The tags
 
 The desk skill defines the tags. There are three of them, RECOMMEND,
-DRAFTED and LET'S TALK, set in ink like the rest of the line. A to-do
-with no tag is simply the user's to handle.
+DRAFTED and LET'S TALK, set small in the accent. A to-do with no tag
+is simply the user's to handle.
 
 In the memo, tags are labels, not buttons, and the only thing a user
 can tap on a to-do line is a RECOMMEND link. The user hands work over
@@ -245,14 +250,22 @@ and leave out the whole line if none can.
 - Run edge to edge on one background, with no card border or frame.
 - Use tables and inline styles with the colors written out. Don't
   use flexbox, grid, CSS variables or class selectors.
-- Add a prefers-color-scheme block for dark mode, and never let
-  color alone carry meaning.
+- Design both modes. Put `<meta name="color-scheme" content="light
+  dark">` in the head, write the light hex inline on every element,
+  and give every coloured element a class named for its token
+  (paper, ink, hair, surface, n500, accent, mark). One
+  `@media (prefers-color-scheme: dark)` block in the head redefines
+  each class with the dark value and `!important`, so an element is
+  never left with a light colour on the dark paper. Numbers, tags
+  and circles get the class too, not only text blocks. Never let
+  colour alone carry meaning; some mail apps ignore dark mode and
+  others invert colours on their own, so the memo has to read in
+  black and white.
 - Always send the plain-text version, with the same markers and
-  numbering. Every marker is a circle: ● for an ink circle, ○ for an
-  n-500 one.
+  numbering. Every marker is a circle: ● for Needs your input, ○ for
+  Worth knowing and Getting ahead.
 - Every marker in the HTML is a circle too, never a square: a
-  round-cornered cell or a ● character, in the colour the section
-  sets.
+  round-cornered cell or a ● character, in the accent.
 - Use the seven tokens above, written out as hex on every element,
   and no other colour.
 - Keep the width to 600px, with 20px side padding, or 12px on a
