@@ -26,20 +26,32 @@ both.
 ## Colors
 
 The Office of One palette. Paper carries the page, ink carries the
-words, and the accent is the smallest thing on it.
+words, and the brand green carries the structure: it marks what is a
+heading, a number, a marker or a link, never a whole sentence.
 
-| Token | Hex | Dark mode | Used for |
-|---|---|---|---|
-| paper | #FAF6EF | #1E1B17 | The page. Nothing else is a background |
-| ink | #2B241C | #F1EADE | Text, to-do numbers, the input circles |
-| hair | #E4DFD6 | #3A342C | Rules between sections and rows |
-| surface | #F1EADE | #2A2520 | The one tinted panel, behind the priorities |
-| n-500 | #6A6053 | #B5AA9C | Dates, the grey slot, section labels, Worth knowing and Getting ahead circles |
-| n-400 | #A79D90 | #7A7064 | The product footer, and nothing else |
-| accent | #24382A | #9EC6A6 | The RECOMMEND link and the CONFLICT flag only |
+| Token | Hex | Used for |
+|---|---|---|
+| paper | #FAF6EF | The page. Nothing else is a background |
+| ink | #2B241C | Body text, to-do actions, the greeting and sign-off |
+| hair | #E4DFD6 | Rules between sections and rows |
+| surface | #DDE6D9 | The one tinted panel, behind the priorities |
+| n-500 | #6A6053 | Dates, the grey slot, the sources line |
+| green | #3B5A43 | Section labels, to-do numbers, every circle, the day rail, the three tags, and the CONFLICT flag |
+| deep green | #24382A | The title, and links |
+| mark | #B08D3C | The product footer, and nothing else |
 
-There is no second accent. Tags are told apart by their words, set in
-ink. Never introduce another colour.
+Two greens, one job: the deep one is too dark to read as colour at
+small sizes, so labels, numbers and markers use the mid green. Tags
+are told apart by their words. Never introduce another colour.
+
+The memo is designed for light mode and has to survive dark mode on
+its own, because the mail connector strips the head, every style
+block and every class before sending. A dark-mode block never reaches
+the inbox. Apple Mail and Gmail in a browser show the memo as
+designed; the Gmail phone app recolours it, darkening the paper and
+lifting the text, and these values hold up under that. Never rely on
+colour alone: the circles, numbers, rules and bold priorities carry
+the structure in black and white.
 
 ## Type scale
 
@@ -69,15 +81,15 @@ to show free time.
 
 If the calendar is empty, write "Nothing on your calendar today."
 
-When two events conflict, set both lines in the accent and end the
+When two events conflict, set both lines in the green and end the
 first with CONFLICT. Never write "clash" or add a header above them.
 
 Meeting prep can take one short line under its event.
 
 ## 2. Worth knowing
 
-These are facts where the agent has nothing to do, marked with n-500
-circles. Include one only if it is new since the last memo and the
+These are facts where the agent has nothing to do, marked with open
+circles in the green. Include one only if it is new since the last memo and the
 user would act differently or be annoyed to miss it. Show four at
 most. This section is often empty.
 
@@ -88,8 +100,8 @@ not a memo line.
 
 ## 3. Needs your input
 
-These are questions that block something, marked with ink circles
-and no number or date. Ask three at most. There are usually none.
+These are questions that block something, marked with filled circles
+in the green and no number or date. Ask three at most. There are usually none.
 
 The first memos also ask about calendar contradictions from
 onboarding, marked "from onboarding" in tasks.md. Each is one
@@ -98,8 +110,8 @@ show as CONFLICT in Today instead.
 
 ## 4. Getting ahead
 
-Each line is work the agent did or offers to do, marked with an
-n-500 circle and never numbered. A finished job reads like "Drafted
+Each line is work the agent did or offers to do, marked with an open
+circle in the green and never numbered. A finished job reads like "Drafted
 the reply to [name]. It's in your drafts, needs the figure." and is
 tagged DRAFTED. An offer names the deliverable and anything the user
 has to do first, like "Forward me the PDF and I'll confirm the part
@@ -175,8 +187,12 @@ a reply, its status becomes "no reply in N days, chase?".
 ## The tags
 
 The desk skill defines the tags. There are three of them, RECOMMEND,
-DRAFTED and LET'S TALK, set in ink like the rest of the line. A to-do
-with no tag is simply the user's to handle.
+DRAFTED and LET'S TALK. Each is a small pill: green background
+#3B5A43, paper text, 9px bold uppercase with a little letter-spacing,
+2px 6px of padding and 3px rounded corners, set as an inline-block
+with the background as `background-color`. Green text alone blends
+into the line; the pill is what makes a tag readable at a glance. A
+to-do with no tag is simply the user's to handle.
 
 In the memo, tags are labels, not buttons, and the only thing a user
 can tap on a to-do line is a RECOMMEND link. The user hands work over
@@ -245,14 +261,18 @@ and leave out the whole line if none can.
 - Run edge to edge on one background, with no card border or frame.
 - Use tables and inline styles with the colors written out. Don't
   use flexbox, grid, CSS variables or class selectors.
-- Add a prefers-color-scheme block for dark mode, and never let
-  color alone carry meaning.
+- Write every colour inline on the element itself. No head, no
+  style block, no classes; the connector removes all three.
+- Backgrounds go on as a `bgcolor` attribute and as
+  `background-color` in the inline style, on the outer table for the
+  paper and on the panel table and each of its cells. Never use the
+  `background` shorthand; the connector strips it and the memo
+  arrives on white with no panel.
 - Always send the plain-text version, with the same markers and
-  numbering. Every marker is a circle: ● for an ink circle, ○ for an
-  n-500 one.
+  numbering. Every marker is a circle: ● for Needs your input, ○ for
+  Worth knowing and Getting ahead.
 - Every marker in the HTML is a circle too, never a square: a
-  round-cornered cell or a ● character, in the colour the section
-  sets.
+  round-cornered cell or a ● character, in the green.
 - Use the seven tokens above, written out as hex on every element,
   and no other colour.
 - Keep the width to 600px, with 20px side padding, or 12px on a

@@ -18,6 +18,29 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.39.0 — 2026-09-17
+
+**The memo arrives with its colours.** Two test sends through the
+Gmail connector showed what survives: it strips the head, every style
+block, every class, and the `background` shorthand, but keeps
+`bgcolor` attributes and `background-color`. The build rules now say
+exactly that, so the paper and the priorities panel reach the inbox
+instead of arriving on white.
+
+The brand green carries the structure: section labels, to-do numbers,
+every circle, the day rail and the three tags use the mid green,
+which reads as colour at small sizes; the title and links use the deep
+green. The three tags are small green pills with paper text, so they
+stand out from the line instead of blending into it. The priorities
+panel is the pale brand green, and the product mark is brass.
+
+Dark mode cannot travel inside the email, since the connector removes
+the style block, so the memo is designed for light and chosen to hold
+up when a phone app recolours it. Circles, numbers, rules and bold
+priorities carry the structure in black and white.
+
+No scripted lines change.
+
 ## v3.38.0 — 2026-09-17
 
 **The memos wear the Office of One brand.** The memo, the Evening
