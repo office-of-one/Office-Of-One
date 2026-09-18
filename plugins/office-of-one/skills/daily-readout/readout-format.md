@@ -187,8 +187,12 @@ a reply, its status becomes "no reply in N days, chase?".
 ## The tags
 
 The desk skill defines the tags. There are three of them, RECOMMEND,
-DRAFTED and LET'S TALK, set small in the green. A to-do with no tag
-is simply the user's to handle.
+DRAFTED and LET'S TALK. Each is a small pill: green background
+#3B5A43, paper text, 9px bold uppercase with a little letter-spacing,
+2px 6px of padding and 3px rounded corners, set as an inline-block
+with the background as `background-color`. Green text alone blends
+into the line; the pill is what makes a tag readable at a glance. A
+to-do with no tag is simply the user's to handle.
 
 In the memo, tags are labels, not buttons, and the only thing a user
 can tap on a to-do line is a RECOMMEND link. The user hands work over

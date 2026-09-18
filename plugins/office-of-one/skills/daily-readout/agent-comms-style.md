@@ -76,8 +76,8 @@ it is right.
 |---|---|---|
 | Number, filled circle | green | Theirs to do or answer |
 | Link | deep green | Somewhere to go |
-| RECOMMEND | green | The agent's pick, attached to their task |
-| DRAFTED | green | Already done, waiting in drafts |
-| LET'S TALK | green | Needs them in a session first |
+| RECOMMEND | green pill, paper text | The agent's pick, attached to their task |
+| DRAFTED | green pill, paper text | Already done, waiting in drafts |
+| LET'S TALK | green pill, paper text | Needs them in a session first |
 | Open circle | green | Information only, or work the agent did |
 | CONFLICT | green | Something is broken |

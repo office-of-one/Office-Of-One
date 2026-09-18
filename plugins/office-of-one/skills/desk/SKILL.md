@@ -218,8 +218,9 @@ Every to-do is in exactly one state. One tag per line, never two.
 | **DRAFTED** | green | The agent already did it. Waiting in their drafts |
 | **LET'S TALK** | green | Needs their position first. Twenty minutes in a session |
 
-**All three tags are set small in the brand green,** like the numbers
-and markers. The tags are told apart by their words, not their colour.
+**All three tags are small green pills with paper text,** so they
+stand out from the line. The tags are told apart by their words, not
+their colour.
 
 LET'S TALK maps exactly to the "wait for their position" list
 below. Expect it

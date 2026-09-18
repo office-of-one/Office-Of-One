@@ -30,8 +30,9 @@ instead of arriving on white.
 The brand green carries the structure: section labels, to-do numbers,
 every circle, the day rail and the three tags use the mid green,
 which reads as colour at small sizes; the title and links use the deep
-green. The priorities panel is the pale brand green, and the product
-mark is brass.
+green. The three tags are small green pills with paper text, so they
+stand out from the line instead of blending into it. The priorities
+panel is the pale brand green, and the product mark is brass.
 
 Dark mode cannot travel inside the email, since the connector removes
 the style block, so the memo is designed for light and chosen to hold
