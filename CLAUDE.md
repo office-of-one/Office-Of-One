@@ -154,7 +154,7 @@ plugins/office-of-one/
 ├── .mcp.json                       the telemetry server
 ├── PRIVACY.md                      what is recorded and what leaves
 ├── skills/                         nine skills
-└── templates/                      eight brain templates, unfilled
+└── templates/                      nine brain templates, unfilled
 evals/                              test cases; never inside plugins/
 CLAUDE.md                           this file
 CHANGELOG.md                        customer-facing version history

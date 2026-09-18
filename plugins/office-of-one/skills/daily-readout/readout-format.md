@@ -73,6 +73,11 @@ squares. Include one only if it is new since the last memo and the
 user would act differently or be annoyed to miss it. Show four at
 most. This section is often empty.
 
+A line may connect two things the user said themselves, stated as
+fact: "Thursday's call lines up with the spring plan." Never a
+connection the user didn't make; a guessed link is a 1:1 question,
+not a memo line.
+
 ## 3. Needs your input
 
 These are questions that block something, marked with pine squares
@@ -95,6 +100,12 @@ and put both dates on the calendar."
 A calendar offer reads like "Say yes and I'll put Mia's pickup at LAX
 on your calendar for Thu 2pm." Nothing goes on the calendar without
 a yes.
+
+Offers come from the links on the items. A meeting on Thursday with
+someone the user owes a proposal means the proposal is drafted on
+Wednesday and the line says why: "Thursday's call is with [name].
+The proposal is in your drafts."
+
 
 A workflow that ran since the last Morning Memo gets one line in the
 next one, taken from its Last run line.
@@ -287,8 +298,8 @@ promotes it, and stops being one when its date passes.
 ### Choosing the Priority to-dos
 
 Pick three at most. A to-do qualifies if it is due today or
-tomorrow, or if it matters most and can't be finished in one sitting,
-so it needs some of today to move at all. Rank with what you know,
+tomorrow, or if it moves one of the goals in goals.md and can't be
+finished in one sitting, so it needs some of today to move at all. Rank with what you know,
 and let the user correct you in their reply.
 
 ### Facts, never judgments

@@ -24,8 +24,8 @@ Evening Debrief off, stop The Desk - Evening too.
 ## The run
 
 1. **Read the standing context.** tasks.md, log.md,
-   ways-of-working.md, people.md, personality.md, and every topic
-   file listed in ways-of-working.md. tasks.md is the system of
+   ways-of-working.md, people.md, personality.md, goals.md, and
+   every topic file listed in ways-of-working.md. tasks.md is the system of
    record. Never work a workflow file. You may read a workflow's
    tracker only to recognize who is in it.
 2. **Sweep.** Calendar for the day. Mail received AND sent since
@@ -38,6 +38,12 @@ Evening Debrief off, stop The Desk - Evening too.
 3. **Reconcile.** Fold everything new into tasks.md in this same
    run, with a thread pointer (who, subject, last touched) on any
    item that has one. Anything not written down now is lost.
+   Connect each new item to what it touches: a goal in goals.md, a
+   person in people.md, an open item, a calendar entry. Mail from
+   someone in people.md is linked to whatever is already open with
+   them; a calendar entry is linked to the to-do it is for. Write
+   the link on the item as a "touches" line. A link that is a guess
+   goes to open-questions.md for the 1:1, never onto the item.
    Mail from someone in a workflow's tracker stays out of tasks.md,
    unless it asks the user for something only they can decide, such
    as a meeting or a yes. Then add one to-do with a thread pointer.
@@ -72,7 +78,7 @@ appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.35.0, as plugin_version; keep this number in step with
+   version, 3.36.0, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state
@@ -129,7 +135,9 @@ this.
 ## Working the list (step 4)
 
 Every open item is in one of four states, and the agent's job is
-to move as many as possible out of the first one.
+to move as many as possible out of the first one. Work the items
+that touch a goal in goals.md before the ones that don't, and when
+two items tie, the one that moves a goal goes first.
 
 - **A lookup?** Solve it. One pick, linked, tagged RECOMMEND. Buy
   X, find a Y, book a Z, get a quote, pick a provider, which form,

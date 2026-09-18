@@ -51,10 +51,10 @@ Then start a session in your project and say **"Interview me."**
 | `setup-check` | "Test my setup", "Status check" | Fixed-format screens, and the three setup tests. |
 | `help` | "help", "what can you do" | Answers how-do-I questions in plain words, and points to support when the agent can't fix something. |
 
-## The eight templates
+## The nine templates
 
 `personality.md` · `people.md` · `ways-of-working.md` · `tasks.md` ·
-`open-questions.md` · `log.md` · `archive.md` ·
+`open-questions.md` · `goals.md` · `log.md` · `archive.md` ·
 `project-instructions.md`
 
 These ship unfilled. They are structure, not content: the interview

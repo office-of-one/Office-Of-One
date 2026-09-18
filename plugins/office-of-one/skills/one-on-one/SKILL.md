@@ -39,16 +39,22 @@ reached. There is no maximum and no minimum.
 Read the brain files first, topic files included, so you never ask
 what they already answer.
 
+If goals.md is empty, ask the exact goal question from the interview
+guide before anything else, and write the answer there.
+
 Sources, in priority order:
-1. Contradictions between what they said and what the calendar or
-   mail shows. Always first.
-2. Partial answers from the onboarding interview.
-3. The question pool in open-questions.md, ranked by the selection
+1. An unanswered or partial goal question. Nothing comes before it.
+2. Contradictions between what they said and what the calendar or
+   mail shows.
+3. Partial answers from the onboarding interview.
+4. The question pool in open-questions.md, ranked by the selection
    rules in the interview guide.
-4. Organic questions from the week just gone. Read log.md for what
-   actually happened and ask about it: a new name that appeared, a
-   commitment that ran late twice, a thing that got moved three
-   times.
+5. Organic questions from the week just gone. Read log.md and the
+   "touches" lines in tasks.md for what actually happened and ask
+   about it: a new name that appeared, a commitment that ran late
+   twice, a thing that got moved three times, two moved items that
+   both touch the same goal. Guessed links waiting in
+   open-questions.md are asked here, as questions.
 
 The organic questions are usually the best ones. "You moved the
 Thursday thing twice this week. Is that one worth protecting, or is
@@ -97,7 +103,8 @@ and never bring up the Desk. Look for:
 - **A recurring job too big for the task list.** Propose a workflow.
 
 One suggestion in a 1:1, up to three when the user asks to
-brainstorm. Each is one line. If nothing in the evidence supports
+brainstorm. Each is one line. When goals.md has anything in it, the
+suggestion connects to one of those goals, and says which. If nothing in the evidence supports
 one, offer none; a made-up suggestion is worse than none.
 
 Propose it, never create it. Only the Morning Memo, the Evening
@@ -110,6 +117,10 @@ they say yes, set it up and confirm in one line.
 
 Everything they say here is a correction. Update the brain files
 immediately; corrections outrank anything already stored.
+
+Once a month, when goals.md was last reviewed more than four weeks
+ago, ask: "**Are these still the goals?**" and read them back in
+their words. Write what changes, and the date, to goals.md.
 
 This is a local conversation. It stays in their project. Do not
 turn it into feedback for Office of One.

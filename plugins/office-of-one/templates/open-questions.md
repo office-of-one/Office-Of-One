@@ -8,16 +8,18 @@ this pool. Questions belong to the 1:1.
 
 ## How the next question is chosen
 
-1. Contradictions first, always. Something they said that the
-   calendar or mail disagrees with.
-2. Partial answers from the onboarding interview, phrased in their
+1. An unanswered or partial goal question first, always. Nothing is
+   asked before it.
+2. Contradictions. Something they said that the calendar or mail
+   disagrees with.
+3. Partial answers from the onboarding interview, phrased in their
    own words.
-3. Then whichever domain has the most evidence of mattering and
+4. Then whichever domain has the most evidence of mattering and
    the least written down: something that shows up repeatedly in
    the calendar or mail that these files cannot explain.
-4. Organic questions from the week just gone usually beat anything
+5. Organic questions from the week just gone usually beat anything
    sitting in the pool. Read log.md first.
-5. Never ask what the evidence already answers. Never ask someone
+6. Never ask what the evidence already answers. Never ask someone
    to confirm that a domain does not apply to them.
 
 One question at a time. Wait for the answer before the next one.
@@ -39,7 +41,6 @@ person, and mark each as covered, partial, or untouched.
 
 - Household
 - Extended family
-- Goals
 - Their people
 - Time and rhythm
 - Joy and energy

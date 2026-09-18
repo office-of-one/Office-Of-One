@@ -200,8 +200,8 @@ readout-format.md.
 
 ## Step 5 — Help me fill in the gaps
 
-Cover as much of the list below as time allows, up to 10 questions
-with Yesterday included. Whatever the interview doesn't reach goes
+Cover as much of the list below as time allows, up to 10 questions,
+Yesterday and the goal question included. Whatever the interview doesn't reach goes
 to the question pool, and the Friday 1:1 picks it up from there.
 Never let Step 5 eat into Step 6.
 
@@ -210,8 +210,8 @@ already said. Skip whatever Steps 2 and 3 already settled and
 whatever does not apply.
 
 Before the first Step 5 question, check that each brain file
-exists: people.md, ways-of-working.md, tasks.md and
-open-questions.md. Create any that is missing from its template in
+exists: people.md, ways-of-working.md, tasks.md, open-questions.md
+and goals.md. Create any that is missing from its template in
 templates/, then carry on. Never hold an answer back because its
 file isn't there yet.
 
@@ -223,6 +223,15 @@ as much detail as you can stand.** If yesterday was unusual, pick
 your last normal day."
 One narrated ordinary day teaches more than twenty abstract
 questions. Follow the threads it opens.
+
+Then, always, before any domain:
+"**What do you want to be true a year from now, and what has to
+happen in the next three months to get there?**"
+Write the answer to goals.md as they give it: the year-out picture,
+the ninety-day steps, and any open decision with its date. If they
+skip it or answer thinly, mark it partial. A partial goal sits at the
+top of the question pool, above everything, so the first 1:1 opens
+with it.
 
 Then move through the domains. They are not a fixed sequence. Pick
 the next one in this order:
@@ -251,9 +260,6 @@ D2. **Extended family.** Relatives outside their home: parents,
     siblings, in-laws. Names, how close by, how often they
     connect, dates that must never be missed, who they can call
     for help at short notice.
-D3. **Goals.** What they want true in twelve months, what has to
-    happen in the next ninety days, decisions that are open and
-    when they must be made.
 D4. **Their people.** Close friends by name, how the friendship is
     actually maintained, who they owe a reply, who they're
     drifting from and don't want to lose.
