@@ -18,6 +18,16 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.35.0 — 2026-09-17
+
+**A dead key is fixed on the next run, not after two weeks.** The
+server now answers "error: auth" when it does not recognise a key, and
+keeps "error: rejected" for everything else, so a bad payload can never
+cost an install its key. The Desk clears its key on "error: auth"
+alone, registers again on the next run, and sends whatever is queued.
+
+No scripted lines change.
+
 ## v3.34.0 — 2026-09-17
 
 **A stuck install can get itself unstuck.** If a key ever stops working
