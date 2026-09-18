@@ -3,18 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@600;700&family=Wix+Madefor+Text:wght@400;500;600&display=swap">
 <style>
   :root{
-    --bg:#FBF6EE; --card:#FFFFFF; --ink:#2B241C; --sub:#A79D90;
-    --fill1:#3B5A43; --fill2:#24382A; --empty:#DDE6D9; --hatch:#EDF2EA;
-    --brass:#B08D3C;
+    --bg:#FAF6EF; --card:#FFFFFF; --ink:#2B241C; --sub:#6A6053;
+    --fill1:#24382A; --fill2:#24382A; --empty:#E4DFD6; --hatch:#F1EADE;
+    --brass:#A79D90;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+  body{background:var(--bg);font-family:"Wix Madefor Text",-apple-system,BlinkMacSystemFont,"Segoe UI Variable Text","Segoe UI",Helvetica,Arial,sans-serif;
        display:flex;justify-content:center;padding:24px 16px;color:var(--ink)}
   .card{background:var(--card);border-radius:20px;padding:26px 22px;max-width:420px;width:100%;
         box-shadow:0 6px 24px rgba(36,56,42,.10)}
-  h1{font-size:20px;font-weight:700;letter-spacing:-.01em;margin-bottom:4px;color:var(--fill2)}
+  h1{font-family:"Wix Madefor Display",-apple-system,BlinkMacSystemFont,"Segoe UI Variable Text","Segoe UI",Helvetica,Arial,sans-serif;font-size:20px;font-weight:700;letter-spacing:-.01em;margin-bottom:4px;color:var(--fill2)}
   .sub{font-size:13px;color:var(--sub);margin-bottom:20px}
   .bar{display:flex;gap:6px;margin-bottom:16px}
   .seg{flex:1;height:12px;border-radius:6px;background:var(--empty);position:relative;overflow:hidden}
@@ -27,7 +28,7 @@
   .steps li .dot{width:20px;height:20px;border-radius:50%;background:var(--empty);
         display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--sub);flex-shrink:0}
   .steps li.done{color:var(--ink)}
-  .steps li.done .dot{background:linear-gradient(135deg,var(--fill1),var(--fill2));color:#FBF6EE}
+  .steps li.done .dot{background:linear-gradient(135deg,var(--fill1),var(--fill2));color:#FAF6EF}
   .steps li.now{color:var(--ink);font-weight:600}
   .steps li.now .dot{border:2px solid var(--fill2);background:#fff;color:var(--fill2)}
   .foot{margin-top:16px;font-size:13px;color:var(--sub);line-height:1.45}

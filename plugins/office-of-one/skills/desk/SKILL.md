@@ -78,7 +78,7 @@ appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.37.0, as plugin_version; keep this number in step with
+   version, 3.38.0, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state
@@ -214,13 +214,12 @@ Every to-do is in exactly one state. One tag per line, never two.
 | Tag | Colour | Means |
 |---|---|---|
 | *(none)* | — | Theirs alone. The agent has nothing to add |
-| **RECOMMEND** | Purple | The agent looked it up. Here is the pick, linked |
-| **DRAFTED** | Purple tint | The agent already did it. Waiting in their drafts |
-| **LET'S TALK** | Purple tint | Needs their position first. Twenty minutes in a session |
+| **RECOMMEND** | ink | The agent looked it up. Here is the pick, linked |
+| **DRAFTED** | ink | The agent already did it. Waiting in their drafts |
+| **LET'S TALK** | ink | Needs their position first. Twenty minutes in a session |
 
-**All three tags are purple.** Purple means the agent is involved
-in that line, whatever the stage. Pine stays structural: numbers,
-squares, links, section furniture. The tags are told apart by
+**All three tags are set in ink,** like the rest of the line, and the
+RECOMMEND link is the only accent on it. The tags are told apart by
 their words, not their colour.
 
 LET'S TALK maps exactly to the "wait for their position" list

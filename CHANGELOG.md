@@ -18,6 +18,26 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.38.0 — 2026-09-17
+
+**The memos wear the Office of One brand.** The memo, the Evening
+Debrief, the agent's write-ups and the setup progress card now use the
+brand palette: paper #FAF6EF, ink #2B241C, hair #E4DFD6, surface
+#F1EADE, two neutrals for dates and the footer, and one accent,
+#24382A, used only for the RECOMMEND link and the CONFLICT flag. Pine,
+purple and amber are gone; the three tags are set in ink and told
+apart by their words.
+
+Every marker is a circle now, never a square, in the HTML and in the
+plain-text version (● and ○).
+
+The email font stack is the brand's: -apple-system,
+BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", Helvetica,
+Arial, sans-serif. The progress card, the one place a webfont can
+load, uses Wix Madefor Display and Wix Madefor Text.
+
+No scripted lines change.
+
 ## v3.37.0 — 2026-09-17
 
 **Five small fixes from testing the goal question.**
