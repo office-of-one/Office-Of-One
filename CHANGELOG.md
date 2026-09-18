@@ -20,16 +20,23 @@ written into the project at setup.
 
 ## v3.39.0 — 2026-09-17
 
-**The memo reads in light and dark mail apps as a pair.** The first
-brand pass kept the green to one link, which looked plain on a phone
-and nearly monochrome in dark mode. The accent now carries the
-structure: the title, section labels, to-do numbers, every circle, the
-day rail, the three tags and links. The priorities panel is the pale
-brand green, and the product mark is brass.
+**The memo arrives with its colours.** Two test sends through the
+Gmail connector showed what survives: it strips the head, every style
+block, every class, and the `background` shorthand, but keeps
+`bgcolor` attributes and `background-color`. The build rules now say
+exactly that, so the paper and the priorities panel reach the inbox
+instead of arriving on white.
 
-Every token has a light value and a dark value chosen for contrast on
-the dark paper, and the build rules say how to apply them so nothing
-is left unreadable when a mail app switches to dark.
+The brand green carries the structure: section labels, to-do numbers,
+every circle, the day rail and the three tags use the mid green,
+which reads as colour at small sizes; the title and links use the deep
+green. The priorities panel is the pale brand green, and the product
+mark is brass.
+
+Dark mode cannot travel inside the email, since the connector removes
+the style block, so the memo is designed for light and chosen to hold
+up when a phone app recolours it. Circles, numbers, rules and bold
+priorities carry the structure in black and white.
 
 No scripted lines change.
 

@@ -30,10 +30,12 @@ line does the same job and survives forwarding. No "I" either:
 "the read", "not verified", not "my read".
 
 Typography follows the memo: the same font stack throughout, 14px
-body, 13px in tables, 12px notes in n-500, 10px uppercase labels in
-the accent, accent #24382A for headings, numbers and links, hair
-#E4DFD6 between rows, surface #DDE6D9 for the panel, paper #FAF6EF
-for everything else. Both modes, the same way the memo does it.
+body, 13px in tables, 12px notes in n-500, 10px uppercase labels,
+numbers and markers in green #3B5A43, deep green #24382A for
+headings and links, hair #E4DFD6 between rows, surface #DDE6D9 for
+the panel, paper #FAF6EF for everything else. Every colour inline,
+backgrounds as bgcolor and background-color, the same way the memo
+does it.
 
 Bold carries meaning: the number, the deadline, the verdict. Never
 bold a whole sentence.
@@ -72,10 +74,10 @@ it is right.
 
 | Mark | Colour | Meaning |
 |---|---|---|
-| Number, filled circle | accent | Theirs to do or answer |
-| Link | accent | Somewhere to go |
-| RECOMMEND | accent | The agent's pick, attached to their task |
-| DRAFTED | accent | Already done, waiting in drafts |
-| LET'S TALK | accent | Needs them in a session first |
-| Open circle | accent | Information only, or work the agent did |
-| CONFLICT | accent | Something is broken |
+| Number, filled circle | green | Theirs to do or answer |
+| Link | deep green | Somewhere to go |
+| RECOMMEND | green | The agent's pick, attached to their task |
+| DRAFTED | green | Already done, waiting in drafts |
+| LET'S TALK | green | Needs them in a session first |
+| Open circle | green | Information only, or work the agent did |
+| CONFLICT | green | Something is broken |
