@@ -46,8 +46,6 @@ furthest.
 - `skills/onboarding-interview/progress-template.html` — if step
   names, the number of steps, or the labels changed
 - `CLAUDE.md` — the onboarding sequence
-- The facilitator runbook (Drive, `02-Workshop/`) — facilitators read
-  along with the script
 
 ## Topic files
 
@@ -220,7 +218,6 @@ Changing the URL or the server name means changing both, and
   are shown
 - `skills/setup-check/SKILL.md` — if it should appear in the status
   screen or the three tests
-- The facilitator runbook (Drive) — if it changes what is demonstrated
 
 ## Changing a user-facing name
 
