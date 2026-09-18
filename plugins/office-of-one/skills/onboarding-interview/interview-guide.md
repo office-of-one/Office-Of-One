@@ -224,14 +224,18 @@ your last normal day."
 One narrated ordinary day teaches more than twenty abstract
 questions. Follow the threads it opens.
 
-Then, always, before any domain:
+Then, always, before any domain. It is the next thing said after
+the yesterday answer; a thread yesterday opened waits until after it:
 "**What do you want to be true a year from now, and what has to
 happen in the next three months to get there?**"
 Write the answer to goals.md as they give it: the year-out picture,
-the ninety-day steps, and any open decision with its date. If they
-skip it or answer thinly, mark it partial. A partial goal sits at the
-top of the question pool, above everything, so the first 1:1 opens
-with it.
+the ninety-day steps, and any open decision with its date. A
+ninety-day item with no date becomes a to-do due three months from
+today, linked back to goals.md. If the answer is thin, probe once
+with a concrete follow-up, then mark it partial. If they skip it,
+mark it partial without probing. A partial goal goes in the Goal
+section at the top of open-questions.md, above everything, so the
+first 1:1 opens with it.
 
 Then move through the domains. They are not a fixed sequence. Pick
 the next one in this order:

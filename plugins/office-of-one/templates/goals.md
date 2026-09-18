@@ -14,8 +14,9 @@ In their words, never rewritten into the agent's.
 ## The next three months
 
 [What has to happen for the year-out picture to hold. One line each,
-with a date where they gave one. Anything with a date is also a
-to-do in tasks.md, linked back here.]
+with a date where they gave one. Every item here is also a to-do in
+tasks.md, linked back here: due on the date they gave, or three
+months from setup if they gave none.]
 
 ## Open decisions
 
