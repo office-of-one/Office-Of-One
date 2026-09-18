@@ -178,6 +178,32 @@ onboarding only installs it if it isn't already present.
 - If you change it, say in `CHANGELOG.md` that existing users need a
   manual refresh, and say how.
 
+## templates/goals.md
+
+Where the user is going. Written by the goal question in Step 5,
+updated in the 1:1, read by everything that decides what to work on.
+
+- `skills/onboarding-interview/interview-guide.md` — the goal question
+  and where its answer goes
+- `skills/onboarding-interview/SKILL.md` — installs it and asks the
+  question second, after Yesterday
+- `skills/one-on-one/SKILL.md` — asks the question when the file is
+  empty, ties the suggestion to a goal, and the monthly "still the
+  goals?" check
+- `skills/desk/SKILL.md` — reads it and works goal-linked items first
+- `skills/daily-readout/readout-format.md` — a goal-moving to-do can
+  be a priority
+- `templates/open-questions.md` — a partial goal ranks above everything
+
+## The "touches" line
+
+Every fact and item carries what it connects to, written by
+`skills/memorialize/SKILL.md` and the Desk's reconcile step, kept in
+`templates/tasks.md`, and read by the memo's Getting ahead and Worth
+knowing rules and the 1:1's organic questions. A guessed link goes to
+`open-questions.md`, never onto the item. Change the rule in one place
+and check the other five.
+
 ## PRIVACY.md
 
 The statement customers read. It must match what actually happens. If

@@ -14,6 +14,8 @@ Format:
        thread: [who] · [subject] · last touched [date]
        found: [the recommendation, the link, and what could not be
               verified]
+       touches: [the goal, person, topic or open item this connects
+                to, so the next run works it in context]
 
 No owner field. Tags: RECOMMEND (the agent's pick), DRAFTED (the
 agent did it, waiting in their drafts), LET'S TALK (needs their position

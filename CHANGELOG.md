@@ -18,6 +18,33 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.36.0 — 2026-09-17
+
+**The agent knows where you're going, and connects what it hears.**
+
+- **A goal question at setup, every time.** Right after "walk me
+  through yesterday", the interview asks: "What do you want to be true
+  a year from now, and what has to happen in the next three months to
+  get there?" A skipped or thin answer goes to the top of the question
+  pool, so the first 1:1 opens with it. Anyone set up before this gets
+  asked at their next 1:1.
+- **A home for it: goals.md**, the ninth brain template. Written at
+  setup in the user's words, kept current in the 1:1, and read by every
+  skill. Once a month the 1:1 asks "Are these still the goals?"
+- **Goals pull on the work.** The Desk works goal-linked items first,
+  a to-do that moves a goal can be a priority in the memo, and the
+  1:1's suggestion has to connect to a goal when there is one.
+- **The agent connects the dots.** Every new fact and item carries a
+  "touches" line: the goal, person, topic or open item it relates to.
+  The Desk links new mail to what is already open with that person and
+  a calendar entry to the to-do it is for. Offers in Getting ahead come
+  from those links, a Worth knowing line may connect two things the
+  user said themselves, and the 1:1 asks about links the agent could
+  only guess at. A guessed link is never stated as fact.
+
+One scripted line is added, the goal question. The Goals domain is
+removed from the Step 5 list since it is now always asked.
+
 ## v3.35.0 — 2026-09-17
 
 **A dead key is fixed on the next run, not after two weeks.** The

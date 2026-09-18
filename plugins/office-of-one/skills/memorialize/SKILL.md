@@ -47,6 +47,13 @@ ones.
    ways-of-working.md, and for a sensitive subject only when the
    user named it themselves. Dated actions still go in tasks.md,
    and people in people.md.
+   When you write a fact or an item, note what it touches: a goal in
+   goals.md, a person in people.md, a topic file, or an open item in
+   tasks.md. Put the link on the item itself, as a "touches" line,
+   so every skill that reads it sees the connection without
+   re-deriving it. A link you are sure of is a fact; a link you are
+   guessing at goes to open-questions.md as a question for the 1:1,
+   never onto the item.
    Never start a workflow file on your own. Workflows are built
    only in a 1:1, after the user agrees. An update about a workflow
    goes in that workflow's file.

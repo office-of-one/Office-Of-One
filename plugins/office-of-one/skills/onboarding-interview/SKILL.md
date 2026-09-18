@@ -229,16 +229,18 @@ Never describe percentages or mechanics.
 
 6. **Step 5 — Help me fill in the gaps.**
    Update the progress card: step 5.
-   At most 10 questions, Yesterday included. Open with the exact
-   Yesterday question unless time has run out; it is the
-   highest-yield question available. Then choose from the domains
+   At most 10 questions, Yesterday and the goal question included.
+   Open with the exact Yesterday question, then the exact goal
+   question, unless time has run out; those two always come first.
+   Write the goal answer to goals.md as it is given. Then choose from the domains
    in interview-guide.md using its selection rules, skipping
    anything the evidence or the import already settled and
    anything that does not apply (never ask the user to confirm a
    domain is irrelevant). Cover as many as the cap and the time
    allow, and never let Step 5 eat into Step 6.
    Before the first question, make sure people.md,
-   ways-of-working.md, tasks.md and open-questions.md exist, and
+   ways-of-working.md, tasks.md, open-questions.md and goals.md
+   exist, and
    create any that is missing from its template. Write each answer
    to its file before asking the next question, using the routing
    in interview-guide.md. Never leave an answer only in the
@@ -258,7 +260,7 @@ Never describe percentages or mechanics.
 8. **Finish the brain files.**
    Everything should already be written. Confirm that
    personality.md, people.md, ways-of-working.md, tasks.md,
-   open-questions.md and any topic files are complete and
+   open-questions.md, goals.md and any topic files are complete and
    consistent, that every topic file is listed in
    ways-of-working.md, and fill any gaps now. Facts derived from
    connectors but never confirmed stay labeled as derived, so nothing unverified reads as
@@ -335,7 +337,7 @@ a theme at any time by asking; agent-admin handles those requests.
 
 ## Completion criteria
 
-Complete ONLY when: brain files written (8), the Morning Memo,
+Complete ONLY when: brain files written (9), the Morning Memo,
 Evening Debrief and both Desk tasks scheduled and
 confirmed (7), the
 setup tests run and their results reported, or declined by the
