@@ -25,21 +25,29 @@ both.
 
 ## Colors
 
-| Color | Hex | Dark mode | Tint | Used for |
-|---|---|---|---|---|
-| Pine | #2b5f52 | #79c4b0 | #e6ede9 | The user's things: to-do numbers, input squares, links |
-| Purple | #8a4fbd | #c194ef | #f1e8fa | The agent's things: Getting ahead squares and tags |
-| Amber | #a2521f | — | #f6e7d9 | Conflicts only |
+The Office of One palette. Paper carries the page, ink carries the
+words, and the accent is the smallest thing on it.
 
-A replacement for purple must differ from pine in hue and lightness,
-and must not be gold.
+| Token | Hex | Dark mode | Used for |
+|---|---|---|---|
+| paper | #FAF6EF | #1E1B17 | The page. Nothing else is a background |
+| ink | #2B241C | #F1EADE | Text, to-do numbers, the input circles |
+| hair | #E4DFD6 | #3A342C | Rules between sections and rows |
+| surface | #F1EADE | #2A2520 | The one tinted panel, behind the priorities |
+| n-500 | #6A6053 | #B5AA9C | Dates, the grey slot, section labels, Worth knowing and Getting ahead circles |
+| n-400 | #A79D90 | #7A7064 | The product footer, and nothing else |
+| accent | #24382A | #9EC6A6 | The RECOMMEND link and the CONFLICT flag only |
+
+There is no second accent. Tags are told apart by their words, set in
+ink. Never introduce another colour.
 
 ## Type scale
 
-Everything in the memo uses one font stack: "Segoe UI",
--apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial,
-sans-serif. Write the whole stack inline on every text style, never
-Segoe UI alone.
+Everything in the memo uses one font stack: -apple-system,
+BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", Helvetica,
+Arial, sans-serif. It resolves to SF Pro on Apple, Segoe UI on
+Windows and Roboto on Android. Write the whole stack inline on every
+text style, never one face alone.
 
 | Size | Used for |
 |---|---|
@@ -61,15 +69,15 @@ to show free time.
 
 If the calendar is empty, write "Nothing on your calendar today."
 
-When two events conflict, tint both lines warm and end the first
-with CONFLICT. Never write "clash" or add a header above them.
+When two events conflict, set both lines in the accent and end the
+first with CONFLICT. Never write "clash" or add a header above them.
 
 Meeting prep can take one short line under its event.
 
 ## 2. Worth knowing
 
-These are facts where the agent has nothing to do, marked with grey
-squares. Include one only if it is new since the last memo and the
+These are facts where the agent has nothing to do, marked with n-500
+circles. Include one only if it is new since the last memo and the
 user would act differently or be annoyed to miss it. Show four at
 most. This section is often empty.
 
@@ -80,7 +88,7 @@ not a memo line.
 
 ## 3. Needs your input
 
-These are questions that block something, marked with pine squares
+These are questions that block something, marked with ink circles
 and no number or date. Ask three at most. There are usually none.
 
 The first memos also ask about calendar contradictions from
@@ -90,8 +98,8 @@ show as CONFLICT in Today instead.
 
 ## 4. Getting ahead
 
-Each line is work the agent did or offers to do, marked with a
-purple square and never numbered. A finished job reads like "Drafted
+Each line is work the agent did or offers to do, marked with an
+n-500 circle and never numbered. A finished job reads like "Drafted
 the reply to [name]. It's in your drafts, needs the figure." and is
 tagged DRAFTED. An offer names the deliverable and anything the user
 has to do first, like "Forward me the PDF and I'll confirm the part
@@ -154,8 +162,8 @@ category. Numbers match the last memo sent. The Morning Memo assigns
 new numbers when it is written. The ledger uses the same numbers, so
 a reply by number can be matched to it.
 
-Don't add an owner to any line, a second grey line under anything,
-or a tinted panel behind the priorities.
+Don't add an owner to any line or a second grey line under anything.
+The priorities sit on the surface panel; nothing else is tinted.
 
 **Waiting-on items are to-dos, not offers.** When the user has
 already sent an email and is waiting for a reply, it goes in
@@ -167,8 +175,8 @@ a reply, its status becomes "no reply in N days, chase?".
 ## The tags
 
 The desk skill defines the tags. There are three of them, RECOMMEND,
-DRAFTED and LET'S TALK, and all three are purple. A to-do with no tag
-is simply the user's to handle.
+DRAFTED and LET'S TALK, set in ink like the rest of the line. A to-do
+with no tag is simply the user's to handle.
 
 In the memo, tags are labels, not buttons, and the only thing a user
 can tap on a to-do line is a RECOMMEND link. The user hands work over
@@ -240,9 +248,13 @@ and leave out the whole line if none can.
 - Add a prefers-color-scheme block for dark mode, and never let
   color alone carry meaning.
 - Always send the plain-text version, with the same markers and
-  numbering.
-- Use paper #fbfaf7, ink #16171a, grey #6d6f74 and hairline #dedbd3,
-  plus the three signal colors.
+  numbering. Every marker is a circle: ● for an ink circle, ○ for an
+  n-500 one.
+- Every marker in the HTML is a circle too, never a square: a
+  round-cornered cell or a ● character, in the colour the section
+  sets.
+- Use the seven tokens above, written out as hex on every element,
+  and no other colour.
 - Keep the width to 600px, with 20px side padding, or 12px on a
   phone.
 

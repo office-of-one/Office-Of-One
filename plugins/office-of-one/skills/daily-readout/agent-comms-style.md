@@ -29,11 +29,11 @@ from an assistant makes them awkward to pass on. The provenance
 line does the same job and survives forwarding. No "I" either:
 "the read", "not verified", not "my read".
 
-Typography follows the memo: the same Segoe UI font stack
-throughout, 14px body, 13px in tables, 12px grey notes, 10px
-uppercase labels, pine #2b5f52 for numbers and labels, hairline
-#dedbd3 between rows, #e6ede9 for the panel, #f3f1ec for
-alternating table rows.
+Typography follows the memo: the same font stack throughout, 14px
+body, 13px in tables, 12px notes in n-500, 10px uppercase labels in
+n-500, ink #2B241C for numbers and headings, hair #E4DFD6 between
+rows, surface #F1EADE for the panel, paper #FAF6EF for everything
+else. Accent #24382A for links only.
 
 Bold carries meaning: the number, the deadline, the verdict. Never
 bold a whole sentence.
@@ -72,10 +72,10 @@ it is right.
 
 | Mark | Colour | Meaning |
 |---|---|---|
-| Number, square | Pine | Theirs to do or answer |
-| Link | Pine | Somewhere to go |
-| RECOMMEND | Purple | The agent's pick, attached to their task |
-| DRAFTED | Purple tint | Already done, waiting in drafts |
-| LET'S TALK | Purple tint | Needs them in a session first |
-| Square | Grey | Information only, nobody acts |
-| Tint, CONFLICT | Amber | Something is broken |
+| Number, ink circle | ink | Theirs to do or answer |
+| Link | accent | Somewhere to go |
+| RECOMMEND | ink, with an accent link | The agent's pick, attached to their task |
+| DRAFTED | ink | Already done, waiting in drafts |
+| LET'S TALK | ink | Needs them in a session first |
+| n-500 circle | n-500 | Information only, or work the agent did |
+| CONFLICT | accent | Something is broken |
