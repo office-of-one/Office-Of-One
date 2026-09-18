@@ -24,6 +24,12 @@ this pool. Questions belong to the 1:1.
 
 One question at a time. Wait for the answer before the next one.
 
+## Goal
+
+[The goal question, if it was skipped or answered thinly at setup.
+Asked first at the next 1:1, before anything below. Empty once
+answered.]
+
 ## Contradictions
 
 [None open right now.]

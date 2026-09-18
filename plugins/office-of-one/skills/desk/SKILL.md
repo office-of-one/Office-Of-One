@@ -78,7 +78,7 @@ appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.36.0, as plugin_version; keep this number in step with
+   version, 3.37.0, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state

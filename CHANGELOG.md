@@ -18,6 +18,24 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.37.0 — 2026-09-17
+
+**Five small fixes from testing the goal question.**
+
+- The 1:1 asks the goal question when goals.md is missing, not only
+  when it is empty, and creates the file first. Everyone set up before
+  3.36.0 has no such file, so without this they would never be asked.
+- The goal question is the next thing said after the yesterday
+  answer. A thread yesterday opened waits until after it.
+- open-questions.md has a Goal section at the top, so a skipped goal
+  has a home and ranks first.
+- A ninety-day item with no date becomes a to-do due three months from
+  setup, so the Desk works it instead of it sitting in goals.md.
+- A thin goal answer gets one probe before it is marked partial, like
+  every other thin answer in the interview.
+
+No scripted lines change.
+
 ## v3.36.0 — 2026-09-17
 
 **The agent knows where you're going, and connects what it hears.**

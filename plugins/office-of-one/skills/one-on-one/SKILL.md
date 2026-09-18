@@ -39,8 +39,9 @@ reached. There is no maximum and no minimum.
 Read the brain files first, topic files included, so you never ask
 what they already answer.
 
-If goals.md is empty, ask the exact goal question from the interview
-guide before anything else, and write the answer there.
+If goals.md is empty or missing, create it from the template if it
+is missing, then ask the exact goal question from the interview guide
+before anything else, and write the answer there.
 
 Sources, in priority order:
 1. An unanswered or partial goal question. Nothing comes before it.
