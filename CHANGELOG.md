@@ -18,6 +18,37 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.40.0 — 2026-09-19
+
+**A new memo layout: fluid width, an opening, and cards.**
+
+- **The width is fluid.** The memo fills a phone edge to edge and
+  stops at 680px on a desktop, instead of sitting in a fixed 600px
+  column.
+- **It opens with a few sentences** in a pale green card: today's
+  headline, what is drafted and waiting, and what needs an answer.
+  Facts from the sections below, nothing else. The Friday 1:1
+  reminder is its last line on Fridays.
+- **Every section is a card** with a bar down its left edge and a bold
+  label. Pale green is what the user has to do, sand is what the agent
+  did, the brass tint is the one card that asks them something, and
+  paper is the rest.
+- **What needs the user comes first:** priorities, then Getting ahead,
+  then questions, then the calendar.
+- **Each priority carries one sentence of context** beside it, stacked
+  under it on a phone. Remaining to-dos stay one bare line each.
+- **The subject line carries the headline:** "Juno: Fri 9/18 —
+  commission agreement due today", never anything sensitive.
+- Circles, never emoji. No file names and nothing about the agent's
+  own runs, as before.
+
+Every rule was checked against what the Gmail connector delivers:
+backgrounds as bgcolor and background-color, bars as cell borders,
+everything inline, and the stacking done without a style block.
+
+The subject lines change, which is a scripted-line change. The
+sign-off and the Friday 1:1 reminder are word for word as before.
+
 ## v3.39.0 — 2026-09-17
 
 **The memo arrives with its colours.** Two test sends through the

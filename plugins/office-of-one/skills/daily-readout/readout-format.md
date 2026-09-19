@@ -6,22 +6,46 @@ disagree, this file wins.
 
 ## Section order
 
-1. Today
-2. Worth knowing
-3. Needs your input
-4. Getting ahead
-5. Priority to-dos
-6. Remaining to-dos
-7. How you used me, on Mondays
-8. Sources, the Friday block and the sign-off
+What needs the user comes first, and the calendar comes after it.
 
-Above them sits a title with the date in grey underneath.
-It never has a subtitle, the agent's name, an item count or a
-summary of the day. The greeting comes right after it. On Fridays,
-one reminder line comes right after the greeting, before Today:
+1. The opening
+2. The title and date
+3. Priority to-dos
+4. Getting ahead
+5. Needs your input
+6. Today
+7. Worth knowing
+8. Remaining to-dos
+9. How you used me, on Mondays
+10. Sources, the Friday block and the sign-off
+
+Every section from 3 to 9 is a card: a block with a tinted or paper
+background, a 4px bar down its left edge, and a bold uppercase label
+with a small filled circle in front of it. A section with nothing in
+it is left out, card and all. If either to-do section is renamed,
+rename both.
+
+## The opening
+
+The memo opens with two to four sentences in a pale green card with
+a deep green bar, before the title. It starts with the greeting from
+personality.md and then says, in this order, what today's headline
+is, what is drafted and waiting, and what needs an answer. The
+headline is the first Priority to-do, or the day's first fixed
+commitment when nothing is due. Bold the headline and nothing else.
+
+It states facts from the sections below and adds none of its own. No
+judgments, no advice, nothing about how the memo was made. On a day
+with nothing to say it is the greeting alone.
+
+On Fridays the opening ends with these sentences, word for word:
 "It's Friday, time for our 1:1. Open your [Agent Name] project and
-say "let's have a 1:1"." If either to-do section is renamed, rename
-both.
+say "let's have a 1:1"."
+
+Under the opening sits the title, "Morning Memo" or "Evening
+Debrief", in deep green, with the date in n-500 beneath it. It never
+has a subtitle, the agent's name, an item count or a summary of the
+day.
 
 ## Colors
 
@@ -34,15 +58,21 @@ heading, a number, a marker or a link, never a whole sentence.
 | paper | #FAF6EF | The page. Nothing else is a background |
 | ink | #2B241C | Body text, to-do actions, the greeting and sign-off |
 | hair | #E4DFD6 | Rules between sections and rows |
-| surface | #DDE6D9 | The one tinted panel, behind the priorities |
-| n-500 | #6A6053 | Dates, the grey slot, the sources line |
-| green | #3B5A43 | Section labels, to-do numbers, every circle, the day rail, the three tags, and the CONFLICT flag |
-| deep green | #24382A | The title, and links |
-| mark | #B08D3C | The product footer, and nothing else |
+| surface | #DDE6D9 | The opening card and the Priority to-dos card |
+| sand | #F1EADE | The Getting ahead card |
+| brass tint | #F6EEDC | The Needs your input card |
+| panel line | #CBD8C6 | Rules between rows inside a pale green card |
+| n-500 | #6A6053 | Dates, the grey slot, category labels, the sources line, and the Worth knowing bar, label and circles |
+| green | #3B5A43 | Card bars and labels, to-do numbers, the three tags, the sign-off, and the CONFLICT flag |
+| deep green | #24382A | The title, links, and the bar and label of the opening and Priority to-dos cards |
+| brass | #B08D3C | The Needs your input bar, label and circle, and the product footer |
 
-Two greens, one job: the deep one is too dark to read as colour at
-small sizes, so labels, numbers and markers use the mid green. Tags
-are told apart by their words. Never introduce another colour.
+Colour says what kind of card it is. Pale green is what the user has
+to do, sand is what the agent did, the brass tint is the one card
+that asks them something, and paper is everything else. The deep
+green is too dark to read as colour at small sizes, so numbers and
+most labels use the mid green. Tags are told apart by their words.
+Never introduce another colour.
 
 The memo is designed for light mode and has to survive dark mode on
 its own, because the mail connector strips the head, every style
@@ -63,21 +93,21 @@ text style, never one face alone.
 
 | Size | Used for |
 |---|---|
-| 28px, 25px on a phone | Title |
-| 14px | To-dos, Worth knowing, Getting ahead, calendar events, greeting, sign-off |
-| 13px | Locations, date line |
-| 12px | Times, grey slot |
-| 11px | Sources |
-| 10px uppercase | Section labels |
-| 9px | Tags, conflict flag |
-| 8px | Product footer |
+| 24px bold | Title |
+| 15px | The opening |
+| 14px | To-do titles, calendar times, sign-off |
+| 13.5px | Context lines, Getting ahead, Worth knowing, Needs your input, calendar events |
+| 13px | Date line, sources, the Friday line |
+| 12px bold uppercase | Card labels; grey slot and priority dates at 12px regular |
+| 11px bold uppercase | Category labels; product footer at 11px regular |
+| 10px bold uppercase | Tags, conflict flag |
 
-## 1. Today
+## Today
 
-Each event gets one line on the day rail, a thin vertical line with
-the time on the left, then the name and the location after a middle
-dot. Keep locations short so lines don't wrap. Don't break the rail
-to show free time.
+A paper card with a green bar. Each event is one row: the time in
+bold in a narrow left column, then the name and the location after a
+middle dot, with a hair rule between rows. Keep locations short so
+lines don't wrap, and never add rows to show free time.
 
 If the calendar is empty, write "Nothing on your calendar today."
 
@@ -86,10 +116,10 @@ first with CONFLICT. Never write "clash" or add a header above them.
 
 Meeting prep can take one short line under its event.
 
-## 2. Worth knowing
+## Worth knowing
 
-These are facts where the agent has nothing to do, marked with open
-circles in the green. Include one only if it is new since the last memo and the
+A paper card with an n-500 bar and label. These are facts where the
+agent has nothing to do, marked with open circles in n-500. Include one only if it is new since the last memo and the
 user would act differently or be annoyed to miss it. Show four at
 most. This section is often empty.
 
@@ -98,22 +128,24 @@ fact: "Thursday's call lines up with the spring plan." Never a
 connection the user didn't make; a guessed link is a 1:1 question,
 not a memo line.
 
-## 3. Needs your input
+## Needs your input
 
-These are questions that block something, marked with filled circles
-in the green and no number or date. Ask three at most. There are usually none.
+The brass-tint card, with a brass bar and label. These are questions
+that block something, marked with filled circles in brass and no
+number or date. Bold the subject of each question. Ask three at most. There are usually none.
 
 The first memos also ask about calendar contradictions from
 onboarding, marked "from onboarding" in tasks.md. Each is one
 question and counts toward the three. Double-bookings
 show as CONFLICT in Today instead.
 
-## 4. Getting ahead
+## Getting ahead
 
-Each line is work the agent did or offers to do, marked with an open
-circle in the green and never numbered. A finished job reads like "Drafted
-the reply to [name]. It's in your drafts, needs the figure." and is
-tagged DRAFTED. An offer names the deliverable and anything the user
+The sand card, with a green bar. Each row is work the agent did or
+offers to do, never numbered: the subject in bold, a dash, then what
+was done, with the tag as a pill in a narrow column on the right. A
+finished job reads like "**Reply to [name]** — in your drafts, needs
+the figure." and is tagged DRAFTED. An offer names the deliverable and anything the user
 has to do first, like "Forward me the PDF and I'll confirm the part
 and put both dates on the calendar."
 
@@ -142,15 +174,20 @@ next one, taken from its Last run line.
 
 New work that isn't on the list belongs in the 1:1, not the memo.
 
-## 5. Priority to-dos and 6. Remaining to-dos
+## Priority to-dos and Remaining to-dos
 
-Both lists use the same layout, and every to-do fits on one line.
+**Priority to-dos** sit in the pale green card with a deep green bar.
+Each has two parts: on the left the number and the action in bold,
+with its date underneath in green; on the right one sentence of
+context from the ledger, such as who is waiting, what changed, or
+which goal it moves. One sentence, a fact, never advice. On a phone
+the two parts stack, the context under the title.
 
-Each line follows a fixed order. It starts with the number, then the
-action, which is bold for priorities. The tag comes next if there is
-one, followed by the RECOMMEND link if there is one. The date sits
-last, in the grey slot, pushed to the far right so the dates line up
-down the memo. Remaining to-dos are grouped under small category
+**Remaining to-dos** sit in a paper card with a green bar, and every
+one fits on one line. It starts with the number in green, then the
+action, then the tag if there is one, followed by the RECOMMEND link
+if there is one. The date sits last, in the grey slot, pushed to the
+far right so the dates line up. They are grouped under small category
 labels that come from the user's life, not from a fixed list.
 
 **Together, the two lists show every open item in the ledger, every
@@ -158,10 +195,11 @@ time, and each item appears once.** Never shorten the list to save
 space. If it runs long, group it by category instead. Items that a
 workflow file tracks stay out of these lists.
 
-**Keep each line bare.** Why an item is stuck, who was called and its
-history all belong in tasks.md, and the agent shares them when the
-user asks. If a line only makes sense with that context, turn it
-into a Needs your input question instead of adding a clause. Worth
+**Keep Remaining to-dos bare.** Why an item is stuck, who was called
+and its history all belong in tasks.md, and the agent shares them
+when the user asks. If a line only makes sense with that context,
+turn it into a Needs your input question instead of adding a clause.
+Only the three priorities carry a context sentence. Worth
 knowing and Getting ahead lines are short, one or two sentences,
 with no "because", no aside and no hedging.
 
@@ -174,8 +212,8 @@ category. Numbers match the last memo sent. The Morning Memo assigns
 new numbers when it is written. The ledger uses the same numbers, so
 a reply by number can be matched to it.
 
-Don't add an owner to any line or a second grey line under anything.
-The priorities sit on the surface panel; nothing else is tinted.
+Don't add an owner to any line, and don't add a second line under a
+Remaining to-do.
 
 **Waiting-on items are to-dos, not offers.** When the user has
 already sent an email and is waiting for a reply, it goes in
@@ -188,8 +226,8 @@ a reply, its status becomes "no reply in N days, chase?".
 
 The desk skill defines the tags. There are three of them, RECOMMEND,
 DRAFTED and LET'S TALK. Each is a small pill: green background
-#3B5A43, paper text, 9px bold uppercase with a little letter-spacing,
-2px 6px of padding and 3px rounded corners, set as an inline-block
+#3B5A43, paper text, 10px bold uppercase with a little letter-spacing,
+2px 7px of padding and 3px rounded corners, set as an inline-block
 with the background as `background-color`. Green text alone blends
 into the line; the pill is what makes a tag readable at a glance. A
 to-do with no tag is simply the user's to handle.
@@ -200,9 +238,9 @@ by replying in their own words, usually by number, such as "do 6 and
 7". The next Desk run picks it up. For anything sooner, the user can
 open the agent in Claude.
 
-## 7. How you used me (Mondays)
+## How you used me (Mondays)
 
-The Monday memo carries the two lines that Friday's roll-up wrote at
+A paper card with an n-500 bar. The Monday memo carries the two lines that Friday's roll-up wrote at
 the top of usage-summary.md, exactly as written. They read like this:
 
     You used me on 5 of 7 days last week, mostly for email and
@@ -230,20 +268,21 @@ one line to survey.md: the date, the question number, and their
 answer in their words. If they ignore it, let it go and never ask it
 again. The question appears only in the Monday memo, never in chat.
 
-## 8. Footer
+## Footer
 
-Sources line, then the Friday block on Fridays, then the sign-off.
-The product footer last, 8px, light grey.
+No card. The sources line, then the Friday line on Fridays, then the
+sign-off with the agent's name in green, then the product footer in
+brass at 11px.
 
 The sources line names what could NOT be opened, not just what
 was. "Amazon blocks me, so the price is unverified" is the shape.
 
-**The Friday block is one line:**
+**The Friday line is one line:**
 
-    THIS WEEK
-    5 memos, 12 items closed, 3 things you handed me.
+    This week: 5 memos, 12 items closed, 3 things you handed me.
 
-Nothing else goes in the Friday block.
+"This week:" is bold in ink and the rest is n-500. Nothing else goes
+in it.
 
 **The usage line appears every Friday, even when a number is zero.**
 Don't skip it, soften it or pad it. Count only what tasks.md and
@@ -252,38 +291,52 @@ and leave out the whole line if none can.
 
 ## Build rules for the email
 
+- The width is fluid, never fixed. The outer table is `width:100%`
+  in paper with 24px 16px of padding. Inside it one table carries
+  `width:100%;max-width:680px` and is centred. Never put a `width`
+  attribute on it. The memo fills a phone edge to edge and stops at
+  680px on a desktop.
+- Each card is its own table at `width:100%` with 18px of space under
+  it. Its one cell carries the background, the 4px `border-left` in
+  the card's colour, and 12px 16px of padding.
 - Never put two cells side by side in a row of prose. Gmail's phone
-  app squashes them together, as in "Morning MemoSept 12". Only the
-  day rail and the to-do rows use two cells, with an explicit width
-  on the narrow one.
-- Draw section dividers as a top border on the section's own cell,
-  not as a spacer table.
-- Run edge to edge on one background, with no card border or frame.
+  app squashes them together, as in "Morning MemoSept 12". Only
+  these rows use two cells, each with an explicit width on the narrow
+  one: calendar rows (64px for the time), Getting ahead rows (96px
+  for the pill) and Remaining to-do rows (the date, never wrapping).
+- Priority rows stack without a style block: the row's cell is set
+  to `font-size:0`, and inside it sit two `display:inline-block`
+  blocks at `width:100%`, the title block at `max-width:200px` and
+  the context block at `max-width:420px`, both `vertical-align:top`
+  with their own font size. Side by side when there is room, stacked
+  when there isn't.
 - Use tables and inline styles with the colors written out. Don't
   use flexbox, grid, CSS variables or class selectors.
 - Write every colour inline on the element itself. No head, no
   style block, no classes; the connector removes all three.
 - Backgrounds go on as a `bgcolor` attribute and as
   `background-color` in the inline style, on the outer table for the
-  paper and on the panel table and each of its cells. Never use the
+  paper and on every card's table and cell. Never use the
   `background` shorthand; the connector strips it and the memo
   arrives on white with no panel.
 - Always send the plain-text version, with the same markers and
   numbering. Every marker is a circle: ● for Needs your input, ○ for
   Worth knowing and Getting ahead.
-- Every marker in the HTML is a circle too, never a square: a
-  round-cornered cell or a ● character, in the green.
-- Use the seven tokens above, written out as hex on every element,
-  and no other colour.
-- Keep the width to 600px, with 20px side padding, or 12px on a
-  phone.
+- Every marker in the HTML is a circle too, never a square and never
+  an emoji: a ● or ○ character in the card's colour.
+- Use the tokens above, written out as hex on every element, and no
+  other colour.
+- In the plain-text version the opening comes first as a paragraph,
+  then the sections in the same order, and each priority's context
+  sits on an indented line under it.
 
 ## Evening Debrief
 
-The Evening Debrief uses the same look but is shorter. It covers
+The Evening Debrief uses the same cards but is shorter. Its opening
+says what closed and what is still waiting on the user. It covers
 what closed today, what moved, tomorrow, and anything that needs an
-answer before morning. It has no Getting ahead section and no Friday
-block.
+answer before morning. It has no Getting ahead card and no Friday
+line.
 
 ## Rules the rest of the plugin relies on
 
@@ -365,8 +418,8 @@ The memo and the debrief continue one conversation through the day.
 
 ### Greeting, sign-off and subject lines
 
-Open with the greeting from personality.md. Close with this sign-off,
-word for word:
+The opening starts with the greeting from personality.md. Close with
+this sign-off, word for word:
 
     Anything else I should know? Just hit reply.
     — [agent name]
@@ -378,8 +431,14 @@ If an Evening Debrief has nothing in it, it is just this line,
 followed by the sign-off:
 "Nothing needs you tonight. See you in the morning."
 
-The subject lines are "{AGENT_NAME}: Morning Memo, {weekday}" and
-"{AGENT_NAME}: Evening Debrief".
+The subject line carries the day's headline, so the memo is worth
+opening from the inbox: "{AGENT_NAME}: {Day} {M/D} — {headline}", for
+example "Juno: Fri 9/18 — commission agreement due today". The
+headline is the same one the opening names, in a few words, and it
+never includes anything sensitive, since a subject line shows on a
+locked phone. When nothing is due it is "{AGENT_NAME}: {Day} {M/D} —
+Morning Memo". The Evening Debrief is "{AGENT_NAME}: {Day} {M/D} —
+Evening Debrief".
 
 ### Extra sections the user asked for
 
