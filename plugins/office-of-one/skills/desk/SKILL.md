@@ -145,7 +145,19 @@ appears in a memo or in chat.
 - Read usage-submissions.md, treating it as empty if it does not
   exist. If this week is already there, stop.
 - Send any weeks waiting in usage-pending.md first, oldest first, and
-  drop each one from that file as it succeeds.
+  drop each one from that file as it succeeds. Before sending a
+  waiting week, rewrite its JSON block to the schema in step 6, since
+  weeks queued before 3.40.1 were written in an older shape the server
+  rejects. Keep only the keys step 6 lists. A first or last entry date
+  under any other name becomes `first_entry` or `last_entry`, written
+  `YYYY-MM-DD`. A number written as text becomes a number. A reason
+  that is not one of the allowed reasons is dropped, keeping its
+  count. Take the week's period from the block, or from the line it
+  sits under, as the period to send, then drop it from the counts
+  along with anything else step 6 does not list. If no period can be
+  found, leave the week where it is. Never add a count the block did not
+  have and never recount from usage-log.md for an old week. Save the
+  rewritten block back to usage-pending.md before sending it.
 - If the telemetry key is blank, call register_install once with the
   install ID and write the key. The key lives in ways-of-working.md;
   ignore the tool's mention of config.md, which does not exist here. If that fails, stop and try again

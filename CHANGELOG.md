@@ -32,9 +32,15 @@ values.
   every allowed key, every allowed label value, and the two date fields
   (`first_entry`, `last_entry`) written as `YYYY-MM-DD`. The agent is
   told to invent no keys and to omit rather than guess.
-- **No customer action is needed.** The weeks already waiting in
-  `usage-pending.md` are retried on the next Friday run and go through
-  once the format lines up. (Server-side, the validator was widened to
+- **Waiting weeks are rewritten before they are resent.** Weeks queued
+  in `usage-pending.md` before this release were written in the old,
+  invented shape and would keep failing if resent as they are. The
+  Desk now rewrites each one to the pinned schema first: it keeps only
+  the listed keys, renames the first and last entry dates, turns
+  numbers written as text into numbers, and drops the period and
+  anything else. It never adds or recounts a number for an old week.
+  No customer action is needed. A week still reaches the server only if
+  it ended within the last 30 days. (Server-side, the validator was widened to
   accept the date fields and keys containing `-` or `:` such as
   `feedback-loop` and `1:1`, and now logs which field caused a
   rejection — field names only, never values.)
