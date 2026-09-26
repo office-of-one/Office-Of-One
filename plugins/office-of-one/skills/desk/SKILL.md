@@ -78,7 +78,7 @@ appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.40.0, as plugin_version; keep this number in step with
+   version, 3.40.1, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state
@@ -99,14 +99,65 @@ appears in a memo or in chat.
    what instruction would have helped, and what the user seems to
    want that cannot be done yet. General observations only, never a
    quote, a name or a subject.
-6. **Then the full counts** as a JSON block in the same file.
+6. **Then the full counts** as a JSON block in the same file. Use
+   exactly the keys below and no others — the server accepts only these
+   field names and only these label values, and rejects the whole
+   submission on anything it does not recognise. Invent no keys. Omit a
+   key when there is nothing to report rather than making one up. Every
+   share is a whole-number percentage; every count is a whole number,
+   written `<3` when it is under three. Dates are `YYYY-MM-DD`.
+
+   ```json
+   {
+     "days_active": 4,
+     "total_entries": 23,
+     "first_entry": "2026-09-12",
+     "last_entry": "2026-09-18",
+     "first_win_after": 3,
+     "avg_autonomy": 3.2,
+     "plugin_version": "3.40.1",
+     "context":  { "work": 60, "personal": 30, "mixed": 10 },
+     "artifact": { "email": 9, "plan": "<3" },
+     "mode":     { "directive": 70, "feedback-loop": 20, "learning": 10 },
+     "feature":  { "memo": 5, "desk": 8, "1:1": "<3", "chat": 10 },
+     "outcome":  { "done": 70, "partial": 10, "corrected": 20 },
+     "corrected_by_artifact":   { "email": { "count": 3, "reason": "wrong-tone" } },
+     "corrections_by_autonomy": { "3": { "count": 3, "reason": "wrong-tone" } },
+     "desk_runs": 10,
+     "desk_items_stated": 40,
+     "desk_items_bare": "<3"
+   }
+   ```
+
+   The only allowed label values are: contexts `work` `personal`
+   `mixed`; artifacts `email` `message` `plan` `summary` `reminder`
+   `research` `document` `calendar` `decision` `explanation` `other`;
+   modes `directive` `feedback-loop` `learning` `validation`; features
+   `memo` `desk` `1:1` `capture` `onboarding` `chat`; outcomes `done`
+   `partial` `corrected` `abandoned`; reasons `none` `wrong-tone`
+   `wrong-facts` `too-long` `missed-context` `didnt-understand`
+   `user-changed-mind`. The keys of `corrections_by_autonomy` are the
+   single digits `1` to `5`. Keep `plugin_version` in step with the
+   manifests on every release.
 
 **Sending it.** Only if ways-of-working.md says "Share summary: yes".
 
 - Read usage-submissions.md, treating it as empty if it does not
   exist. If this week is already there, stop.
 - Send any weeks waiting in usage-pending.md first, oldest first, and
-  drop each one from that file as it succeeds.
+  drop each one from that file as it succeeds. Before sending a
+  waiting week, rewrite its JSON block to the schema in step 6, since
+  weeks queued before 3.40.1 were written in an older shape the server
+  rejects. Keep only the keys step 6 lists. A first or last entry date
+  under any other name becomes `first_entry` or `last_entry`, written
+  `YYYY-MM-DD`. A number written as text becomes a number. A reason
+  that is not one of the allowed reasons is dropped, keeping its
+  count. Take the week's period from the block, or from the line it
+  sits under, as the period to send, then drop it from the counts
+  along with anything else step 6 does not list. If no period can be
+  found, leave the week where it is. Never add a count the block did not
+  have and never recount from usage-log.md for an old week. Save the
+  rewritten block back to usage-pending.md before sending it.
 - If the telemetry key is blank, call register_install once with the
   install ID and write the key. The key lives in ways-of-working.md;
   ignore the tool's mention of config.md, which does not exist here. If that fails, stop and try again

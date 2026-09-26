@@ -18,6 +18,33 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.40.1 — 2026-09-26
+
+**The Friday usage roll-up now sends in a format the telemetry server
+accepts.** Every weekly summary since the server hardened was being
+rejected on its contents, so nothing was reaching the server and each
+week piled up in `usage-pending.md`. Two things drifted apart: the Desk
+skill described the summary in prose and left the agent to invent field
+names, while the server accepts only a fixed set of keys and label
+values.
+
+- **The Desk skill now pins the exact JSON schema** for the roll-up:
+  every allowed key, every allowed label value, and the two date fields
+  (`first_entry`, `last_entry`) written as `YYYY-MM-DD`. The agent is
+  told to invent no keys and to omit rather than guess.
+- **Waiting weeks are rewritten before they are resent.** Weeks queued
+  in `usage-pending.md` before this release were written in the old,
+  invented shape and would keep failing if resent as they are. The
+  Desk now rewrites each one to the pinned schema first: it keeps only
+  the listed keys, renames the first and last entry dates, turns
+  numbers written as text into numbers, and drops the period and
+  anything else. It never adds or recounts a number for an old week.
+  No customer action is needed. A week still reaches the server only if
+  it ended within the last 30 days. (Server-side, the validator was widened to
+  accept the date fields and keys containing `-` or `:` such as
+  `feedback-loop` and `1:1`, and now logs which field caused a
+  rejection — field names only, never values.)
+
 ## v3.40.0 — 2026-09-19
 
 **A new memo layout: fluid width, an opening, and cards.**
