@@ -18,6 +18,34 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.41.0 — 2026-09-26
+
+**A missed Friday roll-up is caught up at the next Desk run.** Cowork
+runs scheduled tasks only while the app is open and the computer is
+awake, so a user whose machine slept through 7pm Friday never rolled
+up that week, and it was never sent.
+
+- **Every Desk run now checks for a missed week.** If the most recent
+  week that has ended is not in `usage-summary.md`,
+  `usage-submissions.md` or `usage-pending.md`, the run rolls it up
+  exactly as the Friday run would have. Only the most recent ended
+  week is caught up; older missed weeks are skipped.
+- **A catch-up counts only entries up to that week's Friday**, so the
+  numbers match what the Friday run would have sent.
+- **At most three weeks are sent in one run**, counting weeks waiting
+  in `usage-pending.md`, because the server accepts no more than three
+  from one install in a day. The rest wait for the next roll-up.
+- **Every waiting week is filed under its own period line** in
+  `usage-pending.md`. The 3.40.1 schema has no period field, so a week
+  that failed under 3.40.1 would have been saved with no date and
+  could never be resent or recognised. A dateless block that is the
+  latest week takes its period from `usage-summary.md`.
+- **A waiting week more than 30 days old is dropped** instead of being
+  retried forever; the server rejects anything that old.
+- **PRIVACY.md** now says a missed Friday's summary goes at the next
+  run. What is sent is unchanged; only when. Existing users' copies of
+  PRIVACY.md do not update.
+
 ## v3.40.1 — 2026-09-26
 
 **The Friday usage roll-up now sends in a format the telemetry server

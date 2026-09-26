@@ -59,15 +59,28 @@ Evening Debrief off, stop The Desk - Evening too.
    time, how many open items had a state recorded at the end of this
    run, and how many of those were bare. Numbers only, never an item.
 
-## Fridays: the usage roll-up
+## Weekly: the usage roll-up
 
-The Friday evening run does one more thing after step 6. It never
-appears in a memo or in chat.
+A week runs from Saturday to Friday. The roll-up happens after step 6
+and never appears in a memo or in chat.
+
+- **The Friday evening run** rolls up the week that ends that day.
+- **Every other run checks for a missed week first.** Take the most
+  recent week that has already ended. If usage-summary.md does not
+  show that period, and it is not in usage-submissions.md or
+  usage-pending.md, the Friday evening run did not happen, usually
+  because the computer was asleep or the app was closed. Roll that
+  week up now, exactly as the Friday run would have. Only the most
+  recent ended week is caught up; an older missed week is skipped.
+
+"The week" below means the week being rolled up.
 
 1. **Read usage-log.md in full.** Skip the header and any line that
-   does not parse. The week runs from Saturday to this Friday, and two
-   of the numbers below need the whole log. If the file does not
-   exist, treat it as empty and carry on.
+   does not parse. Count only entries dated on or before the week's
+   Friday, so a catch-up on a later day gives the same numbers the
+   Friday run would have. Two of the numbers below need the whole
+   log up to that Friday. If the file does not exist, treat it as
+   empty and carry on.
 2. **Count.** Write these into usage-summary.md, overwriting it:
    the period, the first and last entry dates in the whole log, how
    many days had at least one entry, the total number of entries, and
@@ -78,7 +91,7 @@ appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.40.1, as plugin_version; keep this number in step with
+   version, 3.41.0, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state
@@ -95,7 +108,7 @@ appears in a memo or in chat.
    the work, never promise to do better, and never mention a specific
    message.
 5. **Write the agent note** at the bottom of usage-summary.md, under
-   "## agent note": three short lines about what was hard this week,
+   "## agent note": three short lines about what was hard that week,
    what instruction would have helped, and what the user seems to
    want that cannot be done yet. General observations only, never a
    quote, a name or a subject.
@@ -115,7 +128,7 @@ appears in a memo or in chat.
      "last_entry": "2026-09-18",
      "first_win_after": 3,
      "avg_autonomy": 3.2,
-     "plugin_version": "3.40.1",
+     "plugin_version": "3.41.0",
      "context":  { "work": 60, "personal": 30, "mixed": 10 },
      "artifact": { "email": 9, "plan": "<3" },
      "mode":     { "directive": 70, "feedback-loop": 20, "learning": 10 },
@@ -143,7 +156,17 @@ appears in a memo or in chat.
 **Sending it.** Only if ways-of-working.md says "Share summary: yes".
 
 - Read usage-submissions.md, treating it as empty if it does not
-  exist. If this week is already there, stop.
+  exist. If the week is already there, stop.
+- Send at most three weeks in one run, counting the waiting weeks and
+  the week itself: the server takes no more than three from one
+  install in a day. A week not sent because of this limit goes to
+  usage-pending.md and waits for the next roll-up.
+- Every week written to usage-pending.md goes under its own line,
+  `## period YYYY-MM-DD to YYYY-MM-DD`, followed by its JSON block.
+  The JSON has no period of its own, so without that line the week
+  can never be sent or recognised.
+- Drop any waiting week whose Friday is more than 30 days ago; the
+  server no longer accepts it.
 - Send any weeks waiting in usage-pending.md first, oldest first, and
   drop each one from that file as it succeeds. Before sending a
   waiting week, rewrite its JSON block to the schema in step 6, since
@@ -152,8 +175,10 @@ appears in a memo or in chat.
   under any other name becomes `first_entry` or `last_entry`, written
   `YYYY-MM-DD`. A number written as text becomes a number. A reason
   that is not one of the allowed reasons is dropped, keeping its
-  count. Take the week's period from the block, or from the line it
-  sits under, as the period to send, then drop it from the counts
+  count. Take the week's period from the line it sits under, or from
+  the block itself, as the period to send. If it has neither and it
+  is the most recent week rolled up, use the period in
+  usage-summary.md. Then drop any period from the counts
   along with anything else step 6 does not list. If no period can be
   found, leave the week where it is. Never add a count the block did not
   have and never recount from usage-log.md for an old week. Save the
@@ -161,16 +186,17 @@ appears in a memo or in chat.
 - If the telemetry key is blank, call register_install once with the
   install ID and write the key. The key lives in ways-of-working.md;
   ignore the tool's mention of config.md, which does not exist here. If that fails, stop and try again
-  next Friday.
+  at the next roll-up.
 - Call submit_summary on the officeofone-telemetry server with the
   install ID, the key, the period, the counts from the JSON block,
-  any survey answers in survey.md dated in this week, treating that
+  any survey answers in survey.md dated in the week, treating that
   file as empty if it does not exist, and the agent note as three
   lines.
 - If it returns "ok", append one line to usage-submissions.md:
   `YYYY-MM-DD | submitted | period YYYY-MM-DD to YYYY-MM-DD`.
-- Anything else, including no answer at all, means append this week's
-  JSON block to usage-pending.md and try again next Friday. Never
+- Anything else, including no answer at all, means append the week's
+  JSON block to usage-pending.md and try again at the next roll-up.
+  A waiting week that fails again stays where it is, once. Never
   retry within the week.
 - If a submission returns "error: auth", clear the telemetry key in
   ways-of-working.md and register again on the next run. Any other

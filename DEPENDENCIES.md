@@ -127,7 +127,8 @@ calendar entry.
   — the scheduled tasks The Desk - Morning and The Desk - Evening run
   this skill
 - `skills/agent-admin/SKILL.md` — moves the matching Desk task with a memo
-- The Friday roll-up reads `usage-log.md`, `usage-desk.md`,
+- The weekly roll-up (Friday evening, or the next Desk run if that
+  one was missed) reads `usage-log.md`, `usage-desk.md`,
   `usage-submissions.md`, `survey.md` and `usage-pending.md`, and
   writes `usage-summary.md`. None of them ship as templates; each is
   created in the user's project.
