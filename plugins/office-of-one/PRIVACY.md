@@ -1,6 +1,6 @@
 # Office of One Privacy Statement
 
-Last updated: September 17, 2026
+Last updated: September 26, 2026
 
 This statement covers what the Office of One plugin records, where it
 lives, and what leaves your project. It applies only to the plugin.
@@ -40,7 +40,8 @@ anywhere.
 ## What leaves your project, and when
 
 Unless you have turned sharing off, your agent sends a summary once a
-week, on Friday evening, to Office of One. It goes through the Office
+week, on Friday evening, to Office of One. If your computer was asleep
+or the app was closed then, it sends that week at its next run instead. It goes through the Office
 of One connector. Someone switches that on when your agent is set up;
 if it was never switched on, nothing is sent. It contains:
 
