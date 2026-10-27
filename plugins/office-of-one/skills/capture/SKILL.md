@@ -47,10 +47,15 @@ meta-narration about what you're doing behind the scenes.
      a due date. Anything due tomorrow is surfaced in the next
      Morning Memo.
 
-4. **Memorialize.** Write durable facts (new people, changed
-   schedules, preferences) to the right brain files. Resolve
-   answered items in open-questions.md. Say only: "Got it, saved."
-   Never list file names or mechanics.
+4. **Memorialize.** Write durable facts to the right brain files,
+   per the memorialize skill. A changed schedule goes to the
+   calendar or tasks.md, never to people.md. Someone already in
+   people.md gets their line rewritten, never a second one. A new
+   name earns a line only by the memorialize skill's bar: household
+   or family, a standing rule, coming up again, or the user saying
+   they matter. Otherwise it stays on the item that mentioned it.
+   Resolve answered items in open-questions.md. Say only: "Got it,
+   saved." Never list file names or mechanics.
 
 5. **Confirm in one line**, in the agent's voice, signed with the
    agent name for anything delivered as a message or email.
