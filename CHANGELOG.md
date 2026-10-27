@@ -18,6 +18,51 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.42.0 — 2026-10-27
+
+**people.md holds one line per person, and the Desk tidies the
+standing context every week.** people.md had no rule for what a line
+looks like, no rule for who gets one, and no size limit, while four
+skills wrote to it and only a correction ever replaced anything. A
+capture added every name on a flyer, a changed practice time went in
+beside the old one, and nothing came out. The file is read at the
+start of every Desk run, so every stale line cost context twice a
+day.
+
+- **One line per person** in people.md: who they are to the user and
+  what stays true about them. A new fact rewrites the line; nothing
+  is added beside it. Schedules go to the calendar or tasks.md, what
+  happened goes to log.md, and a name that came up once stays on the
+  item that mentioned it. Someone earns a line when they are
+  household or family, carry a standing rule, come up again, or the
+  user says they matter. memorialize, capture and the interview guide
+  all route by this bar, and the template states it.
+- **A Small things section** in people.md gives the interview's
+  light-personalization answers (favorite color, food loves and
+  refusals, the kids' current favorites) a home. Before, they had
+  none.
+- **The touches line belongs to items in tasks.md.** A line in
+  people.md never carries one.
+- **The weekly tidy.** The Friday evening Desk run, after the usage
+  roll-up, puts the standing context back in shape: people.md to one
+  line per person with once-only names removed, duplicates merged in
+  tasks.md and open-questions.md, questions the evidence has answered
+  resolved, log.md to one line per day, and the Topic files and
+  Workflows lists matching the files that exist. Nothing is invented,
+  nothing the user corrected in the last seven days is touched, and
+  goals.md and personality.md are left to the 1:1 and agent-admin.
+  Any other run that finds the tidy more than seven days overdue does
+  it first, so a machine asleep on Friday evening still gets one.
+- **A Last tidy line** under Housekeeping in ways-of-working.md
+  records when it last ran. Existing installs have no such line; the
+  first Desk run after this update adds it and tidies, which is also
+  when an existing people.md gets cleaned up.
+- **The 1:1** gives a name that came up during the week its line only
+  once the user says who they are.
+
+Nothing changes in what is logged or sent. Project instructions and
+PRIVACY.md are unchanged; no refresh is needed.
+
 ## v3.41.0 — 2026-09-26
 
 **A missed Friday roll-up is caught up at the next Desk run.** Cowork

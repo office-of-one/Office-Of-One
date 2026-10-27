@@ -55,7 +55,9 @@ Sources, in priority order:
    about it: a new name that appeared, a commitment that ran late
    twice, a thing that got moved three times, two moved items that
    both touch the same goal. Guessed links waiting in
-   open-questions.md are asked here, as questions.
+   open-questions.md are asked here, as questions. A name that came
+   up during the week earns its line in people.md only once the
+   user says who they are.
 
 The organic questions are usually the best ones. "You moved the
 Thursday thing twice this week. Is that one worth protecting, or is

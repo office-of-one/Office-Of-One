@@ -134,6 +134,13 @@ calendar entry.
   created in the user's project.
 - The roll-up states the plugin version in prose. `scripts/check-consistency.py`
   fails the build if it drifts from the manifests, so bump it with them.
+- The weekly tidy (Friday evening, or the next Desk run if the Last
+  tidy line in `templates/ways-of-working.md` is more than seven
+  days old) rewrites `people.md`, `tasks.md`, `open-questions.md`,
+  `log.md`, `ways-of-working.md` and the topic files by the rules in
+  `skills/desk/SKILL.md`. Change what a file may hold, in its
+  template header or in the memorialize routing, and change the
+  tidy's rule for that file too.
 
 ## skills/daily-readout/agent-comms-style.md
 
@@ -198,12 +205,25 @@ updated in the 1:1, read by everything that decides what to work on.
 
 ## The "touches" line
 
-Every fact and item carries what it connects to, written by
+Every item in `tasks.md` carries what it connects to, written by
 `skills/memorialize/SKILL.md` and the Desk's reconcile step, kept in
 `templates/tasks.md`, and read by the memo's Getting ahead and Worth
 knowing rules and the 1:1's organic questions. A guessed link goes to
-`open-questions.md`, never onto the item. Change the rule in one place
-and check the other five.
+`open-questions.md`, never onto the item. A line in `people.md` never
+carries one; the weekly tidy removes any it finds. Change the rule in
+one place and check the other five.
+
+## templates/people.md
+
+One line per person. The bar for who gets a line, and what stays
+off it, is stated in five places, and the weekly tidy enforces it:
+- `templates/people.md` — the header
+- `skills/memorialize/SKILL.md` — the routing
+- `skills/capture/SKILL.md` — step 4
+- `skills/onboarding-interview/interview-guide.md` — Step 5 routing,
+  and D13's answers go to the Small things section
+- `skills/desk/SKILL.md` — the tidy's people.md rule
+Change the bar in one and change the others.
 
 ## PRIVACY.md
 

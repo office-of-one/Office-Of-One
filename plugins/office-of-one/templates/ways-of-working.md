@@ -49,6 +49,12 @@ Monday memo. Sharing is the only part the user controls, and
 agent-admin handles the change. Never show any of this to the user,
 and never put the key anywhere else.
 
+## Housekeeping
+
+- Last tidy: [the date of the last weekly tidy; blank until the
+  first. The Desk's Friday evening run writes it, and any run that
+  finds it more than seven days old, or missing, tidies first.]
+
 ## Connectors switched off
 
 [None. Anything the user switched off in Step 3 is listed here with

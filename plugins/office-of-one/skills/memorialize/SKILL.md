@@ -36,10 +36,19 @@ ones.
 ## What to write where
 
 1. Update the relevant brain file: people, ways-of-working, tasks,
-   open-questions, personality, or a topic file. Corrections
-   replace old content — never keep both versions. Resolve answered items in
+   open-questions, personality, or a topic file. Any change
+   replaces what it changes — never keep both versions. A correction
+   is the urgent case: it overrides anything stored. Resolve answered items in
    open-questions.md; add newly surfaced unknowns to the queue in
    tier order.
+   A person has one line in people.md: who they are to the user and
+   what stays true about them. A new fact about someone rewrites
+   their line. A schedule goes on the calendar or in tasks.md, and
+   what happened goes in log.md; neither goes in people.md. A name
+   that came up once, on a flyer, in a thread or in a capture, stays
+   on the item that mentioned it. Someone earns a line when they are
+   household or family, carry a standing rule, come up again, or the
+   user says they matter.
    A subject with real substance and no home gets its own topic
    file, under the same rules as onboarding (interview-guide.md,
    Step 5): only for more than a passing mention, plain lowercase
@@ -47,11 +56,12 @@ ones.
    ways-of-working.md, and for a sensitive subject only when the
    user named it themselves. Dated actions still go in tasks.md,
    and people in people.md.
-   When you write a fact or an item, note what it touches: a goal in
-   goals.md, a person in people.md, a topic file, or an open item in
-   tasks.md. Put the link on the item itself, as a "touches" line,
-   so every skill that reads it sees the connection without
-   re-deriving it. A link you are sure of is a fact; a link you are
+   When you write an item to tasks.md, note what it touches: a goal
+   in goals.md, a person in people.md, a topic file, or another open
+   item. Put the link on the item itself, as a "touches" line, so
+   every skill that reads it sees the connection without re-deriving
+   it. The touches line belongs to the item; a person's line in
+   people.md never carries one. A link you are sure of is a fact; a link you are
    guessing at goes to open-questions.md as a question for the 1:1,
    never onto the item.
    Never start a workflow file on your own. Workflows are built
@@ -109,6 +119,13 @@ and let ordinary detail go.
 
 Never condense the current month. Never condense anything the user
 corrected within the last week; corrections need time to settle.
+
+**Every week**, the Desk's Friday evening run tidies the standing
+context: people.md back to one line per person, duplicates merged in
+tasks.md and open-questions.md, answered questions resolved, log.md
+to one line per day, the Topic files list matching the files that
+exist. The rules live in the desk skill, under the weekly tidy. If a
+run finds the tidy more than seven days overdue, it does it first.
 
 ## Reading the record back
 

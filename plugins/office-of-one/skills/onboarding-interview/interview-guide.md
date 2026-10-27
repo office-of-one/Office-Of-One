@@ -295,8 +295,10 @@ Write each answer the moment it's given, before asking the next
 question. If the file it belongs in doesn't exist, create it first.
 Where answers go:
 - People go in people.md: household, extended family, friends,
-  and key contacts such as doctors, coaches or lawyers. Dates tied
-  to a person, like a birthday, go with that person.
+  and key contacts such as doctors, coaches or lawyers. One line
+  per person; dates tied to a person, like a birthday, go on that
+  line. The small things from D13 go in its Small things section,
+  a few words each.
 - Actions the user owns that have a date go in tasks.md, under a
   category named after the topic, such as Fitness.
 - How they run their days and their preferences go in
