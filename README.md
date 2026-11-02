@@ -32,6 +32,12 @@ In the Claude app:
 **Settings → Customize → Plugins → Add Marketplace → Add from a
 repository →** `office-of-one/Office-Of-One`
 
+Then turn on automatic updates, so every new version reaches you on
+its own: open the Office of One marketplace in **Settings → Customize
+→ Plugins** and switch on **Sync automatically**. In Claude Code:
+`/plugin` → **Marketplaces** → `officeofone` → **Enable
+auto-update**.
+
 Then switch on the **Office of One** connector in your project,
 alongside mail and calendar.
 

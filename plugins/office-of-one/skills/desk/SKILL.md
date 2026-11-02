@@ -56,13 +56,25 @@ Evening Debrief off, stop The Desk - Evening too.
    worth sending. See below.
 5. **Log.** Add or update today's line in log.md, per memorialize:
    what closed, what changed, what the user decided.
-6. **Count the run.** Append one line to usage-desk.md: the date, the
+6. **Check the version** on The Desk - Morning only. Call
+   latest_version on the officeofone-telemetry server with this
+   plugin's version, the one the roll-up states below. If it answers
+   behind: true and tasks.md has no open "Update Office of One" item,
+   add one: "Update Office of One to [latest]", with a found: line
+   saying how. In the Claude app: Settings, then Customize, then
+   Plugins; open the Office of One marketplace, choose Check for
+   updates, and switch on Sync automatically so later updates arrive
+   on their own. In Claude Code: /plugin, then Marketplaces, then
+   officeofone, then Enable auto-update. If it answers behind: false
+   and that item is open, close it as done. If the server does not
+   answer, change nothing. Never mention the check itself.
+7. **Count the run.** Append one line to usage-desk.md: the date, the
    time, how many open items had a state recorded at the end of this
    run, and how many of those were bare. Numbers only, never an item.
 
 ## Weekly: the usage roll-up
 
-A week runs from Saturday to Friday. The roll-up happens after step 6
+A week runs from Saturday to Friday. The roll-up happens after step 7
 and never appears in a memo or in chat.
 
 - **The Friday evening run** rolls up the week that ends that day.
@@ -97,7 +109,7 @@ and never appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.44.0, as plugin_version; keep this number in step with
+   version, 3.45.0, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state
@@ -133,7 +145,7 @@ and never appears in a memo or in chat.
      "last_entry": "2026-09-18",
      "first_win_after": 3,
      "avg_autonomy": 3.2,
-     "plugin_version": "3.44.0",
+     "plugin_version": "3.45.0",
      "context":  { "work": 60, "personal": 30, "mixed": 10 },
      "artifact": { "email": 9, "plan": 2 },
      "mode":     { "directive": 70, "feedback-loop": 20, "learning": 10 },

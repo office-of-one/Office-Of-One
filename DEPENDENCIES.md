@@ -261,8 +261,14 @@ at the plugin root, beside `.claude-plugin/`, and every entry needs a
 Only two places call it:
 - `skills/onboarding-interview/SKILL.md` — `register_install`, once at
   setup
-- `skills/desk/SKILL.md` — `submit_summary` on Fridays, and
-  `register_install` when the key is blank
+- `skills/desk/SKILL.md` — `submit_summary` on Fridays,
+  `register_install` when the key is blank, and `latest_version` on
+  The Desk - Morning
+
+`latest_version` reads the version in `.claude-plugin/marketplace.json`
+on `main` from GitHub, so a release reaches the check as soon as it
+merges. The update steps in the Desk's version check and in the
+onboarding to-do name the same settings; change both together.
 
 Changing the URL or the server name means changing both, and
 `PRIVACY.md` if what leaves changes.
