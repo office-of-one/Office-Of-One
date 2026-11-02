@@ -59,8 +59,6 @@ and never put the key anywhere else.
   usage-log.md line goes to the archive]
 - First win after: [a count; written once the roll-up first finds
   it]
-- Automatic updates: [on, with the date the user turned them on;
-  blank until then]
 
 ## Connectors switched off
 

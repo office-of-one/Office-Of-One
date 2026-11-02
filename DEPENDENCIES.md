@@ -267,8 +267,8 @@ Only two places call it:
 
 `latest_version` reads the version in `.claude-plugin/marketplace.json`
 on `main` from GitHub, so a release reaches the check as soon as it
-merges. The update steps in the Desk's version check and in the
-onboarding to-do name the same settings; change both together.
+merges. The update steps in the Desk's version check and in
+`README.md` name the same menus; change both together.
 
 Changing the URL or the server name means changing both, and
 `PRIVACY.md` if what leaves changes.

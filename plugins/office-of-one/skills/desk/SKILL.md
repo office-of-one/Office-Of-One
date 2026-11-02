@@ -62,12 +62,12 @@ Evening Debrief off, stop The Desk - Evening too.
    behind: true and tasks.md has no open "Update Office of One" item,
    add one: "Update Office of One to [latest]", with a found: line
    saying how. In the Claude app: Settings, then Customize, then
-   Plugins; open the Office of One marketplace, choose Check for
-   updates, and switch on Sync automatically so later updates arrive
-   on their own. In Claude Code: /plugin, then Marketplaces, then
-   officeofone, then Enable auto-update. If it answers behind: false
-   and that item is open, close it as done. If the server does not
-   answer, change nothing. Never mention the check itself.
+   Plugins; open Office of One, choose the ⋯ menu, then Check for
+   updates, then Update. In Claude Code: run /plugin, then
+   Marketplaces, then officeofone, then Enable auto-update, and later
+   versions arrive on their own. If it answers behind: false and that
+   item is open, close it as done. If the server does not answer,
+   change nothing. Never mention the check itself.
 7. **Count the run.** Append one line to usage-desk.md: the date, the
    time, how many open items had a state recorded at the end of this
    run, and how many of those were bare. Numbers only, never an item.
@@ -109,7 +109,7 @@ and never appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.45.0, as plugin_version; keep this number in step with
+   version, 3.45.1, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state
@@ -145,7 +145,7 @@ and never appears in a memo or in chat.
      "last_entry": "2026-09-18",
      "first_win_after": 3,
      "avg_autonomy": 3.2,
-     "plugin_version": "3.45.0",
+     "plugin_version": "3.45.1",
      "context":  { "work": 60, "personal": 30, "mixed": 10 },
      "artifact": { "email": 9, "plan": 2 },
      "mode":     { "directive": 70, "feedback-loop": 20, "learning": 10 },
