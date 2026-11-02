@@ -51,9 +51,14 @@ and never put the key anywhere else.
 
 ## Housekeeping
 
-- Last tidy: [the date of the last weekly tidy; blank until the
-  first. The Desk's Friday evening run writes it, and any run that
-  finds it more than seven days old, or missing, tidies first.]
+- Last cleanup: [the date of the last weekly cleanup and archive;
+  blank until the first. The Desk's Friday evening run writes it,
+  and any run that finds it more than seven days old, or missing,
+  cleans up and archives first.]
+- Usage first entry: [YYYY-MM-DD; written before the first
+  usage-log.md line goes to the archive]
+- First win after: [a count; written once the roll-up first finds
+  it]
 
 ## Connectors switched off
 
@@ -83,8 +88,11 @@ mail thread.
 2. **log.md — what happened.** One line a day: what closed, what
    changed, what they decided. Written by each Desk run as
    its own safety net if a session was interrupted.
-3. **archive.md — the long memory.** Previous months condensed.
-   Read when today connects to something older.
+3. **archive.md and archive/ — the long memory.** archive.md is a
+   short summary of each past month; archive/ holds the detail,
+   moved there each week once it is not needed day to day. Read
+   only when today connects to something older or the user asks
+   about the past.
 4. **people.md, open-questions.md, personality.md, this file —
    the standing context.** Who matters, what is unresolved, how
    the agent sounds, how it works.

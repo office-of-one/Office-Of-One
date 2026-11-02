@@ -34,7 +34,9 @@ do. Each entry is a set of category labels, for example:
 ## Where it lives
 
 The tally is a plain text file, usage-log.md, in your own project.
-You can open it, edit it, or delete it at any time. It is never sent
+Lines older than eight weeks move to the archive folder in your
+project, in files named usage- followed by the month. You can open,
+edit, or delete any of them at any time. None of it is ever sent
 anywhere.
 
 ## What leaves your project, and when
@@ -76,7 +78,8 @@ it with third parties.
 - Switching off the Office of One connector in your project also
   stops it.
 - Turn it back on the same way.
-- Delete usage-log.md whenever you like.
+- Delete usage-log.md, and the usage files in the archive folder,
+  whenever you like.
 
 ## Questions
 

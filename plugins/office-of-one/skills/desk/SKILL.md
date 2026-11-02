@@ -25,8 +25,9 @@ Evening Debrief off, stop The Desk - Evening too.
 
 1. **Read the standing context.** tasks.md, log.md,
    ways-of-working.md, people.md, personality.md, goals.md, and
-   every topic file listed in ways-of-working.md. tasks.md is the system of
-   record. Never work a workflow file. You may read a workflow's
+   every topic file listed in ways-of-working.md. Never archive/:
+   it is read only to answer a question about the past. tasks.md is
+   the system of record. Never work a workflow file. You may read a workflow's
    tracker only to recognize who is in it.
 2. **Sweep.** Calendar for the day. Mail received AND sent since
    the last run. If the Desk has not run before, start from the
@@ -81,8 +82,11 @@ and never appears in a memo or in chat.
    does not parse. Count only entries dated on or before the week's
    Friday, so a catch-up on a later day gives the same numbers the
    Friday run would have. Two of the numbers below need the whole
-   log up to that Friday. If the file does not exist, treat it as
-   empty and carry on.
+   log up to that Friday: once older lines have gone to the archive,
+   take the first entry date from Usage first entry and the
+   first-win count from First win after, under Housekeeping in
+   ways-of-working.md. If the file does not exist, treat it as empty
+   and carry on.
 2. **Count.** Write these into usage-summary.md, overwriting it:
    the period, the first and last entry dates in the whole log, how
    many days had at least one entry, the total number of entries, and
@@ -93,7 +97,7 @@ and never appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.43.0, as plugin_version; keep this number in step with
+   version, 3.44.0, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state
@@ -129,7 +133,7 @@ and never appears in a memo or in chat.
      "last_entry": "2026-09-18",
      "first_win_after": 3,
      "avg_autonomy": 3.2,
-     "plugin_version": "3.43.0",
+     "plugin_version": "3.44.0",
      "context":  { "work": 60, "personal": 30, "mixed": 10 },
      "artifact": { "email": 9, "plan": 2 },
      "mode":     { "directive": 70, "feedback-loop": 20, "learning": 10 },
@@ -193,38 +197,79 @@ and never appears in a memo or in chat.
   rejection leaves the key alone. Never clear it twice in the same
   week.
 
-Never send a line from usage-log.md, whole or in part. Never send
+Never send a line from usage-log.md or from archive/, whole or in
+part. Never send
 anything from survey.md but the questions and their answers. Never send demographics
 or a completeness score, even though the tool accepts them. Never send
 anything at all when sharing is off. Never bother the user with any of
 this.
 
-## Weekly: the tidy
+## Weekly: the cleanup and the archive
 
 The standing context is read at the start of every run, so every
-stale or duplicated line costs the agent context twice a day. Once
-a week the Desk puts it back in shape. The tidy comes after the
-roll-up and never appears in a memo or in chat.
+line in it costs context twice a day. Once a week the Desk does two
+jobs, in this order:
 
-- **The Friday evening run** tidies after it rolls up the week.
-- **Every other run checks for a missed tidy first.** Read the Last
-  tidy line under Housekeeping in ways-of-working.md. If it is more
-  than seven days old, or missing, tidy now. If the section is
-  missing, add it; an install from before this line existed has
-  none, and the first run after the update adds it and tidies.
+- **The cleanup** makes every brain file hold only what it is for.
+- **The archive** moves out what the agent does not need right now.
+  Nothing archived is lost: it is read back whenever the user asks
+  about something from the past (memorialize, "Reading the record
+  back").
 
-File by file. Nothing is invented and nothing is guessed: where two
-lines disagree and nothing settles it, keep both and put the
-question in open-questions.md for the 1:1.
+Both come after the roll-up and never appear in a memo or in chat.
+
+- **The Friday evening run** cleans up and archives after it rolls
+  up the week.
+- **Every other run checks for a missed week first.** Read the Last
+  cleanup line under Housekeeping in ways-of-working.md. If it is
+  more than seven days old, or missing, clean up and archive now.
+  An install from before 3.44.0 has a Last tidy line instead: treat
+  it as this line and rename it. If the Housekeeping section is
+  missing, add it.
+
+Nothing is invented and nothing is guessed. Where two lines
+disagree and nothing settles it, keep both and put the question in
+open-questions.md for the 1:1.
+
+### The cleanup: every file holds only what it is for
+
+Each brain file has one job, written in its header: people.md is
+who matters and what stays true about them, tasks.md is open loops,
+log.md is what happened, open-questions.md is what is still
+unknown, ways-of-working.md is how the agent works for this user,
+and each topic file is its own subject. Go through every markdown
+file in the project, line by line, and ask of each line: does it
+do this file's job?
+
+- **It belongs here.** Keep it, under the file's own rules below.
+- **It belongs in another file.** Move it there. A schedule or a
+  thing to do goes to tasks.md or the calendar, something that
+  happened goes to log.md, a fact about a subject goes to its topic
+  file, an unknown goes to open-questions.md, a standing fact about
+  a person goes to their line in people.md. Merge it with what that
+  file already says; never leave two versions.
+- **It has a home nowhere and is still worth keeping.** Archive it
+  (below).
+- **It is junk.** An exact duplicate, a leftover template
+  placeholder that has been answered elsewhere, a note about files
+  or about what the agent did, chatter with no durable value: take
+  it out. When unsure whether something is junk, archive it
+  instead.
+
+A markdown file that is not one of the brain files, a listed topic
+file, a listed workflow file or a usage file is a stray. Sort its
+lines the same way, then move what is left of the file into the
+archive. Workflow files belong to their workflow: check only that
+each is listed under Workflows. Usage files are never cleaned up;
+the archive handles them.
+
+Then each file's own rules:
 
 1. **people.md.** One line per person. Merge every duplicate into
-   the newest version of the facts. Move anything dated off the
-   line: a schedule to the calendar or tasks.md, something that
-   happened to log.md. Drop any touches line; the links live on the
-   items. Remove anyone who came up once and never again: not
+   the newest version of the facts. Drop any touches line; the links
+   live on the items. Anyone who came up once and never again (not
    household or family, no standing rule, not on any open item, not
-   in log.md this month, not named by the user. The item or the log
-   line that introduced them still holds the name.
+   in log.md, not named by the user) goes to the archive.
 2. **tasks.md.** One entry per open loop; merge duplicates, keeping
    the thread pointer and the touches line. Priority today holds at
    most three. Open questions put to them lists only what is still
@@ -232,22 +277,61 @@ question in open-questions.md for the 1:1.
 3. **open-questions.md.** Any question a brain file or the week's
    evidence already answers moves to Answered, with how it was
    settled. Merge duplicates. Re-rank the pool by its own rules.
-4. **log.md.** One line per day, newest first, current month only.
-   Merge a day that has two lines. If a previous month is still
-   here, condense it into archive.md per the memorialize skill.
+4. **log.md.** One line per day, newest first. Merge a day that has
+   two lines.
 5. **ways-of-working.md.** The Topic files list names every topic
    file that exists and nothing else; the same for Workflows. Every
    override under Memo format carries its date.
-6. **Topic files.** A fact that was superseded is replaced, not kept
-   beside its replacement. A topic file with nothing left in it is
-   removed and taken off the list.
-7. **Write the Last tidy line** with today's date.
+6. **Topic files.** A fact that was superseded is replaced; the old
+   version goes to the archive. A topic file with nothing left in
+   it is moved to the archive and taken off the list.
+
+### The archive: old information out of the way
+
+The archive is a folder, archive/, in the project. It holds one
+file per month, archive/YYYY-MM.md, and the usage files' old lines
+in archive/usage-YYYY-MM.md. A line goes into the file for the
+month it is dated in, or the month it was archived if it has no
+date, under a heading for where it came from (## log, ## done,
+## answered, ## people, ## topic: fitness, ## stray: notes). Lines
+are moved word for word and added to what the file already holds;
+nothing in archive/ is ever rewritten. No run reads archive/ at the
+start: it is read only to answer a question about the past.
+
+Each week, move:
+
+- **log.md**: lines older than four weeks.
+- **tasks.md**: Done items closed more than seven days ago.
+- **open-questions.md**: Answered entries settled more than four
+  weeks ago.
+- **What the cleanup set aside**: people with no line any more,
+  superseded topic facts, emptied topic files, strays.
+- **usage-log.md, usage-desk.md and survey.md**: lines older than
+  eight weeks, but only from weeks already in usage-submissions.md
+  or usage-pending.md. A week not yet rolled up keeps every line.
+  Before the first usage-log.md line ever leaves, write Usage first
+  entry under Housekeeping, and First win after once the roll-up
+  has found it, so the roll-up never needs the archived lines.
+- **usage-submissions.md**: everything but the twelve newest lines.
+  The newest line always stays.
+
+usage-pending.md is never archived: it is the queue of weeks still
+to send. Nothing in archive/ is ever sent.
+
+When a month has fully left log.md, write its block in archive.md:
+5 to 10 lines, what changed in the user's life that month, per the
+memorialize skill. archive.md is the summary; archive/ holds the
+detail.
+
+Finish by writing the Last cleanup line with today's date. If any
+move fails, leave the source as it was, do not write the line, and
+try again at the next run.
 
 Leave alone: goals.md and personality.md, which only the 1:1 and
 agent-admin change; anything the user corrected within the last
 seven days; anything the user asked to keep as it is. Never remove
-something because it is personal. Never drop a correction. Never
-mention the tidy to the user.
+or archive something because it is personal. Never drop a
+correction. Never mention the cleanup or the archive to the user.
 
 ## Working the list (step 4)
 

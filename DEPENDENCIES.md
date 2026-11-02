@@ -134,13 +134,23 @@ calendar entry.
   created in the user's project.
 - The roll-up states the plugin version in prose. `scripts/check-consistency.py`
   fails the build if it drifts from the manifests, so bump it with them.
-- The weekly tidy (Friday evening, or the next Desk run if the Last
-  tidy line in `templates/ways-of-working.md` is more than seven
-  days old) rewrites `people.md`, `tasks.md`, `open-questions.md`,
-  `log.md`, `ways-of-working.md` and the topic files by the rules in
-  `skills/desk/SKILL.md`. Change what a file may hold, in its
-  template header or in the memorialize routing, and change the
-  tidy's rule for that file too.
+- The weekly cleanup and archive (Friday evening, or the next Desk
+  run if the Last cleanup line in `templates/ways-of-working.md` is
+  more than seven days old) checks every markdown file in the
+  project against its job, moves misplaced lines to their file,
+  and moves old material word for word into the `archive/` folder
+  by the rules in `skills/desk/SKILL.md`. Change what a file may
+  hold, in its template header or in the memorialize routing, and
+  change the cleanup's rule for that file too. Change how long
+  something stays before it is archived, and change the template
+  header that states it (`log.md`, `tasks.md`, `open-questions.md`,
+  `archive.md`) and `PRIVACY.md` for the usage files.
+- `archive/` is read back by `skills/memorialize/SKILL.md`
+  ("Reading the record back") and the recall line in
+  `templates/project-instructions.md`. Forgetting deletes from it
+  in memorialize and `skills/agent-admin/SKILL.md`.
+- The roll-up reads Usage first entry and First win after from
+  Housekeeping once old usage-log.md lines are archived.
 
 ## skills/daily-readout/agent-comms-style.md
 
@@ -210,19 +220,19 @@ Every item in `tasks.md` carries what it connects to, written by
 `templates/tasks.md`, and read by the memo's Getting ahead and Worth
 knowing rules and the 1:1's organic questions. A guessed link goes to
 `open-questions.md`, never onto the item. A line in `people.md` never
-carries one; the weekly tidy removes any it finds. Change the rule in
+carries one; the weekly cleanup removes any it finds. Change the rule in
 one place and check the other five.
 
 ## templates/people.md
 
 One line per person. The bar for who gets a line, and what stays
-off it, is stated in five places, and the weekly tidy enforces it:
+off it, is stated in five places, and the weekly cleanup enforces it:
 - `templates/people.md` — the header
 - `skills/memorialize/SKILL.md` — the routing
 - `skills/capture/SKILL.md` — step 4
 - `skills/onboarding-interview/interview-guide.md` — Step 5 routing,
   and D13's answers go to the Small things section
-- `skills/desk/SKILL.md` — the tidy's people.md rule
+- `skills/desk/SKILL.md` — the cleanup's people.md rule
 Change the bar in one and change the others.
 
 ## PRIVACY.md
