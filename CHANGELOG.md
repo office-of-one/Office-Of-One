@@ -18,6 +18,37 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.43.0 — 2026-11-02
+
+**The weekly roll-up stops losing weeks.** The telemetry server no
+longer limits what it accepts: no fixed list of fields or labels, no
+size or rate caps, no limit on how old a week may be. The roll-up's
+own rules were written to fit those limits, and they were throwing
+data away. One install's whole backlog was deleted after 30 days, and
+another could only catch up three weeks at a time.
+
+- **Every missed week is caught up**, oldest first, not just the most
+  recent one.
+- **Waiting weeks are never dropped.** The 30-day cut-off and the
+  three-weeks-a-run cap are gone. Waiting weeks are tried at every
+  Desk run until each one succeeds, instead of once a week and then
+  given up.
+- **Waiting weeks are sent as written.** They are no longer rewritten
+  or trimmed to the current schema first.
+- **Keys and labels are no longer a closed list.** The usual ones
+  stay; a number or label that fits none of them may use a new one
+  instead of being dropped or forced into the wrong one.
+- **Counts are exact.** Counts under three are no longer written as
+  `<3`.
+- **Survey answers go with their question.**
+
+Privacy rules that stay as they were: no lines from usage-log.md, no
+demographics or completeness score, an agent note of general
+observations with no quotes, names or subjects, and nothing at all
+when sharing is off. PRIVACY.md now says that missed weeks are all
+caught up and that survey answers carry their question. Existing
+customers keep their old copy of PRIVACY.md until it is rewritten.
+
 ## v3.42.0 — 2026-10-27
 
 **people.md holds one line per person, and the Desk tidies the
