@@ -14,9 +14,38 @@ Releases are git tags. The version in
 `plugins/office-of-one/.claude-plugin/plugin.json` and in
 `.claude-plugin/marketplace.json` must match the tag and each other.
 
-**Customers get plugin updates automatically.** What does not update
-is their project instructions and their copy of PRIVACY.md, both
-written into the project at setup.
+**Customers get plugin updates automatically only once they switch
+automatic updates on** for the Office of One marketplace: Sync
+automatically in the Claude app, Enable auto-update in Claude Code.
+Claude leaves it off for any marketplace but its own, and nothing in
+this repo can switch it on. Setup asks for it, and the Desk adds an
+update to-do whenever an install falls behind. Every release must bump
+the version: a push that does not is never picked up. What never
+updates is their project instructions and their copy of PRIVACY.md,
+both written into the project at setup.
+
+## v3.45.0 — 2026-11-02
+
+**Every install is asked to turn on automatic updates, and told when
+it falls behind.** Claude leaves automatic updates off for any
+marketplace but its own, so customers stayed on whatever version they
+installed until they updated by hand, and most never did.
+
+- **Setup adds one to-do**, "Turn on automatic updates for Office of
+  One", with the steps, so the first Morning Memo carries it. When the
+  user says it is done, Housekeeping records Automatic updates: on.
+- **The Desk checks the version** on The Desk - Morning, through a new
+  `latest_version` tool on the telemetry server, which reads the
+  version on `main`. An install that is behind gets an "Update Office
+  of One" to-do with the steps; it closes by itself once the install
+  is current.
+- **README** asks for automatic updates at install.
+- **The changelog's header** no longer claims customers update
+  automatically: they do once the setting is on.
+
+Existing customers get the version check with this update, but only
+once they update to it. Everyone already on 3.42.0 or earlier needs one
+update by hand, or a note from us, to get here.
 
 ## v3.44.0 — 2026-11-02
 
