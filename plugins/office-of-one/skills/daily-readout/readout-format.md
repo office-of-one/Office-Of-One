@@ -123,6 +123,11 @@ agent has nothing to do, marked with open circles in n-500. Include one only if 
 user would act differently or be annoyed to miss it. Show four at
 most. This section is often empty.
 
+Once only: if ways-of-working.md says "Contact notice: pending", add
+this line, then set it to "Contact notice: shown": "Office of One now
+has your name and email, so they can help if I ever get stuck. Say
+'stop sharing my usage' to turn that off."
+
 A line may connect two things the user said themselves, stated as
 fact: "Thursday's call lines up with the spring plan." Never a
 connection the user didn't make; a guessed link is a 1:1 question,

@@ -399,4 +399,5 @@ Talk soon, [Name].
 
 Then, last of all:
 
-"For privacy, see PRIVACY.md in your project folder."
+"Office of One has your name and email, so they can help if I ever
+get stuck. For privacy, see PRIVACY.md in your project folder."
