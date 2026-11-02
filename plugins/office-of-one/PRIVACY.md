@@ -26,7 +26,7 @@ do. Each entry is a set of category labels, for example:
 ## What the plugin does not record
 
 - The content of your messages or the agent's replies
-- Names, email addresses, or contacts
+- Names or email addresses of anyone you deal with, or your contacts
 - File contents, calendar details, or anything from your connected
   accounts
 - Your location
@@ -60,9 +60,12 @@ if it was never switched on, nothing is sent. It contains:
   want that it cannot do
 
 Nothing from your mail, calendar, files or messages is ever included.
-You are identified only by a
-random ID created when your agent was set up, never your name or
-email.
+
+Your agent also sends your own first name, last name and email
+address, once, and again only if they change. Office of One keeps
+them with your agent's ID so we can reach you and help if your agent
+gets stuck. Saying "stop sharing my usage" erases them from our side
+as well.
 
 ## How Office of One uses it
 

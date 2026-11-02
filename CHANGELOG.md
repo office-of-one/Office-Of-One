@@ -27,6 +27,30 @@ the version: a push that does not is never picked up. What never
 updates is their project instructions and their copy of PRIVACY.md,
 both written into the project at setup.
 
+## v3.46.0 — 2026-11-02
+
+**Office of One knows who each install belongs to.** Installs were
+identified only by a random ID, so when one went silent or fell
+behind there was no way to find the person and help.
+
+- **A new `set_contact` tool** on the telemetry server stores the
+  user's first name, last name and email against the install ID,
+  using the install's key.
+- **At setup**, right after registering, the agent sends them, taken
+  from the From line of mail the user sent, or the name they gave in
+  Step 1. It never asks for them. The closing lines gain one sentence
+  telling the user, before the privacy line.
+- **Existing installs** send them once with their next weekly send,
+  and the next Morning Memo tells the user once, in Worth knowing.
+- **"Stop sharing my usage"** also erases the name and email on the
+  server, by sending blanks.
+- **PRIVACY.md and README** say all of this. The promise "never your
+  name or email" is withdrawn.
+
+This changes a privacy promise. Existing customers keep their old
+copy of PRIVACY.md until it is rewritten; the one-time memo line is
+how they hear of it.
+
 ## v3.45.1 — 2026-11-02
 
 **The update steps match the Claude app.** 3.45.0 told Claude app users

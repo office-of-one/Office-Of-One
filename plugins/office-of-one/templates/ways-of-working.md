@@ -43,6 +43,10 @@ updates.
 - Share summary: yes
 - Last survey question: [none yet]
 - Last survey date: [none yet]
+- Contact shared: [the date the user's name and email were sent with
+  set_contact; blank until then]
+- Contact notice: [shown once the user has been told; pending until
+  the next Morning Memo tells them]
 
 The tally is always on; it powers the "how you used me" lines in the
 Monday memo. Sharing is the only part the user controls, and

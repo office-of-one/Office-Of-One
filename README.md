@@ -8,11 +8,11 @@ Debrief, absorbs whatever you throw at it, and gets sharper through a
 weekly 1:1.
 
 Your personal data never leaves your own Claude project. No message
-content, names or calendar details are uploaded anywhere. Your agent
-does send us a weekly summary of the kinds of work you use it for, in
-labels and counts, plus anything you choose to type in answer to its
-Monday question, and you can turn that off any
-time by telling it to stop. The full statement is in
+content, contacts or calendar details are uploaded anywhere. Your agent
+does send us your own name and email, so we can help if it gets stuck,
+and a weekly summary of the kinds of work you use it for, in labels and
+counts, plus anything you choose to type in answer to its Monday
+question. You can turn all of that off any time by telling it to stop. The full statement is in
 [PRIVACY.md](plugins/office-of-one/PRIVACY.md).
 
 ## Install

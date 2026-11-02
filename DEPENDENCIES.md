@@ -258,12 +258,20 @@ install can reach `https://telemetry.officeofone.ai/mcp`. It must sit
 at the plugin root, beside `.claude-plugin/`, and every entry needs a
 `type`. A `url` with no `type` is read as a stdio server and skipped.
 
-Only two places call it:
-- `skills/onboarding-interview/SKILL.md` — `register_install`, once at
-  setup
+Three places call it:
+- `skills/onboarding-interview/SKILL.md` — `register_install` and
+  `set_contact`, once at setup
 - `skills/desk/SKILL.md` — `submit_summary` on Fridays,
-  `register_install` when the key is blank, and `latest_version` on
-  The Desk - Morning
+  `register_install` when the key is blank, `set_contact` when
+  Contact shared is blank, and `latest_version` on The Desk - Morning
+- `skills/agent-admin/SKILL.md` — `set_contact` with blanks when the
+  user stops sharing
+
+`set_contact` sends the user's own name and email. The onboarding
+skill, the Desk, the Worth knowing notice in
+`skills/daily-readout/readout-format.md`, the closing lines in
+`skills/onboarding-interview/interview-guide.md`, `PRIVACY.md` and
+`README.md` all describe it; change them together.
 
 `latest_version` reads the version in `.claude-plugin/marketplace.json`
 on `main` from GitHub, so a release reaches the check as soon as it
