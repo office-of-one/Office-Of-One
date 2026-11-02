@@ -32,9 +32,10 @@ In the Claude app:
 **Settings → Customize → Plugins → Add Marketplace → Add from a
 repository →** `office-of-one/Office-Of-One`
 
-Then turn on automatic updates, so every new version reaches you on
-its own: open the Office of One marketplace in **Settings → Customize
-→ Plugins** and switch on **Sync automatically**. In Claude Code:
+Keeping it up to date: in the Claude app, updates are manual. When
+your memo says an update is out, open **Settings → Customize →
+Plugins → Office of One**, choose **⋯ → Check for updates**, then
+**Update**. In Claude Code, turn on automatic updates once:
 `/plugin` → **Marketplaces** → `officeofone` → **Enable
 auto-update**.
 

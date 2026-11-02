@@ -14,15 +14,35 @@ Releases are git tags. The version in
 `plugins/office-of-one/.claude-plugin/plugin.json` and in
 `.claude-plugin/marketplace.json` must match the tag and each other.
 
-**Customers get plugin updates automatically only once they switch
-automatic updates on** for the Office of One marketplace: Sync
-automatically in the Claude app, Enable auto-update in Claude Code.
-Claude leaves it off for any marketplace but its own, and nothing in
-this repo can switch it on. Setup asks for it, and the Desk adds an
-update to-do whenever an install falls behind. Every release must bump
+**Customers in the Claude app update by hand; Claude Code customers
+can turn on automatic updates.** The Claude app has no automatic
+update setting for a plugin from this marketplace: an update is
+Settings → Customize → Plugins → Office of One → ⋯ → Check for updates,
+then Update. A desktop install belongs to the user's Claude account,
+so no local script can update it either. In Claude Code, `/plugin` →
+Marketplaces → officeofone → Enable auto-update makes it automatic;
+Claude leaves that off for any marketplace but its own. The Desk adds
+an update to-do, with these steps, whenever an install falls behind. Every release must bump
 the version: a push that does not is never picked up. What never
 updates is their project instructions and their copy of PRIVACY.md,
 both written into the project at setup.
+
+## v3.45.1 — 2026-11-02
+
+**The update steps match the Claude app.** 3.45.0 told Claude app users
+to switch on Sync automatically for the marketplace. The app has no
+such setting: a plugin's ⋯ menu offers only Check for updates, then an
+Update button.
+
+- **The Desk's update to-do** now gives the real steps: Settings →
+  Customize → Plugins → Office of One → ⋯ → Check for updates → Update.
+  The Claude Code steps (Enable auto-update) are unchanged.
+- **The setup to-do is gone.** It asked every new user to turn on
+  automatic updates, which Claude app users cannot do. The version
+  check covers them instead, and the Automatic updates line under
+  Housekeeping goes with it.
+- **README and the changelog header** say updates are manual in the
+  Claude app.
 
 ## v3.45.0 — 2026-11-02
 
