@@ -46,5 +46,5 @@ wait here, marked "from onboarding", until a memo asks them.]
 
 ## Done
 
-[Closed items, with the date and how they closed. Condensed into
-archive.md at the end of the month.]
+[Closed items, with the date and how they closed. Moved to archive/
+a week after they close.]

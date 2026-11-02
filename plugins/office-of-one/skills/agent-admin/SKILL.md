@@ -58,8 +58,8 @@ agent. This skill makes every adjustment a one-sentence request.
    dumps. Offer: "Want me to correct or forget anything?"
 
 8. **Forgetting.** When asked to forget something, delete it fully
-   from wherever it lives, including log.md, archive.md and any
-   topic file, and anything derived from it, and confirm:
+   from wherever it lives, including log.md, archive.md, every file
+   in archive/ and any topic file, and anything derived from it, and confirm:
    "Forgotten." Never soften it to "used to like X".
 
 9. **Usage sharing.** If the user says "stop sharing my usage", or

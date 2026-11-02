@@ -18,6 +18,50 @@ Releases are git tags. The version in
 is their project instructions and their copy of PRIVACY.md, both
 written into the project at setup.
 
+## v3.44.0 — 2026-11-02
+
+**A weekly cleanup and a weekly archive, and the agent can look
+things up in the archive.** The brain files were filling with lines
+that did not belong in them: one user's people.md held a lot that had
+nothing to do with people. Nothing ever moved old material out
+either, so tasks.md's Done section and the Answered questions grew
+forever even though tasks.md promised a monthly condense that never
+ran, and the usage files grew without end.
+
+- **The cleanup.** Every Friday evening Desk run, or the next run if
+  a week was missed, checks every markdown file in the project line
+  by line against that file's job. A line in the wrong file moves to
+  the right one and merges with what is there. A line with no home
+  that is still worth keeping goes to the archive. Junk (exact
+  duplicates, answered placeholders, notes about files, chatter)
+  comes out. A markdown file that is no known brain, topic, workflow
+  or usage file is sorted the same way and then archived. It
+  replaces the weekly tidy and keeps all of the tidy's rules.
+- **The archive, weekly.** A new archive/ folder, one file per month,
+  holds old material word for word: log.md lines older than four
+  weeks, tasks closed more than a week ago, questions answered more
+  than four weeks ago, people and facts the cleanup set aside, and
+  usage lines older than eight weeks. No run reads it at the start,
+  so it costs no context. archive.md stays as the short summary of
+  each past month, written once the month has fully left log.md;
+  the old start-of-month condense is gone.
+- **Recall.** When the user asks about something from the past that
+  the brain files do not hold, the agent looks in archive.md, then
+  searches archive/, before saying it has no record. Something that
+  matters again goes back into its brain file.
+- **Forgetting reaches the archive.** A request to forget deletes
+  from every file in archive/ as well.
+- **Housekeeping** in ways-of-working.md has Last cleanup in place of
+  Last tidy (an existing Last tidy line is renamed on the next run),
+  and Usage first entry and First win after, so the usage roll-up
+  never needs archived lines.
+
+Existing customers: the recall rule is in the memorialize skill,
+which updates automatically, and in the project instructions, which
+do not; the skill alone is enough for it to work. Their copy of
+PRIVACY.md does not mention the archived usage files until it is
+rewritten.
+
 ## v3.43.0 — 2026-11-02
 
 **The weekly roll-up stops losing weeks.** The telemetry server no

@@ -1,6 +1,6 @@
 ---
 name: memorialize
-description: Use this skill whenever something worth remembering comes up — a decision, a new fact about someone, a changed commitment, a correction — and again when the user says "save this", "remember this", or "memorialize", or when a session is wrapping up. Writes durable facts to the user's brain files as they surface, so nothing is lost between sessions.
+description: Use this skill whenever something worth remembering comes up — a decision, a new fact about someone, a changed commitment, a correction — and again when the user says "save this", "remember this", or "memorialize", or when a session is wrapping up. Also use it whenever the user asks about something from the past that the brain files do not hold ("when did we…", "what happened with…", "remind me what…"): it looks it up in the archive. Writes durable facts to the user's brain files as they surface, so nothing is lost between sessions.
 ---
 
 # Memorialize — save as you go
@@ -78,7 +78,8 @@ file contents, or mechanics.
 
 ## The running record: log.md
 
-log.md holds the current month, one line per day, newest first.
+log.md holds the last four weeks, one line per day, newest first.
+The weekly archive moves older lines out.
 
 Format: `YYYY-MM-DD — one sentence.`
 
@@ -97,50 +98,63 @@ Rules:
   rather than padding them.
 - Never record anything the user asked you to forget.
 
-## Condensing: archive.md
+## The archive
 
-log.md is the recent record; archive.md is the long memory. Both are
-plain markdown, newest first.
+log.md is the recent record. Older material lives in two places,
+both written by the Desk's weekly cleanup and archive (the rules are
+in the desk skill):
 
-**At the start of a new month**, before writing the first line of
-the new month:
-1. Take every log.md line from the month that just ended.
-2. Write a block in archive.md headed with that month, 5 to 10
-   lines, capturing what changed in the user's life: decisions,
-   people, commitments made or dropped — what a friend who'd been
-   away would need to know.
-3. Remove those lines from log.md. log.md holds the current month
-   only.
+- **archive/**, a folder of monthly files, archive/YYYY-MM.md: the
+  detail, moved word for word. Old log.md lines, tasks closed more
+  than a week ago, questions answered more than four weeks ago,
+  people with no line any more, superseded facts and stray notes.
+- **archive.md**, the long memory: one block per month, 5 to 10
+  lines, written once a month has fully left log.md. It captures
+  what changed in the user's life: decisions, people, commitments
+  made or dropped. What a friend who'd been away would need to
+  know.
 
 **Once a year, or when archive.md passes about 50 lines**, compress
 months older than six months down to one or two lines each. Keep
-what has lasting weight — a move, a job change, a birth, an ending —
-and let ordinary detail go.
+what has lasting weight: a move, a job change, a birth, an ending.
+The detail is still in archive/.
 
-Never condense the current month. Never condense anything the user
-corrected within the last week; corrections need time to settle.
+Never summarize the current month into archive.md. Never archive
+anything the user corrected within the last week; corrections need
+time to settle.
 
-**Every week**, the Desk's Friday evening run tidies the standing
-context: people.md back to one line per person, duplicates merged in
-tasks.md and open-questions.md, answered questions resolved, log.md
-to one line per day, the Topic files list matching the files that
-exist. The rules live in the desk skill, under the weekly tidy. If a
-run finds the tidy more than seven days overdue, it does it first.
+**Every week**, the Desk cleans up the brain so each file holds only
+what it is for, then archives what is not needed right now. If a
+run finds that more than seven days overdue, it does it first.
 
 ## Reading the record back
 
-Anything in log.md and archive.md is available to answer questions
-about the past. Use it when the user references history ("when did
-we decide that?", "how long has this been going on?") and when
-something today echoes something recorded before. Refer to what
-happened in natural terms — never quote a dated line back at them.
+When the user asks about the past ("when did we decide that?", "what
+happened with the roofer?", "how long has this been going on?"), or
+something today echoes something older, look in this order and stop
+at the first that answers:
+
+1. The brain files and log.md.
+2. archive.md, for the month or the subject.
+3. archive/: search the monthly files for the names, words and
+   dates in the question, newest month first. Open only the months
+   that match.
+
+Answer from what you find, in natural terms. Never quote a dated line
+back at them, and never mention files or the archive. If it is
+nowhere, say you have no record of it rather than guessing.
+
+Something found in archive/ that matters again (a person who is back,
+a subject that is live again) goes back into its brain file, per
+"What to write where".
 
 ## What does NOT get saved
 
 - Session chatter with no durable value
 - Guesses or unconfirmed inferences: blank beats guessed
 - Anything the user asked you to forget (delete it fully from
-  log.md, archive.md and any topic file as well, including
+  log.md, archive.md, every file in archive/ and any topic file as
+  well, including
   anything derived from it, and never re-save it). If a whole
   topic file was about that subject, delete the file and remove
   it from the Topic files list.

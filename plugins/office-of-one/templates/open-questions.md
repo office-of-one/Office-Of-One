@@ -61,4 +61,5 @@ person, and mark each as covered, partial, or untouched.
 ## Answered
 
 [With the date, and how it was established. An answer tested
-against live evidence beats one that was only stated.]
+against live evidence beats one that was only stated. Moved to
+archive/ four weeks after it is settled.]
