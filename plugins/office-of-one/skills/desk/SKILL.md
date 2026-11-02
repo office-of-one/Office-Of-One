@@ -65,13 +65,15 @@ A week runs from Saturday to Friday. The roll-up happens after step 6
 and never appears in a memo or in chat.
 
 - **The Friday evening run** rolls up the week that ends that day.
-- **Every other run checks for a missed week first.** Take the most
-  recent week that has already ended. If usage-summary.md does not
-  show that period, and it is not in usage-submissions.md or
-  usage-pending.md, the Friday evening run did not happen, usually
-  because the computer was asleep or the app was closed. Roll that
-  week up now, exactly as the Friday run would have. Only the most
-  recent ended week is caught up; an older missed week is skipped.
+- **Every other run checks for missed weeks first.** Take every week
+  that has already ended since the latest period in
+  usage-submissions.md or usage-pending.md (on a new install, since
+  the first entry in usage-log.md). Any of those weeks that is in
+  neither file was missed, usually because the computer was asleep or
+  the app was closed. Roll each one up now, oldest first, exactly as
+  its Friday run would have.
+- **Every run with weeks waiting in usage-pending.md sends them**,
+  as "Sending it" below says, even when no week is being rolled up.
 
 "The week" below means the week being rolled up.
 
@@ -91,14 +93,13 @@ and never appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.42.0, as plugin_version; keep this number in step with
+   version, 3.43.0, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state
    recorded, and how many were left bare.
-3. **Hide small numbers.** Any count under 3 is written as <3, and a
-   percentage from a bucket under 3 is left out. Days active, total
-   entries and the first-win count are always written in full.
+3. **Write every number in full.** Counts are exact, small ones
+   included, and every bucket gets its percentage.
 4. **Write the two human lines** at the top of usage-summary.md, in
    the agent's own voice, for the Monday memo to use. The first says
    how many days the user worked with the agent and what for. The
@@ -112,13 +113,13 @@ and never appears in a memo or in chat.
    what instruction would have helped, and what the user seems to
    want that cannot be done yet. General observations only, never a
    quote, a name or a subject.
-6. **Then the full counts** as a JSON block in the same file. Use
-   exactly the keys below and no others — the server accepts only these
-   field names and only these label values, and rejects the whole
-   submission on anything it does not recognise. Invent no keys. Omit a
-   key when there is nothing to report rather than making one up. Every
-   share is a whole-number percentage; every count is a whole number,
-   written `<3` when it is under three. Dates are `YYYY-MM-DD`.
+6. **Then the full counts** as a JSON block in the same file. Use the
+   keys below for the counts they name. A number worth reporting that
+   none of them covers may go under a new key, lowercase with
+   underscores, that says plainly what it counts. Omit a key when there
+   is nothing to report rather than making one up. Every share is a
+   whole-number percentage; every count is a whole number. Dates are
+   `YYYY-MM-DD`.
 
    ```json
    {
@@ -128,83 +129,72 @@ and never appears in a memo or in chat.
      "last_entry": "2026-09-18",
      "first_win_after": 3,
      "avg_autonomy": 3.2,
-     "plugin_version": "3.42.0",
+     "plugin_version": "3.43.0",
      "context":  { "work": 60, "personal": 30, "mixed": 10 },
-     "artifact": { "email": 9, "plan": "<3" },
+     "artifact": { "email": 9, "plan": 2 },
      "mode":     { "directive": 70, "feedback-loop": 20, "learning": 10 },
-     "feature":  { "memo": 5, "desk": 8, "1:1": "<3", "chat": 10 },
+     "feature":  { "memo": 5, "desk": 8, "1:1": 2, "chat": 10 },
      "outcome":  { "done": 70, "partial": 10, "corrected": 20 },
      "corrected_by_artifact":   { "email": { "count": 3, "reason": "wrong-tone" } },
      "corrections_by_autonomy": { "3": { "count": 3, "reason": "wrong-tone" } },
      "desk_runs": 10,
      "desk_items_stated": 40,
-     "desk_items_bare": "<3"
+     "desk_items_bare": 1
    }
    ```
 
-   The only allowed label values are: contexts `work` `personal`
+   The usual labels are: contexts `work` `personal`
    `mixed`; artifacts `email` `message` `plan` `summary` `reminder`
    `research` `document` `calendar` `decision` `explanation` `other`;
    modes `directive` `feedback-loop` `learning` `validation`; features
    `memo` `desk` `1:1` `capture` `onboarding` `chat`; outcomes `done`
    `partial` `corrected` `abandoned`; reasons `none` `wrong-tone`
    `wrong-facts` `too-long` `missed-context` `didnt-understand`
-   `user-changed-mind`. The keys of `corrections_by_autonomy` are the
-   single digits `1` to `5`. Keep `plugin_version` in step with the
+   `user-changed-mind`. Use one of these where it fits; where none
+   does, use a short lowercase label of your own rather than forcing a
+   wrong one. The keys of `corrections_by_autonomy` are the single
+   digits `1` to `5`. Keep `plugin_version` in step with the
    manifests on every release.
 
 **Sending it.** Only if ways-of-working.md says "Share summary: yes".
 
 - Read usage-submissions.md, treating it as empty if it does not
-  exist. If the week is already there, stop.
-- Send at most three weeks in one run, counting the waiting weeks and
-  the week itself: the server takes no more than three from one
-  install in a day. A week not sent because of this limit goes to
-  usage-pending.md and waits for the next roll-up.
+  exist. A week already there is never sent again.
 - Every week written to usage-pending.md goes under its own line,
   `## period YYYY-MM-DD to YYYY-MM-DD`, followed by its JSON block.
   The JSON has no period of its own, so without that line the week
   can never be sent or recognised.
-- Drop any waiting week whose Friday is more than 30 days ago; the
-  server no longer accepts it.
-- Send any weeks waiting in usage-pending.md first, oldest first, and
-  drop each one from that file as it succeeds. Before sending a
-  waiting week, rewrite its JSON block to the schema in step 6, since
-  weeks queued before 3.40.1 were written in an older shape the server
-  rejects. Keep only the keys step 6 lists. A first or last entry date
-  under any other name becomes `first_entry` or `last_entry`, written
-  `YYYY-MM-DD`. A number written as text becomes a number. A reason
-  that is not one of the allowed reasons is dropped, keeping its
-  count. Take the week's period from the line it sits under, or from
-  the block itself, as the period to send. If it has neither and it
-  is the most recent week rolled up, use the period in
-  usage-summary.md. Then drop any period from the counts
-  along with anything else step 6 does not list. If no period can be
-  found, leave the week where it is. Never add a count the block did not
-  have and never recount from usage-log.md for an old week. Save the
-  rewritten block back to usage-pending.md before sending it.
+- Send every week waiting in usage-pending.md first, oldest first,
+  however old, and drop each one from that file as it succeeds. Send
+  a waiting week's JSON block as it is, whatever shape an older
+  version wrote it in. Take the week's period from the line it sits
+  under, or from the block itself. If it has neither and it is the
+  most recent week rolled up, use the period in usage-summary.md. If
+  no period can be found, leave the week where it is. Never add a
+  count the block did not have and never recount from usage-log.md
+  for an old week.
 - If the telemetry key is blank, call register_install once with the
   install ID and write the key. The key lives in ways-of-working.md;
   ignore the tool's mention of config.md, which does not exist here. If that fails, stop and try again
   at the next roll-up.
 - Call submit_summary on the officeofone-telemetry server with the
   install ID, the key, the period, the counts from the JSON block,
-  any survey answers in survey.md dated in the week, treating that
-  file as empty if it does not exist, and the agent note as three
-  lines.
+  any survey answers in survey.md dated in the week, each written as
+  the question, then the answer, treating that file as empty if it
+  does not exist, and the agent note as three lines.
 - If it returns "ok", append one line to usage-submissions.md:
   `YYYY-MM-DD | submitted | period YYYY-MM-DD to YYYY-MM-DD`.
 - Anything else, including no answer at all, means append the week's
-  JSON block to usage-pending.md and try again at the next roll-up.
-  A waiting week that fails again stays where it is, once. Never
-  retry within the week.
+  JSON block to usage-pending.md. Waiting weeks are tried again at the
+  next Desk run, and at every run after, until each one succeeds. Never
+  try the same week twice in one run.
 - If a submission returns "error: auth", clear the telemetry key in
   ways-of-working.md and register again on the next run. Any other
   rejection leaves the key alone. Never clear it twice in the same
   week.
 
 Never send a line from usage-log.md, whole or in part. Never send
-anything from survey.md but the answer text. Never send demographics
+anything from survey.md but the questions and their answers. Never send demographics
 or a completeness score, even though the tool accepts them. Never send
 anything at all when sharing is off. Never bother the user with any of
 this.

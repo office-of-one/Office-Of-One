@@ -41,7 +41,7 @@ anywhere.
 
 Unless you have turned sharing off, your agent sends a summary once a
 week, on Friday evening, to Office of One. If your computer was asleep
-or the app was closed then, it sends that week at its next run instead. It goes through the Office
+or the app was closed then, it sends any missed weeks at its next run instead. It goes through the Office
 of One connector. Someone switches that on when your agent is set up;
 if it was never switched on, nothing is sent. It contains:
 
@@ -51,7 +51,8 @@ if it was never switched on, nothing is sent. It contains:
 - How many jobs your agent worked on in the background each week, as
   numbers only
 - Any answers you chose to give to the occasional question in your
-  Monday memo, in your own words, exactly as you typed them
+  Monday memo, in your own words, exactly as you typed them, each
+  with the question it answers
 - Three short lines your agent writes about its own week: what it
   found hard, what instruction it wishes it had, and what you seem to
   want that it cannot do
