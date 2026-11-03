@@ -95,8 +95,11 @@ contract (data-contract.md) and the seed recipe (seed.md).
 - `evals/desk-sync/` — the read back and the draft cleanup; its
   `page-state.json` must follow `data-contract.md`
 - `PRIVACY.md` says the page is private to the user
-- `templates/ways-of-working.md` — the "Desk page:" line under
-  Housekeeping holds its url; the desk skill's weekly cleanup keeps it
+- The "Desk page:" line under Housekeeping in the user's
+  ways-of-working.md holds its url. Onboarding writes it only once a
+  page exists; the template must never ship a placeholder for it,
+  because every reader treats the line as "a page exists". The desk
+  skill's weekly cleanup keeps it
 - `templates/tasks.md` — each item's `page:` line holds its to-do's
   doc id: seed.md writes `L<n>` at setup, step 4b writes `D…` ids,
   step 1b matches by it

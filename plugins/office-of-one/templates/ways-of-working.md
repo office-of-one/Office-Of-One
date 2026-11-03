@@ -63,7 +63,6 @@ and never put the key anywhere else.
   usage-log.md line goes to the archive]
 - First win after: [a count; written once the roll-up first finds
   it]
-- Desk page: [url; written at setup]
 
 ## Connectors switched off
 
