@@ -1,0 +1,1 @@
+{"db":{},"user":{},"sample":{},"mcp":{"servers":[{"server":"Gmail","tools":["send_message"]},{"server":"Google Calendar","tools":["create_event"]},{"server":"Claude Code Remote","tools":["list_triggers","fire_trigger","update_trigger"]}]}}
