@@ -1400,7 +1400,7 @@ function recCard(r){ const u=RUI[r.id]||(RUI[r.id]={});
   else if(r.kind==='rule'||r.kind==='trust'){ const box=h('div',{class:'em-actions'});
     const yes=async()=>{ u.busy=true; try{
         if(r.kind==='rule'){ const cur=((WS.settings.rules&&WS.settings.rules.rules)||[]).slice(); cur.push({id:r.id, text:(r.rule&&r.rule.text)||r.title, match:(r.rule&&r.rule.match)||null, action:(r.rule&&r.rule.action)||null, at:nowIso(), from:'learned'}); await WS.db.doc('settings/rules').set({rules:cur, updatedAt:nowIso()}); }
-        else { const cats=noAuto(Object.assign({},TRUST_DEFAULT,(WS.settings.trust&&WS.settings.trust.cats)||{})); if(r.cat && r.cat!=='money') cats[r.cat]=r.to==='never'?'never':'ask'; await WS.db.doc('settings/trust').set({cats, updatedAt:nowIso()}); }
+        else { const cats=cleanTrust(Object.assign({},TRUST_DEFAULT,(WS.settings.trust&&WS.settings.trust.cats)||{})); if(r.cat && r.cat!=='money') cats[r.cat]=TRUST_VALUES.includes(r.to)?r.to:'ask'; await WS.db.doc('settings/trust').set({cats, updatedAt:nowIso()}); }
         await setRec('accepted'); logDecision('rec','accepted',{rec:r.kind, title:r.title||''}); }catch(e){ u.busy=false; alertInline(el,errText(e)); } };
     const no=async()=>{ u.busy=true; try{ await setRec('dismissed'); logDecision('rec','dismissed',{rec:r.kind, title:r.title||''}); }catch(e){ u.busy=false; alertInline(el,errText(e)); } };
     ap(box,h('button',{class:'btn primary sm',type:'button',onclick:yes},r.kind==='rule'?'Make it a rule':'Yes, let ⟦A⟧ do it'),h('button',{class:'btn ghost sm',type:'button',onclick:no},'No'));
@@ -1962,15 +1962,17 @@ const TRUST_CATS=[
 const TRUST_DEFAULT={schedule_reply:'ask', book_meeting:'ask', rsvp:'ask', thanks:'ask', nudge:'ask', decline:'ask', archive_promos:'ask', money:'never'};
 const PROTECT_DEFAULT=[];
 const SUI={};
-const noAuto=c=>{ Object.keys(c).forEach(k=>{ if(c[k]==='auto') c[k]='ask'; }); return c; };
-function trustOf(k){ const c=(WS.settings.trust&&WS.settings.trust.cats)||{}; const v=c[k]||TRUST_DEFAULT[k]||'ask'; return v==='auto'?'ask':v; }
+// "Just do it" (auto) is a preference: draft straight away, never send without the user's OK.
+const TRUST_VALUES=['auto','ask','never'];
+const cleanTrust=c=>{ Object.keys(c).forEach(k=>{ if(!TRUST_VALUES.includes(c[k])) c[k]='ask'; }); c.money='never'; return c; };
+function trustOf(k){ const c=(WS.settings.trust&&WS.settings.trust.cats)||{}; const v=c[k]||TRUST_DEFAULT[k]||'ask'; return TRUST_VALUES.includes(v)?v:'ask'; }
 function renderPlan(){ const v=$('#v-plan'); v.innerHTML='';
   const head=h('div',{class:'lede'},h('div',{},h('h2',{},'Settings')));
   const tCard=h('div',{class:'card set-card'}); const pCard=h('div',{class:'card set-card'}); const rCard=h('div',{class:'card set-card'});
   const grid=h('div',{class:'set-grid'},h('div',{},h('div',{class:'sec-h'},h('h3',{},'What ⟦A⟧ can do without asking')),tCard),
     h('div',{class:'set-side'},h('div',{},h('div',{class:'sec-h'},h('h3',{},'Protected time')),pCard),h('div',{},h('div',{class:'sec-h'},h('h3',{},'Rules ⟦A⟧ learned')),rCard)));
   ap(v,head,grid,renderAgents());
-  async function saveTrust(k,val){ const cats=noAuto(Object.assign({},TRUST_DEFAULT,(WS.settings.trust&&WS.settings.trust.cats)||{},{[k]:val}));
+  async function saveTrust(k,val){ const cats=cleanTrust(Object.assign({},TRUST_DEFAULT,(WS.settings.trust&&WS.settings.trust.cats)||{},{[k]:val}));
     SUI[k]={busy:true}; draw();
     try{ await WS.db.doc('settings/trust').set({cats, updatedAt:nowIso()}); SUI[k]={}; logDecision('setting','trust',{cat:k,to:val}); }catch(e){ SUI[k]={err:errText(e)}; }
     draw(); }
@@ -1978,9 +1980,10 @@ function renderPlan(){ const v=$('#v-plan'); v.innerHTML='';
   async function saveRules(list){ try{ await WS.db.doc('settings/rules').set({rules:list, updatedAt:nowIso()}); }catch(e){ SUI.r={err:errText(e)}; draw(); } }
   function draw(){ const on=WS.phase==='on';
     tCard.innerHTML='';
+    ap(tCard,h('p',{class:'ws-note trust-note',style:'padding:0 0 8px'},'"Just do it" means ⟦A⟧ drafts it straight away instead of asking first. Nothing is sent until you say so.'));
     TRUST_CATS.forEach(c=>{ const cur=c.locked||trustOf(c.k); const s=SUI[c.k]||{};
       const seg=h('div',{class:'seg',role:'radiogroup','aria-label':c.t});
-      [['ask','Ask me'],['never','Never']].forEach(([val,lab])=>seg.append(h('button',{type:'button',role:'radio','aria-checked':String(cur===val),class:cur===val?'on':'',disabled:!on||!!c.locked||s.busy,onclick:()=>{ if(cur!==val) saveTrust(c.k,val); }},lab)));
+      [['auto','Just do it'],['ask','Ask me'],['never','Never']].forEach(([val,lab])=>seg.append(h('button',{type:'button',role:'radio','aria-checked':String(cur===val),class:cur===val?'on':'',disabled:!on||!!c.locked||s.busy,onclick:()=>{ if(cur!==val) saveTrust(c.k,val); }},lab)));
       ap(tCard,h('div',{class:'trow2'},h('span',{class:'tt'},c.t),seg), s.err? h('div',{class:'em-msg err'},s.err):null); });
     pCard.innerHTML='';
     const blocks=(WS.settings.protected&&WS.settings.protected.blocks)||PROTECT_DEFAULT;

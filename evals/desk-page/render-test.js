@@ -24,7 +24,13 @@ const CHECKS={
   const st=await p.evaluate(()=>window.__store['emails/e1'].status);console.log('status',st);
   if(st!=='sent')errs.push('Mark sent did not set status sent: '+st);
   await p.evaluate(()=>location.hash='#settings');await p.waitForTimeout(300);
-  if(await p.locator('text=Just do it').count())errs.push('Settings still offers Just do it');
+  const jdi=p.locator('button[role=radio]:not([disabled])',{hasText:'Just do it'});
+  if(await jdi.count()!==7)errs.push('Just do it should be offered on the 7 unlocked categories, found '+await jdi.count());
+  if(!/Nothing is sent until you say so/.test(await p.evaluate(()=>document.body.innerText)))errs.push('Settings lacks the never-sent note');
+  await jdi.first().click();await p.waitForTimeout(300);
+  const tc=await p.evaluate(()=>(window.__store['settings/trust']||{}).cats||{});
+  if(!Object.values(tc).includes('auto'))errs.push('Just do it did not save auto: '+JSON.stringify(tc));
+  if(tc.money!=='never')errs.push('money is not never after a trust save: '+tc.money);
   await p.evaluate(()=>location.hash='#brain');await p.waitForTimeout(300);
   await p.locator('[aria-label="Work, note"]').first().click();await p.waitForTimeout(300);
   const bt=await p.evaluate(()=>document.body.innerText);

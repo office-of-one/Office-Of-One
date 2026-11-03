@@ -8,7 +8,7 @@ Owner = written by agents. User = written by the page. Agents must never overwri
 - meta/today (Desk): headline, updatedAt.
 - meta/brain (Desk): gaps [{s,t,note}], defaultNode, goalsOrder [id].
 - meta/calendar (Desk): grid0, grid1 (YYYY-MM-DD), series {id:{id,title,goal,area,why,kind}}, weeks [{label,from,note,h:{area:hours},s:{area:hours}}], away [{from,to,label,kind}], ghosts [{date,time,title}].
-- settings/trust (page, Desk reads): cats {schedule_reply,book_meeting,rsvp,thanks,nudge,decline,archive_promos,money} = "ask"|"never" (any stored "auto" is read as "ask"). Money is always "never".
+- settings/trust (page, Desk reads): cats {schedule_reply,book_meeting,rsvp,thanks,nudge,decline,archive_promos,money} = "auto"|"ask"|"never". "auto" is shown as "Just do it" and means draft straight away without asking first; nothing is ever sent without the user's review. Any other value is read as "ask". Money is always "never".
 - settings/protected (setup, page): blocks [{id,label,rule,on}].
 - settings/rules (page, from accepted recs): rules [{id,text,match,action}].
 

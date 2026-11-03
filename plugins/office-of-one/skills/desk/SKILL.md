@@ -120,7 +120,7 @@ marks them), which always wins: the user did it.
 carries a `page: <doc id>` line in tasks.md: setup writes `page: L<n>`
 on every item it seeds, and step 4b writes the ids it gives. Match by
 that line only; the memo's numbers move, the line does not. An item
-without one (a page seeded before 3.49.0) is matched to the `todos`
+without one (a page seeded before 3.50.0) is matched to the `todos`
 document setup made for it (doc id `L` and the item's number then,
 same title), or else by title; once matched, write its `page:` line.
 
@@ -151,13 +151,16 @@ same title), or else by title; once matched, write its `page:` line.
   `settings/rules` become lines in ways-of-working.md under
   "## Set on your Desk" (add the section if missing), replacing what
   was there: one "Trust:" line per category in plain words with
-  "ask" or "never" ("Trust: thank-yous and confirmations: ask"), one
-  "Rule:" line per rule, and one "Protected:" line per block that is
-  on, but only where it differs from the protected time
-  ways-of-working.md already records. **A stored "auto" is always
-  read and written as "ask".** Money is always "never". Nothing is
-  ever sent as the user without review, whatever the page says. A
-  category set to "never" is not drafted or acted on.
+  "just do it", "ask" or "never" ("Trust: thank-yous and
+  confirmations: just do it"), one "Rule:" line per rule, and one
+  "Protected:" line per block that is on, but only where it differs
+  from the protected time ways-of-working.md already records. A
+  stored "auto" is "just do it"; any value other than auto, ask or
+  never is "ask". Money is always "never". **"Just do it" never
+  means sending:** it means draft straight away, without asking
+  first or tagging it LET'S TALK. Nothing is ever sent as the user
+  without review, whatever the page says. A category set to "never"
+  is not drafted or acted on.
 - **Agents.** An `agents` document with status "live" is listed in
   ways-of-working.md under "## Set on your Desk", with its name.
 
@@ -245,8 +248,9 @@ never sentAt).
 - **`handled`:** one document per item this run closed, title in the
   past tense in under 10 words, by "Desk" or "you".
 - **`recs`:** at most 3 a run, per the data contract, and only when
-  there is something worth suggesting. A trust rec only ever offers
-  "ask" or "never".
+  there is something worth suggesting. A trust rec offers "auto"
+  (just do it: draft straight away), "ask" or "never", never for
+  money, and never says anything will be sent without review.
 - **`meta/today`:** last, with a one-line headline of plain counts
   ("3 drafted, 1 to decide") and updatedAt now.
 
@@ -287,7 +291,7 @@ and never appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.49.0, as plugin_version; keep this number in step with
+   version, 3.50.0, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state
@@ -323,7 +327,7 @@ and never appears in a memo or in chat.
      "last_entry": "2026-09-18",
      "first_win_after": 3,
      "avg_autonomy": 3.2,
-     "plugin_version": "3.49.0",
+     "plugin_version": "3.50.0",
      "context":  { "work": 60, "personal": 30, "mixed": 10 },
      "artifact": { "email": 9, "plan": 2 },
      "mode":     { "directive": 70, "feedback-loop": 20, "learning": 10 },
@@ -647,7 +651,9 @@ Default is DRAFT IT, then say so in one line. Asking first costs a
 round trip that can span a whole memo cycle, and an unread draft
 costs them nothing. Drafting is not sending: never send an email
 as the user without review, even if ways-of-working.md or their
-Desk says otherwise: a stored "auto" is read as "ask". On a Desk,
+Desk says otherwise. A kind of email set to "just do it" on their
+Desk is drafted straight away, never held back to ask first, and
+still waits for their review. On a Desk,
 each draft goes to their mail drafts and onto the page, with the
 mail draft's id (step 4b). A kind of email set to "never" on their
 Desk is not drafted at all.
