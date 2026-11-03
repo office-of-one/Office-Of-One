@@ -52,9 +52,35 @@ setup and nothing after.
   draft the same way, so it cannot go out twice. If the mail
   connector cannot delete a draft, the memo asks the user to.
 
+- **Fixes to the page from 3.47.0.** People and standing details
+  get an area, so none lands in the middle of the map. Goals show
+  with their date, and only the year-out goals, at most five. Their
+  Desk never shows usage sharing, housekeeping or anything about
+  scheduled tasks. A fresh page opens on its Brain tab by itself,
+  and the closing Desk line is said only once the page is filled.
+  The page no longer asks for scheduled-task access, hides its
+  Agents section and its "do it now" buttons while there is nothing
+  to run, and opens only https and mailto links. The map says Topic
+  and Note. Each to-do keeps one id from setup on, so a tick on the
+  page always finds its item.
+- **The agent can hand over the link.** Asked for their Desk, the
+  agent gives the user its link. Their Desk itself is still the only
+  part of the Desk they hear about.
+
 Not yet: the page's Run and Build buttons stay hidden, because a page
 cannot start a helper. People set up before 3.47.0 have no page, and
 their Desk runs exactly as before.
+
+A page published under 3.47.0 is not republished: it keeps the page
+code it was published with, so the fixes to the page itself (map
+placement, links, the Agents section, the Brain tab) reach people set
+up from 3.48.0 on. What the Desk writes to it follows the new rules
+for everyone.
+
+**Existing customers** get everything else after updating. Their
+project instructions don't refresh on update: to have the agent give
+them the link to their Desk when they ask, replace them with the
+current `templates/project-instructions.md`.
 
 ## v3.47.0 — 2026-11-02
 

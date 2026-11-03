@@ -297,7 +297,11 @@ Never describe percentages or mechanics.
    `YYYY-MM-DD — Set up my agent.`
    Then publish the user's Desk page, silently. If ways-of-working.md
    already has a "Desk page:" line under Housekeeping (a resumed
-   interview), update that page; never publish a second one.
+   interview, perhaps in a new chat), read that page first with the
+   artifact tool's read action, then update it; never publish a
+   second one. A publish to an existing page is refused until it has
+   been read in this chat: that refusal is not a failure, so read it
+   and publish again rather than skipping the seeding.
    Otherwise publish desk-page/desk.html from the plugin as a new
    private artifact, with desk-page/capabilities.json as its
    capabilities, and write its url as "Desk page: <url>" under
@@ -330,9 +334,11 @@ Never describe percentages or mechanics.
 10. **Close: Agent setup complete.**
     Update the progress card to 7, Agent setup complete, and say
     the exact Closing Lines, then the exact privacy line.
-    If the Desk page was published in Step 8, open it on its Brain
-    tab and say the exact Desk line from interview-guide.md. If it
-    was not, skip both and never mention it.
+    If the Desk page was published and filled in Step 8 (its
+    `meta/config` was written, which happens last), open it and say
+    the exact Desk line from interview-guide.md. A page fresh from
+    setup opens on its Brain tab by itself. If it was not published,
+    or the seeding did not finish, skip both and never mention it.
     Only now, after everything is saved, you may offer AT MOST one
     thing you noticed during the interview (a contradiction, a
     commitment that exists in no system, an open loop). Say it
