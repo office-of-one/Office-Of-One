@@ -1,0 +1,150 @@
+{
+ "meta/config": {
+  "agentName": "Mira",
+  "userName": "Sam Rivera",
+  "mail": "gmail",
+  "calendar": "google",
+  "timezone": "America/New_York"
+ },
+ "meta/today": {
+  "headline": "Set up today",
+  "updatedAt": "2026-11-02T10:00:00Z"
+ },
+ "brain/profile": {
+  "kind": "profile",
+  "label": "Sam Rivera",
+  "short": "Sam",
+  "area": "core",
+  "summary": "Runs operations at a studio.",
+  "facts": [
+   "Two kids"
+  ],
+  "open": [],
+  "links": [
+   "person-alex",
+   "pickup"
+  ]
+ },
+ "brain/person-alex": {
+  "kind": "person",
+  "label": "Alex Rivera",
+  "short": "Alex",
+  "summary": "Partner",
+  "facts": [
+   "Does Tuesday pickup"
+  ],
+  "open": [],
+  "links": [
+   "profile"
+  ]
+ },
+ "brain/pickup": {
+  "kind": "topic",
+  "label": "School pickup",
+  "short": "Pickup",
+  "summary": "Weekdays at 3pm",
+  "facts": [
+   "3pm, Lincoln Elementary"
+  ],
+  "open": [],
+  "links": [
+   "person-alex"
+  ]
+ },
+ "brain/money": {
+  "kind": "doc",
+  "label": "Money",
+  "short": "Money",
+  "area": "finance",
+  "summary": "Household budget",
+  "facts": [
+   "Budget reviewed monthly"
+  ],
+  "open": [],
+  "links": [
+   "profile"
+  ]
+ },
+ "brain/goal-1": {
+  "kind": "goal",
+  "label": "Half marathon in April",
+  "summary": "Run the city half.",
+  "facts": [],
+  "open": [],
+  "links": [],
+  "story": {
+   "feeds": [
+    {
+     "id": "pickup",
+     "note": "Runs after pickup"
+    }
+   ],
+   "competes": [],
+   "missing": []
+  }
+ },
+ "meta/brain": {
+  "defaultNode": "goal-1",
+  "goalsOrder": [
+   "goal-1"
+  ],
+  "gaps": [
+   {
+    "s": "pickup",
+    "t": "person-alex",
+    "note": "Who covers Thursday?"
+   }
+  ]
+ },
+ "todos/L1": {
+  "title": "Read the race guide",
+  "detail": "",
+  "category": "Goal",
+  "status": "open",
+  "state": "recommend",
+  "ledger": [
+   1
+  ],
+  "action": {
+   "kind": "link",
+   "label": "Open guide",
+   "url": "javascript:alert(1)"
+  }
+ },
+ "todos/L2": {
+  "title": "Check the bad link",
+  "detail": "",
+  "category": "Admin",
+  "status": "open",
+  "state": "bare",
+  "ledger": [
+   2
+  ],
+  "action": null,
+  "run": {
+   "status": "done",
+   "at": "2026-11-02T09:00:00Z",
+   "summary": "Found it.",
+   "links": [
+    {
+     "title": "Bad link",
+     "url": "javascript:alert(2)"
+    },
+    {
+     "title": "Good link",
+     "url": "https://example.com/a"
+    }
+   ]
+  }
+ },
+ "calevents/e1": {
+  "date": "2026-11-03",
+  "start": "09:00",
+  "end": "10:00",
+  "title": "Run club",
+  "area": "health",
+  "all_day": false,
+  "hours": 1,
+  "link": "javascript:alert(3)"
+ }
+}

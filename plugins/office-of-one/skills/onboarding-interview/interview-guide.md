@@ -397,12 +397,13 @@ and say 'help' whenever you're stuck.
 Talk soon, [Name].
 — [Agent Name] 🤖"
 
-Then, last of all:
+Then:
 
 "Office of One has your name and email, so they can help if I ever
 get stuck. For privacy, see PRIVACY.md in your project folder."
 
-Then, only if the Desk page was published, open it on its Brain tab
+Last of all, and only if the Desk page was published and filled
+(seeding finished), open it (it opens on its Brain tab by itself)
 and say:
 
 "Your Desk is ready. It shows what I know about you, with your goals

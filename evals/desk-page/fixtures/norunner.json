@@ -142,5 +142,31 @@
    "g1"
   ],
   "gaps": []
+ },
+ "trips/t1": {
+  "name": "Chicago offsite",
+  "city": "Chicago",
+  "start": "2030-11-10",
+  "end": "2030-11-12",
+  "flight": {
+   "booked": false,
+   "note": "Not booked yet"
+  },
+  "flightTodo": "L3"
+ },
+ "todos/L3": {
+  "title": "Book flight to Chicago",
+  "detail": "",
+  "category": "Travel",
+  "status": "open",
+  "state": "bare",
+  "ledger": [
+   3
+  ],
+  "action": {
+   "kind": "flights",
+   "label": "Find flights",
+   "instruction": "Find flights to Chicago"
+  }
  }
 }
