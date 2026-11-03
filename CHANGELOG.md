@@ -27,6 +27,33 @@ the version: a push that does not is never picked up. What never
 updates is their project instructions and their copy of PRIVACY.md,
 both written into the project at setup.
 
+## v3.48.0 — 2026-11-02
+
+**The user's Desk stays current.** Until now it showed the day of
+setup and nothing after.
+
+- **After each 5am and 7pm run** their Desk shows the open to-dos
+  with what the agent did on each, the new drafts, the calendar
+  offers, what closed, and each goal's story rebuilt from that day's
+  calendar and list.
+- **Taps on the page reach the agent.** A to-do ticked done closes
+  on the list, a note is kept with its item, a to-do added on the
+  page (or a "Yes, draft it" on a goal suggestion) is worked in the
+  same run, and trust, protected time and rules carry into how the
+  agent works. A stored "auto" is always read as "ask": nothing is
+  sent without review.
+- **Drafts live in both places.** Every new draft goes to the mail
+  drafts folder as before and onto their Desk. Sent or skipped on
+  the page, the next run deletes that one mail draft, the only
+  delete the agent ever makes. Sent from mail, the page copy is
+  marked sent. Edited on the page, the mail draft is rewritten to
+  match. With Outlook or other mail the page opens the mail draft,
+  so there is still one place to send from.
+
+Not yet: the page's Run and Build buttons stay hidden, because a page
+cannot start a helper. People set up before 3.47.0 have no page, and
+their Desk runs exactly as before.
+
 ## v3.47.0 — 2026-11-02
 
 **The interview ends on the user's own Desk page.** Setup used to

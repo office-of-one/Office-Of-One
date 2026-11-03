@@ -43,6 +43,15 @@ every case fails for reasons unrelated to the plugin.
   nothing reaches the calendar without a yes, that nothing is
   invented, and that the reply never names a file or a tool.
 
+- `desk-sync/` — "run the Desk" with a published Desk page the user
+  used since the last run. The run has no page or mail tools, so the
+  prompt has it read `page-state.json` as the page and write its page
+  and mail-draft changes to `page-writes.json` and
+  `draft-actions.json`. Checks that a to-do ticked on the page closes,
+  that a to-do made on the page reaches the list, that a stored
+  "auto" is recorded as "ask", that only the sent email's mail draft
+  is deleted, and that nothing is sent.
+
 ## Reading a score
 
 A case scores per run, and the pass mark is 1.00, so any single bad
