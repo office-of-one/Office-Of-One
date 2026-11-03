@@ -29,6 +29,13 @@ Evening Debrief off, stop The Desk - Evening too.
    it is read only to answer a question about the past. tasks.md is
    the system of record. Never work a workflow file. You may read a workflow's
    tracker only to recognize who is in it.
+
+   1b. **Read back their Desk.** Only if ways-of-working.md has a
+   "Desk page:" line under Housekeeping; with none, skip this step
+   and step 4b entirely. Fold in what the user did on their Desk
+   since the last run: to-dos ticked or added, emails sent or
+   skipped, settings changed, and the mail drafts that go with
+   them. See "Keeping their Desk current" below.
 2. **Sweep.** Calendar for the day. Mail received AND sent since
    the last run. If the Desk has not run before, start from the
    "Mail swept through" time in ways-of-working.md. Sent matters
@@ -53,7 +60,13 @@ Evening Debrief off, stop The Desk - Evening too.
    [workflow name] for [sender]."
 4. **Work the list.** Go item by item and take each one as far as
    it can go on its own. This is the step that makes the memo
-   worth sending. See below.
+   worth sending. See below. Items added in step 1b are worked in
+   this same run, like any other.
+
+   4b. **Write out to their Desk.** Same condition as step 1b. Put
+   this run's results on the page: the open to-dos with their
+   states, each new draft, the calendar offers, each goal's story,
+   and what closed. See "Keeping their Desk current" below.
 5. **Log.** Add or update today's line in log.md, per memorialize:
    what closed, what changed, what the user decided.
 6. **Check the version** on The Desk - Morning only. Call
@@ -71,6 +84,147 @@ Evening Debrief off, stop The Desk - Evening too.
 7. **Count the run.** Append one line to usage-desk.md: the date, the
    time, how many open items had a state recorded at the end of this
    run, and how many of those were bare. Numbers only, never an item.
+
+## Keeping their Desk current (steps 1b and 4b)
+
+Their Desk is the private page published at setup. Its url is the
+"Desk page:" line under Housekeeping in ways-of-working.md. Read and
+write it with the ArtifactData tool at that url. The collections and
+fields are in this plugin's `desk-page/data-contract.md`, and the
+rules for turning brain files into page documents are in
+`desk-page/seed.md`, the same ones setup used. Follow both.
+
+- **No "Desk page:" line** (set up before 3.47.0, or the page could
+  not be published): skip steps 1b and 4b. The run is exactly as it
+  was.
+- **The tool is not available, or the page cannot be read:** skip
+  both steps this run and change nothing on the page.
+- **The page was never seeded** (it has no `meta/config`): the
+  morning run seeds it once, after step 4, in place of step 4b, by
+  following seed.md with "Desk" in place of "Interview". The evening
+  run skips both steps until then.
+
+Never name the page, a collection, a file or a tool to the user. In
+a memo the page is only ever "your Desk", and the runs that keep it
+current, their times and their schedules are never mentioned.
+
+### Step 1b: read back
+
+Read every document on the page, then fold what the user did there
+into the brain before the sweep. tasks.md wins any conflict with the
+page, except a User field (the data contract marks them), which
+always wins: the user did it.
+
+**Matching a to-do to its item.** An item that is on the page
+carries a `page: <doc id>` line in tasks.md. An item without one is
+matched to the `todos` document setup made for it (doc id `L` and
+the item's number, same title), or else by title; once matched,
+write its `page:` line.
+
+- **To-dos ticked done or closed.** Close the matching tasks.md item:
+  move it under Done with the doneAt date and "on your Desk". Add any
+  notes to the item. A `run` result is attached to the item as a
+  found: line.
+- **To-dos made on the page.** An open `todos` document with no item
+  in tasks.md was added on the page: by the user ("You"), when they
+  sent an email that expects a reply ("Desk page"), or when they said
+  "Yes, draft it" to a suggestion on one of their goals ("Brain").
+  Add each to tasks.md now, in the category it fits, its title as
+  written, with its `page:` line, and a touches line for its goal if
+  it has one. For a goal suggestion, `action.instruction` says what
+  they agreed to. Step 4 works these in this same run like any other
+  item, and never does more than they said yes to.
+- **Emails sent or skipped.** Close the item the draft was for:
+  "sent from your Desk" or "skipped on your Desk". Then the drafts
+  rules below.
+- **Decisions.** Each `decisions` document since the last run is
+  something the user decided. Step 5 puts it in today's log line.
+- **Settings.** `settings/trust`, `settings/protected` and
+  `settings/rules` become lines in ways-of-working.md under
+  "## Set on your Desk" (add the section if missing), replacing what
+  was there: one "Trust:" line per category in plain words with
+  "ask" or "never" ("Trust: thank-yous and confirmations: ask"), one
+  "Protected:" line per block that is on, one "Rule:" line per rule.
+  **A stored "auto" is always read and written as "ask".** Money is
+  always "never". Nothing is ever sent as the user without review,
+  whatever the page says. A category set to "never" is not drafted
+  or acted on.
+- **Agents.** An `agents` document with status "live" is listed in
+  ways-of-working.md under "## Set on your Desk", with its name.
+
+**Drafts live in two places, kept in step.** Every draft the Desk
+writes goes to the mail drafts folder, as always, and onto the page
+as an `emails` document whose `draftId` is that mail draft's id
+(step 4b). For each `emails` document with a `draftId`:
+
+- **The page copy is sent** and mail is Gmail, where the page sends
+  its own copy: delete that one mail draft, by its `draftId`, so it
+  cannot go out twice. With Outlook or other mail the page opens the
+  mail draft instead of sending, so the draft itself went: delete
+  nothing.
+- **The page copy is skipped:** delete that one mail draft.
+- **The mail draft is gone and a sent message is on its thread**
+  since the draft was made: the user sent it from mail. Mark the
+  page copy sent, with that message's time, and close the item.
+- **The page copy is edited** (`edited` is true) and still pending:
+  the page copy wins. If the mail draft's recipients, subject or
+  body differ from it, rewrite the mail draft from the page copy, in
+  place. If the mail connector cannot update a draft, leave both.
+- **Otherwise mail wins:** if the user changed the mail draft, step
+  4b copies the change to the page copy.
+- A page copy that is sent or skipped is never marked pending again
+  and never written to again.
+
+**The one delete.** Deleting a mail draft whose page copy is sent or
+skipped is the only delete the Desk ever does, and only for a draft
+it wrote: the `draftId` on an `emails` document the Desk made. If
+that draft is already gone, there is nothing to do. Never delete any
+other draft, any message, or any document on the page.
+
+### Step 4b: write out
+
+Project this run's results onto the page. Write with ArtifactData
+"batch", at most 50 writes a call. Pin every write to an existing
+document with its version as if_version. Never write a User field.
+If a write is refused because the document changed, read it again
+and redo that one write once; if it fails again, leave it for the
+next run.
+
+- **`todos`:** every open tasks.md item, per seed.md "To-dos", with
+  state from step 4 (RECOMMEND "recommend", DRAFTED "drafted",
+  LET'S TALK "talk", otherwise "bare") and an action where there is
+  one: `link` with the pick's url, `goto` with the draft's `emails`
+  id, `calendar` with the entry offered. Never a kind that needs a
+  helper (draft, move-draft, options, research, ask, flights): the
+  page cannot start one. The doc id is the item's `page:` line; an
+  item with none gets a new id, `D` and today's date and a running
+  number (`D20261102-1`), written to its `page:` line. A page-made
+  to-do keeps its own id. An item closed in tasks.md gets no new
+  writes, except one: if the Desk closed it this run (not the user)
+  and its page status is still "open", set status "closed" so the
+  page stops showing it.
+- **`emails`:** each draft made in step 4, in both places: the mail
+  draft first, then the page copy with that draft's id as `draftId`,
+  status "pending", `from` "Desk", `kind` the trust category it falls
+  under, `why` in 12 words or fewer. Plus any change copied from mail
+  under the drafts rules above.
+- **`calevents`, `calitems`, `meta/calendar`:** the calendar the run
+  read and each calendar entry offered in step 4 (`calitems` kind
+  "add", with `create`). An entry offered never invites anyone else.
+- **`brain` and `meta/brain`:** only the nodes whose file changed
+  this run, per seed.md "Brain nodes". Every run rebuilds each goal's
+  `story`, per seed.md "Goals and their story", from the calendar the
+  run read, the items with a touches line for that goal, and mail
+  that bears on it. Facts only, each with its source. At most one
+  suggestion, and none that repeats one the user already said yes to
+  (an open to-do from it) or turned down. Blank beats guessed.
+- **`handled`:** one document per item this run closed, title in the
+  past tense in under 10 words, by "Desk" or "you".
+- **`recs`:** at most 3 a run, per the data contract, and only when
+  there is something worth suggesting. A trust rec only ever offers
+  "ask" or "never".
+- **`meta/today`:** last, with a one-line headline of plain counts
+  ("3 drafted, 1 to decide") and updatedAt now.
 
 ## Weekly: the usage roll-up
 
@@ -465,8 +619,11 @@ starts looking like a dashboard.
 Default is DRAFT IT, then say so in one line. Asking first costs a
 round trip that can span a whole memo cycle, and an unread draft
 costs them nothing. Drafting is not sending: never send an email
-as the user without review, even if ways-of-working.md says
-otherwise.
+as the user without review, even if ways-of-working.md or their
+Desk says otherwise: a stored "auto" is read as "ask". On a Desk,
+each draft goes to their mail drafts and onto the page, with the
+mail draft's id (step 4b). A kind of email set to "never" on their
+Desk is not drafted at all.
 
 **Draft it, no permission needed,** when the work is assembling
 what is already true: comparisons, research, summaries, a reply
