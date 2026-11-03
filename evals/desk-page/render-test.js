@@ -23,6 +23,29 @@ const CHECKS={
   await p.click('text=Mark sent');await p.waitForTimeout(300);
   const st=await p.evaluate(()=>window.__store['emails/e1'].status);console.log('status',st);
   if(st!=='sent')errs.push('Mark sent did not set status sent: '+st);
+  await p.evaluate(()=>location.hash='#settings');await p.waitForTimeout(300);
+  if(await p.locator('text=Just do it').count())errs.push('Settings still offers Just do it');
+  await p.evaluate(()=>location.hash='#brain');await p.waitForTimeout(300);
+  await p.locator('[aria-label="Work, memory note"]').first().click();await p.waitForTimeout(300);
+  const bt=await p.evaluate(()=>document.body.innerText);
+  if(/\b[\w-]+\.md\b/.test(bt))errs.push('Brain panel shows a file path: '+bt.match(/\b[\w-]+\.md\b/)[0]);
+  return errs;},
+ norunner:async(p)=>{const errs=[];
+  for(const t of ['today','todos','brain','calendar','plan']){await p.evaluate(x=>location.hash='#'+x,t);await p.waitForTimeout(300);
+   for(const s of ['Run','Build this agent','Yes, draft it']){ if(await p.getByText(new RegExp('^\\s*(✦\\s*)?'+s+'$')).count())errs.push(`"${s}" shown on ${t} with no helper task`);} }
+  return errs;},
+ calgoogle:async(p)=>{const errs=[];
+  await p.evaluate(()=>location.hash='#calendar');await p.waitForTimeout(300);
+  const sg=p.locator('button.sug, button.sgc').first();
+  if(!await sg.count())return ['no calendar suggestion to click'];
+  await sg.click();await p.waitForTimeout(300);
+  const b=p.locator('button:has-text("Add to calendar")').first();
+  if(!await b.count())return ['no Add to calendar button'];
+  await b.click();await p.waitForTimeout(400);
+  const c=await p.evaluate(()=>window.__call);
+  if(!c||c[1]!=='create_event')errs.push('create_event not called: '+JSON.stringify(c));
+  else{ if('attendees' in c[2])errs.push('attendees reached create_event');
+   if(!c[2].summary)errs.push('create_event has no summary'); }
   return errs;}
 };
 const args=process.argv.slice(2);
