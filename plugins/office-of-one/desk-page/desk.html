@@ -94,6 +94,13 @@ svg text{font-family:var(--f-body)}
 .edge{fill:none;stroke:var(--line-2);stroke-width:1}
 .edge.hot{stroke:var(--accent);stroke-width:1.8}
 .edge.gap{stroke:var(--crit);stroke-dasharray:4 4;stroke-width:1.6}
+.edge.feed{stroke:var(--accent);stroke-width:1.6;opacity:.45}
+.edge.feed.hot{stroke:var(--accent);stroke-width:4;stroke-linecap:round;opacity:1}
+.edge.compete{stroke:var(--warn);stroke-width:1.8;stroke-dasharray:2 5;stroke-linecap:round;opacity:.55}
+.edge.compete.hot{stroke:var(--warn);stroke-width:3.6;stroke-dasharray:2 7;opacity:1}
+.node.goal .lbl{fill:var(--ink);font-size:15px;font-weight:700}
+.node.profile .lbl{fill:var(--ink);font-family:var(--f-display);font-size:20px;font-weight:800}
+.goal-ph{fill:none;stroke:var(--crit);stroke-width:1.5;stroke-dasharray:3 2}
 .lobe-arc{fill:none;stroke-width:6;stroke-linecap:round}
 .lobe-lbl{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 
@@ -103,9 +110,21 @@ svg text{font-family:var(--f-body)}
 .chip.st-empty,.chip.st-stale{background:color-mix(in oklab,var(--crit) 14%,var(--surface));color:var(--crit)}
 .chip.st-live{background:color-mix(in oklab,var(--good) 14%,var(--surface));color:var(--good)}
 .panel h3{font-size:24px}
-.panel .path{color:var(--muted);word-break:break-all}
 .panel ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
 .panel .blk h4{margin:0 0 6px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.story{display:flex;flex-direction:column;gap:6px}
+.story h4{margin:0;font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:700}
+.story.feed h4{color:var(--accent)} .story.compete h4{color:var(--warn)} .story.missing h4{color:var(--crit)}
+.story .it{display:flex;gap:10px;align-items:baseline;font-size:14px}
+.story .it i{flex:none;width:14px;display:inline-block;transform:translateY(-3px)}
+.story.feed .it i{border-top:3px solid var(--accent)} .story.compete .it i{border-top:3px dotted var(--warn)} .story.missing .it i{border-top:2px dashed var(--crit)}
+.suggest{background:var(--accent-soft);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.suggest .hd{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.suggest .tag{font-size:10px;letter-spacing:.1em;font-weight:700;color:var(--on-accent);background:var(--accent);border-radius:4px;padding:2px 6px}
+.suggest .by{font-size:12px;color:var(--ink-2)}
+.suggest p{margin:0;font-size:14px;color:var(--ink)}
+.suggest .acts{display:flex;gap:8px;flex-wrap:wrap}
+.suggest .acts .btn{min-height:44px}
 .links{display:flex;flex-wrap:wrap;gap:6px}
 .links button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:3px 10px;font-size:12.5px;cursor:pointer}
 .links button:hover{border-color:var(--accent);color:var(--accent)}
@@ -743,6 +762,12 @@ function moveTip(ev){ const x=(ev.clientX??0)+14, y=(ev.clientY??0)+14; const w=
 function hideTip(){ tip.hidden=true; }
 
 /* ============ BRAIN ============ */
+const SUGG={hidden:new Set(), drafted:new Map()}; let brainSel=null; // keeps the open node when the map redraws
+// A goal label: at most 22 characters (cut at a word, with …), on up to two lines.
+function goalLines(s){ s=String(s||'').trim(); if(s.length>22){ let c=s.slice(0,21); const sp=c.lastIndexOf(' '); if(s[21]!==' '&&sp>10) c=c.slice(0,sp); s=c.replace(/[\s,.;:–-]+$/,'')+'…'; }
+  if(s.length<=12||s.indexOf(' ')<0) return [s];
+  const mid=s.length/2; let best=-1; for(let i=0;i<s.length;i++) if(s[i]===' '&&(best<0||Math.abs(i-mid)<Math.abs(best-mid))) best=i;
+  return [s.slice(0,best), s.slice(best+1)]; }
 function renderBrain(){
   const v = $('#v-brain'); v.innerHTML='';
   const B = D.brain;
@@ -754,39 +779,57 @@ function renderBrain(){
   const panel = h('div',{class:'card panel',id:'panel','aria-live':'polite'});
   grid.append(mapbox,panel); v.append(grid);
 
+  const hasGoals = B.nodes.some(n=>n.kind==='goal');
   // legend
   const legend = h('div',{class:'legend',style:'padding:4px 6px 10px'},
     ...AREAS.filter(a=>B.nodes.some(n=>n.area===a.key)).map(a=>h('span',{class:'k'},h('i',{class:'sw',style:`background:${col(a.key)}`}),a.label)),
     h('span',{class:'k'},h('i',{class:'sw sq',style:'background:var(--ink-2)'}),'Project file'),
     h('span',{class:'k'},h('i',{class:'sw circle',style:'background:var(--ink-2)'}),'Memory note'),
+    hasGoals? h('span',{class:'k'},h('i',{class:'sw circle',style:'background:var(--ink-2);width:14px;height:14px'}),'Goal (centre)') : null,
+    hasGoals? h('span',{class:'k'},h('i',{style:'width:18px;border-top:3px solid var(--accent);display:inline-block'}),'Feeds a goal') : null,
+    hasGoals? h('span',{class:'k'},h('i',{style:'width:18px;border-top:3px dotted var(--warn);display:inline-block'}),'Competes for its time') : null,
     h('span',{class:'k'},h('i',{style:'width:18px;border-top:2px dashed var(--crit);display:inline-block'}),'Missing link'));
   mapbox.append(legend);
 
-  const W=1340, R0=120, R1=262, R2=392;
-  const svg = S('svg',{viewBox:`${-W/2} ${-W/2} ${W} ${W}`,role:'img','aria-label':'Radial map of ⟦A⟧ brain files grouped by life area'});
+  // The canvas used R0 58, R1 102, R2 128 on a 358px map. R0 is scaled to the 1340 viewBox so the
+  // profile, up to five goals and the core files fit inside it; R1 and R2 move out only as far as the
+  // outward ring labels allow.
+  const VW=1340, R0=215, R1=330, R2=440;
+  const svg = S('svg',{viewBox:`${-VW/2} ${-VW/2} ${VW} ${VW}`,role:'img','aria-label':'Radial map of ⟦A⟧ brain files grouped by life area'});
   mapbox.append(svg);
   mapbox.append(h('div',{class:'hint'},'Tap a node to read it'));
 
   const nodes = B.nodes.map(n=>({...n}));
   const byId = Object.fromEntries(nodes.map(n=>[n.id,n]));
-  const core = nodes.filter(n=>n.area==='core');
+  const profile = nodes.find(n=>n.kind==='profile') || null;
+  const gOrder = B.goalsOrder||[];
+  const goals = nodes.filter(n=>n.kind==='goal').sort((a,b)=>{ const ia=gOrder.indexOf(a.id), ib=gOrder.indexOf(b.id); return (ia<0?1e3:ia)-(ib<0?1e3:ib) || String(a.label).localeCompare(String(b.label)); });
+  const core = nodes.filter(n=>n.area==='core' && n!==profile && n.kind!=='goal');
   const ring = AREAS.filter(a=>a.key!=='core');
-  // weights per lobe
-  const lobes = ring.map(a=>{ const d=nodes.filter(n=>n.area===a.key&&n.kind==='doc'); const m=nodes.filter(n=>n.area===a.key&&n.kind!=='doc'); return {a,d,m,w:Math.max(d.length*2.5,m.length,1.5)+1.2}; }).filter(l=>l.d.length||l.m.length);
+  // weights per lobe (goals sit in the centre, not in their area's lobe)
+  const lobes = ring.map(a=>{ const d=nodes.filter(n=>n.area===a.key&&n.kind==='doc'); const m=nodes.filter(n=>n.area===a.key&&n.kind!=='doc'&&n.kind!=='goal'&&n!==profile); return {a,d,m,w:Math.max(d.length*2.5,m.length,1.5)+1.2}; }).filter(l=>l.d.length||l.m.length);
   for(let it=0;it<4;it++){ const t0=lobes.reduce((s,l)=>s+l.w,0); lobes.forEach(l=>{ const need=(l.a.label.length*9.6+34)/((R1+R2)/2); const have=l.w/t0*Math.PI*2; if(have<need) l.w*=need/have; }); }
-  const tw = lobes.reduce((s,l)=>s+l.w,0); let ang=-Math.PI/2 - (lobes[0].w/tw)*Math.PI;
+  const tw = lobes.reduce((s,l)=>s+l.w,0); let ang=-Math.PI/2 - (lobes.length? lobes[0].w/tw : 0)*Math.PI;
   const gap = 0.035;
   lobes.forEach(l=>{ const span=(l.w/tw)*Math.PI*2; l.a0=ang+gap/2; l.a1=ang+span-gap/2; ang+=span;
     const place=(arr,r)=>{ const k=arr.length; arr.forEach((n,i)=>{ const t = k===1? (l.a0+l.a1)/2 : l.a0+ (l.a1-l.a0)*( (i+0.5)/k ); n.ang=t; n.r=r; n.x=Math.cos(t)*r; n.y=Math.sin(t)*r; }); };
     place(l.d,R1); place(l.m,R2); });
-  core.sort((a,b)=>(a.kind==='doc'?0:1)-(b.kind==='doc'?0:1)); core.forEach((n,i)=>{ const t=-Math.PI/2+ i*(Math.PI*2/core.length); n.ang=t; n.r=R0*0.68; n.x=Math.cos(t)*n.r; n.y=Math.sin(t)*n.r; n.core=true; });
+  // The centre: the profile on top, goals across the middle, core files on the rim.
+  const PY=-120;
+  if(profile){ profile.x=0; profile.y=PY; profile.ang=-Math.PI/2; profile.core=true; }
+  const rows = goals.length<=3? [goals.length] : [Math.ceil(goals.length/2), Math.floor(goals.length/2)];
+  const rowY = rows.length===1? [0] : [-35,70]; const GX=140; let gi=0;
+  rows.forEach((k,r)=>{ for(let i=0;i<k;i++,gi++){ const n=goals[gi]; n.x=(i-(k-1)/2)*GX; n.y=rowY[r]; n.ang=Math.PI/2; n.core=true; } });
+  // Rim angles run from upper right, down round the bottom, to upper left, keeping clear of the profile.
+  core.sort((a,b)=>(a.kind==='doc'?0:1)-(b.kind==='doc'?0:1));
+  core.forEach((n,i)=>{ const deg = core.length===1? 90 : -35 + i*250/(core.length-1); const t=deg*Math.PI/180; n.ang=t; n.r=R0*0.76; n.x=Math.cos(t)*n.r; n.y=Math.sin(t)*n.r; n.core=true; });
 
   const gE=S('g'), gA=S('g'), gN=S('g');
   svg.append(gA,gE,gN);
   // core disc
-  gA.append(S('circle',{cx:0,cy:0,r:R0,fill:'var(--surface-2)'}));
-  const hub=S('text',{x:0,y:8,'text-anchor':'middle','font-size':24,'font-weight':800,fill:'var(--ink)','font-family':'League Spartan, sans-serif'}); hub.textContent=T('⟦A⟧'); gA.append(hub);
-  const hub2=S('text',{x:0,y:R0-16,'text-anchor':'middle','font-size':11,fill:'var(--muted)','letter-spacing':'.08em'}); hub2.textContent='CORE'; gA.append(hub2);
+  gA.append(S('circle',{class:'core-disc',cx:0,cy:0,r:R0,fill:'var(--surface-2)'}));
+  if(!goals.length){ gA.append(S('circle',{class:'goal-ph',cx:0,cy:0,r:11}));
+    const ng=S('text',{x:0,y:34,'text-anchor':'middle','font-size':15,'font-weight':700,fill:'var(--crit)'}); ng.textContent='No goals yet'; gA.append(ng); }
   // rings
   [R1,R2].forEach(r=>gA.append(S('circle',{cx:0,cy:0,r,fill:'none',stroke:'var(--line)','stroke-dasharray':'2 5'})));
   // lobe arcs + labels
@@ -798,52 +841,80 @@ function renderBrain(){
 
   // edges
   const edges=[]; const seen=new Set();
+  goals.forEach(g=>{ const st=g.story||{};
+    [['feed',st.feeds],['compete',st.competes]].forEach(([cls,list])=>(list||[]).forEach(f=>{ if(!f||!byId[f.id]||f.id===g.id) return; const k=[g.id,f.id].sort().join('|'); if(seen.has(k)) return; seen.add(k); edges.push({s:g.id,t:f.id,story:cls,goal:g.id}); })); });
   nodes.forEach(n=>(n.links||[]).forEach(t=>{ if(!byId[t]||t===n.id) return; const k=[n.id,t].sort().join('|'); if(seen.has(k)) return; seen.add(k); edges.push({s:n.id,t,gap:false}); }));
   (B.gaps||[]).forEach(g=>{ if(byId[g.s]&&byId[g.t]) edges.push({s:g.s,t:g.t,gap:true,note:g.note}); });
   const edgeEls = edges.map(e=>{ const a=byId[e.s], b=byId[e.t]; const k = 0.18; const cx=(a.x+b.x)/2*k, cy=(a.y+b.y)/2*k;
-    const p=S('path',{d:`M${a.x},${a.y} Q${cx},${cy} ${b.x},${b.y}`,class:'edge'+(e.gap?' gap':'')}); gE.append(p); return {e,p}; });
+    const p=S('path',{d:`M${a.x},${a.y} Q${cx},${cy} ${b.x},${b.y}`,class:'edge'+(e.gap?' gap':'')+(e.story?' '+e.story:''),'data-s':e.s,'data-t':e.t}); gE.append(p); return {e,p}; });
+  if(!goals.length&&profile) gE.append(S('path',{d:`M${profile.x},${profile.y} L0,-11`,class:'edge gap','data-s':profile.id,'data-t':''}));
 
   // nodes
   const nodeEls={};
   nodes.forEach(n=>{
-    const g=S('g',{class:'node',tabindex:0,role:'button','aria-label':`${n.label}, ${n.kind==='doc'?'project file':'memory note'}`, transform:`translate(${n.x},${n.y})`});
-    const size = n.kind==='doc'? 7+ (n.tier||1)*1.6 : 5 + Math.min((n.facts||[]).length,8)*0.45;
+    const isGoal=n.kind==='goal', isProf=n===profile;
+    const g=S('g',{class:'node'+(isGoal?' goal':'')+(isProf?' profile':''),tabindex:0,role:'button','data-id':n.id,'aria-label':`${n.label}, ${isGoal?'goal':isProf?'your profile':n.kind==='doc'?'project file':'memory note'}`, transform:`translate(${n.x},${n.y})`});
+    const size = isGoal? 11 : isProf? 9 : n.kind==='doc'? 7+ (n.tier||1)*1.6 : 5 + Math.min((n.facts||[]).length,8)*0.45;
     const fill = n.area==='core'? 'var(--c-core)' : col(n.area);
     if(n.kind==='doc'){ g.append(S('rect',{class:'dot',x:-size,y:-size,width:size*2,height:size*2,rx:3,fill,stroke:'var(--surface)','stroke-width':2})); }
     else g.append(S('circle',{class:'dot',r:size,fill,stroke:'var(--surface)','stroke-width':2}));
     if(n.status==='empty'||n.status==='stale'){ g.append(S('circle',{r:size+5,fill:'none',stroke:'var(--crit)','stroke-width':1.5,'stroke-dasharray':'3 2'})); }
     // label
     let lx,ly,anchor,rot=0;
-    if(n.core){ const c=Math.cos(n.ang); if(Math.abs(c)<0.3){ lx=0; ly=size+15; anchor='middle'; } else { lx=c>0?size+6:-(size+6); ly=5; anchor=c>0?'start':'end'; } }
+    if(isGoal){ const t=S('text',{class:'lbl',x:0,y:size+19,'text-anchor':'middle'});
+      goalLines(n.short||n.label).forEach((ln,i)=>{ const ts=S('tspan',{x:0,dy:i?17:0}); ts.textContent=ln; t.append(ts); }); g.append(t); }
+    else if(isProf){ lx=0; ly=-(size+12); anchor='middle'; }
+    else if(n.core){ const c=Math.cos(n.ang); if(Math.abs(c)<0.3){ lx=0; ly=size+15; anchor='middle'; } else { lx=c>0?size+6:-(size+6); ly=5; anchor=c>0?'start':'end'; } }
     else { const deg=n.ang*180/Math.PI; const right=Math.cos(n.ang)>=0; const off = n.kind==='doc'? -(size+6) : (size+6);
       rot = right? deg : deg+180; lx = right? off : -off; ly=4; anchor = (n.kind==='doc') ? (right?'end':'start') : (right?'start':'end'); }
-    const t=S('text',{class:'lbl',x:lx,y:ly,'text-anchor':anchor,transform:rot?`rotate(${rot})`:null});
-    const lt=(n.short||n.label); t.textContent = lt.length>27? lt.slice(0,26)+'…' : lt; g.append(t);
+    if(!isGoal){ const t=S('text',{class:'lbl',x:lx,y:ly,'text-anchor':anchor,transform:rot?`rotate(${rot})`:null});
+      const lt=(n.short||n.label); t.textContent = lt.length>27? lt.slice(0,26)+'…' : lt; g.append(t); }
     g.addEventListener('click',()=>select(n.id));
     g.addEventListener('keydown',ev=>{ if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();select(n.id);} });
     g.addEventListener('mouseenter',()=>hot(n.id)); g.addEventListener('mouseleave',()=>hot(state.sel));
     gN.append(g); nodeEls[n.id]=g;
   });
   const state={sel:null};
-  function hot(id){ const linked=new Set([id]); edgeEls.forEach(({e,p})=>{ const on=id&&(e.s===id||e.t===id); p.classList.toggle('hot',on&&!e.gap); if(on){linked.add(e.s);linked.add(e.t);} });
+  function hot(id){ const linked=new Set([id]); edgeEls.forEach(({e,p})=>{ const on=id&&(e.story? e.goal===id : (e.s===id||e.t===id)); p.classList.toggle('hot',!!on&&!e.gap); if(on){linked.add(e.s);linked.add(e.t);} });
     Object.entries(nodeEls).forEach(([k,g])=>g.classList.toggle('dim', !!id && !linked.has(k) && false)); }
-  function select(id){ state.sel=id; Object.entries(nodeEls).forEach(([k,g])=>g.classList.toggle('sel',k===id)); hot(id); renderPanel(byId[id]); }
+  function select(id){ state.sel=id; brainSel=id; Object.entries(nodeEls).forEach(([k,g])=>g.classList.toggle('sel',k===id)); hot(id); renderPanel(byId[id]); }
   function renderPanel(n){ panel.innerHTML='';
     const area = n.area==='core'? {label:'Core'} : AREA[n.area];
     panel.append(h('div',{class:'kind'},
-      h('span',{class:'chip'},h('i',{class:'sw '+(n.kind==='doc'?'sq':'circle'),style:`background:${n.area==='core'?'var(--c-core)':col(n.area)}`}), n.kind==='doc'?'Project file':'Memory note'),
-      h('span',{class:'chip'},area.label),
+      h('span',{class:'chip'},h('i',{class:'sw '+(n.kind==='doc'?'sq':'circle'),style:`background:${n.area==='core'?'var(--c-core)':col(n.area)}`}), n.kind==='goal'?'Goal':n.kind==='doc'?'Project file':'Memory note'),
+      area? h('span',{class:'chip'},area.label) : null,
       n.status? h('span',{class:'chip st-'+n.status},n.status==='empty'?'Empty':n.status==='stale'?'Out of date':n.status==='live'?'Updated daily':'Stable'):null,
       n.updated? h('span',{class:'chip'},'Updated '+n.updated):null));
     panel.append(h('h3',{},n.label));
     if(n.summary) panel.append(h('p',{style:'margin:0;color:var(--ink-2)'},n.summary));
+    if(n.kind==='goal'&&n.story){ const st=n.story; const grp=(cls,title,items)=>items.length? h('div',{class:'story '+cls},h('h4',{},title),...items.map(t=>h('div',{class:'it'},h('i',{'aria-hidden':'true'}),h('span',{},t)))) : null;
+      ap(panel, grp('feed','Feeding it',(st.feeds||[]).map(f=>f&&f.note).filter(Boolean)),
+        grp('compete','Competing for its time',(st.competes||[]).map(f=>f&&f.note).filter(Boolean)),
+        grp('missing','Missing',(st.missing||[]).filter(Boolean)));
+      const sc=suggestCard(n); if(sc) panel.append(sc); }
     if(n.callout) panel.append(h('p',{style:'margin:0;padding:10px 12px;border-radius:8px;background:color-mix(in oklab,var(--crit) 10%,var(--surface));color:var(--ink);font-size:13.5px'},n.callout));
     if(n.facts&&n.facts.length) panel.append(h('div',{class:'blk'},h('h4',{},n.kind==='doc'?'What it holds':'What it says'),h('ul',{},...n.facts.map(f=>h('li',{},f)))));
     if(n.open&&n.open.length) panel.append(h('div',{class:'blk'},h('h4',{},'Open'),h('ul',{},...n.open.map(f=>h('li',{},f)))));
     const rel=[...new Set(edges.filter(e=>e.s===n.id||e.t===n.id).map(e=>e.s===n.id?e.t:e.s))].map(k=>byId[k]).filter(Boolean);
     if(rel.length) panel.append(h('div',{class:'blk'},h('h4',{},'Connected to'),h('div',{class:'links'},...rel.map(r=>h('button',{onclick:()=>select(r.id)},r.label)))));
   }
-  select(B.defaultNode||nodes[0].id);
+  function suggestCard(n){ const sg=String((n.story&&n.story.suggest)||'').trim(); if(!sg) return null;
+    const key=n.id+'|'+sg;
+    if(SUGG.hidden.has(key) || (WS.decisions||[]).some(d=>d.kind==='suggestion'&&d.action==='dismissed'&&d.goal===n.id&&d.title===sg)) return null;
+    const card=h('div',{class:'suggest'},h('div',{class:'hd'},h('span',{class:'tag'},'SUGGESTION'),h('span',{class:'by'},'from ⟦A⟧, yours to decide')),h('p',{},sg));
+    const drafted=SUGG.drafted.get(key) || ((WS.todos||[]).some(t=>t.from==='Brain'&&t.goal===n.id&&t.title===sg&&t.status!=='done')? 'queued' : null);
+    if(drafted){ card.append(h('p',{class:'by'},drafted==='running'?'⟦A⟧ is drafting this now. It will be on your To-dos.':'⟦A⟧ will draft this before your next memo.')); return card; }
+    const msg=h('div',{class:'em-msg err',hidden:true});
+    const yes=h('button',{type:'button',class:'btn primary',disabled:!WS.db,onclick:async()=>{ yes.disabled=true; no.disabled=true; msg.hidden=true;
+        const id='G'+Date.now(); const doc={ledger:[], title:sg, detail:'', category:'Goal', priority:null, order:0, due:null, dueText:'', state:'recommend', status:'open', from:'Brain', goal:n.id,
+          action:{kind:'ask', label:'Draft it', instruction:sg}, createdAt:nowIso(), updatedAt:nowIso()};
+        try{ await WS.db.doc('todos/'+id).set(doc); SUGG.drafted.set(key,'queued');
+          if(W.runner){ await runTodo(Object.assign({id},doc)); SUGG.drafted.set(key,'running'); } }
+        catch(e){ if(!SUGG.drafted.has(key)){ yes.disabled=false; no.disabled=false; } msg.textContent=errText(e); msg.hidden=false; if(!SUGG.drafted.has(key)) return; }
+        const nc=suggestCard(n); if(nc){ if(!msg.hidden) nc.append(msg); card.replaceWith(nc); } }},'Yes, draft it');
+    const no=h('button',{type:'button',class:'btn',disabled:!WS.db,onclick:()=>{ SUGG.hidden.add(key); logDecision('suggestion','dismissed',{title:sg, goal:n.id}); card.remove(); }},'Not now');
+    card.append(h('div',{class:'acts'},yes,no),msg); return card; }
+  select(byId[brainSel]? brainSel : byId[B.defaultNode]? B.defaultNode : (goals[0]||nodes[0]).id);
 
   // filebook
   const fb = h('div',{});
@@ -1170,7 +1241,7 @@ const asList=v=>Array.isArray(v)? v.filter(Boolean).map(String) : splitAddr(v);
   WS.phase='on';
   db.doc('meta/config').onSnapshot(s=>{ WS.config=s.exists? s.data() : null; if(WS.config&&WS.config.timezone) TZ=WS.config.timezone; W.builder=(WS.config||{}).builderTask||null; W.runner=(WS.config||{}).runnerTask||null; applyName(); refreshAll(); }, ()=>{});
   db.collection('brain').onSnapshot(s=>{ D.brain.nodes=s.docs.map(d=>Object.assign({id:d.id},d.data())); refreshBrain(); }, ()=>{});
-  db.doc('meta/brain').onSnapshot(s=>{ const x=s.exists? s.data():{}; D.brain.gaps=x.gaps||[]; D.brain.defaultNode=x.defaultNode||null; refreshBrain(); }, ()=>{});
+  db.doc('meta/brain').onSnapshot(s=>{ const x=s.exists? s.data():{}; D.brain.gaps=x.gaps||[]; D.brain.defaultNode=x.defaultNode||null; D.brain.goalsOrder=x.goalsOrder||[]; refreshBrain(); }, ()=>{});
   db.collection('calevents').onSnapshot(s=>{ D.cal.events=s.docs.map(d=>Object.assign({id:d.id},d.data())); refreshCal(); }, ()=>{});
   db.collection('calitems').onSnapshot(s=>{ D.cal.sugg=s.docs.map(d=>Object.assign({id:d.id},d.data())); refreshCal(); }, ()=>{});
   db.doc('meta/calendar').onSnapshot(s=>{ const x=s.exists? s.data():{}; ['grid0','grid1'].forEach(k=>{ if(x[k]) D.cal[k]=x[k]; }); D.cal.series=x.series||{}; D.cal.weeks=x.weeks||[]; D.cal.away=x.away||[]; D.cal.ghosts=x.ghosts||[]; refreshCal(); }, ()=>{});
@@ -1835,8 +1906,8 @@ function schedCard(s){ const u=DUI.sched[s.id]||(DUI.sched[s.id]={});
   const box=h('div',{class:'em-actions'});
   if(u.msg) ap(el,h('div',{class:'em-msg '+(u.err?'err':'ok')},u.msg));
   ap(box,h('button',{class:'btn primary sm',type:'button',disabled:u.busy||!WS.mcp,onclick:async()=>{ u.busy=true; u.msg=''; wsEmit();
-      try{ const ev=s.event||{}; const r=await WS.mcp.callTool('Google Calendar','create_event',{summary:ev.summary||`${s.who||'Meeting'} / ${userName()}`, startTime:s.picked.start, endTime:s.picked.end,
-          attendees:asList(s.email).map(x=>({email:x})), addGoogleMeetUrl:ev.meet!==false, availability:'AVAILABILITY_BUSY', notificationLevel:'ALL', description:(ev.description||'')+'\n\nBooked from your Desk.'});
+      try{ const ev=s.event||{}; // calInput: on the user's own calendar only, no attendees, no invites sent
+        const r=await WS.mcp.callTool('Google Calendar','create_event',calInput({summary:ev.summary||`${s.who||'Meeting'} / ${userName()}`, startTime:s.picked.start, endTime:s.picked.end, description:(ev.description||'')+'\n\nBooked from your Desk.'}));
         const p=(r&&r.payload&&typeof r.payload==='object')?r.payload:{};
         await WS.db.doc('sched/'+s.id).update({status:'booked', bookedAt:nowIso(), eventId:p.id||null, eventLink:p.htmlLink||null});
         logDecision('sched','booked',{who:s.who||'', email:asList(s.email)[0]||''}); }

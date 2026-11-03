@@ -99,15 +99,9 @@
  },
  "recs/r1": {
   "kind": "agent",
-  "title": "Build a travel agent",
+  "title": "Build Meeting Prep",
   "status": "open",
-  "agent": "travel"
- },
- "goals/g1": {
-  "title": "Ship Q4",
-  "story": {
-   "suggest": "Draft a plan"
-  }
+  "agentId": "prep"
  },
  "todos/L2": {
   "title": "Book flights",
@@ -123,5 +117,30 @@
    "label": "Run",
    "instruction": "x"
   }
+ },
+ "brain/g1": {
+  "kind": "goal",
+  "label": "Ship Q4",
+  "short": "Ship Q4",
+  "area": "career",
+  "summary": "Q4 ships on time.",
+  "facts": [
+   "x"
+  ],
+  "open": [],
+  "links": [],
+  "story": {
+   "feeds": [],
+   "competes": [],
+   "missing": [],
+   "suggest": "Draft a plan"
+  }
+ },
+ "meta/brain": {
+  "defaultNode": "g1",
+  "goalsOrder": [
+   "g1"
+  ],
+  "gaps": []
  }
 }
