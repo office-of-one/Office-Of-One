@@ -1,0 +1,252 @@
+{
+ "meta/config": {
+  "agentName": "Mira",
+  "userName": "Sam Rivera",
+  "mail": "outlook",
+  "calendar": "outlook",
+  "timezone": "America/New_York",
+  "runnerTask": "trg_test"
+ },
+ "emails/e1": {
+  "to": [
+   "pat@example.com"
+  ],
+  "cc": [],
+  "subject": "Agenda",
+  "body": "Hi Pat",
+  "why": "Before Tuesday",
+  "status": "pending",
+  "from": "Desk",
+  "createdAt": "2026-11-01T10:00:00Z"
+ },
+ "todos/L1": {
+  "title": "Renew passport",
+  "detail": "Expires in March",
+  "category": "Admin",
+  "status": "open",
+  "state": "bare",
+  "action": null,
+  "ledger": [
+   1
+  ]
+ },
+ "brain/profile": {
+  "kind": "profile",
+  "label": "Sam",
+  "short": "Sam",
+  "area": "core",
+  "summary": "Who Sam is",
+  "facts": [
+   "Ops lead"
+  ],
+  "open": [],
+  "links": [
+   "w",
+   "site",
+   "race"
+  ],
+  "path": "/profile.md"
+ },
+ "brain/w": {
+  "kind": "file",
+  "label": "Work",
+  "short": "Work",
+  "area": "career",
+  "summary": "Work notes",
+  "facts": [
+   "x"
+  ],
+  "open": [],
+  "links": [
+   "profile"
+  ],
+  "path": "work.md"
+ },
+ "calevents/a": {
+  "date": "2026-11-03",
+  "start": "09:00",
+  "end": "10:00",
+  "title": "Team sync",
+  "area": "career",
+  "all_day": false,
+  "hours": 1
+ },
+ "calitems/b": {
+  "series": "focus",
+  "kind": "add",
+  "date": "2026-11-04",
+  "start": "08:00",
+  "end": "09:00",
+  "title": "Focus block",
+  "goal": "Ship Q4",
+  "area": "ventures",
+  "why": "No time booked",
+  "create": {
+   "summary": "Focus block",
+   "startTime": "2026-11-04T08:00:00",
+   "endTime": "2026-11-04T09:00:00"
+  }
+ },
+ "meta/calendar": {
+  "series": {
+   "focus": {
+    "id": "focus",
+    "title": "Focus blocks",
+    "goal": "Ship Q4",
+    "area": "ventures",
+    "why": "None booked",
+    "kind": "add"
+   }
+  },
+  "weeks": [
+   {
+    "label": "Nov 2 to 8",
+    "from": "2026-11-02",
+    "note": "",
+    "h": {
+     "career": 1
+    },
+    "s": {
+     "ventures": 1
+    }
+   }
+  ]
+ },
+ "brain/site": {
+  "kind": "goal",
+  "label": "Launch studio site",
+  "short": "Studio site by Jan",
+  "area": "ventures",
+  "summary": "The new studio site is live by January.",
+  "facts": [
+   "Sam said this is the top goal for the year",
+   "Copy is the blocker"
+  ],
+  "open": [],
+  "links": [],
+  "story": {
+   "feeds": [
+    {
+     "id": "studioeve",
+     "note": "Studio evenings: 2 booked this week, 4 hours"
+    },
+    {
+     "id": "dana",
+     "note": "Dana is waiting on the site copy (her email, Oct 29)"
+    }
+   ],
+   "competes": [
+    {
+     "id": "review",
+     "note": "Q4 prep is booked Thursday 7 to 9pm, one of the studio evenings"
+    }
+   ],
+   "missing": [
+    "No time on the calendar for the site copy this week"
+   ],
+   "suggest": "You might move Thursday’s Q4 prep to Friday morning, so that evening can go to the copy Dana is waiting on. Want Mira to draft the calendar change?"
+  }
+ },
+ "brain/race": {
+  "kind": "goal",
+  "label": "Half marathon, April",
+  "short": "Half marathon in April",
+  "area": "health",
+  "summary": "Finish the Brooklyn Half in April.",
+  "facts": [
+   "Registered",
+   "Runs 3 mornings a week now"
+  ],
+  "open": [],
+  "links": [],
+  "story": {
+   "feeds": [
+    {
+     "id": "runs",
+     "note": "Morning runs: 3 booked this week, 3 hours"
+    },
+    {
+     "id": "running",
+     "note": "Registered for the Brooklyn Half (confirmation email, Sep 14)"
+    }
+   ],
+   "competes": [],
+   "missing": [
+    "No long run on the weekend calendar yet"
+   ],
+   "suggest": "Most half marathon plans add one longer run at the weekend. Sunday mornings look open on the weeks Jo is with Alex. Want Mira to hold that time?"
+  }
+ },
+ "brain/studioeve": {
+  "kind": "note",
+  "label": "Studio evenings",
+  "short": "Studio eves",
+  "area": "ventures",
+  "summary": "Tuesday and Thursday, 7 to 9pm, on the calendar every week.",
+  "facts": [
+   "Recurring since September"
+  ],
+  "open": [],
+  "links": []
+ },
+ "brain/dana": {
+  "kind": "note",
+  "label": "Dana Park",
+  "short": "Dana",
+  "area": "ventures",
+  "summary": "Designer and studio partner.",
+  "facts": [
+   "Prefers Slack to email"
+  ],
+  "open": [],
+  "links": []
+ },
+ "brain/review": {
+  "kind": "note",
+  "label": "Q4 review",
+  "short": "Q4 review",
+  "area": "career",
+  "summary": "Quarterly review with Pat, Dec 12.",
+  "facts": [
+   "Numbers due Dec 5"
+  ],
+  "open": [],
+  "links": []
+ },
+ "brain/running": {
+  "kind": "doc",
+  "label": "Running",
+  "short": "Running",
+  "area": "health",
+  "summary": "Training for a spring half marathon.",
+  "facts": [
+   "Runs before work, 3 times a week"
+  ],
+  "open": [],
+  "links": [
+   "race",
+   "runs"
+  ],
+  "tier": 2
+ },
+ "brain/runs": {
+  "kind": "note",
+  "label": "Morning runs",
+  "short": "Runs",
+  "area": "health",
+  "summary": "Monday, Wednesday and Friday at 6:15, on the calendar.",
+  "facts": [
+   "About an hour each"
+  ],
+  "open": [],
+  "links": []
+ },
+ "meta/brain": {
+  "defaultNode": "site",
+  "goalsOrder": [
+   "site",
+   "race"
+  ],
+  "gaps": []
+ }
+}

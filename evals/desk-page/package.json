@@ -1,0 +1,7 @@
+{
+  "name": "desk-page-render-test",
+  "private": true,
+  "description": "Renders the Desk page against fixtures with a mock window.claude runtime.",
+  "scripts": { "test": "node render-test.js" },
+  "devDependencies": { "playwright": "1.48.2" }
+}

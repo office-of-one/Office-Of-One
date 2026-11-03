@@ -41,6 +41,10 @@ anywhere.
 
 ## What leaves your project, and when
 
+Your Desk page lives in your own Claude account and is private to
+you. It holds a copy of what your agent knows, so it can show it to
+you. Nothing on it is sent to Office of One.
+
 Unless you have turned sharing off, your agent sends a summary once a
 week, on Friday evening, to Office of One. If your computer was asleep
 or the app was closed then, it sends any missed weeks at its next run instead. It goes through the Office

@@ -27,6 +27,30 @@ the version: a push that does not is never picked up. What never
 updates is their project instructions and their copy of PRIVACY.md,
 both written into the project at setup.
 
+## v3.47.0 — 2026-11-02
+
+**The interview ends on the user's own Desk page.** Setup used to
+end with "your brain has been updated" and nothing to look at.
+
+- **At the close,** the agent publishes a private Desk page in the
+  user's Claude account, fills it from the brain it just wrote, and
+  opens it on a map of what it knows. One new scripted line follows
+  the privacy line: "Your Desk is ready. …"
+- **Goals sit at the centre of the map.** Each goal links to what
+  feeds it, what competes for its time and what is missing, as
+  plain facts, with at most one suggestion worded as an offer.
+- **The page is safe by default.** Trust is "Ask me" or "Never",
+  money is always never, no file names are shown, and calendar
+  entries it creates never invite anyone else.
+- **If the page can't be published,** the interview finishes as
+  before and never mentions it.
+
+Not yet: the 5am/7pm Desk does not refresh the page, so it shows
+the day of setup until that ships. The page's Run and Build buttons
+stay hidden, because a page cannot start a helper. People set up
+before 3.47.0 don't get a page. PRIVACY.md gains one line; existing
+users keep their old copy until it is rewritten.
+
 ## v3.46.0 — 2026-11-02
 
 **Office of One knows who each install belongs to.** Installs were

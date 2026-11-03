@@ -1,0 +1,146 @@
+{
+ "meta/config": {
+  "agentName": "Mira",
+  "userName": "Sam Rivera",
+  "mail": "outlook",
+  "calendar": "outlook",
+  "timezone": "America/New_York"
+ },
+ "todos/L1": {
+  "title": "Renew passport",
+  "detail": "Expires in March",
+  "category": "Admin",
+  "status": "open",
+  "state": "bare",
+  "action": null,
+  "ledger": [
+   1
+  ]
+ },
+ "brain/profile": {
+  "kind": "profile",
+  "label": "Sam",
+  "short": "Sam",
+  "area": "core",
+  "summary": "Who Sam is",
+  "facts": [
+   "Ops lead"
+  ],
+  "open": [],
+  "links": [
+   "w"
+  ],
+  "path": "/profile.md"
+ },
+ "brain/w": {
+  "kind": "file",
+  "label": "Work",
+  "short": "Work",
+  "area": "career",
+  "summary": "Work notes",
+  "facts": [
+   "x"
+  ],
+  "open": [],
+  "links": [
+   "profile"
+  ],
+  "path": "work.md"
+ },
+ "calevents/a": {
+  "date": "2026-11-03",
+  "start": "09:00",
+  "end": "10:00",
+  "title": "Team sync",
+  "area": "career",
+  "all_day": false,
+  "hours": 1
+ },
+ "calitems/b": {
+  "series": "focus",
+  "kind": "add",
+  "date": "2026-11-04",
+  "start": "08:00",
+  "end": "09:00",
+  "title": "Focus block",
+  "goal": "Ship Q4",
+  "area": "ventures",
+  "why": "No time booked",
+  "create": {
+   "summary": "Focus block",
+   "startTime": "2026-11-04T08:00:00",
+   "endTime": "2026-11-04T09:00:00"
+  }
+ },
+ "meta/calendar": {
+  "series": {
+   "focus": {
+    "id": "focus",
+    "title": "Focus blocks",
+    "goal": "Ship Q4",
+    "area": "ventures",
+    "why": "None booked",
+    "kind": "add"
+   }
+  },
+  "weeks": [
+   {
+    "label": "Nov 2 to 8",
+    "from": "2026-11-02",
+    "note": "",
+    "h": {
+     "career": 1
+    },
+    "s": {
+     "ventures": 1
+    }
+   }
+  ]
+ },
+ "recs/r1": {
+  "kind": "agent",
+  "title": "Build Meeting Prep",
+  "status": "open",
+  "agentId": "prep"
+ },
+ "todos/L2": {
+  "title": "Book flights",
+  "detail": "",
+  "category": "Admin",
+  "status": "open",
+  "state": "bare",
+  "ledger": [
+   1
+  ],
+  "action": {
+   "kind": "draft",
+   "label": "Run",
+   "instruction": "x"
+  }
+ },
+ "brain/g1": {
+  "kind": "goal",
+  "label": "Ship Q4",
+  "short": "Ship Q4",
+  "area": "career",
+  "summary": "Q4 ships on time.",
+  "facts": [
+   "x"
+  ],
+  "open": [],
+  "links": [],
+  "story": {
+   "feeds": [],
+   "competes": [],
+   "missing": [],
+   "suggest": "Draft a plan"
+  }
+ },
+ "meta/brain": {
+  "defaultNode": "g1",
+  "goalsOrder": [
+   "g1"
+  ],
+  "gaps": []
+ }
+}
