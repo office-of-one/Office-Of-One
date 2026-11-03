@@ -750,8 +750,11 @@ const deskName=()=>CFG().agentName? CFG().agentName+' Desk' : 'Your Desk';
 const cap1=s=>s.charAt(0).toUpperCase()+s.slice(1);
 const T=s=>{ if(s.indexOf('⟦')<0) return s; return s.replace(/⟦D⟧/g,deskName()).replace(/(^|[.!?]\s+)⟦A⟧/g,(m,p)=>p+cap1(agentName())).replace(/⟦A⟧/g,agentName()); };
 const $ = (s,el=document)=>el.querySelector(s);
+// Every href that comes from stored data goes through safeHref: only https: and mailto: links are kept.
+const safeHref=u=>{ if(u==null) return null; const x=String(u).trim(); if(!x) return null; try{ const p=new URL(x); return (p.protocol==='https:'||p.protocol==='mailto:')? p.href : null; }catch(e){ return null; } };
 const h = (tag, attrs={}, ...kids)=>{ const e=document.createElement(tag);
-  for(const [k,v0] of Object.entries(attrs||{})){ if(v0==null||v0===false) continue; const v=typeof v0==='string'?T(v0):v0;
+  for(const [k,v0] of Object.entries(attrs||{})){ if(v0==null||v0===false) continue; let v=typeof v0==='string'?T(v0):v0;
+    if(k==='href' && !(typeof v==='string' && /^#[\w-]*$/.test(v))){ v=safeHref(v); if(v==null) continue; }
     if(k==='class') e.className=v; else if(k==='style') e.setAttribute('style',v);
     else if(k.startsWith('on')) e.addEventListener(k.slice(2),v); else e.setAttribute(k,v===true?'':v); }
   for(const k of kids.flat()){ if(k==null||k===false) continue; e.append(k.nodeType?k:document.createTextNode(T(String(k)))); }
@@ -788,19 +791,20 @@ function renderBrain(){
   const panel = h('div',{class:'card panel',id:'panel','aria-live':'polite'});
   grid.append(mapbox,panel); v.append(grid);
 
-  const hasGoals = B.nodes.some(n=>n.kind==='goal');
+  // A node with no area, or one the page does not know, is drawn under Other, never at the origin.
+  const nodes = B.nodes.map(n=>({...n, area:(n.area==='core'||AREA[n.area])? n.area : 'other'}));
+  const hasGoals = nodes.some(n=>n.kind==='goal');
   // legend
   const legend = h('div',{class:'legend',style:'padding:4px 6px 10px'},
-    ...AREAS.filter(a=>B.nodes.some(n=>n.area===a.key)).map(a=>h('span',{class:'k'},h('i',{class:'sw',style:`background:${col(a.key)}`}),a.label)),
-    h('span',{class:'k'},h('i',{class:'sw sq',style:'background:var(--ink-2)'}),'Project file'),
-    h('span',{class:'k'},h('i',{class:'sw circle',style:'background:var(--ink-2)'}),'Memory note'),
+    ...AREAS.filter(a=>nodes.some(n=>n.area===a.key)).map(a=>h('span',{class:'k'},h('i',{class:'sw',style:`background:${col(a.key)}`}),a.label)),
+    h('span',{class:'k'},h('i',{class:'sw sq',style:'background:var(--ink-2)'}),'Topic'),
+    h('span',{class:'k'},h('i',{class:'sw circle',style:'background:var(--ink-2)'}),'Note'),
     hasGoals? h('span',{class:'k'},h('i',{class:'sw circle',style:'background:var(--ink-2);width:14px;height:14px'}),'Goal (centre)') : null,
     hasGoals? h('span',{class:'k'},h('i',{style:'width:18px;border-top:3px solid var(--accent);display:inline-block'}),'Feeds a goal') : null,
     hasGoals? h('span',{class:'k'},h('i',{style:'width:18px;border-top:3px dotted var(--warn);display:inline-block'}),'Competes for its time') : null,
     h('span',{class:'k'},h('i',{style:'width:18px;border-top:2px dashed var(--crit);display:inline-block'}),'Missing link'));
   mapbox.append(legend);
 
-  const nodes = B.nodes.map(n=>({...n}));
   const byId = Object.fromEntries(nodes.map(n=>[n.id,n]));
   const profile = nodes.find(n=>n.kind==='profile') || null;
   const gOrder = B.goalsOrder||[];
@@ -876,7 +880,7 @@ function renderBrain(){
   const nodeEls={};
   nodes.forEach(n=>{
     const isGoal=n.kind==='goal', isProf=n===profile;
-    const g=S('g',{class:'node'+(isGoal?' goal':'')+(isProf?' profile':''),tabindex:0,role:'button','data-id':n.id,'aria-label':`${n.label}, ${isGoal?'goal':isProf?'your profile':n.kind==='doc'?'project file':'memory note'}`, transform:`translate(${n.x},${n.y})`});
+    const g=S('g',{class:'node'+(isGoal?' goal':'')+(isProf?' profile':''),tabindex:0,role:'button','data-id':n.id,'aria-label':`${n.label}, ${isGoal?'goal':isProf?'your profile':n.kind==='doc'?'topic':'note'}`, transform:`translate(${n.x},${n.y})`});
     const size = isGoal? PX.gdot*k : isProf? PX.pdot*k : n.kind==='doc'? 7+ (n.tier||1)*1.6 : 5 + Math.min((n.facts||[]).length,8)*0.45;
     const fill = n.area==='core'? 'var(--c-core)' : col(n.area);
     if(n.kind==='doc'){ g.append(S('rect',{class:'dot',x:-size,y:-size,width:size*2,height:size*2,rx:3,fill,stroke:'var(--surface)','stroke-width':2})); }
@@ -885,7 +889,7 @@ function renderBrain(){
     // label
     let lx,ly,anchor,rot=0;
     if(isGoal){ const t=S('text',{class:'lbl',x:0,y:lblDy*k,'text-anchor':'middle',style:`font-size:${PX.lbl*k}px;fill:var(--k-${n.area},var(--ink))`});
-      goalLines(n.short||n.label).forEach((ln,i)=>{ const ts=S('tspan',{x:0,dy:i?PX.lh*k:0}); ts.textContent=ln; t.append(ts); }); g.append(t); }
+      goalLines(n.label).forEach((ln,i)=>{ const ts=S('tspan',{x:0,dy:i?PX.lh*k:0}); ts.textContent=ln; t.append(ts); }); g.append(t); }
     else if(isProf){ lx=0; ly=-(PX.pdot+6)*k; anchor='middle'; }
     else if(n.core){ const c=Math.cos(n.ang); if(Math.abs(c)<0.3){ lx=0; ly=size+15; anchor='middle'; } else { lx=c>0?size+6:-(size+6); ly=5; anchor=c>0?'start':'end'; } }
     else { const deg=n.ang*180/Math.PI; const right=Math.cos(n.ang)>=0; const off = n.kind==='doc'? -(size+6) : (size+6);
@@ -904,7 +908,7 @@ function renderBrain(){
   function renderPanel(n){ panel.innerHTML='';
     const area = n.area==='core'? {label:'Core'} : AREA[n.area];
     panel.append(h('div',{class:'kind'},
-      h('span',{class:'chip'},h('i',{class:'sw '+(n.kind==='doc'?'sq':'circle'),style:`background:${n.area==='core'?'var(--c-core)':col(n.area)}`}), n.kind==='goal'?'Goal':n.kind==='doc'?'Project file':'Memory note'),
+      h('span',{class:'chip'},h('i',{class:'sw '+(n.kind==='doc'?'sq':'circle'),style:`background:${n.area==='core'?'var(--c-core)':col(n.area)}`}), n.kind==='goal'?'Goal':n.kind==='profile'?'Profile':n.kind==='doc'?'Topic':'Note'),
       area? h('span',{class:'chip'},area.label) : null,
       n.status? h('span',{class:'chip st-'+n.status},n.status==='empty'?'Empty':n.status==='stale'?'Out of date':n.status==='live'?'Updated daily':'Stable'):null,
       n.updated? h('span',{class:'chip'},'Updated '+n.updated):null));
@@ -1123,17 +1127,17 @@ function renderCalendar(){
         h('p',{class:'muted',style:'margin:0'},dOf(e.date).toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'})+(e.all_day?'':' · '+t12(e.start)+'–'+t12(e.end))+' · '+(AREA[e.area]?AREA[e.area].label:'Other')),
         e.clash? h('p',{class:'note err',style:'margin:0'},'Overlaps another event.') : null,
         fs? h('button',{type:'button',class:'chg k-'+fs.kind,onclick:()=>select({t:'sg',id:fs.id})},h('b',{},KIND[fs.kind]),' ',fs.title) : null,
-        e.link? h('a',{href:e.link,target:'_blank',rel:'noopener',class:'btn sm',style:'align-self:flex-start;text-decoration:none'},'Open event') : null); }
+        safeHref(e.link)? h('a',{href:e.link,target:'_blank',rel:'noopener',class:'btn sm',style:'align-self:flex-start;text-decoration:none'},'Open event') : null); }
     const s=SG_ID[sel.id]; if(!s) return null; const st=sStat(s); const u=CUI[s.id]||{}; const ser=s.series&&C.series[s.series];
     const card=h('div',{class:'card sel-card'});
     ap(card,h('div',{class:'eyebrow'},s.kind==='add'?'Suggested add':KIND[s.kind]),h('h4',{},s.title),
       h('p',{class:'muted',style:'margin:0'},dOf(s.date).toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'})+(s.start?' · '+t12(s.start)+(s.end?'–'+t12(s.end):''):'')),
       h('span',{class:'gchip',style:`--c:${col(s.area)}`},h('i',{}),s.goal),
       h('p',{style:'margin:0'},s.why), s.do? h('p',{style:'margin:0'},h('b',{},'Do: '),s.do) : null);
-    if(s.targets&&s.targets.length) card.append(h('div',{class:'tlist'},...s.targets.map(id=>EV_ID[id]).filter(Boolean).map(e=>h('div',{},h('i',{class:'sw',style:`background:${col(e.area)}`}),`${e.all_day?'All day':t12(e.start)+'–'+t12(e.end)} ${e.title}`, e.link? h('a',{href:e.link,target:'_blank',rel:'noopener'},' Open') : null))));
+    if(s.targets&&s.targets.length) card.append(h('div',{class:'tlist'},...s.targets.map(id=>EV_ID[id]).filter(Boolean).map(e=>h('div',{},h('i',{class:'sw',style:`background:${col(e.area)}`}),`${e.all_day?'All day':t12(e.start)+'–'+t12(e.end)} ${e.title}`, safeHref(e.link)? h('a',{href:e.link,target:'_blank',rel:'noopener'},' Open') : null))));
     const acts=h('div',{class:'em-actions'});
     if(s.kind==='add'){
-      if(st==='added') ap(acts,h('span',{class:'chip st-sent'},h('i',{class:'dot'}),'Added to your calendar'), (WS.calsugg[s.id]||{}).link? h('a',{href:WS.calsugg[s.id].link,target:'_blank',rel:'noopener',class:'btn ghost sm',style:'text-decoration:none'},'Open') : null);
+      if(st==='added') ap(acts,h('span',{class:'chip st-sent'},h('i',{class:'dot'}),'Added to your calendar'), safeHref((WS.calsugg[s.id]||{}).link)? h('a',{href:WS.calsugg[s.id].link,target:'_blank',rel:'noopener',class:'btn ghost sm',style:'text-decoration:none'},'Open') : null);
       else if(s.create) ap(acts,calNative()? h('button',{type:'button',class:'btn primary sm',disabled:!canAdd()||u.busy,onclick:()=>cRun(s.id,()=>addSugg(s))},u.busy?'Adding…':'Add to calendar')
           : [calLink(s)? h('a',{class:'btn primary sm',href:calLink(s),target:'_blank',rel:'noopener',style:'text-decoration:none'},'Open in Outlook') : null, h('button',{type:'button',class:'btn sm',disabled:!canWrite()||u.busy,onclick:()=>cRun(s.id,()=>markSugg(s,'added'))},'Mark added')],
         h('button',{type:'button',class:'btn ghost sm',disabled:!canWrite()||u.busy,onclick:()=>cRun(s.id,()=>markSugg(s,'dismissed'))},'Not now'));
@@ -1243,12 +1247,13 @@ function fmtT(iso){ if(!iso) return ''; const d=new Date(iso); if(isNaN(d)) retu
   const tm=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'}).replace(/\s/g,'').toLowerCase();
   return d.toDateString()===new Date().toDateString()? tm : d.toLocaleDateString([], {weekday:'short',month:'short',day:'numeric'})+', '+tm; }
 function errText(e){ if(!e) return 'Something went wrong.';
-  const s=e.server||'that connector';
+  const s={Gmail:'Gmail','Google Calendar':'Google Calendar'}[e.server]||'that connector';
   const m={ needs_reauth:`Reconnect ${s} in claude.ai Settings, Connectors.`, server_not_connected:`Add ${s} in claude.ai Settings, Connectors.`,
     not_in_manifest:`This page isn't allowed to use ${s}. Turn it on from the page's Permissions menu.`, approval_required:'Needs your OK. Try again and choose Allow.',
     consent_required:'Needs your OK. Try again and choose Allow.', blocked_by_policy:'Your organization blocks this.', not_granted:'Not available in this view.',
     capability_disabled:'Not available in this view.', revoked:'Access to this page changed. Reload it.', rate_limited:'Too many tries. Wait a minute.' };
-  return m[e.code] || (e.message? String(e.message).slice(0,220) : 'Something went wrong.'); }
+  const msg=e.message? String(e.message) : '';
+  return m[e.code] || (msg && !/remote|server|mcp|trigger|connector|tool/i.test(msg)? msg.slice(0,220) : 'Something went wrong.'); }
 const ap=(el,...k)=>{ el.append(...k.flat().filter(x=>x!=null&&x!==false)); return el; };
 const splitAddr=s=>String(s||'').split(/[\s,;]+/).map(x=>x.trim()).filter(Boolean);
 const asList=v=>Array.isArray(v)? v.filter(Boolean).map(String) : splitAddr(v);
@@ -1262,7 +1267,7 @@ const asList=v=>Array.isArray(v)? v.filter(Boolean).map(String) : splitAddr(v);
   if(!db){ WS.phase='nodb'; wsEmit(); return; }
   if(!WS.owner){ WS.phase='notowner'; wsEmit(); return; }
   WS.phase='on';
-  db.doc('meta/config').onSnapshot(s=>{ WS.config=s.exists? s.data() : null; if(WS.config&&WS.config.timezone) TZ=WS.config.timezone; W.builder=(WS.config||{}).builderTask||null; W.runner=(WS.config||{}).runnerTask||null; applyName(); refreshAll(); }, ()=>{});
+  db.doc('meta/config').onSnapshot(s=>{ WS.config=s.exists? s.data() : null; if(WS.config&&WS.config.timezone) TZ=WS.config.timezone; W.builder=(WS.config||{}).builderTask||null; W.runner=(WS.config||{}).runnerTask||null; if(hasHelper()) watchTriggers(); applyName(); refreshAll(); }, ()=>{});
   db.collection('brain').onSnapshot(s=>{ D.brain.nodes=s.docs.map(d=>Object.assign({id:d.id},d.data())); refreshBrain(); }, ()=>{});
   db.doc('meta/brain').onSnapshot(s=>{ const x=s.exists? s.data():{}; D.brain.gaps=x.gaps||[]; D.brain.defaultNode=x.defaultNode||null; D.brain.goalsOrder=x.goalsOrder||[]; refreshBrain(); }, ()=>{});
   db.collection('calevents').onSnapshot(s=>{ D.cal.events=s.docs.map(d=>Object.assign({id:d.id},d.data())); refreshCal(); }, ()=>{});
@@ -1282,12 +1287,15 @@ const asList=v=>Array.isArray(v)? v.filter(Boolean).map(String) : splitAddr(v);
   db.collection('agents').onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data(); }); WS.agents=m; wsEmit(); }, fail);
   db.collection('calsugg').onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data(); }); WS.calsugg=m; wsEmit(); }, fail);
   db.collection('calseries').onSnapshot(s=>{ const m={}; s.docs.forEach(d=>{ m[d.id]=d.data(); }); WS.calseries=m; wsEmit(); }, fail);
-  db.doc('meta/today').onSnapshot(s=>{ WS.meta=s.exists? s.data() : null; wsEmit(); }, ()=>{});
-  if(mcp) watchTriggers();
+  db.doc('meta/today').onSnapshot(s=>{ WS.meta=s.exists? s.data() : null; if(!location.hash) route(); wsEmit(); }, ()=>{});
   wsEmit();
 })();
 
-/* scheduled-task status, via the Claude Code Remote connector, as the viewer */
+/* scheduled-task status, as the viewer. Only when a helper task exists (W.runner or W.builder);
+   with neither, the page never calls for scheduled tasks at all. */
+const REMOTE='Claude Code Remote';
+const hasHelper=()=>!!(W.runner||W.builder);
+function remote(tool,input){ if(!hasHelper()||!WS.mcp) return Promise.reject({code:'not_granted'}); return WS.mcp.callTool(REMOTE,tool,input); }
 function parsePayload(res){ let p=res&&res.payload;
   if(typeof p==='string'){ const i=p.indexOf('{'), j=p.lastIndexOf('}'); try{ p=JSON.parse(p.slice(i,j+1)); }catch(e){ p=null; } }
   return p||null; }
@@ -1295,19 +1303,19 @@ function parseTrig(res){ const p=parsePayload(res); if(!p) return null; if(Array
 const TRIG={on:null, off:null};
 function mergeTrig(){ if(TRIG.on===null && TRIG.off===null) return; WS.triggers=[...(TRIG.on||[]), ...(TRIG.off||[])]; }
 async function moreTrig(first, input){ let p=parsePayload(first); let all=parseTrig(first)||[]; let guard=0;
-  while(p && p.has_more && p.next_cursor && guard++<5){ const r=await WS.mcp.callTool('Claude Code Remote','list_triggers',Object.assign({},input,{cursor:p.next_cursor})); all=all.concat(parseTrig(r)||[]); p=parsePayload(r); }
+  while(p && p.has_more && p.next_cursor && guard++<5){ const r=await remote('list_triggers',Object.assign({},input,{cursor:p.next_cursor})); all=all.concat(parseTrig(r)||[]); p=parsePayload(r); }
   return all; }
 const unTrig=[];
-function watchTriggers(){ if(unTrig.length) return;
+function watchTriggers(){ if(unTrig.length||!WS.mcp||!hasHelper()) return;
   [['on',{limit:100,enabled:true}],['off',{limit:100,enabled:false}]].forEach(([k,input])=>{
-    unTrig.push(WS.mcp.watchTool('Claude Code Remote','list_triggers',input, async ev=>{
+    unTrig.push(WS.mcp.watchTool(REMOTE,'list_triggers',input, async ev=>{
       if(ev.type==='data'){ let a=parseTrig(ev.result); const p=parsePayload(ev.result);
         if(a && p && p.has_more){ try{ a=await moreTrig(ev.result,input); }catch(e){} }
         if(a){ TRIG[k]=a; mergeTrig(); WS.trigErr=null; } }
       else { WS.trigErr=ev.error; if(['not_in_manifest','needs_reauth','server_not_connected','blocked_by_policy','not_granted'].includes(ev.error&&ev.error.code)){ TRIG[k]=null; WS.triggers=null; } }
       wsEmit(); }, {refetchInterval:60000})); }); }
-async function checkTriggers(){ try{ for(const [k,input] of [['on',{limit:100,enabled:true}],['off',{limit:100,enabled:false}]]){ const r=await WS.mcp.callTool('Claude Code Remote','list_triggers',input); TRIG[k]=await moreTrig(r,input); } mergeTrig(); WS.trigErr=null; }catch(e){ WS.trigErr=e; } wsEmit(); }
-const refreshTrig=()=>{ WS.mcp&&WS.mcp.invalidate('Claude Code Remote','list_triggers').catch(()=>{}); };
+async function checkTriggers(){ try{ for(const [k,input] of [['on',{limit:100,enabled:true}],['off',{limit:100,enabled:false}]]){ const r=await remote('list_triggers',input); TRIG[k]=await moreTrig(r,input); } mergeTrig(); WS.trigErr=null; }catch(e){ WS.trigErr=e; } wsEmit(); }
+const refreshTrig=()=>{ if(WS.mcp&&hasHelper()) WS.mcp.invalidate(REMOTE,'list_triggers').catch(()=>{}); };
 
 function agentState(id){ const a=CAT[id]; const d=WS.agents[id]||null;
   const t=WS.triggers? WS.triggers.find(x=>x&&x.name===a.task) : null;
@@ -1322,12 +1330,12 @@ const stChip=st=>h('span',{class:'chip st-'+st.s},h('i',{class:'dot'}),ST_LABEL[
 
 async function buildAgent(id){ const a=CAT[id]; const ref=WS.db.doc('agents/'+id);
   await ref.set({status:'requested', name:a.task, requestedAt:nowIso()});
-  try{ await WS.mcp.callTool('Claude Code Remote','fire_trigger',{trigger_id:W.builder, text:'BUILD '+id}); }
+  try{ await remote('fire_trigger',{trigger_id:W.builder, text:'BUILD '+id}); }
   catch(e){ await ref.set({status:'failed', name:a.task, error:errText(e), failedAt:nowIso()}).catch(()=>{}); throw e; }
   [90e3,180e3,300e3].forEach(ms=>setTimeout(refreshTrig,ms)); }
 const dismissAgent=id=>WS.db.doc('agents/'+id).set({status:'dismissed', name:CAT[id].task, dismissedAt:nowIso()});
 const restoreAgent=id=>WS.db.doc('agents/'+id).delete();
-async function setEnabled(st,on){ await WS.mcp.callTool('Claude Code Remote','update_trigger',{trigger_id:st.tid, enabled:on});
+async function setEnabled(st,on){ await remote('update_trigger',{trigger_id:st.tid, enabled:on});
   if(WS.triggers) WS.triggers=WS.triggers.map(x=>x.id===st.tid? Object.assign({},x,{enabled:on}) : x);
   refreshTrig(); }
 
@@ -1550,7 +1558,7 @@ function lastRunText(t){ const r=t.last_run; if(!r||!r.fired_at) return {t:'Not 
 const TUI={};
 async function tRun(key,fn,ok){ const u=TUI[key]||(TUI[key]={}); if(u.busy) return; u.busy=true; u.msg=''; u.err=false; wsEmit();
   try{ await fn(); u.msg=ok||''; }catch(e){ u.err=true; u.msg=errText(e); } u.busy=false; u.confirm=null; wsEmit(); }
-async function setTask(t,patch){ await WS.mcp.callTool('Claude Code Remote','update_trigger',Object.assign({trigger_id:t.id},patch));
+async function setTask(t,patch){ await remote('update_trigger',Object.assign({trigger_id:t.id},patch));
   if(WS.triggers) WS.triggers=WS.triggers.map(x=>x.id===t.id? Object.assign({},x,patch) : x);
   ['on','off'].forEach(k=>{ if(TRIG[k]) TRIG[k]=TRIG[k].filter(x=>x.id!==t.id); }); const nt=Object.assign({},t,patch); (nt.enabled?(TRIG.on=TRIG.on||[]):(TRIG.off=TRIG.off||[])).push(nt); mergeTrig();
   refreshTrig(); }
@@ -1599,7 +1607,7 @@ function renderAgents(){
     list.append(h('div',{class:'agh'},h('h4',{},'Passed on'),h('span',{class:'muted tnum'},String(denied.length+RETIRED_CAT.length))));
     denied.forEach(id=>{ const a=CAT[id];
       list.append(row({name:a.name, does:a.short, meta:'You passed on this', dot:'var(--line-2)', sel:sel.k==='cat'&&sel.id===id, onclick:()=>{ sel={k:'cat',id}; draw(); }})); });
-    list.append(h('div',{class:'agretired'},h('b',{},'On Oct 31: '),...RETIRED_CAT.map(([n,d],i)=>h('span',{},i?', ':'',h('span',{class:'rn'},n),` (${d})`)),'.'));
+    if(RETIRED_CAT.length) list.append(h('div',{class:'agretired'},h('b',{},'On Oct 31: '),...RETIRED_CAT.map(([n,d],i)=>h('span',{},i?', ':'',h('span',{class:'rn'},n),` (${d})`)),'.'));
   }
 
   function drawTask(t){ detail.innerHTML=''; const inf=infoOf(t); const c=catOfTask(t); const dr=driftOf(t); const lr=lastRunText(t); const u=TUI[t.id]||{};
@@ -1633,7 +1641,8 @@ function renderAgents(){
     detail.append(h('details',{class:'how'},h('summary',{},'How it works, step by step'),h('ol',{},...a.steps.map(x=>h('li',{},x)))));
     detail.append(h('p',{class:'needs'},h('b',{},'Needs from you: '),a.needs)); }
 
-  function draw(){ // keep the selection valid
+  function draw(){ // with no builder and no live agents there is nothing to show or build: hide the section
+    sec.hidden = !W.builder && !(WS.triggers&&WS.triggers.length); if(sec.hidden) return;
     const all=tasks();
     if(sel.k==='cat'){ const st=agentState(sel.id).s; const t=all.find(x=>x.name===CAT[sel.id].task); if(t&&(st==='live'||st==='paused')) sel={k:'task',id:t.id}; }
     if(sel.k==='task' && !all.some(t=>t.id===sel.id)){ const rec=Object.keys(CAT).find(id=>agentState(id).s==='none'); sel=rec?{k:'cat',id:rec}:{k:'task',id:(all[0]||{}).id}; }
@@ -1657,9 +1666,10 @@ const daysTo=ds=>{ if(!ds) return null; const a=new Date(isoToday()+'T12:00:00')
 function canAct(t){ const a=t.action; if(!a) return false; return a.kind!=='link' && a.kind!=='goto'; }
 async function patchTodo(id,data){ await WS.db.doc('todos/'+id).update(Object.assign({updatedAt:nowIso()},data)); }
 async function runTodo(t){ const a=t.action;
+  if(RUNNER_KINDS.has(a.kind)&&!W.runner) return;
   if(RUNNER_KINDS.has(a.kind)){
     await patchTodo(t.id,{run:{status:'requested',at:nowIso(),action:a.kind,label:a.label}});
-    try{ await WS.mcp.callTool('Claude Code Remote','fire_trigger',{trigger_id:W.runner, text:JSON.stringify({todo:t.id, ledger:t.ledger||[], title:t.title, detail:t.detail||'', action:a.kind, label:a.label, instruction:a.instruction||'', notes:(t.notes||[]).map(n=>n.text)})}); }
+    try{ await remote('fire_trigger',{trigger_id:W.runner, text:JSON.stringify({todo:t.id, ledger:t.ledger||[], title:t.title, detail:t.detail||'', action:a.kind, label:a.label, instruction:a.instruction||'', notes:(t.notes||[]).map(n=>n.text)})}); }
     catch(e){ await patchTodo(t.id,{run:{status:'failed',at:nowIso(),action:a.kind,label:a.label,summary:"Couldn't start: "+errText(e)}}).catch(()=>{}); throw e; }
     return; }
   if(a.kind==='calendar'&&!calNative()){ const url=calLink({event:a.event}); await patchTodo(t.id,{run:{status:'done',at:nowIso(),action:a.kind,label:a.label,summary:'Add this one yourself: '+a.event.summary+'.',links:url?[{title:'Open in Outlook',url}]:[]}}); return; }
@@ -1667,7 +1677,7 @@ async function runTodo(t){ const a=t.action;
     const p=(r&&r.payload&&typeof r.payload==='object')?r.payload:{};
     await patchTodo(t.id,{run:{status:'done',at:nowIso(),action:a.kind,label:a.label,summary:'Added to your calendar: '+a.event.summary+'.',links:p.htmlLink?[{title:'Open event',url:p.htmlLink}]:[]}}); return; }
   if(a.kind==='fix'){ const done=[];
-    for(const c of a.changes){ await WS.mcp.callTool('Claude Code Remote','update_trigger',{trigger_id:c.id, cron_expression:c.cron}); done.push(c.name); }
+    for(const c of a.changes){ await remote('update_trigger',{trigger_id:c.id, cron_expression:c.cron}); done.push(c.name); }
     refreshTrig();
     await patchTodo(t.id,{run:{status:'done',at:nowIso(),action:a.kind,label:a.label,summary:'Set to your local time: '+done.map(n=>n.replace(/^The Desk - (\w+)/,'$1 Desk')).join(', ')+'. They stay put when clocks change.'}}); return; }
 }
@@ -1720,7 +1730,7 @@ function renderTodos(){
       else if(run.status==='done'||run.status==='failed'){ const box=h('div',{class:'tdrun'+(run.status==='failed'?' err':'')});
         box.append(h('div',{class:'rl'},run.status==='failed'?"Couldn't finish":RUNNER_KINDS.has(run.action)?'Done: '+(run.label||''):'Done'));
         if(run.summary) box.append(h('div',{class:'rs'},String(run.summary)));
-        const lk=h('div',{class:'rk'}); (run.emailIds||[]).forEach(id=>{ const e=emailOf(id); const st=e&&(e.status||'pending'); lk.append(st==='pending'? h('button',{type:'button',class:'linkbtn',onclick:()=>gotoEmail(id)},'Review the draft on your Desk') : h('span',{class:'muted'},st==='sent'?'Email sent':st==='skipped'?'Draft skipped':'Draft not found')); }); (run.links||[]).filter(l=>l&&/^https:\/\//.test(l.url||'')).forEach(l=>lk.append(h('a',{href:l.url,target:'_blank',rel:'noopener'},l.title||'Open')));
+        const lk=h('div',{class:'rk'}); (run.emailIds||[]).forEach(id=>{ const e=emailOf(id); const st=e&&(e.status||'pending'); lk.append(st==='pending'? h('button',{type:'button',class:'linkbtn',onclick:()=>gotoEmail(id)},'Review the draft on your Desk') : h('span',{class:'muted'},st==='sent'?'Email sent':st==='skipped'?'Draft skipped':'Draft not found')); }); (run.links||[]).filter(l=>l&&safeHref(l.url)).forEach(l=>lk.append(h('a',{href:l.url,target:'_blank',rel:'noopener'},l.title||'Open')));
         if(lk.childNodes.length) box.append(lk); main.append(box); } }
     if(u.msg) main.append(h('div',{class:'note '+(u.err?'err':'ok')},u.msg));
     const right=h('div',{class:'tdright'});
@@ -1728,7 +1738,7 @@ function renderTodos(){
     else if(t.dueText) right.append(h('span',{class:'tddue'+dueCls},t.dueText));
     if(a && !isDone){
       const can=WS.phase==='on';
-      if(a.kind==='link') right.append(h('a',{class:'btn sm',href:a.url,target:'_blank',rel:'noopener'},a.label));
+      if(a.kind==='link'){ if(safeHref(a.url)) right.append(h('a',{class:'btn sm',href:a.url,target:'_blank',rel:'noopener'},a.label)); }
       else if(a.kind==='goto' && Array.isArray(a.emails)){ const es=a.emails.map(emailOf); const pend=a.emails.filter((id,i)=>es[i]&&(es[i].status||'pending')==='pending'); const sent=es.filter(e=>e&&e.status==='sent').length;
         if(sent) right.append(h('span',{class:'tdok'},`${sent} of ${a.emails.length} sent`));
         if(pend.length) right.append(h('button',{type:'button',class:'btn sm',onclick:()=>gotoEmail(pend[0])},pend.length===1?'Review the last draft':`Review ${pend.length} drafts`)); }
@@ -1743,6 +1753,7 @@ function renderTodos(){
         if(u.confirm){ right.append(h('div',{class:'confirm tdconf'},h('span',{},fixText(a)),
           h('div',{class:'row'},h('button',{type:'button',class:'btn primary sm',onclick:()=>go()},'Do it'),h('button',{type:'button',class:'btn ghost sm',onclick:()=>{ u.confirm=false; update(); }},'Cancel')))); }
         else if(RUNNER_KINDS.has(a.kind)&&!W.runner){ /* no helper task: nothing to run */ }
+        else if(a.kind==='fix'&&!hasHelper()){ /* no helper task: scheduled tasks are not reachable from here */ }
         else right.append(h('button',{type:'button',class:'btn sm act',disabled:!can||busy||!WS.mcp,onclick:()=>{ if(needsConfirm){ u.confirm=true; update(); } else go(); }},h('span',{class:'spark','aria-hidden':'true'},'✦'),(run&&run.status==='done'&&RUNNER_KINDS.has(a.kind))?'Run again':a.label));
         async function go(){ u.busy=true; u.confirm=false; u.msg=''; u.err=false; update(); try{ await runTodo(t); }catch(e){ u.err=true; u.msg=errText(e); } u.busy=false; update(); }
       }
@@ -1808,10 +1819,9 @@ function renderToday(){
     DUI.capBusy=false; drawCap(); });
   function drawCap(){ capBtn.disabled=DUI.capBusy; capMsg.innerHTML='';
     if(DUI.capMsg==='ok'){ const t=(WS.todos||[]).find(x=>x.id===DUI.capId);
-      ap(capMsg,h('span',{},'Added to To-dos. '), t&&!t.run&&WS.mcp? h('button',{class:'linkbtn',type:'button',onclick:async()=>{ try{ await runTodo(t); DUI.capMsg='run'; }catch(e){ DUI.capMsg=errText(e); } drawCap(); }},'Have ⟦A⟧ do it now') : null); }
+      ap(capMsg,h('span',{},'Added to To-dos. '), t&&!t.run&&WS.mcp&&W.runner? h('button',{class:'linkbtn',type:'button',onclick:async()=>{ try{ await runTodo(t); DUI.capMsg='run'; }catch(e){ DUI.capMsg=errText(e); } drawCap(); }},'Have ⟦A⟧ do it now') : null); }
     else if(DUI.capMsg==='run') ap(capMsg,h('span',{},'On it. The result shows on the to-do.'));
-    else if(DUI.capMsg) ap(capMsg,h('span',{class:'err'},DUI.capMsg));
-    else ap(capMsg,h('span',{class:'muted'},'Or email yourself with a subject starting "J:".')); }
+    else if(DUI.capMsg) ap(capMsg,h('span',{class:'err'},DUI.capMsg)); }
   capIn.value=DUI.cap; drawCap();
 
   function update(){
@@ -1920,7 +1930,7 @@ function tripCard(t){ const c=h('div',{class:'card trip'});
   const ft=t.flightTodo&&(WS.todos||[]).find(x=>x.id===t.flightTodo);
   if(ft && ft.status!=='done' && ft.action){ const run=ft.run; const busy=run&&run.status==='requested'&&(Date.now()-Date.parse(run.at||0))<20*60e3;
     ap(c,h('div',{class:'em-actions'},
-      run&&run.status==='done'? h('a',{class:'linkbtn',href:'#todos',onclick:()=>{ todoFilter='all'; }},'See flight options') : h('button',{class:'btn sm act',type:'button',disabled:busy||!WS.mcp,onclick:async(ev)=>{ ev.target.disabled=true; try{ await runTodo(ft); }catch(e){ alertInline(c,errText(e)); ev.target.disabled=false; } }},h('span',{class:'spark','aria-hidden':'true'},'✦'),busy?'Looking…':ft.action.label))); }
+      run&&run.status==='done'? h('a',{class:'linkbtn',href:'#todos',onclick:()=>{ todoFilter='all'; }},'See flight options') : !W.runner? null : h('button',{class:'btn sm act',type:'button',disabled:busy||!WS.mcp,onclick:async(ev)=>{ ev.target.disabled=true; try{ await runTodo(ft); }catch(e){ alertInline(c,errText(e)); ev.target.disabled=false; } }},h('span',{class:'spark','aria-hidden':'true'},'✦'),busy?'Looking…':ft.action.label))); }
   return c; }
 
 function schedCard(s){ const u=DUI.sched[s.id]||(DUI.sched[s.id]={});
@@ -1993,7 +2003,10 @@ function renderPlan(){ const v=$('#v-plan'); v.innerHTML='';
 /* ============ PLAN ============ */
 /* ============ ROUTER ============ */
 const views={today:renderToday,todos:renderTodos,brain:renderBrain,calendar:renderCalendar,plan:renderPlan};
-function route(){ let k=(location.hash||'#today').slice(1); if(k==='month') k='calendar'; if(k==='desk') k='today'; if(k==='settings') k='plan'; const key=views[k]?k:'today';
+// With no tab picked (no hash), a page fresh from setup opens on Brain until the Desk's first write-out replaces
+// the setup headline. Picking any tab sets the hash, and that choice is always kept.
+const defaultTab=()=>(WS.meta&&WS.meta.headline==='Set up today')? 'brain' : 'today';
+function route(){ let k=(location.hash||'').slice(1)||defaultTab(); if(k==='month') k='calendar'; if(k==='desk') k='today'; if(k==='settings') k='plan'; const key=views[k]?k:defaultTab();
   Object.keys(views).forEach(n=>{ $('#v-'+n).hidden = n!==key; });
   document.querySelectorAll('nav.tabs a').forEach(a=>a.toggleAttribute('aria-current',a.dataset.v===key)); document.querySelectorAll('nav.tabs a').forEach(a=>{ if(a.dataset.v===key) a.setAttribute('aria-current','page'); });
   if(!done[key]){ views[key](); done[key]=true; } hideTip(); }

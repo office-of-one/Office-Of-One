@@ -13,7 +13,7 @@ const fire=()=>subs.forEach(([p,f])=>f(snap(p)));
 const ref=(p)=>({onSnapshot(f){subs.push([p,f]);setTimeout(()=>f(snap(p)),0);return()=>{}},where(){return this},orderBy(){return this},limit(){return this},
  doc(k){return ref(p+'/'+k)},async add(d){store[p+'/x'+Date.now()]=d;fire()},async set(d){store[p]=d;fire()},async update(d){store[p]={...store[p],...d};fire()},async delete(){delete store[p];fire()},async get(){return snap(p)}});
 const db={collection:ref,doc:ref};window.__store=store;
-window.claude={use:async n=>n==='db'?db:n==='user'?{isOwner:async()=>true}:n==='mcp'?{callTool:async(s,t,i)=>{window.__call=[s,t,i];return {payload:{}}},watchTool:()=>()=>{},invalidate:async()=>{}}:null};})();`;
+window.claude={use:async n=>n==='db'?db:n==='user'?{isOwner:async()=>true}:n==='mcp'?{callTool:async(s,t,i)=>{window.__call=[s,t,i];(window.__calls=window.__calls||[]).push([s,t]);return {payload:{}}},watchTool:(s,t)=>{(window.__calls=window.__calls||[]).push([s,t,'watch']);return()=>{}},invalidate:async()=>{}}:null};})();`;
 
 // Per-fixture checks, run after the tab loop. Each is async (page) => string[] of errors.
 const CHECKS={
@@ -26,7 +26,7 @@ const CHECKS={
   await p.evaluate(()=>location.hash='#settings');await p.waitForTimeout(300);
   if(await p.locator('text=Just do it').count())errs.push('Settings still offers Just do it');
   await p.evaluate(()=>location.hash='#brain');await p.waitForTimeout(300);
-  await p.locator('[aria-label="Work, memory note"]').first().click();await p.waitForTimeout(300);
+  await p.locator('[aria-label="Work, note"]').first().click();await p.waitForTimeout(300);
   const bt=await p.evaluate(()=>document.body.innerText);
   if(/\b[\w-]+\.md\b/.test(bt))errs.push('Brain panel shows a file path: '+bt.match(/\b[\w-]+\.md\b/)[0]);
   return errs;},
@@ -43,6 +43,31 @@ const CHECKS={
    if(r.todo.length!==1)errs.push('expected one Brain to-do, got '+r.todo.length);
    else{ const t=r.todo[0]; if(t.title!=='Draft a plan'||t.state!=='recommend'||t.category!=='Goal'||t.status!=='open'||!t.action||t.action.kind!=='ask'||t.action.instruction!=='Draft a plan')errs.push('Brain to-do has the wrong shape: '+JSON.stringify(t)); }
    if(!/will draft this before your next memo/.test(await p.textContent('.suggest')))errs.push('no "will draft this before your next memo" line'); }
+  // No helper task: no flight button on the trip, no "do it now" after a capture, no Agents section, no scheduled-task calls.
+  await p.evaluate(()=>location.hash='#today');await p.waitForTimeout(300);
+  if(!await p.locator('.card.trip').count())errs.push('no trip card to check');
+  if(await p.locator('.card.trip button').count())errs.push('trip shows a flight button with no runner');
+  if(/J:/.test(await p.evaluate(()=>document.body.innerText)))errs.push('the "J:" hint is still shown');
+  await p.fill('.cap-row input','Book dinner with Pat');await p.click('.cap-row button');await p.waitForTimeout(400);
+  const cm=await p.textContent('.cap-msg');
+  if(!/Added to To-dos/.test(cm))errs.push('capture did not confirm: '+cm);
+  if(/do it now/.test(cm))errs.push('capture offers "do it now" with no runner');
+  await p.evaluate(()=>location.hash='#plan');await p.waitForTimeout(300);
+  if(await p.locator('#team:visible').count())errs.push('Agents section shown with no builder and no live agents');
+  const pt=await p.evaluate(()=>document.querySelector('#v-plan').innerText);
+  for(const s of ['Recommended','Meeting Prep','On Oct 31'])if(pt.includes(s))errs.push(`Plan shows "${s}" with no builder`);
+  const rc=await p.evaluate(()=>(window.__calls||[]).filter(c=>c[0]==='Claude Code Remote'));
+  if(rc.length)errs.push('scheduled-task calls with no helper: '+JSON.stringify(rc));
+  return errs;},
+ loose:async(p)=>{const errs=[];
+  await p.evaluate(()=>location.hash='#today');await p.waitForTimeout(300);
+  if(await p.evaluate(()=>document.getElementById('v-today').hidden))errs.push('picking Today did not stick while the setup headline holds');
+  // Agent-written links: only https: and mailto: become links.
+  for(const t of ['today','todos','calendar']){await p.evaluate(x=>location.hash='#'+x,t);await p.waitForTimeout(300);
+   const bad=await p.evaluate(()=>[...document.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')).filter(h=>!/^(https:|mailto:|#)/i.test(h.trim())));
+   if(bad.length)errs.push(t+' has unsafe hrefs: '+bad.join(' ')); }
+  await p.evaluate(()=>location.hash='#todos');await p.waitForTimeout(300);
+  if(await p.locator('a:has-text("Open guide")[href]').count())errs.push('javascript: link rendered as a link');
   return errs;},
  goals:async(p)=>{const errs=[];
   await p.evaluate(()=>location.hash='#brain');await p.waitForTimeout(300);
@@ -118,6 +143,14 @@ const centreSizes=async(p,nGoals)=>p.evaluate((nGoals)=>{ const e=[]; const svg=
   gl.forEach(x=>{ if(fs(x)<10) e.push('goal label "'+x.textContent+'" renders '+fs(x).toFixed(1)+'px, under 10'); });
   [...document.querySelectorAll('svg .node.goal .dot')].forEach(d=>{ const r=d.getBoundingClientRect(); if(r.width<14||r.height<14) e.push('goal dot '+r.width.toFixed(1)+'px, under 14'); });
   return e; },nGoals);
+// Checks on first load, before any tab is picked.
+const ONLOAD={
+ loose:async(p)=>{const errs=[]; const vis=await p.evaluate(()=>['today','brain'].filter(k=>!document.getElementById('v-'+k).hidden));
+  if(vis.join()!=='brain')errs.push('a page fresh from setup did not open on Brain: '+vis.join());
+  for(const n of ['person-alex','pickup','money'])if(!await p.locator(`#v-brain svg .node[data-id="${n}"]`).count())errs.push('no node '+n);
+  return errs;},
+ seeded:async(p)=>{ const vis=await p.evaluate(()=>!document.getElementById('v-today').hidden); return vis?[]:['a page past setup did not open on Today']; }
+};
 // Checks for the light 390px run.
 const PHONE={
  goals:async(p)=>{ await p.evaluate(()=>location.hash='#brain');await p.waitForTimeout(300); return centreSizes(p,2); },
@@ -134,10 +167,13 @@ for(const [name,fx,sd,cs,w] of runs){
  const c=await b.newContext({colorScheme:cs,viewport:{width:w,height:900}});const p=await c.newPage();const errs=[];
  p.on('pageerror',e=>errs.push(e.message));p.on('console',m=>{if(m.type()==='error'&&!/ERR_|Failed to load/.test(m.text()))errs.push(m.text())});
  await p.addInitScript(mock(sd));await p.goto('file://'+path.join(__dirname,'t.html'));await p.waitForTimeout(500);
+ if(ONLOAD[fx])errs.push(...await ONLOAD[fx](p));
  for(const t of ['today','todos','brain','calendar','plan']){await p.evaluate(x=>location.hash='#'+x,t);await p.waitForTimeout(300);
   await p.screenshot({path:path.join(__dirname,`s-${name}-${t}.png`)});
   const o=await p.evaluate(()=>document.documentElement.scrollWidth-innerWidth);if(o>0)errs.push(t+' overflow '+o);
-  const txt=await p.evaluate(()=>document.body.innerText);if(/⟦|undefined|NaN/.test(txt))errs.push(t+' token/undefined: '+txt.match(/.{0,40}(⟦|undefined|NaN).{0,40}/)?.[0]);}
+  const txt=await p.evaluate(()=>document.body.innerText);if(/⟦|undefined|NaN/.test(txt))errs.push(t+' token/undefined: '+txt.match(/.{0,40}(⟦|undefined|NaN).{0,40}/)?.[0]);
+  if(t==='brain')errs.push(...await p.evaluate(()=>[...[...document.querySelectorAll('#v-brain svg .node')].filter(g=>/undefined|NaN/.test(g.getAttribute('transform')||'')).map(g=>'node '+g.dataset.id+' transform '+g.getAttribute('transform')),
+   ...[...document.querySelectorAll('#v-brain svg path')].filter(x=>/undefined|NaN/.test(x.getAttribute('d')||'')).map(x=>'path d has NaN: '+(x.getAttribute('data-s')||'')+'>'+(x.getAttribute('data-t')||''))]));}
  if(name===fx&&CHECKS[fx])errs.push(...await CHECKS[fx](p));
  if(w===390&&cs==='light'&&PHONE[fx])errs.push(...await PHONE[fx](p));
  console.log(name,errs);if(errs.length)failed=true;await c.close();}
