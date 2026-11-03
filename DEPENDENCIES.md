@@ -78,6 +78,20 @@ If you change those rules, check everything that touches workflows:
 - `templates/project-instructions.md` — the map; existing users need
   a manual refresh
 
+## desk-page/
+
+The user's Desk page (desk.html, capabilities.json), its data
+contract (data-contract.md) and the seed recipe (seed.md).
+
+- `skills/onboarding-interview/SKILL.md` step 8 publishes and seeds
+  it; step 10 opens it and says the Desk line in `interview-guide.md`
+- `evals/desk-page/` — the render test loads desk.html directly; run
+  `node evals/desk-page/render-test.js` after any page change
+- A change to `data-contract.md` must be matched in `seed.md` and
+  desk.html, and later in the desk skill when it keeps the page
+  current
+- `PRIVACY.md` says the page is private to the user
+
 ## skills/onboarding-interview/SKILL.md
 
 - `interview-guide.md` — every scripted line it references must exist

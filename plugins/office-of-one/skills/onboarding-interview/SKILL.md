@@ -295,6 +295,16 @@ Never describe percentages or mechanics.
    log.md now, in the format the template specifies, describing
    what happened today in the user's terms:
    `YYYY-MM-DD — Set up my agent.`
+   Then publish the user's Desk page, silently. If ways-of-working.md
+   already has a "Desk page:" line under Housekeeping (a resumed
+   interview), update that page; never publish a second one.
+   Otherwise publish desk-page/desk.html from the plugin as a new
+   private artifact, with desk-page/capabilities.json as its
+   capabilities, and write its url as "Desk page: <url>" under
+   Housekeeping in ways-of-working.md. Then fill it by following
+   desk-page/seed.md. If the artifact tools are not available, or
+   any publish or write fails, carry on and say nothing; the
+   interview never waits on the page.
    Say only: "Your brain has been updated." Never list file names
    or mechanics. Then go straight to Step 6. Never close the
    interview here.
@@ -320,6 +330,9 @@ Never describe percentages or mechanics.
 10. **Close: Agent setup complete.**
     Update the progress card to 7, Agent setup complete, and say
     the exact Closing Lines, then the exact privacy line.
+    If the Desk page was published in Step 8, open it on its Brain
+    tab and say the exact Desk line from interview-guide.md. If it
+    was not, skip both and never mention it.
     Only now, after everything is saved, you may offer AT MOST one
     thing you noticed during the interview (a contradiction, a
     commitment that exists in no system, an open loop). Say it
@@ -353,6 +366,8 @@ confirmed (7), the
 setup tests run and their results reported, or declined by the
 user (9), and the closing
 lines said (10).
+The Desk page is not a completion criterion: a page that could not
+be published never makes onboarding incomplete.
 A failed or declined test does not make onboarding incomplete,
 and resuming never re-runs declined tests uninvited.
 If interrupted, resume at the first incomplete step on next

@@ -401,3 +401,10 @@ Then, last of all:
 
 "Office of One has your name and email, so they can help if I ever
 get stuck. For privacy, see PRIVACY.md in your project folder."
+
+Then, only if the Desk page was published, open it on its Brain tab
+and say:
+
+"Your Desk is ready. It shows what I know about you, with your goals
+in the middle. Tap anything to check it, and tell me if I got
+something wrong."

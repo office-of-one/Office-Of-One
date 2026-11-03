@@ -87,8 +87,9 @@ existing users' setups bumps the major.
 - **Only the Morning Memo, the Evening Debrief and the Desk are
   auto-scheduled.** The Desk is where work is delegated
   and executed; it runs one hour before each memo. It is internal and never
-  brought up with the user. Everything else recurring is proposed and
-  confirmed.
+  brought up with the user. The one part of it the user sees is their
+  Desk page, called "your Desk": never its runs, schedules or files.
+  Everything else recurring is proposed and confirmed.
 - **Nothing the user wrote is sent anywhere without an explicit yes**,
   and drafting is not sending. The one thing that leaves on its own is
   the weekly usage summary: category labels and counts. Nothing from
