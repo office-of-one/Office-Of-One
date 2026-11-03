@@ -111,9 +111,10 @@ current, their times and their schedules are never mentioned.
 ### Step 1b: read back
 
 Read every document on the page, then fold what the user did there
-into the brain before the sweep. tasks.md wins any conflict with the
-page, except a User field (the data contract marks them), which
-always wins: the user did it.
+into the brain before the sweep. A list comes back a page at a time:
+keep asking with its next_cursor until there is none. tasks.md wins
+any conflict with the page, except a User field (the data contract
+marks them), which always wins: the user did it.
 
 **Matching a to-do to its item.** An item that is on the page
 carries a `page: <doc id>` line in tasks.md. An item without one is
@@ -125,11 +126,16 @@ write its `page:` line.
   move it under Done with the doneAt date and "on your Desk". Add any
   notes to the item. A `run` result is attached to the item as a
   found: line.
-- **To-dos made on the page.** An open `todos` document with no item
-  in tasks.md was added on the page: by the user ("You"), when they
-  sent an email that expects a reply ("Desk page"), or when they said
-  "Yes, draft it" to a suggestion on one of their goals ("Brain").
-  Add each to tasks.md now, in the category it fits, its title as
+- **To-dos reopened.** A `todos` document the page shows "open", with
+  no doneAt, whose item is under Done "on your Desk": the user undid
+  the tick. Move the item back to the open list.
+- **To-dos made on the page.** A `todos` document is page-made only
+  when its `from` is "You" (the user added it), "Desk page" (they
+  sent an email that expects a reply) or "Brain" (they said "Yes,
+  draft it" to a suggestion on one of their goals), and its id is
+  not an `L…` or `D…` id. Never treat a document as page-made just
+  because no item matches it. An open page-made to-do with no item
+  in tasks.md is added now, in the category it fits, its title as
   written, with its `page:` line, and a touches line for its goal if
   it has one. For a goal suggestion, `action.instruction` says what
   they agreed to. Step 4 works these in this same run like any other
@@ -144,28 +150,31 @@ write its `page:` line.
   "## Set on your Desk" (add the section if missing), replacing what
   was there: one "Trust:" line per category in plain words with
   "ask" or "never" ("Trust: thank-yous and confirmations: ask"), one
-  "Protected:" line per block that is on, one "Rule:" line per rule.
-  **A stored "auto" is always read and written as "ask".** Money is
-  always "never". Nothing is ever sent as the user without review,
-  whatever the page says. A category set to "never" is not drafted
-  or acted on.
+  "Rule:" line per rule, and one "Protected:" line per block that is
+  on, but only where it differs from the protected time
+  ways-of-working.md already records. **A stored "auto" is always
+  read and written as "ask".** Money is always "never". Nothing is
+  ever sent as the user without review, whatever the page says. A
+  category set to "never" is not drafted or acted on.
 - **Agents.** An `agents` document with status "live" is listed in
   ways-of-working.md under "## Set on your Desk", with its name.
 
 **Drafts live in two places, kept in step.** Every draft the Desk
 writes goes to the mail drafts folder, as always, and onto the page
 as an `emails` document whose `draftId` is that mail draft's id
-(step 4b). For each `emails` document with a `draftId`:
+(step 4b). The page never sends that mail draft: with Gmail it sends
+its own copy, and with Outlook or other mail it opens a new compose
+window and the user taps "Mark sent". So for each `emails` document
+with a `draftId`, whatever the mail:
 
-- **The page copy is sent** and mail is Gmail, where the page sends
-  its own copy: delete that one mail draft, by its `draftId`, so it
-  cannot go out twice. With Outlook or other mail the page opens the
-  mail draft instead of sending, so the draft itself went: delete
-  nothing.
-- **The page copy is skipped:** delete that one mail draft.
+- **The page copy is sent or skipped:** delete that one mail draft,
+  by its `draftId`, so it cannot go out twice. If the mail connector
+  cannot delete a draft, leave it and add a one-line to-do for the
+  memo: "Delete the draft to [toName] about [subject]; you sent it
+  from your Desk." (or "you skipped it on your Desk").
 - **The mail draft is gone and a sent message is on its thread**
   since the draft was made: the user sent it from mail. Mark the
-  page copy sent, with that message's time, and close the item.
+  page copy sent, and close the item.
 - **The page copy is edited** (`edited` is true) and still pending:
   the page copy wins. If the mail draft's recipients, subject or
   body differ from it, rewrite the mail draft from the page copy, in
@@ -185,24 +194,32 @@ other draft, any message, or any document on the page.
 
 Project this run's results onto the page. Write with ArtifactData
 "batch", at most 50 writes a call. Pin every write to an existing
-document with its version as if_version. Never write a User field.
-If a write is refused because the document changed, read it again
-and redo that one write once; if it fails again, leave it for the
-next run.
+document with its version as if_version. If a write is refused
+because the document changed, read it again and redo that one write
+once; if it fails again, leave it for the next run.
+
+Never write a User field, with two exceptions, both only from a
+state the user did not choose: a to-do's status set to "closed"
+while the page still shows it "open" (below), and an email marked
+sent when it went from mail (status "sent" and its sentMessageId,
+never sentAt).
 
 - **`todos`:** every open tasks.md item, per seed.md "To-dos", with
-  state from step 4 (RECOMMEND "recommend", DRAFTED "drafted",
-  LET'S TALK "talk", otherwise "bare") and an action where there is
-  one: `link` with the pick's url, `goto` with the draft's `emails`
-  id, `calendar` with the entry offered. Never a kind that needs a
-  helper (draft, move-draft, options, research, ask, flights): the
-  page cannot start one. The doc id is the item's `page:` line; an
-  item with none gets a new id, `D` and today's date and a running
-  number (`D20261102-1`), written to its `page:` line. A page-made
-  to-do keeps its own id. An item closed in tasks.md gets no new
-  writes, except one: if the Desk closed it this run (not the user)
-  and its page status is still "open", set status "closed" so the
-  page stops showing it.
+  `from` "Desk" on a new one, state from step 4 (RECOMMEND
+  "recommend", DRAFTED "drafted", LET'S TALK "talk", otherwise
+  "bare") and an action where there is one: `link` with the pick's
+  url, `calendar` with the entry offered, and `goto` with the draft's
+  `emails` id, only when a page copy of that email exists. Never a
+  kind that needs a helper (draft, move-draft, options, research,
+  ask, flights): the page cannot start one. The doc id is the item's
+  `page:` line; an item with none gets a new id, `D` and today's date
+  and a running number (`D20261102-1`), written to its `page:` line.
+  A page-made to-do keeps its own id.
+- **Closed items.** An item under Done in tasks.md gets no new
+  writes, except one: if it was closed anywhere but on the page (by
+  this run, a memo reply, a capture, a 1:1) and the page still shows
+  it "open", set its status to "closed" so it neither lingers nor
+  comes back.
 - **`emails`:** each draft made in step 4, in both places: the mail
   draft first, then the page copy with that draft's id as `draftId`,
   status "pending", `from` "Desk", `kind` the trust category it falls
@@ -430,7 +447,8 @@ do this file's job?
   (below).
 - **It is junk.** An exact duplicate, a leftover template
   placeholder that has been answered elsewhere, a note about files
-  or about what the agent did, chatter with no durable value: take
+  or about what the agent did (never an item's `page:` line, which
+  is how it is matched on their Desk), chatter with no durable value: take
   it out. When unsure whether something is junk, archive it
   instead.
 
@@ -449,7 +467,7 @@ Then each file's own rules:
    household or family, no standing rule, not on any open item, not
    in log.md, not named by the user) goes to the archive.
 2. **tasks.md.** One entry per open loop; merge duplicates, keeping
-   the thread pointer and the touches line. Priority today holds at
+   the thread pointer, the touches line and the `page:` line. Priority today holds at
    most three. Open questions put to them lists only what is still
    outstanding.
 3. **open-questions.md.** Any question a brain file or the week's

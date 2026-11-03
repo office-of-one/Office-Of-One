@@ -47,8 +47,10 @@ setup and nothing after.
   the page, the next run deletes that one mail draft, the only
   delete the agent ever makes. Sent from mail, the page copy is
   marked sent. Edited on the page, the mail draft is rewritten to
-  match. With Outlook or other mail the page opens the mail draft,
-  so there is still one place to send from.
+  match. With Outlook or other mail the page opens a new prefilled
+  email and the user taps "Mark sent"; the next run deletes the old
+  draft the same way, so it cannot go out twice. If the mail
+  connector cannot delete a draft, the memo asks the user to.
 
 Not yet: the page's Run and Build buttons stay hidden, because a page
 cannot start a helper. People set up before 3.47.0 have no page, and
