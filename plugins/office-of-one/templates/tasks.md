@@ -16,6 +16,8 @@ Format:
               verified]
        touches: [the goal, person, topic or open item this connects
                 to, so the next run works it in context]
+       page: [its id on their Desk, so a tick there finds this item;
+             never removed in a cleanup]
 
 No owner field. Tags: RECOMMEND (the agent's pick), DRAFTED (the
 agent did it, waiting in their drafts), LET'S TALK (needs their position

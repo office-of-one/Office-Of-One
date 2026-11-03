@@ -337,8 +337,13 @@ All plugin changes in `office-of-one/Office-Of-One`, on branch
   - Editing in either place: mail wins until the page copy is
     `edited`; then the page copy wins and the Desk rewrites the mail
     draft from it.
-  - Outlook and other mail: the page opens the mail draft instead of
-    sending, so there is one place to send from.
+  - Outlook and other mail: the page does not send and does not open
+    the mail draft. It opens a new prefilled compose (an Outlook
+    compose link, or mailto: for other mail), and the user taps "Mark
+    sent". So the next Desk run deletes the mail draft for a page
+    copy marked sent or skipped with every kind of mail, and if the
+    connector cannot delete a draft it adds a to-do asking the user
+    to delete it.
   - The double-send guard: before sending, the page checks the
     thread's `sentMessageId`/status, and the Desk never marks a page
     copy pending again once it is sent or skipped.

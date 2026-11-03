@@ -87,9 +87,13 @@ contract (data-contract.md) and the seed recipe (seed.md).
   it; step 10 opens it and says the Desk line in `interview-guide.md`
 - `evals/desk-page/` — the render test loads desk.html directly; run
   `node evals/desk-page/render-test.js` after any page change
-- A change to `data-contract.md` must be matched in `seed.md` and
-  desk.html, and later in the desk skill when it keeps the page
-  current
+- `skills/desk/SKILL.md` steps 1b and 4b read the page back before
+  each sweep and write it out after, following `data-contract.md`
+  and `seed.md`, and keep its drafts in step with the mail drafts
+- A change to `data-contract.md` must be matched in `seed.md`,
+  desk.html and the desk skill's steps 1b and 4b
+- `evals/desk-sync/` — the read back and the draft cleanup; its
+  `page-state.json` must follow `data-contract.md`
 - `PRIVACY.md` says the page is private to the user
 
 ## skills/onboarding-interview/SKILL.md
@@ -141,6 +145,10 @@ calendar entry.
   — the scheduled tasks The Desk - Morning and The Desk - Evening run
   this skill
 - `skills/agent-admin/SKILL.md` — moves the matching Desk task with a memo
+- `desk-page/data-contract.md` and `desk-page/seed.md` — steps 1b and
+  4b read and write the user's Desk by them, and only when
+  ways-of-working.md has the "Desk page:" line onboarding writes.
+  The test run's "steps 1 to 3" include step 1b
 - The weekly roll-up (Friday evening, or the next Desk run if that
   one was missed) reads `usage-log.md`, `usage-desk.md`,
   `usage-submissions.md`, `survey.md` and `usage-pending.md`, and
