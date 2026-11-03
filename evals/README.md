@@ -48,8 +48,9 @@ every case fails for reasons unrelated to the plugin.
   prompt has it read `page-state.json` as the page and write its page
   and mail-draft changes to `page-writes.json` and
   `draft-actions.json`. Checks that a to-do ticked on the page closes,
-  that a to-do made on the page reaches the list, that a stored
-  "auto" is recorded as "ask", that only the sent email's mail draft
+  that a to-do made on the page reaches the list, that a "Just do
+  it" setting is recorded without letting anything be sent, that
+  only the sent email's mail draft
   is deleted, and that nothing is sent.
 
 ## Reading a score

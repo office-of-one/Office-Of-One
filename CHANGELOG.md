@@ -27,6 +27,21 @@ the version: a push that does not is never picked up. What never
 updates is their project instructions and their copy of PRIVACY.md,
 both written into the project at setup.
 
+## v3.50.0 — 2026-11-02
+
+**"Just do it" is back as a choice on the Desk.** Each kind of work
+in Settings can be set to Just do it, Ask me or Never, so users say
+how much they want their agent to take on.
+
+- **Just do it means draft straight away.** The agent drafts that
+  kind of email without asking first and never holds it back as
+  LET'S TALK. It still waits for the user's review: nothing is sent
+  as the user without it. Settings says so in one line under the
+  choices.
+- **Money is always Never** and cannot be changed.
+- **New pages start with every kind on Ask me**, as before. A page
+  published before 3.50.0 keeps its old Settings with two choices.
+
 ## v3.49.0 — 2026-11-02
 
 **Fixes to the Desk page from the final review.** A first client

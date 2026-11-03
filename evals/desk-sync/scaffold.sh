@@ -7,7 +7,7 @@
 #
 # On the page the user: ticked item 2 done, sent the thank-you to Dana
 # (whose mail draft d-123 is still in the drafts folder), tapped "Yes,
-# draft it" on a goal suggestion, and has an old "auto" in trust.
+# draft it" on a goal suggestion, and has thank-yous set to "Just do it" ("auto") in trust.
 #
 # Invented people only: Sam (the user), Mia (their child), Dana.
 set -euo pipefail
