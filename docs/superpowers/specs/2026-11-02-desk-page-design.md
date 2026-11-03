@@ -342,6 +342,21 @@ All plugin changes in `office-of-one/Office-Of-One`, on branch
   - The double-send guard: before sending, the page checks the
     thread's `sentMessageId`/status, and the Desk never marks a page
     copy pending again once it is sent or skipped.
+- **Spike result (2026-11-02).**
+  - (a) Fail. The page's capabilities.json declares an MCP server
+    named "Claude Code Remote" for `fire_trigger`. No such connector
+    is connected on the test account, and none is in the connector
+    directory. The app's own scheduled-tasks server cannot be declared
+    by a page. A page therefore cannot start a helper.
+  - (b) Not tested, because it follows from (a).
+  - (c) Pass. A manual-only local scheduled task wrote to a page's
+    database with ArtifactData on its own.
+  - So the fallback applies. `runnerTask` and `builderTask` stay
+    empty, the page hides Run, Build and "Yes, draft it", the Task
+    Runner and Agent Builder are not installed, and Meeting Prep is
+    not offered. Part 2 (the Desk keeps the page current) goes ahead.
+    The helpers are a follow-up if a connector that can start them
+    becomes available.
 - **Privacy: add a line.** The page lives in the person's own private
   claude.ai account, which counts as inside the promise. PRIVACY.md
   gets one plain line saying their Desk page holds a copy of what
