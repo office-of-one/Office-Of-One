@@ -117,10 +117,12 @@ any conflict with the page, except a User field (the data contract
 marks them), which always wins: the user did it.
 
 **Matching a to-do to its item.** An item that is on the page
-carries a `page: <doc id>` line in tasks.md. An item without one is
-matched to the `todos` document setup made for it (doc id `L` and
-the item's number, same title), or else by title; once matched,
-write its `page:` line.
+carries a `page: <doc id>` line in tasks.md: setup writes `page: L<n>`
+on every item it seeds, and step 4b writes the ids it gives. Match by
+that line only; the memo's numbers move, the line does not. An item
+without one (a page seeded before 3.48.0) is matched to the `todos`
+document setup made for it (doc id `L` and the item's number then,
+same title), or else by title; once matched, write its `page:` line.
 
 - **To-dos ticked done or closed.** Close the matching tasks.md item:
   move it under Done with the doneAt date and "on your Desk". Add any
@@ -229,7 +231,12 @@ never sentAt).
   read and each calendar entry offered in step 4 (`calitems` kind
   "add", with `create`). An entry offered never invites anyone else.
 - **`brain` and `meta/brain`:** only the nodes whose file changed
-  this run, per seed.md "Brain nodes". Every run rebuilds each goal's
+  this run, per seed.md "Brain nodes": every node with an area, and
+  nothing seed.md rules out. No node, fact or summary ever mentions
+  Usage sharing, Housekeeping, the Desk, its runs or schedules,
+  install IDs, keys or tokens, or anything about scheduled tasks.
+  Goals are only the "A year from now" goals in goals.md, at most 5,
+  labelled with their date and never given a `short`. Every run rebuilds each goal's
   `story`, per seed.md "Goals and their story", from the calendar the
   run read, the items with a touches line for that goal, and mail
   that bears on it. Facts only, each with its source. At most one
@@ -477,7 +484,9 @@ Then each file's own rules:
    two lines.
 5. **ways-of-working.md.** The Topic files list names every topic
    file that exists and nothing else; the same for Workflows. Every
-   override under Memo format carries its date.
+   override under Memo format carries its date. Every Housekeeping
+   line stays, the "Desk page:" line above all: it is the only
+   record of where their Desk is.
 6. **Topic files.** A fact that was superseded is replaced; the old
    version goes to the archive. A topic file with nothing left in
    it is moved to the archive and taken off the list.

@@ -11,46 +11,69 @@ collection or a tool to them.
 
 ## Config
 
-`meta/config`: agentName and userName from personality.md; timezone,
-mail ("gmail", "outlook" or "other") and calendar ("google",
-"outlook" or "other") from ways-of-working.md; voice from
-personality.md. Leave runnerTask and builderTask out. The page
-cannot start a helper yet, so its Run and Build buttons stay hidden.
+`meta/config`: agentName and userName from personality.md; timezone
+from ways-of-working.md; voice from personality.md. mail and calendar
+come from the connectors that are connected: mail "gmail" with the
+Gmail connector, "outlook" with Outlook, otherwise "other"; calendar
+"google" with Google Calendar, "outlook" with Outlook, otherwise
+"other". When unsure, "other". Leave runnerTask and builderTask out. The
+page cannot start a helper yet, so its Run and Build buttons stay
+hidden.
 
 ## Brain nodes
 
 One `brain` document per node. Never set `path`.
 
+**What never goes on the page.** The page shows the user's life, not
+the agent's workings. No node, fact or summary ever mentions Usage
+sharing, Housekeeping, the Desk or its runs and schedules, install
+IDs, keys or tokens, or anything about scheduled tasks. Leave those
+sections of ways-of-working.md out entirely.
+
+**Every node has an area**, from this list: career (work), ventures
+(side projects), job (career moves), content, family, health,
+coaching (community), other. The profile and the core files use
+"core". Pick by what the node is about; when unsure, "other". Never
+invent an area and never leave it out.
+
 - **The person.** doc_id `profile`, kind "profile", area "core",
   label their full name, short their first name, summary one line
-  on who they are, facts from personality.md and ways-of-working.md.
+  on who they are, facts from personality.md and ways-of-working.md
+  (never the sections ruled out above).
 - **Core files, drawn as squares on the rim of the centre.** kind
   "doc", area "core": ways-of-working.md as `how` ("How <first name>
-  works"), tasks.md as `todos` ("To-do list"), open-questions.md as
-  `openq` ("Open questions"). goals.md is not a node; its goals are.
+  works"; its facts are how they like to work, never the sections
+  ruled out above), tasks.md as `todos` ("To-do list"),
+  open-questions.md as `openq` ("Open questions"). goals.md is not a node; its goals are.
 - **Topic files, drawn as squares on the ring.** One per topic file
   listed in ways-of-working.md, plus people.md as `people`. doc_id
-  is the file's stem. kind "doc". Pick the area from what it is
-  about: career (work), ventures (side projects), job (career
-  moves), content, family, health, coaching (community), other.
-  When unsure, "other". Never invent an area.
+  is the file's stem. kind "doc". Area from what it is about.
 - **People and details, drawn as circles on the ring.** One per
   person in people.md who matters (household, manager, close
   colleagues, frequent contacts), doc_id `person-<first name in
-  lower case>`, kind "person"; and any standing detail worth seeing
-  on its own (a weekly class, school pickup), kind "topic".
+  lower case>`, kind "person"; when two people share a first name,
+  `person-<first name>-<last initial>` for each of them
+  (`person-sam-r`, `person-sam-k`). And any standing detail worth
+  seeing on its own (a weekly class, school pickup), kind "topic".
+  Both take an area from the list above: household and children
+  "family", a manager or colleague "career", a coach or a class
+  "health" or "coaching" by what it is for; when unsure, "other".
 - `label` and `short` are plain words, `short` at most 12
-  characters. `summary` is one line. `facts` are short lines; end any
-  the user never confirmed with " (derived)". `links` lists the ids
+  characters. Goals never have a `short` (below). `summary` is one
+  line. `facts` are short lines; end any the user never confirmed
+  with " (derived)". `links` lists the ids
   each node really refers to.
 - `status: "empty"` on a node the interview could not fill.
 
 ## Goals and their story
 
-One `brain` document per goal in goals.md, doc_id `goal-<n>` in the
-order the user gave them, kind "goal", area from what the goal is
-about, label the goal in plain words with its date ("Half marathon
-in April"). `meta/brain.goalsOrder` lists them; `meta/brain.
+Only the goals under "A year from now" in goals.md go on the page,
+at most 5, in the order the user gave them. The three-month steps
+are to-dos, not goals. One `brain` document per goal, doc_id
+`goal-<n>`, kind "goal", area from what the goal is about, label the
+goal in plain words with its date ("Half marathon in April"). Never
+set `short` on a goal: the page shows the label, and a short one
+would lose the date. `meta/brain.goalsOrder` lists them; `meta/brain.
 defaultNode` is the first goal, or `profile` when there are none.
 
 Each goal gets a `story`:
@@ -85,9 +108,16 @@ first.
 ## To-dos
 
 One `todos` document per open item in tasks.md, doc_id `L<n>` from
-the item's ledger number. title (starts with a verb), detail (keep
-the derived label), category from the data contract list, state
-"bare", status "open", from "Interview".
+the item's ledger number at setup. title (starts with a verb), detail
+(keep the derived label), category from the data contract list,
+state "bare", status "open", from "Interview".
+
+The memo renumbers items, so the number does not stay with the item.
+As each one is seeded, write its doc id onto the item in tasks.md as
+its `page:` line (`page: L3`). That line is how the Desk finds the
+item again; it is never changed or removed afterwards. Items the
+Desk adds later get their own ids the same way (desk skill, step
+4b).
 
 ## Settings
 
