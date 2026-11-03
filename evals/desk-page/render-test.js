@@ -81,20 +81,7 @@ const CHECKS={
   if(!r.t.includes('No goals yet'))errs.push('no "No goals yet" in the centre');
   if(!r.gap)errs.push('no gap edge touching the profile node');
   return errs;},
- manygoals:async(p)=>{const errs=[];
-  await p.evaluate(()=>location.hash='#brain');await p.waitForTimeout(300);
-  errs.push(...await p.evaluate(()=>{ const e=[]; const R=x=>x.getBoundingClientRect();
-   const d=document.querySelector('svg .core-disc'); if(!d) return ['no .core-disc']; const db=R(d);
-   const gl=[...document.querySelectorAll('svg .node.goal .lbl')].map(R); const nm=document.querySelector('svg .node.profile .lbl');
-   if(gl.length!==5) e.push('goal labels '+gl.length+', expected 5'); if(!nm) e.push('no name label');
-   const hit=(a,b)=>a.left<b.right&&b.left<a.right&&a.top<b.bottom&&b.top<a.bottom;
-   gl.forEach((a,i)=>{ gl.forEach((b,j)=>{ if(j>i&&hit(a,b)) e.push(`goal labels ${i} and ${j} overlap`); });
-    if(nm&&hit(a,R(nm))) e.push(`goal label ${i} overlaps the name`);
-    if(a.left<db.left||a.right>db.right||a.top<db.top||a.bottom>db.bottom) e.push(`goal label ${i} spills out of the disc`); });
-   const long=[...document.querySelectorAll('svg .node.goal .lbl')].map(x=>[...x.querySelectorAll('tspan')].map(t=>t.textContent).join(' ')||x.textContent).find(x=>/^Get the house/.test(x));
-   if(!long||long.length>23||!/…$/.test(long)) e.push('long goal label not truncated: '+long);
-   return e; }));
-  return errs;},
+ manygoals:async(p)=>{ await p.evaluate(()=>location.hash='#brain');await p.waitForTimeout(300); return goalLabelLayout(p); },
  calgoogle:async(p)=>{const errs=[];
   await p.evaluate(()=>location.hash='#calendar');await p.waitForTimeout(300);
   const sg=p.locator('button.sug, button.sgc').first();
@@ -108,6 +95,33 @@ const CHECKS={
   else{ if('attendees' in c[2])errs.push('attendees reached create_event');
    if(!c[2].summary)errs.push('create_event has no summary'); }
   return errs;}
+};
+// Five goal labels and the name: no overlaps, all inside the core disc. Run at 1280 and at 390.
+const goalLabelLayout=async(p)=>{const errs=[];
+  errs.push(...await p.evaluate(()=>{ const e=[]; const R=x=>x.getBoundingClientRect();
+   const d=document.querySelector('svg .core-disc'); if(!d) return ['no .core-disc']; const db=R(d);
+   const gl=[...document.querySelectorAll('svg .node.goal .lbl')].map(R); const nm=document.querySelector('svg .node.profile .lbl');
+   if(gl.length!==5) e.push('goal labels '+gl.length+', expected 5'); if(!nm) e.push('no name label');
+   const hit=(a,b)=>a.left<b.right&&b.left<a.right&&a.top<b.bottom&&b.top<a.bottom;
+   gl.forEach((a,i)=>{ gl.forEach((b,j)=>{ if(j>i&&hit(a,b)) e.push(`goal labels ${i} and ${j} overlap`); });
+    if(nm&&hit(a,R(nm))) e.push(`goal label ${i} overlaps the name`);
+    if(a.left<db.left||a.right>db.right||a.top<db.top||a.bottom>db.bottom) e.push(`goal label ${i} spills out of the disc`); });
+   const long=[...document.querySelectorAll('svg .node.goal .lbl')].map(x=>[...x.querySelectorAll('tspan')].map(t=>t.textContent).join(' ')||x.textContent).find(x=>/^Get the house/.test(x));
+   if(!long||long.length>23||!/…$/.test(long)) e.push('long goal label not truncated: '+long);
+   return e; }));
+  return errs;};
+// The centre is read on a phone: rendered em height = font-size in user units x the SVG's screen scale.
+const centreSizes=async(p,nGoals)=>p.evaluate((nGoals)=>{ const e=[]; const svg=document.querySelector('#v-brain svg'); if(!svg) return ['no brain map'];
+  const sc=svg.getScreenCTM().a, fs=x=>parseFloat(getComputedStyle(x).fontSize)*sc;
+  const nm=document.querySelector('svg .node.profile .lbl'); if(!nm) e.push('no name label'); else if(fs(nm)<16) e.push('name renders '+fs(nm).toFixed(1)+'px, under 16');
+  const gl=[...document.querySelectorAll('svg .node.goal .lbl')]; if(gl.length!==nGoals) e.push('goal labels '+gl.length);
+  gl.forEach(x=>{ if(fs(x)<10) e.push('goal label "'+x.textContent+'" renders '+fs(x).toFixed(1)+'px, under 10'); });
+  [...document.querySelectorAll('svg .node.goal .dot')].forEach(d=>{ const r=d.getBoundingClientRect(); if(r.width<14||r.height<14) e.push('goal dot '+r.width.toFixed(1)+'px, under 14'); });
+  return e; },nGoals);
+// Checks for the light 390px run.
+const PHONE={
+ goals:async(p)=>{ await p.evaluate(()=>location.hash='#brain');await p.waitForTimeout(300); return centreSizes(p,2); },
+ manygoals:async(p)=>{ await p.evaluate(()=>location.hash='#brain');await p.waitForTimeout(300); return [...await centreSizes(p,5),...await goalLabelLayout(p)]; }
 };
 const args=process.argv.slice(2);
 const files=args.length?args:fs.readdirSync(path.join(__dirname,'fixtures')).filter(f=>f.endsWith('.json')).sort().map(f=>path.join(__dirname,'fixtures',f));
@@ -125,5 +139,6 @@ for(const [name,fx,sd,cs,w] of runs){
   const o=await p.evaluate(()=>document.documentElement.scrollWidth-innerWidth);if(o>0)errs.push(t+' overflow '+o);
   const txt=await p.evaluate(()=>document.body.innerText);if(/⟦|undefined|NaN/.test(txt))errs.push(t+' token/undefined: '+txt.match(/.{0,40}(⟦|undefined|NaN).{0,40}/)?.[0]);}
  if(name===fx&&CHECKS[fx])errs.push(...await CHECKS[fx](p));
+ if(w===390&&cs==='light'&&PHONE[fx])errs.push(...await PHONE[fx](p));
  console.log(name,errs);if(errs.length)failed=true;await c.close();}
 await b.close();process.exit(failed?1:0);})();
