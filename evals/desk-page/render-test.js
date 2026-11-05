@@ -125,6 +125,59 @@ const CHECKS={
   if(!c||c[1]!=='create_event')errs.push('create_event not called: '+JSON.stringify(c));
   else{ if('attendees' in c[2])errs.push('attendees reached create_event');
    if(!c[2].summary)errs.push('create_event has no summary'); }
+  return errs;},
+ // The card deck: order, peeks, Done/Dismiss/Later, Undo, swipe, keys, and the Cards/List toggle.
+ cards:async(p)=>{const errs=[]; const W=ms=>p.waitForTimeout(ms);
+  const st=id=>p.evaluate(i=>window.__store['todos/'+i],id);
+  const top=()=>p.evaluate(()=>{ const c=document.querySelector('.tcard.top .tct'); return c&&c.textContent; });
+  const undo=async()=>{ const b=p.locator('.ttoast.on button',{hasText:'Undo'}); if(!await b.count()){ errs.push('no Undo toast'); return; } await b.click(); await W(300); };
+  await p.evaluate(()=>location.hash='#todos');await W(300);
+  if(await top()!=='Send Q4 numbers to Pat')errs.push('top card is not the most urgent: '+await top());
+  const peeks=await p.locator('.tcard.peek').allTextContents();
+  if(peeks.join('|')!=='Renew passport|Book the dentist')errs.push('peeks wrong: '+peeks.join('|'));
+  if((await p.textContent('.tdeck .tcount'))!=='1 of 4')errs.push('count wrong: '+await p.textContent('.tdeck .tcount'));
+  const cardTxt=await p.textContent('.tcard.top');
+  if(!/Open the sheet/.test(cardTxt))errs.push("card lacks the pick's button");
+  if(!/Open the email from Pat/.test(cardTxt))errs.push('card lacks the email link');
+  // Later, then Undo
+  await p.click('.tacts button:has-text("Later")');await W(300);
+  if(await top()!=='Book the dentist')errs.push('Later did not move the card back: '+await top());
+  await undo(); if(await top()!=='Send Q4 numbers to Pat')errs.push('Undo after Later did not restore: '+await top());
+  // Done, then Undo
+  await p.click('.tacts .tdone');await W(500);
+  let s=await st('L2'); if(s.status!=='done'||s.doneBy!=='card')errs.push('Done did not mark done: '+JSON.stringify(s));
+  if(!/Marked done/.test(await p.textContent('.ttoast')))errs.push('no done toast');
+  if(await top()!=='Book the dentist')errs.push('next card not shown after Done');
+  await undo(); s=await st('L2'); if(s.status!=='open')errs.push('Undo after Done did not reopen: '+s.status);
+  // Dismiss, then Undo
+  await p.click('.tacts .tdis');await W(500);
+  s=await st('L2'); if(s.status!=='closed'||s.doneBy!=='dismissed')errs.push('Dismiss did not close: '+JSON.stringify(s));
+  await undo(); s=await st('L2'); if(s.status!=='open')errs.push('Undo after Dismiss did not reopen: '+s.status);
+  // Swipe right
+  const box=await p.locator('.tcard.top').boundingBox();
+  await p.mouse.move(box.x+box.width/2,box.y+box.height-20);await p.mouse.down();
+  for(let i=1;i<=10;i++)await p.mouse.move(box.x+box.width/2+i*30,box.y+box.height-20);
+  await p.mouse.up();await W(500);
+  s=await st('L2'); if(s.status!=='done')errs.push('swipe right did not mark done: '+s.status);
+  await undo();
+  // A short drag springs back
+  const b2=await p.locator('.tcard.top').boundingBox();
+  await p.mouse.move(b2.x+b2.width/2,b2.y+b2.height-20);await p.mouse.down();await p.mouse.move(b2.x+b2.width/2-40,b2.y+b2.height-20);await p.mouse.up();await W(400);
+  s=await st('L2'); if(s.status!=='open')errs.push('a short drag changed the to-do: '+s.status);
+  // Left arrow on the focused card dismisses
+  await p.focus('.tcard.top');await p.keyboard.press('ArrowLeft');await W(500);
+  s=await st('L2'); if(s.status!=='closed')errs.push('left arrow did not dismiss: '+s.status);
+  await undo();
+  // The toast goes after six seconds
+  await p.click('.tacts button:has-text("Later")');await W(6300);
+  if(await p.locator('.ttoast.on').count())errs.push('toast still showing after 6s');
+  // Cards / List toggle
+  await p.click('.vtg button:has-text("List")');await W(300);
+  if(await p.locator('.tcard').count())errs.push('List still shows cards');
+  if(await p.locator('.tdrow').count()<4)errs.push('List does not show every to-do');
+  if(await p.evaluate(()=>localStorage.getItem('jz-todo-view'))!=='list')errs.push('List choice not remembered');
+  await p.click('.vtg button:has-text("Cards")');await W(300);
+  if(!await p.locator('.tcard.top').count())errs.push('Cards did not come back');
   return errs;}
 };
 // Five goal labels and the name: no overlaps, all inside the core disc. Run at 1280 and at 390.
@@ -159,6 +212,11 @@ const ONLOAD={
 };
 // Checks for the light 390px run.
 const PHONE={
+ cards:async(p)=>{ await p.evaluate(()=>{ try{ localStorage.removeItem('jz-todo-view'); }catch(e){} location.hash='#todos'; });await p.waitForTimeout(300);
+  return p.evaluate(()=>{ const e=[]; const c=document.querySelector('.tcard.top'); if(!c) return ['no card on phone'];
+   const r=c.getBoundingClientRect(); if(r.left<0||r.right>innerWidth) e.push('card wider than the phone');
+   document.querySelectorAll('.tacts button').forEach(b=>{ if(b.getBoundingClientRect().height<44) e.push('"'+b.textContent+'" under 44px'); });
+   return e; }); },
  goals:async(p)=>{ await p.evaluate(()=>location.hash='#brain');await p.waitForTimeout(300); return centreSizes(p,2); },
  manygoals:async(p)=>{ await p.evaluate(()=>location.hash='#brain');await p.waitForTimeout(300); return [...await centreSizes(p,5),...await goalLabelLayout(p)]; }
 };
