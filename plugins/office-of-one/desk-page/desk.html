@@ -595,6 +595,40 @@ details.agoff summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--
 #v-todos .fchips{margin-top:-6px}
 .tdl{display:flex;flex-direction:column;gap:16px}
 .tdgroup{padding:4px 18px 6px}
+.tdtop{display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;justify-content:space-between}
+.tdtop .fchips{flex:1 1 auto;min-width:0}
+.vtg{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:var(--surface);padding:2px;flex:none;margin-left:auto}
+.vtg button{border:0;background:transparent;border-radius:999px;padding:4px 12px;font-size:12.5px;font-weight:600;color:var(--ink-2);cursor:pointer;min-height:30px}
+.vtg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.tdeck{display:flex;flex-direction:column;gap:12px;max-width:560px;width:100%;margin:0 auto}
+.tdeck .tcount{font-size:12.5px;color:var(--muted);text-align:center}
+.tstack{position:relative;padding-bottom:52px}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 18px 14px;box-shadow:0 1px 2px rgba(16,33,27,.06)}
+.tcard.top{position:relative;z-index:3;touch-action:pan-y;user-select:none;transition:transform .2s ease,opacity .2s ease;cursor:grab}
+.tcard.top.drag{transition:none;cursor:grabbing}
+.tcard.top:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.tcard.top.out-r{transform:translateX(120%) rotate(8deg);opacity:0}
+.tcard.top.out-l{transform:translateX(-120%) rotate(-8deg);opacity:0}
+.tcard.top.hint-r{box-shadow:0 0 0 2px var(--good)}
+.tcard.top.hint-l{box-shadow:0 0 0 2px var(--crit)}
+.tcard.peek{position:absolute;left:0;right:0;height:60px;padding:0 18px 6px;display:flex;align-items:flex-end;color:var(--ink-2);font-size:13px;font-weight:600;border-radius:0 0 14px 14px;box-shadow:none}
+.tcard.peek span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;min-width:0}
+.tcard.peek.p1{z-index:2;bottom:26px;margin:0 10px;background:var(--surface-2)}
+.tcard.peek.p2{z-index:1;bottom:0;margin:0 20px;background:var(--surface-2);color:var(--muted)}
+.tcard .tce{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+.tcard .tdrow.incard{grid-template-columns:minmax(0,1fr);border-top:0;padding:0}
+.tcard .tdrow.incard .tdright{grid-column:1;align-items:flex-start;justify-content:flex-start;flex-direction:row;flex-wrap:wrap;margin-top:6px}
+.tcard .tct{margin:0;font-size:19px;line-height:1.3;font-family:var(--f-body);font-weight:700;letter-spacing:0}
+.tcard .tdsrc{align-self:flex-start;margin-top:6px}
+.tacts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.tacts button{min-height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);font-weight:700;font-size:14px;cursor:pointer;color:var(--ink)}
+.tacts .tdone{background:var(--good);border-color:var(--good);color:#fff}
+.tacts .tdis{color:var(--crit)}
+.tacts button[disabled]{opacity:.5;cursor:default}
+.ttoast{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:50;display:none;align-items:center;gap:14px;background:var(--ink);color:var(--bg);border-radius:12px;padding:10px 12px 10px 16px;font-size:14px;max-width:calc(100% - 32px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.ttoast.on{display:flex}
+.ttoast button{border:0;background:transparent;color:var(--bg);font-weight:800;text-decoration:underline;cursor:pointer;min-height:36px;padding:0 6px;font-size:14px}
+@media (prefers-reduced-motion:reduce){.tcard.top{transition:none}}
 .tdgroup.top{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
 .tdh{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:12px 0 6px}
 .tdh h3{margin:0;font-family:var(--f-display);font-size:17px;font-weight:700}
@@ -1660,6 +1694,21 @@ function renderAgents(){
 const TODO_CATS=['Captured','Goal','Top 3','Waiting','Travel','Work','Family','Health','Admin','Home & Finance','Unresolved'];
 const RUNNER_KINDS=new Set(['draft','move-draft','options','research','ask','flights']);
 const TUI2={}; let todoFilter=(()=>{ try{ return localStorage.getItem('jz-todo-filter')||'all'; }catch(e){ return 'all'; } })();
+// Cards (default) or List. "Later" only reorders this visit; it is never saved.
+let todoView=(()=>{ try{ return localStorage.getItem('jz-todo-view')==='list'?'list':'cards'; }catch(e){ return 'cards'; } })();
+const todoLater=[];
+const TOAST={el:null,timer:null};
+function showToast(text,undo){ if(!TOAST.el){ TOAST.el=h('div',{class:'ttoast',role:'status','aria-live':'polite'}); document.body.append(TOAST.el); }
+  clearTimeout(TOAST.timer); TOAST.el.innerHTML='';
+  ap(TOAST.el,h('span',{},text), undo? h('button',{type:'button',onclick:()=>{ clearTimeout(TOAST.timer); TOAST.el.classList.remove('on'); undo(); }},'Undo') : null);
+  TOAST.el.classList.add('on'); TOAST.timer=setTimeout(()=>TOAST.el.classList.remove('on'),6000); }
+// Most urgent first: Top 3 in their order, then by due date (none last), then category, then order.
+function deckOrder(list){ const rank=t=>{ const i=TODO_CATS.indexOf(catOf(t)); return i<0?99:i; };
+  const s=list.slice().sort((a,b)=>{ const ta=catOf(a)==='Top 3', tb=catOf(b)==='Top 3'; if(ta!==tb) return ta?-1:1;
+    if(ta) return (a.order||0)-(b.order||0);
+    const da=a.due||'9999', db=b.due||'9999'; return da.localeCompare(db)||rank(a)-rank(b)||(a.order||0)-(b.order||0); });
+  const later=todoLater.filter(id=>s.some(t=>t.id===id));
+  return s.filter(t=>!later.includes(t.id)).concat(later.map(id=>s.find(t=>t.id===id))); }
 const catOf=t=>t.waiting? 'Waiting' : t.category;
 const isoToday=()=>{ const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; };
 const daysTo=ds=>{ if(!ds) return null; const a=new Date(isoToday()+'T12:00:00'), b=new Date(ds+'T12:00:00'); return Math.round((b-a)/864e5); };
@@ -1691,8 +1740,9 @@ const fixText=a=>'Sets '+a.changes.map(c=>c.name.replace(/^The Desk - (\w+)/,'$1
 
 function renderTodos(){
   const v=$('#v-todos'); v.innerHTML='';
-  const head=h('div',{class:'lede'}); const bar=h('div',{class:'fchips',role:'group','aria-label':'Show'}); const list=h('div',{class:'tdl'}); 
-  v.append(head,bar,list);
+  const head=h('div',{class:'lede'}); const bar=h('div',{class:'fchips',role:'group','aria-label':'Show'}); const list=h('div',{class:'tdl'});
+  const vtg=h('div',{class:'vtg',role:'group','aria-label':'View'});
+  v.append(head,h('div',{class:'tdtop'},bar,vtg),list);
   function update(){
     const on=WS.phase==='on'; const all=(WS.todos||[]); const open=all.filter(t=>t.status!=='done'&&t.status!=='closed'); const done=all.filter(t=>t.status==='done').sort((a,b)=>String(b.doneAt||'').localeCompare(String(a.doneAt||'')));
     const agentN=open.filter(canAct).length; const weekN=open.filter(t=>{ const d=daysTo(t.due); return d!==null&&d<=7; }).length;
@@ -1702,12 +1752,15 @@ function renderTodos(){
     const chip=(k,lab,n)=>h('button',{type:'button',class:'fchip'+(todoFilter===k?'':' off'),'aria-pressed':String(todoFilter===k),onclick:()=>{ todoFilter=k; try{ localStorage.setItem('jz-todo-filter',k); }catch(e){} update(); }},lab+(n!=null?` (${n})`:''));
     const waitN=open.filter(t=>t.waiting).length;
     ap(bar,chip('all','All',open.length),chip('waiting','Waiting on',waitN),chip('agent','An agent can help',agentN),chip('week','Due this week',weekN),chip('done','Done',done.length));
+    vtg.innerHTML='';
+    [['cards','Cards'],['list','List']].forEach(([k,lab])=>vtg.append(h('button',{type:'button','aria-pressed':String(todoView===k),onclick:()=>{ todoView=k; try{ localStorage.setItem('jz-todo-view',k); }catch(e){} update(); }},lab)));
     list.innerHTML='';
     if(!on||!WS.todos){ if(on) list.append(h('p',{class:'card ws-note'},'Loading your to-dos…')); return; }
     if(todoFilter==='done'){ if(!done.length) list.append(h('p',{class:'card ws-note'},'Nothing marked done yet.'));
       else { const card=h('div',{class:'card tdgroup'}); done.forEach(t=>card.append(todoRow(t,true))); list.append(card); } return; }
     const shown=open.filter(t=> todoFilter==='agent'? canAct(t) : todoFilter==='week'? (daysTo(t.due)!==null&&daysTo(t.due)<=7) : todoFilter==='waiting'? !!t.waiting : true);
     if(!shown.length){ list.append(h('p',{class:'card ws-note'},'Nothing here.')); return; }
+    if(todoView==='cards'){ list.append(deck(shown)); return; }
     TODO_CATS.concat([...new Set(shown.map(catOf))].filter(c=>!TODO_CATS.includes(c))).forEach(cat=>{
       const items=shown.filter(t=>catOf(t)===cat).sort((a,b)=>{ const da=a.due||'9999', db=b.due||'9999'; return cat==='Top 3'? (a.order||0)-(b.order||0) : da.localeCompare(db)||(a.order||0)-(b.order||0); });
       if(!items.length) return;
@@ -1716,14 +1769,53 @@ function renderTodos(){
       items.forEach(t=>card.append(todoRow(t,false)));
       list.append(card); });
   }
-  function todoRow(t,isDone){ const u=TUI2[t.id]||(TUI2[t.id]={}); const a=t.action; const run=t.run||null;
-    const row=h('div',{class:'tdrow'+(isDone?' done':'')});
-    const check=h('button',{type:'button',class:'tdcheck'+(isDone?' on':''),'aria-label':isDone?'Mark not done':'Mark done',title:isDone?'Undo':'Mark done',disabled:u.busy,onclick:async()=>{ u.busy=true; update(); try{ await patchTodo(t.id, isDone? {status:'open',doneAt:null} : {status:'done',doneAt:nowIso()}); logDecision('todo',isDone?'reopened':'done',{title:t.title||'', from:t.from||''}); }catch(e){ u.msg=errText(e); } u.busy=false; update(); }},isDone?'✓':'');
+  // One card at a time; the next two peek behind it. Slide right or Done marks it done,
+  // slide left or Dismiss closes it (the Desk takes it off the list next run), Later sends it to the back.
+  function deck(shown){ const items=deckOrder(shown); const t=items[0]; const u=TUI2[t.id]||(TUI2[t.id]={});
+    const wrap=h('div',{class:'tdeck'});
+    const lab=({'Top 3':'Most urgent','Goal':'Your goal this week','Captured':'New from you','Waiting':'Waiting on'})[catOf(t)]||catOf(t);
+    const d=daysTo(t.due);
+    const card=h('div',{class:'tcard top',tabindex:'0','aria-label':t.title+'. Right arrow: done. Left arrow: dismiss.'},
+      h('div',{class:'tce'},h('span',{},lab), t.waiting? h('span',{},(n=>n===0?'Since today':`${n} day${n===1?'':'s'}`)(daysSince(t.waiting.since))) : t.dueText? h('span',{class:d!==null&&d<=0?'late':''},t.dueText) : null),
+      todoRow(t,false,true));
+    const stack=h('div',{class:'tstack'}, items[2]? h('div',{class:'tcard peek p2','aria-hidden':'true'},h('span',{},items[2].title)):null, items[1]? h('div',{class:'tcard peek p1','aria-hidden':'true'},h('span',{},items[1].title)):null, card);
+    const busy=u.busy||WS.phase!=='on';
+    const acts=h('div',{class:'tacts'},
+      h('button',{type:'button',class:'tdis',disabled:busy,onclick:()=>act('dismiss')},'Dismiss'),
+      h('button',{type:'button',disabled:busy||items.length<2,onclick:()=>act('later')},'Later'),
+      h('button',{type:'button',class:'tdone',disabled:busy,onclick:()=>act('done')},'Done'));
+    ap(wrap,h('div',{class:'tcount tnum'},`1 of ${items.length}`),stack,acts);
+    async function act(kind){ if(u.busy) return;
+      if(kind==='later'){ const i=todoLater.indexOf(t.id); if(i>=0) todoLater.splice(i,1); todoLater.push(t.id); update();
+        showToast('Moved to the back.',()=>{ const j=todoLater.indexOf(t.id); if(j>=0) todoLater.splice(j,1); update(); }); return; }
+      u.busy=true; card.classList.add(kind==='done'?'out-r':'out-l');
+      await new Promise(r=>setTimeout(r,matchMedia('(prefers-reduced-motion: reduce)').matches?0:200));
+      try{ await patchTodo(t.id, kind==='done'? {status:'done',doneAt:nowIso(),doneBy:'card'} : {status:'closed',doneAt:nowIso(),doneBy:'dismissed'});
+        logDecision('todo',kind==='done'?'done':'dismissed',{title:t.title||'', from:t.from||''});
+        showToast(kind==='done'?'Marked done.':'Dismissed. It comes off your list at the next run.',async()=>{ try{ await patchTodo(t.id,{status:'open',doneAt:null,doneBy:null}); logDecision('todo','reopened',{title:t.title||'', from:t.from||''}); }catch(e){ showToast(errText(e)); } }); }
+      catch(e){ showToast(errText(e)); }
+      u.busy=false; update(); }
+    // Swipe: past 30% of the card's width commits; anything less springs back. Buttons and links inside keep working.
+    let sx=null, dx=0;
+    card.addEventListener('pointerdown',e=>{ if(busy||e.button>0||e.target.closest('button,a,textarea,input')) return; sx=e.clientX; dx=0; card.classList.add('drag'); try{ card.setPointerCapture(e.pointerId); }catch(_){} });
+    card.addEventListener('pointermove',e=>{ if(sx==null) return; dx=e.clientX-sx; card.style.transform=`translateX(${dx}px) rotate(${dx/24}deg)`;
+      const w=card.offsetWidth*0.3; card.classList.toggle('hint-r',dx>w); card.classList.toggle('hint-l',dx<-w); });
+    const end=()=>{ if(sx==null) return; sx=null; card.classList.remove('drag','hint-r','hint-l'); const w=card.offsetWidth*0.3;
+      if(dx>w){ card.style.transform=''; act('done'); } else if(dx<-w){ card.style.transform=''; act('dismiss'); } else card.style.transform=''; };
+    card.addEventListener('pointerup',end); card.addEventListener('pointercancel',end);
+    card.addEventListener('keydown',e=>{ if(e.target!==card) return; if(e.key==='ArrowRight'){ e.preventDefault(); act('done'); } else if(e.key==='ArrowLeft'){ e.preventDefault(); act('dismiss'); } });
+    return wrap; }
+  function todoRow(t,isDone,inCard){ const u=TUI2[t.id]||(TUI2[t.id]={}); const a=t.action; const run=t.run||null;
+    const row=h('div',{class:'tdrow'+(isDone?' done':'')+(inCard?' incard':'')});
+    const check=inCard? null : h('button',{type:'button',class:'tdcheck'+(isDone?' on':''),'aria-label':isDone?'Mark not done':'Mark done',title:isDone?'Undo':'Mark done',disabled:u.busy,onclick:async()=>{ u.busy=true; update(); try{ await patchTodo(t.id, isDone? {status:'open',doneAt:null} : {status:'done',doneAt:nowIso()}); logDecision('todo',isDone?'reopened':'done',{title:t.title||'', from:t.from||''}); }catch(e){ u.msg=errText(e); } u.busy=false; update(); }},isDone?'✓':'');
     const d=daysTo(t.due); const dueCls=d===null?'':d<=0?' late':d<=3?' soon':'';
     const notes=Array.isArray(t.notes)? t.notes : [];
-    const main=h('div',{class:'tdmain'},h('button',{type:'button',class:'tdt','aria-expanded':String(!!u.open),onclick:()=>{ u.open=!u.open; update(); }},t.title, notes.length&&!u.open? h('span',{class:'ncount'},notes.length===1?'1 note':notes.length+' notes') : null, h('span',{class:'car','aria-hidden':'true'},u.open?'\u25B4':'\u25BE')), (t.detail&&u.open)? h('span',{class:'d'},t.detail):null,
+    const mailOk=t.mail && /^https:\/\/(mail\.google\.com|outlook\.(office|live|office365)\.com)\//.test(t.mail);
+    const main= inCard? h('div',{class:'tdmain'},h('h3',{class:'tct'},t.title), t.detail? h('span',{class:'d'},t.detail):null,
+        mailOk? h('a',{class:'tdsrc',href:t.mail,target:'_blank',rel:'noopener'},'Open the email'+(t.mailFrom?' from '+t.mailFrom:'')) : null)
+      : h('div',{class:'tdmain'},h('button',{type:'button',class:'tdt','aria-expanded':String(!!u.open),onclick:()=>{ u.open=!u.open; update(); }},t.title, notes.length&&!u.open? h('span',{class:'ncount'},notes.length===1?'1 note':notes.length+' notes') : null, h('span',{class:'car','aria-hidden':'true'},u.open?'\u25B4':'\u25BE')), (t.detail&&u.open)? h('span',{class:'d'},t.detail):null,
       (u.open && t.mail && /^https:\/\/(mail\.google\.com|outlook\.(office|live|office365)\.com)\//.test(t.mail))? h('a',{class:'tdsrc',href:t.mail,target:'_blank',rel:'noopener'},'Open the email'+(t.mailFrom?' from '+t.mailFrom:'')) : null);
-    if(u.open) main.append(notesBox(t,u));
+    if(u.open && !inCard) main.append(notesBox(t,u));
     // run state
     if(run && !isDone){ const age=Date.now()-Date.parse(run.at||0);
       if(run.status==='requested') main.append(h('div',{class:'tdrun busy'},h('i',{class:'spin'}), age>20*60e3? 'Still going after 20 minutes. Try again if nothing shows soon.' : 'An agent is on it. Usually a few minutes.'));
@@ -1734,7 +1826,8 @@ function renderTodos(){
         if(lk.childNodes.length) box.append(lk); main.append(box); } }
     if(u.msg) main.append(h('div',{class:'note '+(u.err?'err':'ok')},u.msg));
     const right=h('div',{class:'tdright'});
-    if(t.waiting && !isDone){ const n=daysSince(t.waiting.since); right.append(h('span',{class:'tddue'+(n>=7?' late':n>=3?' soon':'')},n===0?'Since today':`${n} day${n===1?'':'s'}`)); }
+    if(inCard){ /* due date and waiting days sit in the card's header */ }
+    else if(t.waiting && !isDone){ const n=daysSince(t.waiting.since); right.append(h('span',{class:'tddue'+(n>=7?' late':n>=3?' soon':'')},n===0?'Since today':`${n} day${n===1?'':'s'}`)); }
     else if(t.dueText) right.append(h('span',{class:'tddue'+dueCls},t.dueText));
     if(a && !isDone){
       const can=WS.phase==='on';

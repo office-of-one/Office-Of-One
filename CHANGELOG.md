@@ -27,6 +27,25 @@ the version: a push that does not is never picked up. What never
 updates is their project instructions and their copy of PRIVACY.md,
 both written into the project at setup.
 
+## v3.51.0 — 2026-11-05
+
+**To-dos on the Desk are cards.** One to-do at a time, most urgent
+first, with the next two peeking behind it.
+
+- **Slide right, or tap Done:** marked done. **Slide left, or tap
+  Dismiss:** dropped, and the Desk takes it off the list at its next
+  run, filed as dismissed, never as done. **Later** puts it at the
+  back for this visit.
+- **Undo** shows for six seconds after each one.
+- **The card keeps what matters:** the pick's button (for example
+  "Open the thread") and the link to the email.
+- **Cards or List:** a toggle at the top right of the filters goes
+  back to the old list any time, and the page remembers the choice.
+  Cards is the default.
+
+A page published before 3.51.0 keeps its list. The Desk's handling of
+a dismissed to-do reaches everyone.
+
 ## v3.50.0 — 2026-11-02
 
 **"Just do it" is back as a choice on the Desk.** Each kind of work

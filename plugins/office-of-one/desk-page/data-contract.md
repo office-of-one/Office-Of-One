@@ -14,7 +14,7 @@ Owner = written by agents. User = written by the page. Agents must never overwri
 
 ## Collections
 - emails: to[], cc[], subject, body, threadId, replyToMessageId, why (12 words max), toName, expectReply, kind, from, status ("pending"|"sent"|"skipped"), draftId (the mail draft's id), createdAt. User: edited, sentAt, sentMessageId, skippedAt.
-- todos: ledger[], title, detail, category, mail, mailFrom, priority, order, due, dueText, state ("bare"|"drafted"|"recommend"|"talk"), action, from, goal (a goal node's id), createdAt, updatedAt, threadId, waiting {who,since,email}, repeat, noteSeenAt. User: status ("open"|"done"|"closed"), doneAt, doneBy, run, notes [{at,text}], noteAt.
+- todos: ledger[], title, detail, category, mail, mailFrom, priority, order, due, dueText, state ("bare"|"drafted"|"recommend"|"talk"), action, from, goal (a goal node's id), createdAt, updatedAt, threadId, waiting {who,since,email}, repeat, noteSeenAt. User: status ("open"|"done"|"closed"), doneAt, doneBy ("card" for Done on a card, "dismissed" for Dismiss, which sets status "closed"), run, notes [{at,text}], noteAt.
   Doc ids, written to the item's `page:` line in tasks.md: L<n> (seeded at setup), D<YYYYMMDD>-<n> (added by the Desk). The page makes its own: C<ms> (typed into the capture box, from "You") and G<ms> (a goal suggestion the user said yes to, from "Brain", with goal set). Page-made to-dos keep their ids.
   Categories: Captured, Goal, Top 3, Waiting, Travel, Work, Family, Health, Admin, Home & Finance, Unresolved.
   Action kinds: draft, move-draft, options, research, ask, flights (Task Runner, with instruction); calendar (event {summary,startTime,endTime,description}); goto (email or emails[]); link (url); fix (changes [{id,name,cron}]).
