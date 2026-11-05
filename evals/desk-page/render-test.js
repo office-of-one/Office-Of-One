@@ -137,6 +137,9 @@ const CHECKS={
   if(peeks.join('|')!=='Renew passport|Book the dentist')errs.push('peeks wrong: '+peeks.join('|'));
   if((await p.textContent('.tdeck .tcount'))!=='1 of 4')errs.push('count wrong: '+await p.textContent('.tdeck .tcount'));
   const cardTxt=await p.textContent('.tcard.top');
+  if(!await p.locator('.tcard.top.u-late').count())errs.push('Top 3 card not coloured as most urgent');
+  if((await p.locator('.tcard.peek.p1.u-ok, .tcard.peek.p1.u-soon, .tcard.peek.p1.u-late').count())!==1)errs.push('dated peek has no urgency colour');
+  if(!await p.locator('.tcard.top .tchips a.tchip',{hasText:'Open the email'}).count())errs.push('email chip missing');
   if(!/Open the sheet/.test(cardTxt))errs.push("card lacks the pick's button");
   if(!/Open the email from Pat/.test(cardTxt))errs.push('card lacks the email link');
   // Later, then Undo
@@ -155,8 +158,8 @@ const CHECKS={
   await undo(); s=await st('L2'); if(s.status!=='open')errs.push('Undo after Dismiss did not reopen: '+s.status);
   // Swipe right
   const box=await p.locator('.tcard.top').boundingBox();
-  await p.mouse.move(box.x+box.width/2,box.y+box.height-20);await p.mouse.down();
-  for(let i=1;i<=10;i++)await p.mouse.move(box.x+box.width/2+i*30,box.y+box.height-20);
+  await p.mouse.move(box.x+box.width/2,box.y+60);await p.mouse.down();
+  for(let i=1;i<=10;i++)await p.mouse.move(box.x+box.width/2+i*30,box.y+60);
   await p.mouse.up();await W(500);
   s=await st('L2'); if(s.status!=='done')errs.push('swipe right did not mark done: '+s.status);
   await undo();
@@ -175,6 +178,9 @@ const CHECKS={
   await p.click('.vtg button:has-text("List")');await W(300);
   if(await p.locator('.tcard').count())errs.push('List still shows cards');
   if(await p.locator('.tdrow').count()<4)errs.push('List does not show every to-do');
+  const blank=await p.evaluate(()=>[...document.querySelectorAll('#v-todos .btn')].filter(b=>!b.textContent.trim()).length);
+  if(blank)errs.push(blank+' to-do button(s) with no label');
+  if(!await p.locator('#v-todos a.btn',{hasText:'Open the link'}).count())errs.push('unlabelled link action has no fallback label');
   if(await p.evaluate(()=>localStorage.getItem('jz-todo-view'))!=='list')errs.push('List choice not remembered');
   await p.click('.vtg button:has-text("Cards")');await W(300);
   if(!await p.locator('.tcard.top').count())errs.push('Cards did not come back');

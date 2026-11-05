@@ -27,6 +27,23 @@ the version: a push that does not is never picked up. What never
 updates is their project instructions and their copy of PRIVACY.md,
 both written into the project at setup.
 
+## v3.52.0 — 2026-11-05
+
+**The to-do cards are easier to read at a glance.**
+
+- **Colour says how urgent it is.** A strip along the top of the card,
+  and a pill such as "5 days left", "Due today" or "2 days late":
+  red for late, today or a Top 3 pick, amber for this week, green for
+  later, purple for waiting on someone. The cards peeking behind carry
+  a matching dot.
+- **Chips under the title** for the due date, the goal the to-do feeds,
+  the email it came from, and its button.
+- **No more blank buttons.** A link with no label now reads "Open the
+  link" (or "Open in Gmail"), a draft "Review the draft", and an agent
+  action "Do it".
+
+Pages already on the Desk need republishing to get the new look.
+
 ## v3.51.0 — 2026-11-05
 
 **To-dos on the Desk are cards.** One to-do at a time, most urgent
