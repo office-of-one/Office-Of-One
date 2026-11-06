@@ -294,7 +294,7 @@ and never appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.51.0, as plugin_version; keep this number in step with
+   version, 3.52.0, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state
@@ -330,7 +330,7 @@ and never appears in a memo or in chat.
      "last_entry": "2026-09-18",
      "first_win_after": 3,
      "avg_autonomy": 3.2,
-     "plugin_version": "3.51.0",
+     "plugin_version": "3.52.0",
      "context":  { "work": 60, "personal": 30, "mixed": 10 },
      "artifact": { "email": 9, "plan": 2 },
      "mode":     { "directive": 70, "feedback-loop": 20, "learning": 10 },

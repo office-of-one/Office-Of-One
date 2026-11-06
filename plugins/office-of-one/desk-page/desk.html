@@ -603,7 +603,10 @@ details.agoff summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--
 .tdeck{display:flex;flex-direction:column;gap:12px;max-width:560px;width:100%;margin:0 auto}
 .tdeck .tcount{font-size:12.5px;color:var(--muted);text-align:center}
 .tstack{position:relative;padding-bottom:52px}
-.tcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 18px 14px;box-shadow:0 1px 2px rgba(16,33,27,.06)}
+.tcard{background:var(--surface);border:1px solid var(--line-2);border-radius:16px;padding:18px 18px 16px;box-shadow:0 1px 2px rgba(16,33,27,.06),0 8px 24px rgba(16,33,27,.08);--u:var(--accent)}
+.tcard.top{overflow:hidden}
+.tcard.top::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--u)}
+.tcard.u-late{--u:var(--crit)} .tcard.u-soon{--u:var(--warn)} .tcard.u-wait{--u:var(--c-coaching)} .tcard.u-none{--u:var(--line-2)}
 .tcard.top{position:relative;z-index:3;touch-action:pan-y;user-select:none;transition:transform .2s ease,opacity .2s ease;cursor:grab}
 .tcard.top.drag{transition:none;cursor:grabbing}
 .tcard.top:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
@@ -611,18 +614,28 @@ details.agoff summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--
 .tcard.top.out-l{transform:translateX(-120%) rotate(-8deg);opacity:0}
 .tcard.top.hint-r{box-shadow:0 0 0 2px var(--good)}
 .tcard.top.hint-l{box-shadow:0 0 0 2px var(--crit)}
-.tcard.peek{position:absolute;left:0;right:0;height:60px;padding:0 18px 6px;display:flex;align-items:flex-end;color:var(--ink-2);font-size:13px;font-weight:600;border-radius:0 0 14px 14px;box-shadow:none}
+.tcard.peek{position:absolute;left:0;right:0;height:60px;padding:0 18px 6px;display:flex;align-items:flex-end;gap:8px;color:var(--ink-2);font-size:13px;font-weight:600;border-radius:0 0 14px 14px;box-shadow:none;border-color:var(--line)}
+.tcard.peek i{flex:none;width:7px;height:7px;border-radius:50%;background:var(--u);margin-bottom:5px}
 .tcard.peek span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;min-width:0}
 .tcard.peek.p1{z-index:2;bottom:26px;margin:0 10px;background:var(--surface-2)}
 .tcard.peek.p2{z-index:1;bottom:0;margin:0 20px;background:var(--surface-2);color:var(--muted)}
-.tcard .tce{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+.tcard .tce{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:4px 0 8px}
+.tcard .tce .upill{letter-spacing:0;text-transform:none;font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px;color:var(--u);background:color-mix(in oklab,var(--u) 16%,var(--surface));white-space:nowrap}
+.tchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;align-items:center}
+.tchip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:4px 11px;border-radius:999px;background:var(--surface-2);color:var(--ink-2);text-decoration:none;white-space:nowrap;min-height:30px}
+a.tchip:hover{color:var(--accent)}
+.tchip.goal{background:color-mix(in oklab,var(--accent) 14%,var(--surface));color:var(--ink)}
+.tcard .tchips .btn{text-decoration:none;border-radius:999px;border-color:var(--accent);color:var(--accent);background:transparent;min-height:30px}
+.tcard .tchips .btn.act .spark{color:var(--accent)}
 .tcard .tdrow.incard{grid-template-columns:minmax(0,1fr);border-top:0;padding:0}
 .tcard .tdrow.incard .tdright{grid-column:1;align-items:flex-start;justify-content:flex-start;flex-direction:row;flex-wrap:wrap;margin-top:6px}
-.tcard .tct{margin:0;font-size:19px;line-height:1.3;font-family:var(--f-body);font-weight:700;letter-spacing:0}
+.tcard .tct{margin:0;font-size:20px;line-height:1.3;font-family:var(--f-body);font-weight:700;letter-spacing:0}
 .tcard .tdsrc{align-self:flex-start;margin-top:6px}
 .tacts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .tacts button{min-height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);font-weight:700;font-size:14px;cursor:pointer;color:var(--ink)}
 .tacts .tdone{background:var(--good);border-color:var(--good);color:#fff}
+:root[data-theme="dark"] .tacts .tdone{color:var(--bg)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .tacts .tdone{color:var(--bg)} }
 .tacts .tdis{color:var(--crit)}
 .tacts button[disabled]{opacity:.5;cursor:default}
 .ttoast{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:50;display:none;align-items:center;gap:14px;background:var(--ink);color:var(--bg);border-radius:12px;padding:10px 12px 10px 16px;font-size:14px;max-width:calc(100% - 32px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
@@ -1703,6 +1716,12 @@ function showToast(text,undo){ if(!TOAST.el){ TOAST.el=h('div',{class:'ttoast',r
   ap(TOAST.el,h('span',{},text), undo? h('button',{type:'button',onclick:()=>{ clearTimeout(TOAST.timer); TOAST.el.classList.remove('on'); undo(); }},'Undo') : null);
   TOAST.el.classList.add('on'); TOAST.timer=setTimeout(()=>TOAST.el.classList.remove('on'),6000); }
 // Most urgent first: Top 3 in their order, then by due date (none last), then category, then order.
+// The card's colour says how urgent it is: late or today, this week, later, waiting, or no date.
+function urgOf(t){ if(t.waiting){ const n=daysSince(t.waiting.since)||0; return {cls:'u-wait',text:n===0?'Waiting since today':`Waiting ${n} day${n===1?'':'s'}`}; }
+  const d=daysTo(t.due); if(d===null) return {cls:catOf(t)==='Top 3'?'u-late':'u-none',text:t.dueText||''};
+  if(d<0) return {cls:'u-late',text:`${-d} day${d===-1?'':'s'} late`}; if(d===0) return {cls:'u-late',text:'Due today'}; if(d===1) return {cls:'u-soon',text:'Due tomorrow'};
+  return {cls:d<=7?'u-soon':'u-ok',text:`${d} days left`}; }
+const shortDate=ds=>{ const d=new Date(ds+'T12:00:00'); return isNaN(d)? '' : d.toLocaleDateString(undefined,{day:'numeric',month:'short'}); };
 function deckOrder(list){ const rank=t=>{ const i=TODO_CATS.indexOf(catOf(t)); return i<0?99:i; };
   const s=list.slice().sort((a,b)=>{ const ta=catOf(a)==='Top 3', tb=catOf(b)==='Top 3'; if(ta!==tb) return ta?-1:1;
     if(ta) return (a.order||0)-(b.order||0);
@@ -1774,11 +1793,12 @@ function renderTodos(){
   function deck(shown){ const items=deckOrder(shown); const t=items[0]; const u=TUI2[t.id]||(TUI2[t.id]={});
     const wrap=h('div',{class:'tdeck'});
     const lab=({'Top 3':'Most urgent','Goal':'Your goal this week','Captured':'New from you','Waiting':'Waiting on'})[catOf(t)]||catOf(t);
-    const d=daysTo(t.due);
-    const card=h('div',{class:'tcard top',tabindex:'0','aria-label':t.title+'. Right arrow: done. Left arrow: dismiss.'},
-      h('div',{class:'tce'},h('span',{},lab), t.waiting? h('span',{},(n=>n===0?'Since today':`${n} day${n===1?'':'s'}`)(daysSince(t.waiting.since))) : t.dueText? h('span',{class:d!==null&&d<=0?'late':''},t.dueText) : null),
+    const ug=urgOf(t);
+    const card=h('div',{class:'tcard top '+ug.cls,tabindex:'0','aria-label':t.title+'. Right arrow: done. Left arrow: dismiss.'},
+      h('div',{class:'tce'},h('span',{},lab), ug.text? h('span',{class:'upill'},ug.text) : null),
       todoRow(t,false,true));
-    const stack=h('div',{class:'tstack'}, items[2]? h('div',{class:'tcard peek p2','aria-hidden':'true'},h('span',{},items[2].title)):null, items[1]? h('div',{class:'tcard peek p1','aria-hidden':'true'},h('span',{},items[1].title)):null, card);
+    const peek=(x,k)=> x? h('div',{class:'tcard peek '+k+' '+urgOf(x).cls,'aria-hidden':'true'},h('i'),h('span',{},x.title)) : null;
+    const stack=h('div',{class:'tstack'}, peek(items[2],'p2'), peek(items[1],'p1'), card);
     const busy=u.busy||WS.phase!=='on';
     const acts=h('div',{class:'tacts'},
       h('button',{type:'button',class:'tdis',disabled:busy,onclick:()=>act('dismiss')},'Dismiss'),
@@ -1811,8 +1831,7 @@ function renderTodos(){
     const d=daysTo(t.due); const dueCls=d===null?'':d<=0?' late':d<=3?' soon':'';
     const notes=Array.isArray(t.notes)? t.notes : [];
     const mailOk=t.mail && /^https:\/\/(mail\.google\.com|outlook\.(office|live|office365)\.com)\//.test(t.mail);
-    const main= inCard? h('div',{class:'tdmain'},h('h3',{class:'tct'},t.title), t.detail? h('span',{class:'d'},t.detail):null,
-        mailOk? h('a',{class:'tdsrc',href:t.mail,target:'_blank',rel:'noopener'},'Open the email'+(t.mailFrom?' from '+t.mailFrom:'')) : null)
+    const main= inCard? h('div',{class:'tdmain'},h('h3',{class:'tct'},t.title), t.detail? h('span',{class:'d'},t.detail):null)
       : h('div',{class:'tdmain'},h('button',{type:'button',class:'tdt','aria-expanded':String(!!u.open),onclick:()=>{ u.open=!u.open; update(); }},t.title, notes.length&&!u.open? h('span',{class:'ncount'},notes.length===1?'1 note':notes.length+' notes') : null, h('span',{class:'car','aria-hidden':'true'},u.open?'\u25B4':'\u25BE')), (t.detail&&u.open)? h('span',{class:'d'},t.detail):null,
       (u.open && t.mail && /^https:\/\/(mail\.google\.com|outlook\.(office|live|office365)\.com)\//.test(t.mail))? h('a',{class:'tdsrc',href:t.mail,target:'_blank',rel:'noopener'},'Open the email'+(t.mailFrom?' from '+t.mailFrom:'')) : null);
     if(u.open && !inCard) main.append(notesBox(t,u));
@@ -1825,18 +1844,22 @@ function renderTodos(){
         const lk=h('div',{class:'rk'}); (run.emailIds||[]).forEach(id=>{ const e=emailOf(id); const st=e&&(e.status||'pending'); lk.append(st==='pending'? h('button',{type:'button',class:'linkbtn',onclick:()=>gotoEmail(id)},'Review the draft on your Desk') : h('span',{class:'muted'},st==='sent'?'Email sent':st==='skipped'?'Draft skipped':'Draft not found')); }); (run.links||[]).filter(l=>l&&safeHref(l.url)).forEach(l=>lk.append(h('a',{href:l.url,target:'_blank',rel:'noopener'},l.title||'Open')));
         if(lk.childNodes.length) box.append(lk); main.append(box); } }
     if(u.msg) main.append(h('div',{class:'note '+(u.err?'err':'ok')},u.msg));
-    const right=h('div',{class:'tdright'});
-    if(inCard){ /* due date and waiting days sit in the card's header */ }
+    const right=h('div',{class:inCard?'tdright tchips':'tdright'});
+    if(inCard){ // the urgency sits in the header; the date, goal, email and action sit here as chips
+      if(t.due&&shortDate(t.due)) right.append(h('span',{class:'tchip'},'Due '+shortDate(t.due)));
+      const g=t.goal&&((typeof D!=='undefined'&&D.brain&&D.brain.nodes)||[]).find(n=>n.id===t.goal);
+      if(g&&g.label) right.append(h('span',{class:'tchip goal'},'Feeds '+g.label));
+      if(mailOk) right.append(h('a',{class:'tchip',href:t.mail,target:'_blank',rel:'noopener'},'\u2709\uFE0E Open the email'+(t.mailFrom?' from '+t.mailFrom:''))); }
     else if(t.waiting && !isDone){ const n=daysSince(t.waiting.since); right.append(h('span',{class:'tddue'+(n>=7?' late':n>=3?' soon':'')},n===0?'Since today':`${n} day${n===1?'':'s'}`)); }
     else if(t.dueText) right.append(h('span',{class:'tddue'+dueCls},t.dueText));
     if(a && !isDone){
       const can=WS.phase==='on';
-      if(a.kind==='link'){ if(safeHref(a.url)) right.append(h('a',{class:'btn sm',href:a.url,target:'_blank',rel:'noopener'},a.label)); }
+      if(a.kind==='link'){ if(safeHref(a.url)) right.append(h('a',{class:'btn sm',href:a.url,target:'_blank',rel:'noopener'},a.label||(/^https:\/\/mail\.google\.com\//.test(a.url)?'Open in Gmail':'Open the link'))); }
       else if(a.kind==='goto' && Array.isArray(a.emails)){ const es=a.emails.map(emailOf); const pend=a.emails.filter((id,i)=>es[i]&&(es[i].status||'pending')==='pending'); const sent=es.filter(e=>e&&e.status==='sent').length;
         if(sent) right.append(h('span',{class:'tdok'},`${sent} of ${a.emails.length} sent`));
         if(pend.length) right.append(h('button',{type:'button',class:'btn sm',onclick:()=>gotoEmail(pend[0])},pend.length===1?'Review the last draft':`Review ${pend.length} drafts`)); }
       else if(a.kind==='goto'){ const e=emailOf(a.email); const st=e&&(e.status||'pending');
-        if(st==='pending') right.append(h('button',{type:'button',class:'btn sm',onclick:()=>gotoEmail(a.email)},a.label));
+        if(st==='pending') right.append(h('button',{type:'button',class:'btn sm',onclick:()=>gotoEmail(a.email)},a.label||'Review the draft'));
         else if(st==='sent') right.append(h('span',{class:'tdok'},'Sent '+(fmtT(e.sentAt)||'')));
         else if(st==='skipped') right.append(h('span',{class:'muted tdsmall'},'Draft skipped')); }
       else if(a.kind==='fix' && fixApplied(a) && !(run&&run.status==='done')) right.append(h('span',{class:'tdok'},'Already fixed'));
@@ -1847,7 +1870,7 @@ function renderTodos(){
           h('div',{class:'row'},h('button',{type:'button',class:'btn primary sm',onclick:()=>go()},'Do it'),h('button',{type:'button',class:'btn ghost sm',onclick:()=>{ u.confirm=false; update(); }},'Cancel')))); }
         else if(RUNNER_KINDS.has(a.kind)&&!W.runner){ /* no helper task: nothing to run */ }
         else if(a.kind==='fix'&&!hasHelper()){ /* no helper task: scheduled tasks are not reachable from here */ }
-        else right.append(h('button',{type:'button',class:'btn sm act',disabled:!can||busy||!WS.mcp,onclick:()=>{ if(needsConfirm){ u.confirm=true; update(); } else go(); }},h('span',{class:'spark','aria-hidden':'true'},'✦'),(run&&run.status==='done'&&RUNNER_KINDS.has(a.kind))?'Run again':a.label));
+        else right.append(h('button',{type:'button',class:'btn sm act',disabled:!can||busy||!WS.mcp,onclick:()=>{ if(needsConfirm){ u.confirm=true; update(); } else go(); }},h('span',{class:'spark','aria-hidden':'true'},'✦'),(run&&run.status==='done'&&RUNNER_KINDS.has(a.kind))?'Run again':(a.label||'Do it')));
         async function go(){ u.busy=true; u.confirm=false; u.msg=''; u.err=false; update(); try{ await runTodo(t); }catch(e){ u.err=true; u.msg=errText(e); } u.busy=false; update(); }
       }
     }

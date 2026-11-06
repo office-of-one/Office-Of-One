@@ -135,6 +135,10 @@
   "state": "bare",
   "due": "2026-11-10",
   "dueText": "Nov 10",
+  "action": {
+   "kind": "link",
+   "url": "https://example.com/dentist"
+  },
   "ledger": [
    3
   ]
