@@ -89,6 +89,20 @@ reversible, ask on what is not, then update the ledger. A reply that
 answers the Monday question is not a to-do: add it to survey.md with
 the date and the question number.
 
+A reply to the name-and-email question (readout-format.md, Needs your
+input) is not a to-do either. If it gives a name, an email or both,
+call set_contact on the officeofone-telemetry server once with the
+install ID, the telemetry key from ways-of-working.md, and what they
+gave: first name, last name and email, each blank where they gave
+nothing. If it returns "ok", write today's date as "Contact shared"
+and "Contact notice: shown" under Usage sharing, and say "Shared.
+Say 'stop sharing my usage' if you change your mind." Anything else
+means say "I couldn't send that just now. I'll ask again." and remove
+the Contact asked line, so the next memo asks once more. If they say
+no, or anything close, write "Contact shared: declined" and say
+"Understood." The question is never asked again after a declined
+line, and nothing is ever sent on their behalf after one.
+
 ## Never
 
 - Never send an email as the user without review.

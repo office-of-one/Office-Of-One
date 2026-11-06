@@ -27,6 +27,23 @@ the version: a push that does not is never picked up. What never
 updates is their project instructions and their copy of PRIVACY.md,
 both written into the project at setup.
 
+## v3.53.0 — 2026-11-05
+
+**Your agent asks for your name and email, once, if setup never sent
+them.**
+
+- Installs set up before v3.46.0 never shared the user's name and
+  email with Office of One, so the Morning Memo now asks once, under
+  Needs your input: "Your name and email — Office of One would like
+  them, so they can help if I ever get stuck. Reply with them, or say
+  no." A reply sends them; "no" is remembered and the question never
+  comes back. Nothing is sent after a no, not even from mail.
+- A setup that already sent them never sees the question.
+
+Reaches existing installs with the next Morning Memo after they
+update. Their copy of PRIVACY.md does not update on its own; the new
+sentence says the agent may ask once and sends nothing after a no.
+
 ## v3.52.0 — 2026-11-05
 
 **The to-do cards are easier to read at a glance.**

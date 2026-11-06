@@ -294,7 +294,7 @@ and never appears in a memo or in chat.
    corrected and abandoned entries by artifact with their commonest
    reason. Group those same corrected and abandoned entries by
    autonomy level too, with their commonest reason. Add the plugin
-   version, 3.52.0, as plugin_version; keep this number in step with
+   version, 3.53.0, as plugin_version; keep this number in step with
    the manifests on every release. Then read usage-desk.md for the
    same week, treating it as empty if it does not exist, and add three
    numbers: how many Desk runs there were, how many items had a state
@@ -330,7 +330,7 @@ and never appears in a memo or in chat.
      "last_entry": "2026-09-18",
      "first_win_after": 3,
      "avg_autonomy": 3.2,
-     "plugin_version": "3.52.0",
+     "plugin_version": "3.53.0",
      "context":  { "work": 60, "personal": 30, "mixed": 10 },
      "artifact": { "email": 9, "plan": 2 },
      "mode":     { "directive": 70, "feedback-loop": 20, "learning": 10 },
@@ -364,7 +364,9 @@ and never appears in a memo or in chat.
   once with the install ID, the key, and the user's first name, last
   name and email: from the From line of mail they sent (the account's
   own name and address), or the user's name in personality.md for
-  what it covers, leaving the rest blank. Never ask the user for it.
+  what it covers, leaving the rest blank. Never ask the user for it
+  here; the Morning Memo asks once, and "Contact shared: declined" is
+  not blank, so a user who said no is never sent.
   If it returns "ok", write today's date as Contact shared and, if
   there is no Contact notice line, write "Contact notice: pending" so
   the next Morning Memo tells them.
