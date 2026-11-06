@@ -27,6 +27,21 @@ the version: a push that does not is never picked up. What never
 updates is their project instructions and their copy of PRIVACY.md,
 both written into the project at setup.
 
+## v3.54.0 — 2026-11-05
+
+**Name and email are shared by default, and nobody is asked.**
+
+- The Morning Memo question added in v3.53.0 is gone. Sharing the
+  user's name and email is on for every install, whenever it was set
+  up. PRIVACY.md says so, and the Morning Memo's one-time notice tells
+  them after it is sent. "Stop sharing my usage" still turns it off
+  and erases them on our side.
+- The Desk now sends them on its first morning run after an update,
+  instead of waiting for the Friday weekly send. An install with no
+  key registers first.
+
+Their copy of PRIVACY.md does not update on its own.
+
 ## v3.53.0 — 2026-11-05
 
 **Your agent asks for your name and email, once, if setup never sent

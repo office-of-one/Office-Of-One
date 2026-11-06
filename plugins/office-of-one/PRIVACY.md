@@ -66,9 +66,8 @@ if it was never switched on, nothing is sent. It contains:
 Nothing from your mail, calendar, files or messages is ever included.
 
 Your agent also sends your own first name, last name and email
-address, once, and again only if they change. If it was set up
-before it did that, it asks you for them once in a Morning Memo, and
-sends nothing if you say no. Office of One keeps
+address, once, and again only if they change. This is on for every
+install, including ones set up before it existed. Office of One keeps
 them with your agent's ID so we can reach you and help if your agent
 gets stuck. Saying "stop sharing my usage" erases them from our side
 as well.
