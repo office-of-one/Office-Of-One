@@ -297,18 +297,16 @@ Three places call it:
   `set_contact`, once at setup
 - `skills/desk/SKILL.md` — `submit_summary` on Fridays,
   `register_install` when the key is blank, `set_contact` when
-  Contact shared is blank, and `latest_version` on The Desk - Morning
+  Contact shared is blank (every morning run, step 6b, and at the
+  weekly send), and `latest_version` on The Desk - Morning
 - `skills/agent-admin/SKILL.md` — `set_contact` with blanks when the
   user stops sharing
 
-- `skills/daily-readout/SKILL.md` — `set_contact` when the user
-  answers the name-and-email question
 
 `set_contact` sends the user's own name and email. The onboarding
-skill, the Desk, the Worth knowing notice and the Needs your input
-question in `skills/daily-readout/readout-format.md`, the reply rule in
-`skills/daily-readout/SKILL.md`, the Contact shared and Contact asked
-lines in `templates/ways-of-working.md`, the closing lines in
+skill, the Desk, the Worth knowing notice in
+`skills/daily-readout/readout-format.md`, the Contact shared line in
+`templates/ways-of-working.md`, the closing lines in
 `skills/onboarding-interview/interview-guide.md`, `PRIVACY.md` and
 `README.md` all describe it; change them together.
 

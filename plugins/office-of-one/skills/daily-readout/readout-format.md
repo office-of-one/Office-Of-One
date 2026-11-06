@@ -144,16 +144,6 @@ onboarding, marked "from onboarding" in tasks.md. Each is one
 question and counts toward the three. Double-bookings
 show as CONFLICT in Today instead.
 
-Once only, in the Morning Memo: if Usage sharing in ways-of-working.md
-has a Telemetry key, says "Share summary: yes", and its Contact shared
-line is blank and there is no Contact asked line, add this question,
-verbatim, and write today's date as "Contact asked": "**Your name and
-email** — Office of One would like them, so they can help if I ever
-get stuck. Reply with them, or say no." It counts toward the three.
-Installs set up before this question existed never shared their
-details, so it reaches them with their next memo; a setup that sent
-them already never sees it. The reply is handled in SKILL.md.
-
 ## Getting ahead
 
 The sand card, with a green bar. Each row is work the agent did or

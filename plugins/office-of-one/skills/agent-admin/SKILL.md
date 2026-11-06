@@ -69,8 +69,7 @@ agent. This skill makes every adjustment a one-sentence request.
    set_contact on the officeofone-telemetry server with the install
    ID, the key and every detail blank, which erases the name and
    email held there, and clears Contact shared; starting again sends
-   them at the next weekly send, or the Morning Memo asks for them
-   when there is nothing to send from. If they ask what is
+   them at the next morning Desk run. If they ask what is
    shared, tell them plainly: counts of the kinds of work they hand
    over, never any content, and point them to PRIVACY.md in their
    project. The tally itself stays on either way; it is what the
