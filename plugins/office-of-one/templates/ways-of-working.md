@@ -44,7 +44,10 @@ updates.
 - Last survey question: [none yet]
 - Last survey date: [none yet]
 - Contact shared: [the date the user's name and email were sent with
-  set_contact; blank until then]
+  set_contact; blank until then, or "declined" if the user said no
+  when the Morning Memo asked]
+- Contact asked: [the date the Morning Memo asked for them; only on
+  an install that never sent them at setup]
 - Contact notice: [shown once the user has been told; pending until
   the next Morning Memo tells them]
 
